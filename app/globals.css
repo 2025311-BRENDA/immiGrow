@@ -1,0 +1,26 @@
+@import "tailwindcss";
+@config "../tailwind.config.ts";
+
+/* 
+  Using standard CSS for body styles to avoid build-time dependency circularity 
+  during initialization. The variables like --font-inter come from Next.js layout.
+*/
+body {
+  background-color: #F5F5F4;
+  /* Fallback for brand-sand */
+  color: #1E293B;
+  /* Fallback for brand-navy */
+  font-family: var(--font-inter), sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@layer utilities {
+  .text-brand-navy {
+    color: #1E293B;
+  }
+
+  .bg-brand-sand {
+    background-color: #F5F5F4;
+  }
+}

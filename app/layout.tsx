@@ -20,8 +20,8 @@ export const metadata: Metadata = {
   description: "La plataforma definitiva para recién llegados a Dublín. Encuentra trabajo, entiende los trámites de PPSN/IRP, cuida tu salud mental y únete a grupos deportivos gratuitos.",
   manifest: "/manifest.json",
   icons: {
-    icon: "/icon.png",
-    apple: "/icons/icon.png",
+    icon: "/iGrow-logo.jpg",
+    apple: "/iGrow-logo.jpg",
   },
   openGraph: {
     title: "immiGrow Dublin | Guía para Migrantes",

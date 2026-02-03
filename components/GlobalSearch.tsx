@@ -68,24 +68,24 @@ export function GlobalSearch() {
     return (
         <section className="relative z-30" ref={searchRef}>
             <div className={cn(
-                "bg-white rounded-[2.5rem] shadow-2xl border border-slate-100 transition-all duration-300 overflow-hidden",
-                isExpanded ? "ring-4 ring-brand-turquoise/10" : "hover:shadow-lg"
+                "bg-white rounded-full shadow-2xl border border-slate-100 transition-all duration-300 overflow-hidden",
+                isExpanded ? "ring-8 ring-brand-turquoise/10" : "hover:shadow-[0_20px_50px_rgba(0,0,0,0.1)]"
             )}>
                 {/* Search Input Area */}
-                <div className="p-3 flex items-center gap-3">
+                <div className="p-4 flex items-center gap-4">
                     <div className={cn(
-                        "p-3 rounded-2xl transition-colors",
+                        "p-3 rounded-full transition-colors",
                         isExpanded ? "bg-brand-turquoise text-white" : "bg-slate-50 text-slate-400"
                     )}>
-                        <Search className="w-5 h-5" />
+                        <Search className="w-6 h-6" />
                     </div>
                     <input
                         type="text"
                         value={searchQuery}
                         onFocus={() => setIsExpanded(true)}
                         onChange={(e) => setSearchQuery(e.target.value)}
-                        placeholder={t("search.placeholder")}
-                        className="flex-1 bg-transparent border-none focus:ring-0 text-sm font-bold text-brand-navy placeholder:text-slate-300"
+                        placeholder="Search Dublin resources..."
+                        className="flex-1 bg-transparent border-none focus:ring-0 text-lg font-bold text-brand-navy placeholder:text-slate-300"
                     />
                     {searchQuery && (
                         <button
@@ -93,9 +93,9 @@ export function GlobalSearch() {
                                 setSearchQuery("");
                                 setSearchResults([]);
                             }}
-                            className="p-2 text-slate-400 hover:text-brand-navy transition-colors"
+                            className="p-2 text-slate-400 hover:text-brand-navy transition-colors mr-2"
                         >
-                            <X className="w-4 h-4" />
+                            <X className="w-5 h-5" />
                         </button>
                     )}
                 </div>

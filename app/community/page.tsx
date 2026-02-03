@@ -1,7 +1,22 @@
+'use client';
+
+import React, { useState } from 'react';
 import Link from 'next/link';
-import { Users, Heart, Share2, Calendar, TrendingUp } from 'lucide-react';
+import { Users, Heart, Share2, Calendar, TrendingUp, UserCircle, Edit2, Check } from 'lucide-react';
+import { useLanguage } from '@/context/LanguageContext';
 
 export default function CommunityPage() {
+    const { t, userName, setUserName } = useLanguage();
+    const [tempName, setTempName] = useState(userName);
+    const [isEditing, setIsEditing] = useState(!userName);
+
+    const handleSaveName = () => {
+        if (tempName.trim()) {
+            setUserName(tempName);
+            setIsEditing(false);
+        }
+    };
+
     const sections = [
         {
             title: 'Mi Historia',
@@ -42,11 +57,51 @@ export default function CommunityPage() {
 
     return (
         <div className="min-h-screen bg-gray-50 pb-20">
+            {/* Header & Profile */}
             <div className="bg-white shadow-sm p-6 mb-6 rounded-b-[2rem]">
-                <h1 className="text-3xl font-bold text-gray-800 mb-2">Comunidad</h1>
-                <p className="text-gray-600">
-                    El corazón de MigraWell. Conecta, comparte y crece con personas que te entienden.
-                </p>
+                <div className="flex justify-between items-start mb-4">
+                    <div>
+                        <h1 className="text-3xl font-bold text-gray-800 mb-2">Comunidad</h1>
+                        <p className="text-gray-600 text-sm">
+                            El corazón de immiGrow. Conecta y crece junto a otros.
+                        </p>
+                    </div>
+                </div>
+
+                {/* Identity Box */}
+                <div className={`mt-4 p-4 rounded-2xl border-2 transition-all ${isEditing ? 'border-brand-teal bg-brand-teal/5' : 'border-gray-100 bg-gray-50'}`}>
+                    <div className="flex items-center gap-3">
+                        <UserCircle className={`w-10 h-10 ${isEditing ? 'text-brand-teal' : 'text-gray-400'}`} />
+                        <div className="flex-1">
+                            {isEditing ? (
+                                <div className="flex gap-2">
+                                    <input
+                                        value={tempName}
+                                        onChange={(e) => setTempName(e.target.value)}
+                                        placeholder="Tu nombre o apodo..."
+                                        className="flex-1 bg-white border-none rounded-xl px-4 py-2 text-sm focus:ring-2 focus:ring-brand-teal"
+                                    />
+                                    <button
+                                        onClick={handleSaveName}
+                                        className="bg-brand-teal text-white p-2 rounded-xl"
+                                    >
+                                        <Check className="w-5 h-5" />
+                                    </button>
+                                </div>
+                            ) : (
+                                <div className="flex items-center justify-between">
+                                    <div>
+                                        <p className="text-[10px] text-gray-400 uppercase font-black tracking-widest leading-none mb-1">Tu Identidad</p>
+                                        <p className="text-lg font-bold text-gray-800">{userName}</p>
+                                    </div>
+                                    <button onClick={() => setIsEditing(true)} className="text-gray-400 hover:text-brand-teal">
+                                        <Edit2 className="w-4 h-4" />
+                                    </button>
+                                </div>
+                            )}
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <div className="container mx-auto px-4 grid grid-cols-1 gap-4">

@@ -8,6 +8,8 @@ interface LanguageContextType {
     language: Language;
     toggleLanguage: () => void;
     t: (key: string) => string;
+    userName: string;
+    setUserName: (name: string) => void;
 }
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
@@ -219,9 +221,27 @@ export const dictionaries = {
 
 export function LanguageProvider({ children }: { children: React.ReactNode }) {
     const [language, setLanguage] = useState<Language>("en");
+    const [userName, setUserNameState] = useState<string>("");
+
+    useEffect(() => {
+        const savedLang = localStorage.getItem('iGrow_lang') as Language;
+        if (savedLang) setLanguage(savedLang);
+
+        const savedName = localStorage.getItem('iGrow_user');
+        if (savedName) setUserNameState(savedName || "");
+    }, []);
+
+    const setUserName = (name: string) => {
+        setUserNameState(name);
+        localStorage.setItem('iGrow_user', name);
+    };
 
     const toggleLanguage = () => {
-        setLanguage((prev) => (prev === "en" ? "es" : "en"));
+        setLanguage((prev) => {
+            const newLang = prev === "en" ? "es" : "en";
+            localStorage.setItem('iGrow_lang', newLang);
+            return newLang;
+        });
     };
 
     const t = (key: string) => {
@@ -230,7 +250,7 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
     };
 
     return (
-        <LanguageContext.Provider value={{ language, toggleLanguage, t }}>
+        <LanguageContext.Provider value={{ language, toggleLanguage, t, userName, setUserName }}>
             {children}
         </LanguageContext.Provider>
     );

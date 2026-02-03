@@ -12,7 +12,9 @@ import {
     MapPin,
     Smile,
     Camera,
-    CheckCircle2
+    CheckCircle2,
+    Plus,
+    X
 } from "lucide-react";
 
 interface BuddyProfile {
@@ -22,9 +24,10 @@ interface BuddyProfile {
     description: string;
     location: string;
     availability: string;
+    joined?: boolean;
 }
 
-const BUDDIES: BuddyProfile[] = [
+const INITIAL_BUDDIES: BuddyProfile[] = [
     {
         id: "1",
         name: "Maria G.",
@@ -52,9 +55,37 @@ const BUDDIES: BuddyProfile[] = [
 ];
 
 export default function SocialFitHub() {
-    const { language, t } = useLanguage();
-    const [communityKm] = useState(842); // Mocked global count
+    const { language, t, userName } = useLanguage();
+    const [communityKm] = useState(842);
     const [challengeCompleted, setChallengeCompleted] = useState(false);
+    const [showPostForm, setShowPostForm] = useState(false);
+    const [buddies, setBuddies] = useState(INITIAL_BUDDIES);
+
+    // Form state
+    const [newActivity, setNewActivity] = useState("");
+    const [newDesc, setNewDesc] = useState("");
+
+    const handlePostSession = (e: React.FormEvent) => {
+        e.preventDefault();
+        const newBuddy: BuddyProfile = {
+            id: Date.now().toString(),
+            name: userName || "Me",
+            activity: newActivity,
+            description: newDesc,
+            location: "My Area",
+            availability: "Anytime"
+        };
+        setBuddies([newBuddy, ...buddies]);
+        setShowPostForm(false);
+        setNewActivity("");
+        setNewDesc("");
+    };
+
+    const toggleJoin = (id: string) => {
+        setBuddies(buddies.map(b =>
+            b.id === id ? { ...b, joined: !b.joined } : b
+        ));
+    };
 
     return (
         <div className="min-h-screen bg-brand-sand/30 pb-20">
@@ -78,7 +109,6 @@ export default function SocialFitHub() {
             </div>
 
             <main className="container mx-auto px-4 max-w-5xl space-y-12">
-
                 {/* Collective Challenge */}
                 <section className="bg-white rounded-[2.5rem] p-8 shadow-sm border border-brand-pink/20">
                     <div className="flex items-center gap-3 mb-6">
@@ -99,69 +129,61 @@ export default function SocialFitHub() {
                                 style={{ width: '84%' }}
                             ></div>
                         </div>
-                        <p className="text-slate-500 text-sm italic">
-                            {language === 'en'
-                                ? "Collective Goal: 'Active Migrants: 1000 km together this month'"
-                                : "Meta Colectiva: 'Migrantes activos: 1000 km juntos este mes'"}
-                        </p>
                     </div>
                 </section>
 
-                {/* Weekly Challenges */}
-                <section>
-                    <h2 className="text-2xl font-heading font-bold text-brand-navy mb-6 px-2">Retos Semanales</h2>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div className="bg-brand-teal text-white p-6 rounded-[2rem] shadow-md relative overflow-hidden group">
-                            <div className="absolute top-0 right-0 p-4 opacity-20 group-hover:scale-110 transition-transform">
-                                <Camera className="w-20 h-20" />
-                            </div>
-                            <h3 className="text-xl font-bold mb-2">“Camina bajo la lluvia”</h3>
-                            <p className="text-white/80 text-sm mb-6 max-w-[200px]">
-                                {language === 'en'
-                                    ? "Upload a photo of your walk even if it's typical Irish weather!"
-                                    : "¡Sube una foto de tu caminata aunque haga el típico clima irlandés!"}
-                            </p>
-                            <button
-                                onClick={() => setChallengeCompleted(true)}
-                                className={`px-6 py-2 rounded-xl font-bold text-sm transition-all ${challengeCompleted ? 'bg-white text-brand-teal' : 'bg-brand-sand text-brand-navy'}`}
-                            >
-                                {challengeCompleted ? (
-                                    <span className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4" /> ¡Subido!</span>
-                                ) : (
-                                    language === 'en' ? 'Upload Photo' : 'Subir Foto'
-                                )}
-                            </button>
-                        </div>
-
-                        <div className="bg-brand-navy text-white p-6 rounded-[2rem] shadow-md relative overflow-hidden group">
-                            <div className="absolute top-0 right-0 p-4 opacity-20 group-hover:scale-110 transition-transform">
-                                <MapPin className="w-20 h-20" />
-                            </div>
-                            <h3 className="text-xl font-bold mb-2">“Descubre un parque nuevo”</h3>
-                            <p className="text-white/80 text-sm mb-6 max-w-[200px]">
-                                {language === 'en'
-                                    ? "Visit a park you haven't been to before."
-                                    : "Visita un parque en el que no hayas estado antes."}
-                            </p>
-                            <Link href="/exercise/parks" className="inline-block px-6 py-2 bg-brand-sand text-brand-navy rounded-xl font-bold text-sm">
-                                {language === 'en' ? 'Find Parks' : 'Buscar Parques'}
-                            </Link>
-                        </div>
-                    </div>
-                </section>
-
-                {/* Buddy System */}
+                {/* Training Buddy System */}
                 <section className="pb-12">
                     <div className="flex items-center justify-between mb-6 px-2">
                         <h2 className="text-2xl font-heading font-bold text-brand-navy">{t("lbl.trainWithMe")}</h2>
-                        <button className="text-brand-teal font-bold text-sm hover:underline">
-                            {language === 'en' ? 'Create a post' : 'Publicar anuncio'}
+                        <button
+                            onClick={() => setShowPostForm(true)}
+                            className="bg-brand-teal text-white px-4 py-2 rounded-xl font-bold text-sm hover:scale-105 transition-all flex items-center gap-2"
+                        >
+                            <Plus className="w-4 h-4" />
+                            {language === 'en' ? 'Create post' : 'Publicar anuncio'}
                         </button>
                     </div>
 
+                    {showPostForm && (
+                        <div className="bg-white p-6 rounded-[2rem] shadow-lg border-2 border-brand-teal/20 mb-8 animate-in fade-in slide-in-from-top-4 duration-300">
+                            <div className="flex justify-between items-center mb-4">
+                                <h3 className="font-bold text-brand-navy">Nuevas Sesión</h3>
+                                <button onClick={() => setShowPostForm(false)} className="text-slate-400 hover:text-brand-navy">
+                                    <X className="w-5 h-5" />
+                                </button>
+                            </div>
+                            <form onSubmit={handlePostSession} className="space-y-4">
+                                <div>
+                                    <label className="block text-xs font-bold text-slate-400 uppercase mb-1">Actividad</label>
+                                    <input
+                                        required
+                                        value={newActivity}
+                                        onChange={(e) => setNewActivity(e.target.value)}
+                                        placeholder="Ej: Caminata, Running, Yoga..."
+                                        className="w-full bg-slate-50 border-none rounded-xl px-4 py-2 text-sm focus:ring-2 focus:ring-brand-teal"
+                                    />
+                                </div>
+                                <div>
+                                    <label className="block text-xs font-bold text-slate-400 uppercase mb-1">Descripción</label>
+                                    <textarea
+                                        required
+                                        value={newDesc}
+                                        onChange={(e) => setNewDesc(e.target.value)}
+                                        placeholder="¿Cuándo y dónde? ¿Qué nivel buscas?"
+                                        className="w-full bg-slate-50 border-none rounded-xl px-4 py-2 text-sm h-24 focus:ring-2 focus:ring-brand-teal"
+                                    />
+                                </div>
+                                <button type="submit" className="w-full py-3 bg-brand-navy text-white rounded-xl font-bold hover:bg-brand-navy/90 transition-all">
+                                    Publicar Sesión
+                                </button>
+                            </form>
+                        </div>
+                    )}
+
                     <div className="space-y-4">
-                        {BUDDIES.map((buddy) => (
-                            <div key={buddy.id} className="bg-white p-6 rounded-[2rem] shadow-sm border border-slate-100 flex flex-col md:flex-row gap-6 md:items-center">
+                        {buddies.map((buddy) => (
+                            <div key={buddy.id} className={`bg-white p-6 rounded-[2rem] shadow-sm border ${buddy.joined ? 'border-brand-teal/50 bg-brand-teal/5' : 'border-slate-100'} flex flex-col md:flex-row gap-6 md:items-center transition-all`}>
                                 <div className="p-4 bg-brand-sand/50 rounded-2xl flex-shrink-0 flex items-center justify-center">
                                     <Smile className="w-10 h-10 text-brand-teal" />
                                 </div>
@@ -182,10 +204,21 @@ export default function SocialFitHub() {
                                         </div>
                                     </div>
                                 </div>
-                                <button className="p-4 bg-brand-teal/5 text-brand-teal rounded-2xl hover:bg-brand-teal hover:text-white transition-all flex items-center justify-center gap-2 font-bold">
-                                    <MessageCircle className="w-5 h-5" />
-                                    {language === 'en' ? 'Chat' : 'Mensaje'}
-                                </button>
+                                <div className="flex gap-2">
+                                    <button
+                                        onClick={() => toggleJoin(buddy.id)}
+                                        className={`px-6 py-4 rounded-2xl font-bold transition-all flex items-center justify-center gap-2 ${buddy.joined ? 'bg-brand-teal text-white shadow-md' : 'bg-brand-teal/5 text-brand-teal hover:bg-brand-teal hover:text-white'}`}
+                                    >
+                                        {buddy.joined ? (
+                                            <><CheckCircle2 className="w-5 h-5" /> ¡Me uniré!</>
+                                        ) : (
+                                            language === 'en' ? 'Join' : 'Unirme'
+                                        )}
+                                    </button>
+                                    <button className="p-4 bg-slate-50 text-slate-400 rounded-2xl hover:bg-brand-navy hover:text-white transition-all">
+                                        <MessageCircle className="w-5 h-5" />
+                                    </button>
+                                </div>
                             </div>
                         ))}
                     </div>

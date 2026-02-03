@@ -1,9 +1,12 @@
 'use client';
 
 import { useState } from 'react';
-import { User, MapPin, Globe, BookOpen, Edit2, Save } from 'lucide-react';
+import Link from 'next/link';
+import { User, MapPin, Globe, BookOpen, Edit2, Save, ChevronLeft } from 'lucide-react';
+import { useLanguage } from '@/context/LanguageContext';
 
 export default function ProfilePage() {
+    const { t } = useLanguage();
     const [isEditing, setIsEditing] = useState(false);
     const [profile, setProfile] = useState({
         name: "Ana García",
@@ -23,6 +26,10 @@ export default function ProfilePage() {
         <div className="min-h-screen bg-gray-50 pb-20">
             {/* Header / Cover */}
             <div className="bg-gradient-to-r from-blue-500 to-purple-500 h-40 relative">
+                <Link href="/community" className="absolute top-6 left-6 inline-flex items-center text-white/80 hover:text-white transition-colors z-10 bg-black/20 px-3 py-1 rounded-full backdrop-blur-sm">
+                    <ChevronLeft className="w-4 h-4 mr-1" />
+                    {t("lbl.backTo")} {t("nav.community")}
+                </Link>
                 <div className="absolute -bottom-12 left-6">
                     <div className="w-24 h-24 bg-white rounded-full p-1 shadow-lg">
                         <div className="w-full h-full bg-gray-200 rounded-full flex items-center justify-center text-gray-400">

@@ -1,8 +1,13 @@
 'use client';
 
+import React from 'react';
+import Link from 'next/link';
+import { ChevronLeft } from 'lucide-react';
 import CommunityCard from '@/components/CommunityCard';
+import { useLanguage } from '@/context/LanguageContext';
 
 export default function MentorsPage() {
+    const { t } = useLanguage();
     const mentors = [
         {
             name: 'Carlos Ruiz',
@@ -37,6 +42,10 @@ export default function MentorsPage() {
     return (
         <div className="min-h-screen bg-gray-50 pb-20">
             <div className="bg-white shadow-sm p-6 mb-6 rounded-b-[2rem]">
+                <Link href="/community" className="inline-flex items-center text-slate-400 mb-4 hover:text-brand-teal transition-colors">
+                    <ChevronLeft className="w-5 h-5 mr-1" />
+                    {t("lbl.backTo")} {t("nav.community")}
+                </Link>
                 <h1 className="text-2xl font-bold text-gray-800 mb-1">Mentores</h1>
                 <p className="text-gray-500 text-sm">
                     Aprende de quienes ya recorrieron el camino. Conecta y recibe consejos prácticos.

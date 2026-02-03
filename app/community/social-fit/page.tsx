@@ -14,7 +14,8 @@ import {
     Camera,
     CheckCircle2,
     Plus,
-    X
+    X,
+    Edit2
 } from "lucide-react";
 
 interface BuddyProfile {
@@ -60,6 +61,7 @@ export default function SocialFitHub() {
     const [challengeCompleted, setChallengeCompleted] = useState(false);
     const [showPostForm, setShowPostForm] = useState(false);
     const [buddies, setBuddies] = useState(INITIAL_BUDDIES);
+    const [editingId, setEditingId] = useState<string | null>(null);
 
     // Form state
     const [newActivity, setNewActivity] = useState("");
@@ -67,18 +69,44 @@ export default function SocialFitHub() {
 
     const handlePostSession = (e: React.FormEvent) => {
         e.preventDefault();
-        const newBuddy: BuddyProfile = {
-            id: Date.now().toString(),
-            name: userName || "Me",
-            activity: newActivity,
-            description: newDesc,
-            location: "My Area",
-            availability: "Anytime"
-        };
-        setBuddies([newBuddy, ...buddies]);
+
+        if (editingId) {
+            // Update existing session
+            setBuddies(buddies.map(b =>
+                b.id === editingId
+                    ? { ...b, activity: newActivity, description: newDesc }
+                    : b
+            ));
+            setEditingId(null);
+        } else {
+            // Create new session
+            const newBuddy: BuddyProfile = {
+                id: Date.now().toString(),
+                name: userName || "Me",
+                activity: newActivity,
+                description: newDesc,
+                location: "My Area",
+                availability: "Anytime"
+            };
+            setBuddies([newBuddy, ...buddies]);
+        }
+
         setShowPostForm(false);
         setNewActivity("");
         setNewDesc("");
+    };
+
+    const startEditing = (buddy: BuddyProfile) => {
+        setEditingId(buddy.id);
+        setNewActivity(buddy.activity);
+        setNewDesc(buddy.description);
+        setShowPostForm(true);
+    };
+
+    const deleteSession = (id: string) => {
+        if (confirm(language === 'en' ? 'Delete this session?' : '¿Eliminar esta sesión?')) {
+            setBuddies(buddies.filter(b => b.id !== id));
+        }
     };
 
     const toggleJoin = (id: string) => {
@@ -148,8 +176,10 @@ export default function SocialFitHub() {
                     {showPostForm && (
                         <div className="bg-white p-6 rounded-[2rem] shadow-lg border-2 border-brand-teal/20 mb-8 animate-in fade-in slide-in-from-top-4 duration-300">
                             <div className="flex justify-between items-center mb-4">
-                                <h3 className="font-bold text-brand-navy">Nuevas Sesión</h3>
-                                <button onClick={() => setShowPostForm(false)} className="text-slate-400 hover:text-brand-navy">
+                                <h3 className="font-bold text-brand-navy">
+                                    {editingId ? (language === 'en' ? 'Edit Session' : 'Editar Sesión') : (language === 'en' ? 'New Session' : 'Nueva Sesión')}
+                                </h3>
+                                <button onClick={() => { setShowPostForm(false); setEditingId(null); setNewActivity(""); setNewDesc(""); }} className="text-slate-400 hover:text-brand-navy">
                                     <X className="w-5 h-5" />
                                 </button>
                             </div>
@@ -175,52 +205,80 @@ export default function SocialFitHub() {
                                     />
                                 </div>
                                 <button type="submit" className="w-full py-3 bg-brand-navy text-white rounded-xl font-bold hover:bg-brand-navy/90 transition-all">
-                                    Publicar Sesión
+                                    {editingId ? (language === 'en' ? 'Save Changes' : 'Guardar Cambios') : (language === 'en' ? 'Post Session' : 'Publicar Sesión')}
                                 </button>
                             </form>
                         </div>
                     )}
 
                     <div className="space-y-4">
-                        {buddies.map((buddy) => (
-                            <div key={buddy.id} className={`bg-white p-6 rounded-[2rem] shadow-sm border ${buddy.joined ? 'border-brand-teal/50 bg-brand-teal/5' : 'border-slate-100'} flex flex-col md:flex-row gap-6 md:items-center transition-all`}>
-                                <div className="p-4 bg-brand-sand/50 rounded-2xl flex-shrink-0 flex items-center justify-center">
-                                    <Smile className="w-10 h-10 text-brand-teal" />
-                                </div>
-                                <div className="flex-1">
-                                    <div className="flex items-center gap-2 mb-1">
-                                        <h4 className="font-bold text-brand-navy text-lg">{buddy.name}</h4>
-                                        <span className="bg-brand-teal/10 text-brand-teal text-[10px] font-black uppercase px-2 py-0.5 rounded-full">
-                                            {buddy.activity}
-                                        </span>
-                                    </div>
-                                    <p className="text-slate-600 text-sm mb-3">{buddy.description}</p>
-                                    <div className="flex flex-wrap gap-4 text-xs text-slate-400 font-medium">
-                                        <div className="flex items-center gap-1">
-                                            <MapPin className="w-3 h-3" /> {buddy.location}
-                                        </div>
-                                        <div className="flex items-center gap-1">
-                                            <Calendar className="w-3 h-3" /> {buddy.availability}
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="flex gap-2">
-                                    <button
-                                        onClick={() => toggleJoin(buddy.id)}
-                                        className={`px-6 py-4 rounded-2xl font-bold transition-all flex items-center justify-center gap-2 ${buddy.joined ? 'bg-brand-teal text-white shadow-md' : 'bg-brand-teal/5 text-brand-teal hover:bg-brand-teal hover:text-white'}`}
-                                    >
-                                        {buddy.joined ? (
-                                            <><CheckCircle2 className="w-5 h-5" /> ¡Me uniré!</>
-                                        ) : (
-                                            language === 'en' ? 'Join' : 'Unirme'
+                        {buddies.map((buddy) => {
+                            const isOwner = buddy.name === (userName || "Me");
+                            return (
+                                <div key={buddy.id} className={`bg-white p-6 rounded-[2rem] shadow-sm border ${buddy.joined ? 'border-brand-teal/50 bg-brand-teal/5' : 'border-slate-100'} flex flex-col md:flex-row gap-6 md:items-center transition-all`}>
+                                    <div className="p-4 bg-brand-sand/50 rounded-2xl flex-shrink-0 flex items-center justify-center relative">
+                                        <Smile className="w-10 h-10 text-brand-teal" />
+                                        {isOwner && (
+                                            <div className="absolute -top-2 -right-2 bg-brand-navy text-white text-[8px] font-black uppercase px-2 py-0.5 rounded-full ring-2 ring-white">
+                                                {language === 'en' ? 'Mine' : 'Mío'}
+                                            </div>
                                         )}
-                                    </button>
-                                    <button className="p-4 bg-slate-50 text-slate-400 rounded-2xl hover:bg-brand-navy hover:text-white transition-all">
-                                        <MessageCircle className="w-5 h-5" />
-                                    </button>
+                                    </div>
+                                    <div className="flex-1">
+                                        <div className="flex items-center gap-2 mb-1">
+                                            <h4 className="font-bold text-brand-navy text-lg">{buddy.name}</h4>
+                                            <span className="bg-brand-teal/10 text-brand-teal text-[10px] font-black uppercase px-2 py-0.5 rounded-full">
+                                                {buddy.activity}
+                                            </span>
+                                        </div>
+                                        <p className="text-slate-600 text-sm mb-3">{buddy.description}</p>
+                                        <div className="flex flex-wrap gap-4 text-xs text-slate-400 font-medium">
+                                            <div className="flex items-center gap-1">
+                                                <MapPin className="w-3 h-3" /> {buddy.location}
+                                            </div>
+                                            <div className="flex items-center gap-1">
+                                                <Calendar className="w-3 h-3" /> {buddy.availability}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className="flex gap-2">
+                                        {isOwner ? (
+                                            <div className="flex gap-2">
+                                                <button
+                                                    onClick={() => startEditing(buddy)}
+                                                    className="px-4 py-4 bg-slate-100 text-slate-600 rounded-2xl font-bold hover:bg-brand-teal hover:text-white transition-all flex items-center gap-2"
+                                                >
+                                                    <Edit2 className="w-5 h-5" />
+                                                    {language === 'en' ? 'Edit' : 'Editar'}
+                                                </button>
+                                                <button
+                                                    onClick={() => deleteSession(buddy.id)}
+                                                    className="p-4 bg-red-50 text-red-400 rounded-2xl hover:bg-red-500 hover:text-white transition-all"
+                                                >
+                                                    <X className="w-5 h-5" />
+                                                </button>
+                                            </div>
+                                        ) : (
+                                            <>
+                                                <button
+                                                    onClick={() => toggleJoin(buddy.id)}
+                                                    className={`px-6 py-4 rounded-2xl font-bold transition-all flex items-center justify-center gap-2 ${buddy.joined ? 'bg-brand-teal text-white shadow-md' : 'bg-brand-teal/5 text-brand-teal hover:bg-brand-teal hover:text-white'}`}
+                                                >
+                                                    {buddy.joined ? (
+                                                        <><CheckCircle2 className="w-5 h-5" /> ¡Me uniré!</>
+                                                    ) : (
+                                                        language === 'en' ? 'Join' : 'Unirme'
+                                                    )}
+                                                </button>
+                                                <button className="p-4 bg-slate-50 text-slate-400 rounded-2xl hover:bg-brand-navy hover:text-white transition-all">
+                                                    <MessageCircle className="w-5 h-5" />
+                                                </button>
+                                            </>
+                                        )}
+                                    </div>
                                 </div>
-                            </div>
-                        ))}
+                            );
+                        })}
                     </div>
                 </section>
             </main>

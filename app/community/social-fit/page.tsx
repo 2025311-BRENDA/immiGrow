@@ -166,10 +166,10 @@ export default function SocialFitHub() {
                         <h2 className="text-2xl font-heading font-bold text-brand-navy">{t("lbl.trainWithMe")}</h2>
                         <button
                             onClick={() => setShowPostForm(true)}
-                            className="bg-brand-teal text-white px-4 py-2 rounded-xl font-bold text-sm hover:scale-105 transition-all flex items-center gap-2"
+                            className="bg-brand-teal text-white px-6 py-4 rounded-2xl font-bold transition-all shadow-md hover:scale-105 flex items-center gap-3"
                         >
-                            <Plus className="w-4 h-4" />
-                            {language === 'en' ? 'Create post' : 'Publicar anuncio'}
+                            <Plus className="w-6 h-6" />
+                            <span>{language === 'en' ? 'Create post' : 'Publicar anuncio'}</span>
                         </button>
                     </div>
 

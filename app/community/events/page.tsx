@@ -50,7 +50,7 @@ const INITIAL_EVENTS = [
 ];
 
 export default function EventsPage() {
-    const { t, userName } = useLanguage();
+    const { t, userName, language } = useLanguage();
     const [events, setEvents] = useState(INITIAL_EVENTS);
     const [rsvps, setRsvps] = useState<number[]>([]);
     const [showForm, setShowForm] = useState(false);
@@ -105,9 +105,10 @@ export default function EventsPage() {
                     </div>
                     <button
                         onClick={() => setShowForm(!showForm)}
-                        className={`p-4 rounded-2xl transition-all ${showForm ? 'bg-slate-100 text-slate-400 rotate-45' : 'bg-brand-teal text-white shadow-md hover:scale-105'}`}
+                        className={`px-6 py-4 rounded-2xl font-bold transition-all flex items-center gap-3 ${showForm ? 'bg-slate-100 text-slate-400 rotate-45' : 'bg-brand-teal text-white shadow-md hover:scale-105'}`}
                     >
                         <Plus className="w-6 h-6" />
+                        {!showForm && <span>{language === 'en' ? 'Create Event' : 'Crear evento'}</span>}
                     </button>
                 </div>
             </div>

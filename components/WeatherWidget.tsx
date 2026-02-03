@@ -74,35 +74,43 @@ export function WeatherWidget() {
     const Icon = weather.icon;
 
     return (
-        <div className="bg-white/10 backdrop-blur-md rounded-3xl p-4 border border-white/20 text-white flex items-center justify-between gap-4">
-            <div className="flex items-center gap-3">
-                <div className="p-2 bg-brand-sun/20 rounded-xl">
-                    <Icon className="w-5 h-5 text-brand-sun" />
+        <div className="bg-white/10 backdrop-blur-md rounded-[2.5rem] p-4 border border-white/20 text-white flex flex-wrap items-center justify-between gap-4 shadow-xl">
+            {/* Left section: Main info */}
+            <div className="flex items-center gap-4">
+                <div className="w-12 h-12 bg-white/20 rounded-2xl flex items-center justify-center shadow-inner">
+                    <Icon className="w-6 h-6 text-brand-sun fill-brand-sun/20" />
                 </div>
                 <div>
-                    <div className="flex items-center gap-1">
-                        <span className="text-xl font-black">{weather.temp}°C</span>
-                        <span className="text-[10px] uppercase font-bold opacity-60">Dublin</span>
+                    <div className="flex items-baseline gap-2">
+                        <span className="text-3xl font-black tracking-tight">{weather.temp}°C</span>
+                        <span className="text-[10px] font-black uppercase tracking-widest opacity-60">Dublin</span>
                     </div>
-                    <p className="text-[10px] font-medium opacity-80">{weather.condition}</p>
+                    <p className="text-xs font-bold opacity-80 -mt-1">{weather.condition}</p>
                 </div>
             </div>
 
-            <div className="h-8 w-px bg-white/10" />
+            {/* Vertical Divider */}
+            <div className="hidden md:block h-10 w-px bg-white/20 mx-2" />
 
-            <div className="flex gap-4">
-                <div className="flex flex-col items-center">
-                    <Wind className="w-3 h-3 opacity-60 mb-1" />
-                    <span className="text-[10px] font-bold">{weather.wind} km/h</span>
+            {/* Middle section: Technical details */}
+            <div className="flex items-center gap-6">
+                <div className="flex items-center gap-2">
+                    <Wind className="w-4 h-4 opacity-60" />
+                    <span className="text-xs font-black">{weather.wind} km/h</span>
                 </div>
-                <div className="flex flex-col items-center">
-                    <CloudRain className="w-3 h-3 opacity-60 mb-1" />
-                    <span className="text-[10px] font-bold">{weather.rain}%</span>
+                <div className="flex items-center gap-2">
+                    <CloudRain className="w-4 h-4 opacity-60" />
+                    <span className="text-xs font-black">{weather.rain}%</span>
                 </div>
             </div>
 
-            <div className={`px-3 py-1.5 rounded-xl text-[10px] font-black uppercase tracking-wider transition-colors ${weather.isGoodForWalk ? "bg-white/20 text-white" : "bg-brand-sun/20 text-brand-sun"
-                }`}>
+            {/* Right section: Recommendation Badge */}
+            <div className={cn(
+                "px-6 py-3 rounded-2xl text-[10px] font-black uppercase tracking-widest transition-all shadow-lg border-2",
+                weather.isGoodForWalk
+                    ? "bg-brand-sun text-brand-navy border-brand-sun/20"
+                    : "bg-white/20 text-white border-white/10"
+            )}>
                 {weather.isGoodForWalk ? t("weather.good") : t("weather.bad")}
             </div>
         </div>

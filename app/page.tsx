@@ -53,64 +53,65 @@ export default function Home() {
 
   return (
     <main className="min-h-screen bg-brand-sand pb-24">
-      {/* Vibrant Hero Header Section */}
-      <section className="bg-gradient-to-br from-brand-irish-green via-brand-irish-green to-brand-turquoise pt-12 pb-16 px-6 rounded-b-[3.5rem] relative overflow-hidden shadow-inner border-b border-white/10">
-        <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full -mr-20 -mt-20 blur-3xl animate-pulse" />
-        <div className="absolute bottom-0 left-0 w-48 h-48 bg-brand-sun/10 rounded-full -ml-16 -mb-16 blur-2xl" />
+      {/* Redesigned Hero Header Section to match screenshot */}
+      <section className="bg-gradient-to-br from-[#009B48] via-[#009B48] to-[#2EBCC9] pt-8 pb-20 px-6 rounded-b-[3.5rem] relative overflow-hidden shadow-xl">
+        {/* Subtle decorative elements */}
+        <div className="absolute top-0 right-0 w-96 h-96 bg-white/5 rounded-full -mr-32 -mt-32 blur-3xl" />
+        <div className="absolute bottom-0 left-0 w-64 h-64 bg-brand-turquoise/10 rounded-full -ml-16 -mb-16 blur-2xl" />
 
         <div className="container mx-auto relative z-10">
-          <div className="flex justify-between items-start mb-10">
-            <div>
-              <div className="flex items-center gap-3 mb-3">
-                <div className="w-10 h-10 bg-white shadow-lg rounded-xl flex items-center justify-center p-0.5 overflow-hidden">
-                  <img src="/icon.png" alt="iGrow" className="w-full h-full object-cover" />
-                </div>
-                <h1 className="text-white font-heading text-3xl font-black tracking-tight">immiGrow</h1>
+          {/* Header Row: Logo & Notifications */}
+          <div className="flex justify-between items-center mb-8">
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 bg-white/20 backdrop-blur-md rounded-xl flex items-center justify-center border border-white/20 overflow-hidden p-0.5 shadow-sm">
+                <img src="/icon.png" alt="iGrow" className="w-full h-full object-cover" />
               </div>
-              <div className="flex items-center gap-2 text-white/70">
-                <MapPin className="w-3 h-3 text-brand-sun" />
-                <span className="text-[10px] font-black uppercase tracking-[0.2em]">Dublin, Ireland</span>
-              </div>
+              <h1 className="text-white font-heading text-3xl font-black tracking-tighter">immiGrow</h1>
             </div>
-            <button className="p-2.5 bg-white/10 backdrop-blur-md rounded-full text-white border border-white/20 relative hover:bg-white/20 transition-all">
+            <button className="p-3 bg-white/10 backdrop-blur-md rounded-full text-white border border-white/20 relative hover:bg-white/20 transition-all shadow-lg">
               <Bell className="w-5 h-5" />
-              <span className="absolute top-2.5 right-2.5 w-2 h-2 bg-brand-sun rounded-full ring-2 ring-brand-irish-green"></span>
+              <span className="absolute top-2.5 right-2.5 w-2.5 h-2.5 bg-brand-sun rounded-full ring-4 ring-[#009B48]"></span>
             </button>
           </div>
 
-          <div className="flex items-center justify-between gap-6">
+          {/* Location Tag */}
+          <div className="flex items-center gap-2 text-white/90 mb-10">
+            <MapPin className="w-4 h-4 text-brand-sun fill-brand-sun" />
+            <span className="text-[11px] font-black uppercase tracking-[0.2em]">Dublin, Ireland</span>
+          </div>
+
+          <div className="flex items-center justify-between gap-8 mb-10">
             <div className="flex-1">
-              <h2 className="text-3xl md:text-4xl font-black text-white leading-tight">
-                {t("hero.greeting")} <br />
-                <span className="text-brand-sun">{t("hero.subtitle")}</span>
+              <h2 className="text-4xl md:text-5xl font-black text-white leading-[1.1] tracking-tight">
+                {t("hero.greeting")},<br />
+                <span className="text-white/95">{t("hero.subtitle")}?</span>
               </h2>
             </div>
 
+            {/* Profile Component with Badge */}
             <div className="relative shrink-0">
-              <div className="w-24 h-24 rounded-3xl bg-white/10 backdrop-blur-xl border border-white/30 p-1 shadow-2xl relative overflow-hidden group">
-                <div className="absolute inset-0 bg-gradient-to-tr from-brand-sun/20 to-transparent pointer-events-none" />
+              <div className="w-24 h-24 rounded-[2rem] bg-white/10 backdrop-blur-xl border border-white/30 p-1 shadow-2xl relative overflow-hidden group">
+                <div className="absolute inset-0 bg-gradient-to-tr from-brand-turquoise/20 to-transparent pointer-events-none" />
                 <img
                   src="https://api.dicebear.com/7.x/avataaars/svg?seed=Clara&backgroundColor=c0aede"
                   alt="Profile"
-                  className="w-full h-full rounded-2xl bg-brand-sand/20"
+                  className="w-full h-full rounded-[1.8rem] bg-white/20"
                 />
               </div>
-              <div className="absolute -bottom-2 -right-2 bg-white text-brand-irish-green p-1.5 rounded-xl shadow-lg border border-slate-100">
+              <div className="absolute -bottom-1 -right-1 bg-white text-brand-irish-green p-1.5 rounded-xl shadow-lg border border-slate-100 flex items-center justify-center">
                 <Award className="w-4 h-4" />
               </div>
             </div>
           </div>
 
-          {/* Weather Widget for Dublin */}
-          <div className="mt-8">
-            <WeatherWidget />
-          </div>
+          {/* Weather Widget */}
+          <WeatherWidget />
         </div>
       </section>
 
-      <div className="container mx-auto px-6 mt-8 space-y-10">
-        {/* Keyword Search Section */}
-        <section className="relative z-20 -mt-14">
+      <div className="container mx-auto px-6 space-y-10">
+        {/* Global Search overlapping the hero curved bottom */}
+        <section className="relative z-20 -mt-10">
           <GlobalSearch />
         </section>
 

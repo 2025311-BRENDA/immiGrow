@@ -3,50 +3,45 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { ChevronLeft, Plus, X, Calendar as CalendarIcon, MapPin, Users as UsersIcon } from 'lucide-react';
-import CommunityCard from '@/components/CommunityCard';
 import { useLanguage } from '@/context/LanguageContext';
 
 const INITIAL_EVENTS = [
     {
+        id: 4,
+        title: 'English/Spanish Exchange',
+        date: '19:00',
+        frequency: 'Every THURSDAY',
+        location: 'The Mezz, Temple Bar',
+        description: 'Practice your English and help others with Spanish in a friendly pub environment.',
+        color: 'bg-blue-50',
+        baseAttendees: 15,
+        author: 'immiGrow',
+        category: 'SOCIAL'
+    },
+    {
+        id: 5,
+        title: 'Free Museum Tour',
+        date: '11:00',
+        frequency: 'First SUNDAY OF MONTH',
+        location: 'National Museum of Ireland',
+        description: 'Explore Irish history with a professional guide for free.',
+        color: 'bg-orange-50',
+        baseAttendees: 42,
+        author: 'immiGrow',
+        category: 'CULTURE'
+    },
+    {
         id: 0,
         title: 'Caminata en Howth',
-        date: 'Sábado 15 Mayo, 10:00 AM',
+        date: '10:00 AM',
+        frequency: 'Sábado 15 Mayo',
         location: 'Howth Dart Station',
         description: 'Ruta suave por los acantilados. Trae agua y zapatos cómodos. Ideal para charlar.',
-        color: 'bg-green-100',
+        color: 'bg-green-50',
         baseAttendees: 15,
-        author: 'immiGrow'
-    },
-    {
-        id: 1,
-        title: 'Café de Intercambio',
-        date: 'Jueves 20 Mayo, 6:00 PM',
-        location: 'Starbucks O\'Connell St',
-        description: 'Practica inglés y español en un ambiente relajado. Todos los niveles bienvenidos.',
-        color: 'bg-amber-100',
-        baseAttendees: 8,
-        author: 'immiGrow'
-    },
-    {
-        id: 2,
-        title: 'Taller de CV',
-        date: 'Martes 25 Mayo, 7:00 PM',
-        location: 'WeWork Charlemont (y Online)',
-        description: 'Mejora tu CV al estilo irlandés. Tips de reclutadores expertos.',
-        color: 'bg-blue-100',
-        baseAttendees: 24,
-        author: 'immiGrow'
-    },
-    {
-        id: 3,
-        title: 'Picnic Latino',
-        date: 'Domingo 30 Mayo, 1:00 PM',
-        location: 'Phoenix Park',
-        description: 'Trae tu plato favorito para compartir. Música, juegos y buena compañía.',
-        color: 'bg-red-100',
-        baseAttendees: 42,
-        author: 'immiGrow'
-    },
+        author: 'immiGrow',
+        category: 'ACTIVE'
+    }
 ];
 
 export default function EventsPage() {
@@ -66,12 +61,14 @@ export default function EventsPage() {
         const newEvent = {
             id: Date.now(),
             title,
-            date,
+            date: "12:00",
+            frequency: date,
             location,
             description: desc,
-            color: 'bg-purple-100',
+            color: 'bg-purple-50',
             baseAttendees: 0,
-            author: userName || "Me"
+            author: userName || "Me",
+            category: 'COMMUNITY'
         };
         setEvents([newEvent, ...events]);
         setShowForm(false);
@@ -90,35 +87,37 @@ export default function EventsPage() {
     };
 
     return (
-        <div className="min-h-screen bg-gray-50 pb-20">
-            <div className="bg-white shadow-sm p-6 mb-6 rounded-b-[2rem]">
+        <div className="min-h-screen bg-slate-50/50 pb-20">
+            <div className="bg-white shadow-sm p-8 mb-8 rounded-b-[3rem]">
                 <div className="flex justify-between items-start">
                     <div>
                         <Link href="/community" className="inline-flex items-center text-slate-400 mb-4 hover:text-brand-teal transition-colors">
                             <ChevronLeft className="w-5 h-5 mr-1" />
                             {t("lbl.backTo")} {t("nav.community")}
                         </Link>
-                        <h1 className="text-2xl font-bold text-gray-800 mb-1">Eventos</h1>
-                        <p className="text-gray-500 text-sm">
-                            Sal de la rutina. Actividades presenciales para conocer gente.
+                        <h1 className="text-4xl font-heading font-bold text-brand-navy">Upcoming Events</h1>
+                        <p className="text-slate-500 mt-2 font-medium">
+                            Free and community-focused meetups.
                         </p>
                     </div>
                     <button
                         onClick={() => setShowForm(!showForm)}
-                        className={`px-6 py-4 rounded-2xl font-bold transition-all flex items-center gap-3 ${showForm ? 'bg-slate-100 text-slate-400 rotate-45' : 'bg-brand-teal text-white shadow-md hover:scale-105'}`}
+                        className={`px-6 py-4 rounded-2xl font-bold transition-all flex items-center gap-3 ${showForm ? 'bg-slate-100 text-slate-400' : 'bg-brand-teal text-white shadow-lg hover:scale-105'}`}
                     >
-                        <Plus className="w-6 h-6" />
+                        <Plus className={`w-6 h-6 transition-transform ${showForm ? 'rotate-45' : ''}`} />
                         {!showForm && <span>{language === 'en' ? 'Create Event' : 'Crear evento'}</span>}
                     </button>
                 </div>
             </div>
 
-            <div className="container mx-auto px-4">
+            <div className="max-w-4xl mx-auto px-4">
                 {showForm && (
                     <div className="bg-white p-6 rounded-[2rem] shadow-lg border-2 border-brand-teal/20 mb-8 animate-in fade-in slide-in-from-top-4 duration-300">
                         <div className="flex justify-between items-center mb-4">
                             <h3 className="font-bold text-gray-800">Crear Nuevo Evento</h3>
-                            <button onClick={() => setShowForm(false)} className="text-slate-400"><X className="w-5 h-5" /></button>
+                            <button onClick={() => setShowForm(false)} className="text-slate-400 font-bold">
+                                <X className="w-5 h-5" />
+                            </button>
                         </div>
                         <form onSubmit={handleCreateEvent} className="space-y-4">
                             <input
@@ -158,40 +157,70 @@ export default function EventsPage() {
                     </div>
                 )}
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    {events.map((event) => {
+                <div className="space-y-6">
+                    {events.map((event: any) => {
                         const isGoing = rsvps.includes(event.id);
                         const isOwner = event.author === (userName || "Me");
-                        return (
-                            <div key={event.id} className="bg-white rounded-[2rem] shadow-sm border border-slate-100 overflow-hidden flex flex-col hover:shadow-md transition-shadow relative">
-                                <div className={`h-24 ${event.color} relative`}>
-                                    <span className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm text-[10px] font-black uppercase px-2 py-1 rounded-full text-gray-700 shadow-sm flex items-center gap-1">
-                                        <CalendarIcon className="w-3 h-3" /> {event.date}
-                                    </span>
-                                    {isOwner && (
-                                        <span className="absolute top-4 right-4 bg-brand-navy text-white text-[10px] font-black uppercase px-2 py-1 rounded-full shadow-sm">
-                                            {t("lbl.mine") || "Mío"}
-                                        </span>
-                                    )}
-                                </div>
-                                <div className="p-6 flex-1 flex flex-col">
-                                    <h3 className="text-xl font-bold text-gray-800 mb-2">{event.title}</h3>
-                                    <p className="text-sm text-gray-500 mb-4 flex-1">{event.description}</p>
 
-                                    <div className="flex flex-col gap-2 mb-4">
-                                        <div className="flex items-center gap-2 text-xs text-slate-400">
-                                            <MapPin className="w-3 h-3" /> {event.location}
+                        const freqParts = (event.frequency || "").split(' ');
+                        const bigText = freqParts[0] || "";
+                        const smallText = freqParts.slice(1).join(' ');
+
+                        return (
+                            <div key={event.id} className="bg-white rounded-[2.5rem] p-4 shadow-sm border border-slate-100 flex flex-col md:flex-row gap-6 hover:shadow-md transition-all group">
+                                <div className="w-full md:w-32 h-32 bg-slate-50 rounded-[2rem] flex flex-col items-center justify-center p-4 text-center group-hover:bg-brand-sand/30 transition-colors">
+                                    <span className="text-brand-pink font-black text-xl leading-tight uppercase tracking-tighter">
+                                        {bigText}
+                                    </span>
+                                    <span className="text-slate-400 font-bold text-[10px] uppercase tracking-widest mt-1">
+                                        {smallText}
+                                    </span>
+                                </div>
+
+                                <div className="flex-1 py-2">
+                                    <div className="flex flex-wrap items-center gap-3 mb-2">
+                                        {event.category && (
+                                            <span className="bg-blue-50 text-blue-500 text-[10px] font-black uppercase px-3 py-1 rounded-full">
+                                                {event.category}
+                                            </span>
+                                        )}
+                                        <div className="flex items-center gap-1.5 text-slate-400 text-xs font-bold">
+                                            <CalendarIcon className="w-3.5 h-3.5 text-brand-pink/40" />
+                                            {event.date}
                                         </div>
-                                        <div className="flex items-center gap-2 text-xs text-slate-400">
-                                            <UsersIcon className="w-3 h-3" /> {event.baseAttendees + (isGoing ? 1 : 0)} personas interesadas
-                                        </div>
+                                        {isOwner && (
+                                            <span className="bg-brand-navy text-white text-[10px] font-black uppercase px-2 py-1 rounded-full shadow-sm">
+                                                {t("lbl.mine") || "Mío"}
+                                            </span>
+                                        )}
                                     </div>
 
+                                    <h3 className="text-xl font-extrabold text-brand-navy mb-2 group-hover:text-brand-teal transition-colors">
+                                        {event.title}
+                                    </h3>
+                                    <p className="text-sm text-slate-500 mb-4 line-clamp-2 font-medium">
+                                        {event.description}
+                                    </p>
+
+                                    <div className="flex flex-wrap gap-4 items-center">
+                                        <div className="flex items-center gap-1.5 text-xs text-slate-400 font-bold">
+                                            <MapPin className="w-4 h-4 text-brand-teal/40" /> {event.location}
+                                        </div>
+                                        <div className="text-[10px] font-black text-brand-teal uppercase tracking-widest flex items-center gap-1.5 bg-brand-teal/5 px-2 py-1 rounded-lg">
+                                            <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
+                                                <path strokeLinecap="round" strokeLinejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                            </svg>
+                                            FREE ENTRY
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div className="flex items-center justify-end md:px-4">
                                     <button
                                         onClick={() => toggleRSVP(event.id)}
-                                        className={`w-full py-3 rounded-xl font-bold text-sm transition-all flex items-center justify-center gap-2 ${isGoing ? 'bg-brand-teal text-white' : 'bg-brand-teal/5 text-brand-teal hover:bg-brand-teal hover:text-white'}`}
+                                        className={`w-14 h-14 rounded-[1.5rem] flex items-center justify-center transition-all ${isGoing ? 'bg-brand-pink text-white shadow-lg' : 'bg-brand-navy text-white hover:bg-brand-teal hover:scale-105'}`}
                                     >
-                                        {isGoing ? '¡Me he apuntado!' : '¡Asistiré!'}
+                                        <HeartIcon className={`w-6 h-6 ${isGoing ? 'fill-current' : ''}`} />
                                     </button>
                                 </div>
                             </div>
@@ -200,5 +229,13 @@ export default function EventsPage() {
                 </div>
             </div>
         </div>
+    );
+}
+
+function HeartIcon(props: any) {
+    return (
+        <svg {...props} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
+        </svg>
     );
 }

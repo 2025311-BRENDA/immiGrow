@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from "react";
 import { CloudRain, Sun, Wind, Thermometer, Cloud, CloudLightning } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
+import { cn } from "@/lib/utils";
 
 export function WeatherWidget() {
     const { language, t } = useLanguage();

@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     siteName: "immiGrow",
     images: [
       {
-        url: "/logo.png", // This will be the image shown in the preview
+        url: "/iGrow-logo.jpg", // NEW LOGO
         width: 1200,
         height: 630,
         alt: "immiGrow Logo",
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "immiGrow Dublin",
     description: "Guía completa para migrantes en Dublín.",
-    images: ["/logo.png"],
+    images: ["/iGrow-logo.jpg"],
   },
   appleWebApp: {
     capable: true,

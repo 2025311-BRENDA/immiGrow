@@ -64,7 +64,7 @@ export default function Home() {
           <div className="flex justify-between items-center mb-8">
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 bg-white/20 backdrop-blur-md rounded-xl flex items-center justify-center border border-white/20 overflow-hidden p-0.5 shadow-sm">
-                <img src="/icon.png" alt="iGrow" className="w-full h-full object-cover" />
+                <img src="/iGrow-logo.jpg" alt="iGrow" className="w-full h-full object-cover" />
               </div>
               <h1 className="text-white font-heading text-3xl font-black tracking-tighter">immiGrow</h1>
             </div>

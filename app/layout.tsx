@@ -20,7 +20,30 @@ export const metadata: Metadata = {
   description: "La plataforma definitiva para recién llegados a Dublín. Encuentra trabajo, entiende los trámites de PPSN/IRP, cuida tu salud mental y únete a grupos deportivos gratuitos.",
   manifest: "/manifest.json",
   icons: {
+    icon: "/icon.png",
     apple: "/icons/icon.png",
+  },
+  openGraph: {
+    title: "immiGrow Dublin | Guía para Migrantes",
+    description: "Encuentra trabajo, salud y comunidad en Dublín.",
+    url: "https://immi-grow.vercel.app",
+    siteName: "immiGrow",
+    images: [
+      {
+        url: "/logo.png", // This will be the image shown in the preview
+        width: 1200,
+        height: 630,
+        alt: "immiGrow Logo",
+      },
+    ],
+    locale: "es_ES",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "immiGrow Dublin",
+    description: "Guía completa para migrantes en Dublín.",
+    images: ["/logo.png"],
   },
   appleWebApp: {
     capable: true,

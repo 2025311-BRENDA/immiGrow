@@ -85,8 +85,8 @@ export function Navbar() {
                 <div className="container mx-auto px-6 h-16 flex items-center justify-between">
                     <div className="flex items-center gap-12">
                         <Link href="/" className="flex items-center space-x-2 shrink-0">
-                            <div className="w-10 h-10 bg-brand-turquoise rounded-xl flex items-center justify-center p-1 overflow-hidden">
-                                <img src="/icon.png" alt="iGrow" className="w-full h-full object-cover rounded-lg" />
+                            <div className="w-10 h-10 rounded-xl flex items-center justify-center overflow-hidden shadow-sm border border-slate-100">
+                                <img src="/icon.png" alt="iGrow" className="w-full h-full object-cover" />
                             </div>
                             <span className="text-xl sm:text-2xl font-heading font-black text-brand-irish-green tracking-tight">
                                 immiGrow

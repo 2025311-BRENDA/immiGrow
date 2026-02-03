@@ -15,9 +15,7 @@ export default function TourismPage() {
                 {t("nav.tourism")}
             </h1>
             <p className="text-slate-600 mb-8 max-w-2xl">
-                {language === "en"
-                    ? "Explore Dublin and its surroundings. Hikes, walks, and scenic spots."
-                    : "Explora Dublín y sus alrededores. Caminatas y lugares escénicos."}
+                {t("tourism.subtitle")}
             </p>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

@@ -23,12 +23,10 @@ export default function JobsPage() {
                 <div className="flex items-center justify-between relative z-10">
                     <div>
                         <h1 className="text-4xl font-black tracking-tight font-heading">
-                            {language === "en" ? "Dublin Ready" : "Listo para Dublín"}
+                            {t("jobs.title")}
                         </h1>
                         <p className="text-white/80 mt-2 font-medium">
-                            {language === "en"
-                                ? "Your guide to finding work and building a career in Ireland."
-                                : "Tu guía para encontrar trabajo y forjar una carrera en Irlanda."}
+                            {t("jobs.subtitle")}
                         </p>
                     </div>
                     <Briefcase className="w-16 h-16 text-white/30" />
@@ -42,16 +40,14 @@ export default function JobsPage() {
                 <section className="mt-12 bg-white rounded-[2.5rem] p-8 shadow-sm border border-slate-100">
                     <h3 className="text-xl font-black text-brand-navy mb-6 flex items-center gap-2">
                         <GraduationCap className="w-5 h-5 text-brand-turquoise" />
-                        {language === "en" ? "Training & Education" : "Formación y Educación"}
+                        {t("jobs.training")}
                     </h3>
 
                     <div className="space-y-4">
                         <div className="p-4 bg-slate-50 rounded-2xl">
                             <h4 className="font-bold text-brand-navy text-sm">Springboard+</h4>
                             <p className="text-xs text-slate-500 mt-1">
-                                {language === "en"
-                                    ? "Free and heavily subsidized higher education courses."
-                                    : "Cursos de educación superior gratuitos y altamente subvencionados."}
+                                {t("jobs.sb.desc")}
                             </p>
                             <a
                                 href="https://springboardcourses.ie/"
@@ -66,9 +62,7 @@ export default function JobsPage() {
                         <div className="p-4 bg-slate-50 rounded-2xl">
                             <h4 className="font-bold text-brand-navy text-sm">SOLAS</h4>
                             <p className="text-xs text-slate-500 mt-1">
-                                {language === "en"
-                                    ? "Further Education and Training authority in Ireland."
-                                    : "Autoridad de Educación y Formación Continua en Irlanda."}
+                                {t("jobs.solas.desc")}
                             </p>
                             <a
                                 href="https://www.solas.ie/"

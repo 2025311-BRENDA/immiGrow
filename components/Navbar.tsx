@@ -33,10 +33,17 @@ export function Navbar() {
             label: t("nav.physical_activity"),
             icon: Activity,
             items: [
-                { name: t("nav.tourism"), href: "/tourism", icon: Mountain },
                 { name: t("nav.parks"), href: "/exercise/parks", icon: TreeDeciduous },
                 { name: t("nav.swimming"), href: "/exercise/swimming", icon: Waves },
                 { name: t("nav.cycling"), href: "/exercise/cycling", icon: Bike },
+            ]
+        },
+        {
+            id: "active",
+            label: t("nav.active"),
+            icon: Mountain,
+            items: [
+                { name: t("nav.tourism"), href: "/tourism", icon: Mountain },
             ]
         },
         {
@@ -44,14 +51,16 @@ export function Navbar() {
             label: t("nav.health"),
             icon: Heart,
             items: [
+                { name: t("nav.health"), href: "/health", icon: Activity },
                 { name: t("nav.mental"), href: "/mental-health", icon: Brain },
                 { name: t("nav.women"), href: "/womens-health", icon: Heart },
+                { name: t("nav.physiotherapy"), href: "/exercise/physiotherapy", icon: Heart },
             ]
         },
         {
             id: "admin",
-            label: t("nav.admin"),
-            icon: ShieldCheck,
+            label: t("nav.procedures"),
+            icon: FileText,
             items: [
                 { name: t("nav.procedures"), href: "/procedures", icon: FileText },
                 { name: t("nav.vault"), href: "/vault", icon: ShieldCheck },
@@ -62,11 +71,11 @@ export function Navbar() {
 
     const mobileNavItems = [
         { name: "Home", href: "/", icon: Home, labelKey: "nav.home" },
-        { name: "Exercise", href: "/exercise", icon: Activity, labelKey: "nav.physical_activity" },
-        { name: "Tourism", href: "/tourism", icon: Mountain, labelKey: "nav.tourism" },
-        { name: "Health", href: "/womens-health", icon: Heart, labelKey: "nav.health", includes: ["mental", "women"] },
-        { name: "Procedures", href: "/procedures", icon: FileText, labelKey: "nav.procedures", includes: ["jobs", "calculator"] },
-        { name: "More", href: "/more", icon: Menu, labelKey: "nav.more" },
+        { name: "Physical", href: "/exercise", icon: Activity, labelKey: "nav.physical_activity" },
+        { name: "Active", href: "/tourism", icon: Mountain, labelKey: "nav.active" },
+        { name: "Health", href: "/health", icon: Heart, labelKey: "nav.health", includes: ["mental", "women", "physio"] },
+        { name: "Procedures", href: "/procedures", icon: FileText, labelKey: "nav.procedures" },
+        { name: "More", href: "/more", icon: Menu, labelKey: "nav.more", includes: ["jobs", "calculator", "community"] },
     ];
 
     return (
@@ -76,11 +85,11 @@ export function Navbar() {
                 <div className="container mx-auto px-6 h-16 flex items-center justify-between">
                     <div className="flex items-center gap-12">
                         <Link href="/" className="flex items-center space-x-2 shrink-0">
-                            <div className="w-8 h-8 bg-brand-irish-green rounded-lg flex items-center justify-center">
-                                <Home className="w-5 h-5 text-white" />
+                            <div className="w-10 h-10 bg-brand-turquoise rounded-xl flex items-center justify-center p-1 overflow-hidden">
+                                <img src="/icon.png" alt="iGrow" className="w-full h-full object-cover rounded-lg" />
                             </div>
-                            <span className="text-xl font-heading font-bold text-brand-navy hidden sm:block">
-                                ImmiGrow
+                            <span className="text-xl sm:text-2xl font-heading font-black text-brand-irish-green tracking-tight">
+                                immiGrow
                             </span>
                         </Link>
 
@@ -139,13 +148,18 @@ export function Navbar() {
                     </div>
 
                     <div className="flex items-center gap-4">
-                        <button
-                            onClick={toggleLanguage}
-                            className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-100 hover:bg-slate-200 transition-colors text-sm font-medium text-slate-700"
-                        >
-                            <Globe className="w-4 h-4" />
-                            {language === "en" ? "ES" : "EN"}
-                        </button>
+                        <div className="flex items-center gap-3">
+                            <div className="hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-xl bg-slate-100 text-[10px] font-black uppercase tracking-wider text-slate-500 border border-slate-200">
+                                <Globe className="w-3 h-3" />
+                                {t("nav.lang_name")}
+                            </div>
+                            <button
+                                onClick={toggleLanguage}
+                                className="flex items-center gap-2 px-4 py-2 rounded-xl bg-brand-irish-green text-white hover:bg-brand-deep-emerald transition-all text-xs font-bold shadow-sm active:scale-95 border-b-4 border-brand-deep-emerald/30"
+                            >
+                                {t("nav.lang_toggle")}
+                            </button>
+                        </div>
                     </div>
                 </div>
             </nav>

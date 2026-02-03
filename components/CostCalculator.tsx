@@ -59,10 +59,10 @@ export function CostCalculator() {
                     <div className="space-y-4">
                         <div className="flex justify-between items-center">
                             <label className="text-sm font-bold text-brand-navy flex items-center gap-2">
-                                <ShoppingCart className="w-4 h-4 text-brand-irish-green" />
+                                <ShoppingCart className="w-4 h-4 text-brand-turquoise" />
                                 {language === "en" ? "Groceries" : "Alimentación"}
                             </label>
-                            <span className="text-lg font-black text-brand-irish-green">€{food}</span>
+                            <span className="text-lg font-black text-brand-turquoise">€{food}</span>
                         </div>
                         <input
                             type="range"
@@ -71,7 +71,7 @@ export function CostCalculator() {
                             step="20"
                             value={food}
                             onChange={(e) => setFood(parseInt(e.target.value))}
-                            className="w-full h-2 bg-slate-100 rounded-lg appearance-none cursor-pointer accent-brand-irish-green"
+                            className="w-full h-2 bg-slate-100 rounded-lg appearance-none cursor-pointer accent-brand-turquoise"
                         />
                     </div>
 
@@ -128,7 +128,7 @@ export function CostCalculator() {
 
                     <div className="space-y-4 relative z-10">
                         <div className="p-4 bg-white/10 rounded-2xl flex items-center gap-3">
-                            <TrendingUp className="w-5 h-5 text-brand-irish-green" />
+                            <TrendingUp className="w-5 h-5 text-brand-turquoise" />
                             <p className="text-[10px] font-medium leading-relaxed opacity-80">
                                 {language === "en"
                                     ? "Average monthly salary in Ireland is approx. €3,000 net, but this varies wildly by sector."
@@ -150,7 +150,7 @@ export function CostCalculator() {
             {/* Supermarket Comparison */}
             <div className="mt-12">
                 <h4 className="text-brand-navy font-bold mb-6 flex items-center gap-2">
-                    <ShoppingCart className="w-4 h-4 text-brand-irish-green" />
+                    <ShoppingCart className="w-4 h-4 text-brand-turquoise" />
                     {language === "en" ? "Supermarket Savings Guide" : "Guía de Ahorro: Supermercados"}
                 </h4>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">

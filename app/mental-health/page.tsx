@@ -18,9 +18,7 @@ export default function MentalHealthPage() {
                 {t("nav.mental")}
             </h1>
             <p className="text-slate-600 mb-8 max-w-2xl">
-                {language === "en"
-                    ? "Support, community, and professional resources for your mental well-being."
-                    : "Apoyo, comunidad y recursos profesionales para tu bienestar mental."}
+                {t("mental.subtitle")}
             </p>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -35,7 +33,7 @@ export default function MentalHealthPage() {
 
             <div className="mt-16">
                 <h2 className="text-2xl font-bold text-brand-navy mb-6">
-                    {language === "en" ? "Recommended Professionals" : "Profesionales Recomendados"}
+                    {t("mental.professionals")}
                 </h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {psychologists.map((prof) => (

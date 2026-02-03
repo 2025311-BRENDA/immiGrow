@@ -92,7 +92,7 @@ export default function AchievementsPage() {
     return (
         <div className="min-h-screen bg-slate-50 pb-20">
             {/* Header */}
-            <div className="bg-brand-irish-green text-white p-8 rounded-b-[3rem] shadow-lg mb-8 relative overflow-hidden">
+            <div className="bg-brand-turquoise text-white p-8 rounded-b-[3rem] shadow-lg mb-8 relative overflow-hidden">
                 <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full -mr-20 -mt-20 blur-3xl"></div>
                 <Link href="/" className="inline-flex items-center text-brand-sand mb-4 opacity-80 hover:opacity-100 transition-opacity relative z-10">
                     <ChevronLeft className="w-5 h-5 mr-1" />
@@ -129,12 +129,12 @@ export default function AchievementsPage() {
                             <div
                                 key={achievement.id}
                                 className={`p-6 rounded-[2rem] border-2 transition-all relative overflow-hidden ${isEarned
-                                    ? 'bg-white border-brand-irish-green/20 shadow-md'
+                                    ? 'bg-white border-brand-turquoise/20 shadow-md'
                                     : 'bg-slate-100 border-transparent grayscale'
                                     }`}
                             >
                                 <div className="flex items-start gap-4">
-                                    <div className={`p-4 rounded-2xl ${isEarned ? 'bg-brand-irish-green/10 text-brand-irish-green' : 'bg-slate-200 text-slate-400'}`}>
+                                    <div className={`p-4 rounded-2xl ${isEarned ? 'bg-brand-turquoise/10 text-brand-turquoise' : 'bg-slate-200 text-slate-400'}`}>
                                         {isEarned ? <Icon className="w-8 h-8" /> : <Lock className="w-8 h-8" />}
                                     </div>
                                     <div>
@@ -149,7 +149,7 @@ export default function AchievementsPage() {
 
                                 {isEarned && (
                                     <div className="absolute top-4 right-4 animate-in zoom-in duration-500">
-                                        <CheckCircle2 className="w-6 h-6 text-brand-irish-green" />
+                                        <CheckCircle2 className="w-6 h-6 text-brand-turquoise" />
                                     </div>
                                 )}
                             </div>

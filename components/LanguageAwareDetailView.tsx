@@ -80,7 +80,10 @@ export function LanguageAwareDetailView({ slug, category }: LanguageAwareDetailV
             parentHref={
                 category === "tourism" ? "/tourism" :
                     category === "procedures" ? "/procedures" :
-                        `/exercise/${category}`
+                        category === "womens-health" ? "/womens-health" :
+                            category === "mental-health" ? "/mental-health" :
+                                category === "physiotherapy" ? "/health" : // User wants physio in Health
+                                    `/exercise/${category}`
             }
             parentLabel={t(`nav.${category}`)}
             image={item.image}

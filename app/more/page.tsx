@@ -10,24 +10,34 @@ export default function MorePage() {
 
     const modules = [
         {
-            title: language === "en" ? "Procedures & Info" : "Trámites e Información",
+            title: t("nav.jobs"),
             description: language === "en"
-                ? "Guides for PPS Number, Visas, Housing, Transport, and Education."
-                : "Guías para PPS, Visas, Alojamiento, Transporte y Educación.",
-            distance: language === "en" ? "Admin" : "Admin",
+                ? "Guides for finding work, CV tips, and recruitment agencies."
+                : "Guías para encontrar trabajo, consejos para CV y agencias.",
+            distance: "Career",
             difficulty: "Easy" as const,
-            icon: FileText,
-            href: "/procedures",
+            icon: Sparkles,
+            href: "/jobs",
         },
         {
-            title: language === "en" ? "Women's Health" : "Salud Femenina",
+            title: t("nav.calculator"),
             description: language === "en"
-                ? "Maternity care, screenings (CervicalCheck), and support networks."
-                : "Cuidado de maternidad, chequeos (CervicalCheck) y redes de apoyo.",
-            distance: language === "en" ? "Health" : "Salud",
+                ? "Estimate your monthly living costs in Dublin."
+                : "Estima tus gastos mensuales de vida en Dublín.",
+            distance: "Finanzas",
+            difficulty: "Easy" as const,
+            icon: FileText,
+            href: "/calculator",
+        },
+        {
+            title: t("nav.community"),
+            description: language === "en"
+                ? "Join groups, circles, and connect with other migrants."
+                : "Únete a grupos, círculos y conecta con otros migrantes.",
+            distance: "Social",
             difficulty: "Easy" as const,
             icon: Heart,
-            href: "/womens-health",
+            href: "/community",
         },
     ];
 

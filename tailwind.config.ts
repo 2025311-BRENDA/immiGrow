@@ -22,7 +22,7 @@ export default {
                     purple: "#6D597A",
                     sunset: "#E76F51", // Keeping as alias for now but using in UI
                     "irish-green": "#009B48",
-                    turquoise: "#40E0D0",
+                    turquoise: "#2EBCC9",
                     "deep-emerald": "#047857",
                 },
             },

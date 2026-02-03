@@ -72,20 +72,20 @@ export function RouteCard({
                     <div className="h-40 w-full relative overflow-hidden">
                         <img src={image} alt={title} className="w-full h-full object-cover transition-transform group-hover:scale-105 duration-500" />
                         <div className="absolute top-3 left-3 p-2 bg-white/90 backdrop-blur-sm rounded-lg shadow-sm">
-                            <Icon className="w-4 h-4 text-brand-irish-green" />
+                            <Icon className="w-4 h-4 text-brand-turquoise" />
                         </div>
                     </div>
                 ) : (
                     <div className="flex items-start justify-between mb-4 p-6 pb-0">
                         <div className="p-3 bg-brand-sand/50 rounded-lg group-hover:bg-brand-sand transition-colors">
-                            <Icon className="w-6 h-6 text-brand-irish-green" />
+                            <Icon className="w-6 h-6 text-brand-turquoise" />
                         </div>
                     </div>
                 )}
 
                 <div className="p-6 pt-4 flex-1 flex flex-col">
                     <div className="flex items-start justify-between gap-4 mb-2">
-                        <h3 className="text-xl font-heading font-bold text-brand-navy group-hover:text-brand-irish-green transition-colors leading-tight">
+                        <h3 className="text-xl font-heading font-bold text-brand-navy group-hover:text-brand-turquoise transition-colors leading-tight">
                             {title}
                         </h3>
                         <div className="flex shrink-0 gap-2">
@@ -125,7 +125,7 @@ export function RouteCard({
                     href={mapUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="mt-2 flex items-center justify-center gap-2 p-3 bg-white border border-slate-100 rounded-xl text-brand-irish-green text-sm font-bold shadow-sm hover:bg-brand-sand transition-all active:scale-95"
+                    className="mt-2 flex items-center justify-center gap-2 p-3 bg-white border border-slate-100 rounded-xl text-brand-turquoise text-sm font-bold shadow-sm hover:bg-brand-sand transition-all active:scale-95"
                     onClick={(e) => e.stopPropagation()}
                 >
                     <Map className="w-4 h-4" />

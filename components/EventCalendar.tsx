@@ -7,7 +7,7 @@ import { events } from "@/lib/data";
 import { eventsEs } from "@/lib/data_es";
 
 export function EventCalendar() {
-    const { language } = useLanguage();
+    const { language, t } = useLanguage();
 
     const data = language === "en" ? events : eventsEs;
 
@@ -18,10 +18,10 @@ export function EventCalendar() {
             <div className="flex justify-between items-center mb-6 relative z-10">
                 <div>
                     <h3 className="text-xl font-black text-brand-navy">
-                        {language === "en" ? "Upcoming Events" : "Próximos Eventos"}
+                        {t("event.title")}
                     </h3>
                     <p className="text-slate-500 text-[10px] mt-0.5">
-                        {language === "en" ? "Free and community-focused meetups." : "Encuentros gratuitos y comunitarios."}
+                        {t("event.subtitle")}
                     </p>
                 </div>
                 <div className="p-2 bg-brand-pink/10 rounded-xl">
@@ -65,9 +65,9 @@ export function EventCalendar() {
                                     <MapPin className="w-2.5 h-2.5 text-brand-pink" />
                                     {event.location}
                                 </div>
-                                <div className="flex items-center gap-1.5 text-[8px] font-bold text-brand-irish-green uppercase tracking-widest">
+                                <div className="flex items-center gap-1.5 text-[8px] font-bold text-brand-turquoise uppercase tracking-widest">
                                     <Ticket className="w-2.5 h-2.5" />
-                                    {language === "en" ? "Free Entry" : "Entrada Gratis"}
+                                    {t("event.free")}
                                 </div>
                             </div>
                         </div>
@@ -81,7 +81,7 @@ export function EventCalendar() {
 
             <div className="mt-6 text-center">
                 <button className="text-[10px] font-black text-slate-400 hover:text-brand-navy transition-colors uppercase tracking-[0.2em]">
-                    {language === "en" ? "View Full Calendar" : "Ver Calendario Completo"}
+                    {t("event.viewFull")}
                 </button>
             </div>
         </section>

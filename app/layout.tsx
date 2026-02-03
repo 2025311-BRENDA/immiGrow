@@ -16,17 +16,21 @@ const outfit = Outfit({
 });
 
 export const metadata: Metadata = {
-  title: "ImmiGrow Dublin | Guía para Migrantes: Trabajo, Salud y Trámites",
+  title: "immiGrow Dublin | Guía para Migrantes: Trabajo, Salud y Trámites",
   description: "La plataforma definitiva para recién llegados a Dublín. Encuentra trabajo, entiende los trámites de PPSN/IRP, cuida tu salud mental y únete a grupos deportivos gratuitos.",
   manifest: "/manifest.json",
+  icons: {
+    apple: "/icons/icon.png",
+  },
   appleWebApp: {
     capable: true,
     statusBarStyle: "default",
-    title: "ImmiGrow",
+    title: "immiGrow",
   },
   other: {
     "apple-mobile-web-app-capable": "yes",
     "mobile-web-app-capable": "yes",
+    "apple-touch-icon": "/icons/icon.png",
     "keywords": "migrantes dublin, trabajar en irlanda, pps number dublin, salud mental inmigrantes, deportes gratis dublin, immigrow"
   }
 };

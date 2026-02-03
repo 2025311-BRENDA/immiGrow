@@ -909,31 +909,6 @@ Finding accommodation can be challenging. Here is what you need to know.
         `
     },
     {
-        title: "Jobs & Career",
-        description: "Tips for finding work in Dublin. CV format, LinkedIn, and recruitment agencies.",
-        distance: "Work",
-        difficulty: "Medium",
-        icon: Briefcase,
-        slug: "jobs-career",
-        image: "/jobs_career.png",
-        content: `
-# Finding a Job in Dublin
-
-## The Basics
-- **CV Format**: Keep it 2 pages max. No photo, no date of birth, no full address (just "Dublin").
-- **LinkedIn**: Essential for professional jobs. Set your location to "Dublin".
-
-## Where to Look
-- **LinkedIn**: The #1 tool for tech and corporate jobs.
-- **Indeed.ie**: Good for general jobs, retail, and hospitality.
-- **IrishJobs.ie**: Another popular job board.
-
-## Recruitment Agencies
-- Many companies hire through agencies like Cpl, Morgan McKinley, and Sigmar.
-- Registering with them is free.
-        `
-    },
-    {
         title: "Cost of Living",
         description: "Budgeting for life in Dublin. Rent, groceries, and transport costs.",
         distance: "Finance",
@@ -1029,31 +1004,6 @@ If you or someone you know is in distress, reach out now. These services are fre
 
 ## Emergency
 - If you are in immediate danger, call **112** or **999** or go to the nearest Hospital Emergency Department (A&E).
-        `
-    },
-    {
-        title: "Saunas & Relaxation",
-        description: "Discover public saunas and thermal suites for body recovery and deep relaxation.",
-        distance: "Wellness",
-        difficulty: "Easy",
-        icon: Waves,
-        slug: "saunas-relaxation",
-        image: "/sauna_sunny.png",
-        content: `
-# Saunas & Relaxation
-
-Taking care of your body helps your mind. Dublin has several great spots for thermal therapy.
-
-## Public Saunas (Seafront)
-- **The Hot Box**: Usually located near Bunkers Hill or similar spots. Wood-fired sauna by the sea.
-- **Sweatbox**: Often mobile saunas at beaches like Portmarnock.
-
-## Thermal Suites (Gyms/Spas)
-- **West Wood Club**: Locations in Clontarf and Sandymount have extensive spa facilities.
-- **SportsLink** (Santry): Offers a leisure pool and sauna.
-
-## Tips
-- Integrating a sauna session after a cold swim (like at the Forty Foot) is a very popular "wellness" activity in Dublin.
         `
     },
 ];
@@ -1355,15 +1305,6 @@ export const events: EventItem[] = [
         description: "Explore Irish history with a professional guide for free.",
         category: "Culture"
     },
-    {
-        id: "job-workshop",
-        title: "Migrant Job Workshop",
-        date: "Feb 15, 2026",
-        time: "14:00",
-        location: "Online / Zoom",
-        description: "Tips on tailoring your CV for the Irish tech market.",
-        category: "Education"
-    }
 ];
 
 export const popularKeywords = [

@@ -5,7 +5,7 @@ import { MessageSquare, Send, User, ThumbsUp } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 
 export function Forum() {
-    const { language } = useLanguage();
+    const { language, t } = useLanguage();
     const [posts, setPosts] = useState([
         {
             id: 1,
@@ -52,10 +52,10 @@ export function Forum() {
             <div className="flex justify-between items-center mb-6 relative z-10">
                 <div>
                     <h3 className="text-xl font-black text-brand-sand">
-                        {language === "en" ? "Community Forum" : "Foro de la Comunidad"}
+                        {t("forum.title")}
                     </h3>
                     <p className="text-white/60 text-[10px] mt-0.5">
-                        {language === "en" ? "Ask questions, share tips." : "Haz preguntas, comparte consejos."}
+                        {t("forum.subtitle")}
                     </p>
                 </div>
                 <div className="p-2 bg-white/10 rounded-xl">
@@ -79,11 +79,11 @@ export function Forum() {
                         <div className="flex gap-3">
                             <button className="flex items-center gap-1.5 text-[8px] font-bold text-brand-sand/60 hover:text-brand-sand transition-colors">
                                 <ThumbsUp className="w-2.5 h-2.5" />
-                                {post.likes} {language === "en" ? "Likes" : "Me gusta"}
+                                {post.likes} {t("forum.likes")}
                             </button>
                             <button className="flex items-center gap-1.5 text-[8px] font-bold text-brand-sand/60 hover:text-brand-sand transition-colors">
                                 <MessageSquare className="w-2.5 h-2.5" />
-                                {post.replies} {language === "en" ? "Replies" : "Respuestas"}
+                                {post.replies} {t("forum.replies")}
                             </button>
                         </div>
                     </div>
@@ -95,7 +95,7 @@ export function Forum() {
                     type="text"
                     value={newPost}
                     onChange={(e) => setNewPost(e.target.value)}
-                    placeholder={language === "en" ? "Ask something..." : "Pregunta algo..."}
+                    placeholder={t("forum.placeholder")}
                     className="flex-1 bg-white/10 border-white/20 rounded-xl px-4 py-2 text-xs focus:ring-brand-sand focus:border-brand-sand placeholder:text-white/20"
                 />
                 <button

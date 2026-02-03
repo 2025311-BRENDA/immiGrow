@@ -7,7 +7,7 @@ import { roadmapData } from "@/lib/data";
 import { roadmapDataEs } from "@/lib/data_es";
 
 export function Roadmap() {
-    const { language } = useLanguage();
+    const { language, t } = useLanguage();
     const [completed, setCompleted] = useState<string[]>([]);
 
     const data = language === "en" ? roadmapData : roadmapDataEs;
@@ -50,15 +50,15 @@ export function Roadmap() {
 
     return (
         <section className="bg-white rounded-[2rem] p-6 shadow-sm border border-slate-100 overflow-hidden relative group/roadmap">
-            <div className="absolute top-0 right-0 w-24 h-24 bg-brand-irish-green/5 rounded-full -mr-8 -mt-8 group-hover/roadmap:bg-brand-irish-green/10 transition-colors" />
+            <div className="absolute top-0 right-0 w-24 h-24 bg-brand-turquoise/5 rounded-full -mr-8 -mt-8 group-hover/roadmap:bg-brand-turquoise/10 transition-colors" />
 
             <div className="flex justify-between items-center mb-4">
                 <div>
                     <h3 className="text-xl font-black text-brand-navy">
-                        {language === "en" ? "Newcomer Roadmap" : "Hoja de Ruta"}
+                        {t("roadmap.title")}
                     </h3>
                     <p className="text-slate-500 text-[10px] mt-0.5 font-bold uppercase tracking-widest">
-                        {language === "en" ? "Essential steps for your first weeks" : "Pasos esenciales para tus primeras semanas"}
+                        {t("roadmap.subtitle")}
                     </p>
                 </div>
                 <div className="text-right">
@@ -81,16 +81,16 @@ export function Roadmap() {
                             key={item.id}
                             onClick={() => toggleItem(item.id)}
                             className={`flex items-center gap-3 p-3 rounded-2xl cursor-pointer transition-all border ${isDone
-                                ? "bg-brand-irish-green/5 border-brand-irish-green/20"
+                                ? "bg-brand-turquoise/5 border-brand-turquoise/20"
                                 : "bg-slate-50 border-transparent hover:bg-slate-100 hover:scale-[1.02]"
                                 }`}
                         >
-                            <div className={`p-2 rounded-xl shrink-0 transition-all ${isDone ? "bg-brand-irish-green text-white scale-110" : "bg-white text-slate-400 shadow-sm"
+                            <div className={`p-2 rounded-xl shrink-0 transition-all ${isDone ? "bg-brand-turquoise text-white scale-110" : "bg-white text-slate-400 shadow-sm"
                                 }`}>
                                 <item.icon className="w-4 h-4" />
                             </div>
                             <div className="flex-1 min-w-0">
-                                <h4 className={`font-bold text-xs truncate transition-all ${isDone ? "text-slate-400 line-through decoration-brand-irish-green decoration-2" : "text-brand-navy"}`}>
+                                <h4 className={`font-bold text-xs truncate transition-all ${isDone ? "text-slate-400 line-through decoration-brand-turquoise decoration-2" : "text-brand-navy"}`}>
                                     {item.title}
                                 </h4>
                             </div>

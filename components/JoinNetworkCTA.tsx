@@ -12,12 +12,12 @@ const JoinNetworkCTA: React.FC = () => {
     const buttonText = language === "en" ? "Apply to Join" : "Solicitar Unirse";
 
     const emailSubject = language === "en"
-        ? "Professional Network Application - ImmiGrow"
-        : "Solicitud Red de Profesionales - ImmiGrow";
+        ? "Professional Network Application - immiGrow"
+        : "Solicitud Red de Profesionales - immiGrow";
 
     const emailBody = language === "en"
-        ? "Hello,\n\nI am interested in joining the ImmiGrow professional network.\n\nName:\nRole:\nSpecialty:\nLocation:\n\nThank you."
-        : "Hola,\n\nEstoy interesado en unirme a la red de profesionales de ImmiGrow.\n\nNombre:\nRol:\nEspecialidad:\nUbicación:\n\nGracias.";
+        ? "Hello,\n\nI am interested in joining the immiGrow professional network.\n\nName:\nRole:\nSpecialty:\nLocation:\n\nThank you."
+        : "Hola,\n\nEstoy interesado en unirme a la red de profesionales de immiGrow.\n\nNombre:\nRol:\nEspecialidad:\nUbicación:\n\nGracias.";
 
     const mailtoLink = `mailto:join@immigrow.ie?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
 

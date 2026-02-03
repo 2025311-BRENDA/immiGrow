@@ -15,9 +15,7 @@ export default function ProceduresPage() {
                 {t("nav.procedures")}
             </h1>
             <p className="text-slate-600 mb-8 max-w-2xl">
-                {language === "en"
-                    ? "Essential guides for life in Ireland. PPSN, Housing, Visa, and more."
-                    : "Guías esenciales para la vida en Irlanda. PPSN, Vivienda, Visa y más."}
+                {t("procedures.subtitle")}
             </p>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

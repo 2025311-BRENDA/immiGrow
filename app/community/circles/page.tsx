@@ -34,12 +34,6 @@ export default function CirclesPage() {
             tag: 'Familia',
             color: 'bg-purple-200',
         },
-        {
-            title: 'Trabajadores Tech',
-            description: 'Networking, consejos de carrera y oportunidades en el sector tecnológico.',
-            tag: 'Profesional',
-            color: 'bg-gray-200',
-        },
     ];
 
     return (

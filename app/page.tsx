@@ -20,13 +20,13 @@ import {
   Home as HomeIcon,
   Briefcase,
   Calculator,
-  Stethoscope
+  Stethoscope,
+  Sparkles
 } from "lucide-react";
 
 import { Roadmap } from "@/components/Roadmap";
 import { WeatherWidget } from "@/components/WeatherWidget";
 import { Forum } from "@/components/Forum";
-import { SOSButton } from "@/components/SOSButton";
 import { EventCalendar } from "@/components/EventCalendar";
 import { parks, swimming, cycling, tourism, procedures, roadmapData } from "@/lib/data";
 import { parksEs, swimmingEs, cyclingEs, tourismEs, proceduresEs, roadmapDataEs } from "@/lib/data_es";
@@ -54,20 +54,20 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-brand-sand pb-24">
       {/* Vibrant Hero Header Section */}
-      <section className="bg-gradient-to-br from-brand-irish-green to-brand-turquoise pt-12 pb-16 px-6 rounded-b-[3.5rem] relative overflow-hidden shadow-inner border-b border-white/10">
+      <section className="bg-gradient-to-br from-brand-irish-green via-brand-irish-green to-brand-turquoise pt-12 pb-16 px-6 rounded-b-[3.5rem] relative overflow-hidden shadow-inner border-b border-white/10">
         <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full -mr-20 -mt-20 blur-3xl animate-pulse" />
         <div className="absolute bottom-0 left-0 w-48 h-48 bg-brand-sun/10 rounded-full -ml-16 -mb-16 blur-2xl" />
 
         <div className="container mx-auto relative z-10">
           <div className="flex justify-between items-start mb-10">
             <div>
-              <div className="flex items-center gap-2 mb-2">
-                <div className="w-8 h-8 bg-white/10 backdrop-blur-md rounded-lg flex items-center justify-center border border-white/20">
-                  <HomeIcon className="w-4 h-4 text-white" />
+              <div className="flex items-center gap-3 mb-3">
+                <div className="w-10 h-10 bg-white/20 backdrop-blur-md rounded-xl flex items-center justify-center border border-white/20 p-1">
+                  <img src="/icon.png" alt="iGrow" className="w-full h-full object-cover rounded-lg" />
                 </div>
-                <h1 className="text-white font-heading text-lg font-black tracking-tight tracking-widest">ImmiGrow</h1>
+                <h1 className="text-white font-heading text-3xl font-black tracking-tight">immiGrow</h1>
               </div>
-              <div className="flex items-center gap-2 text-brand-sand/60">
+              <div className="flex items-center gap-2 text-white/70">
                 <MapPin className="w-3 h-3 text-brand-sun" />
                 <span className="text-[10px] font-black uppercase tracking-[0.2em]">Dublin, Ireland</span>
               </div>
@@ -81,8 +81,8 @@ export default function Home() {
           <div className="flex items-center justify-between gap-6">
             <div className="flex-1">
               <h2 className="text-3xl md:text-4xl font-black text-white leading-tight">
-                {language === "en" ? "G'day," : "Hola,"} <br />
-                <span className="text-brand-sun">{language === "en" ? "Ready to explore?" : "¿Lista para explorar?"}</span>
+                {t("hero.greeting")} <br />
+                <span className="text-brand-sun">{t("hero.subtitle")}</span>
               </h2>
             </div>
 
@@ -118,27 +118,25 @@ export default function Home() {
         <section>
           <div className="flex justify-between items-center mb-4">
             <h3 className="font-heading font-bold text-lg text-brand-navy">
-              {language === "en" ? "Daily Challenge" : "Reto del Día"}
+              {t("challenge.title")}
             </h3>
             <Link href="/community/social-fit" className="text-brand-teal text-xs font-bold hover:underline">
-              {language === "en" ? "View all" : "Ver todos"}
+              {t("common.viewAll")}
             </Link>
           </div>
-          <div className="bg-brand-sand/50 rounded-[2rem] overflow-hidden border border-brand-sand shadow-sm group">
+          <div className="bg-brand-sand/50 rounded-[2rem] overflow-hidden border-2 border-brand-turquoise/20 shadow-sm group">
             <div className="flex flex-col md:flex-row">
               <div className="h-48 md:w-1/3 bg-cover bg-center transition-transform group-hover:scale-105 duration-700" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=1000')" }}></div>
               <div className="p-6 flex-1 flex flex-col justify-center">
-                <h4 className="text-xl font-bold text-brand-navy mb-2">Nature Walk & Reflection</h4>
+                <h4 className="text-xl font-bold text-brand-navy mb-2">{t("challenge.name")}</h4>
                 <p className="text-slate-600 text-sm mb-6 leading-relaxed">
-                  {language === "en"
-                    ? "Find a quiet spot in St. Stephen's Green and spend 10 minutes observing the locals."
-                    : "Encuentra un lugar tranquilo en St. Stephen's Green y dedica 10 minutos a observar tu entorno."}
+                  {t("challenge.desc")}
                 </p>
                 <Link
                   href="/exercise/parks/st-stephens-green"
-                  className="bg-brand-navy text-white text-center py-3 rounded-2xl font-bold text-sm hover:bg-brand-navy/90 transition-all shadow-md active:scale-95"
+                  className="bg-brand-irish-green border-2 border-brand-turquoise text-white text-center py-3 rounded-2xl font-bold text-sm hover:bg-brand-deep-emerald transition-all shadow-md active:scale-95"
                 >
-                  {language === "en" ? "Start Now" : "Empezar Ahora"}
+                  {t("btn.startNow")}
                 </Link>
               </div>
             </div>
@@ -155,11 +153,11 @@ export default function Home() {
             {/* Category: Exercise */}
             <Link href="/exercise" className="bg-white p-6 rounded-[2.5rem] shadow-sm border border-slate-100 hover:shadow-xl hover:-translate-y-1 transition-all group overflow-hidden relative">
               <div className="absolute top-0 right-0 w-24 h-24 bg-brand-turquoise/5 rounded-full -mr-8 -mt-8 group-hover:bg-brand-turquoise/10 transition-colors" />
-              <div className="p-3 bg-brand-turquoise/10 text-brand-turquoise rounded-2xl w-fit mb-4 group-hover:bg-brand-turquoise group-hover:text-white transition-all shadow-sm">
+              <div className="p-3 bg-brand-turquoise text-white rounded-2xl w-fit mb-4 shadow-md group-hover:scale-110 transition-all">
                 <Activity className="w-6 h-6" />
               </div>
-              <span className="text-brand-turquoise/60 text-[10px] font-black uppercase tracking-widest">{language === "en" ? "Body" : "Cuerpo"}</span>
-              <h4 className="font-bold text-brand-navy mt-1 text-lg">{language === "en" ? "Exercise" : "Ejercicio"}</h4>
+              <span className="text-brand-turquoise/60 text-[10px] font-black uppercase tracking-widest">{t("cat.body")}</span>
+              <h4 className="font-bold text-brand-navy mt-1 text-lg">{t("nav.physical_activity")}</h4>
             </Link>
 
             {/* Category: Tourism */}
@@ -168,38 +166,18 @@ export default function Home() {
               <div className="p-3 bg-brand-sun/10 text-brand-sun rounded-2xl w-fit mb-4 group-hover:bg-brand-sun group-hover:text-brand-navy transition-all shadow-sm">
                 <MapPinned className="w-6 h-6" />
               </div>
-              <span className="text-brand-sun/60 text-[10px] font-black uppercase tracking-widest">{language === "en" ? "Explore" : "Explorar"}</span>
+              <span className="text-brand-sun/60 text-[10px] font-black uppercase tracking-widest">{t("cat.explore")}</span>
               <h4 className="font-bold text-brand-navy mt-1 text-lg">{t("nav.tourism")}</h4>
             </Link>
 
-            {/* Category: Mental Health */}
-            <Link href="/mental-health" className="bg-white p-6 rounded-[2.5rem] shadow-sm border border-slate-100 hover:shadow-xl hover:-translate-y-1 transition-all group overflow-hidden relative">
-              <div className="absolute top-0 right-0 w-24 h-24 bg-brand-purple/5 rounded-full -mr-8 -mt-8 group-hover:bg-brand-purple/10 transition-colors" />
-              <div className="p-3 bg-brand-purple/10 text-brand-purple rounded-2xl w-fit mb-4 group-hover:bg-brand-purple group-hover:text-white transition-all shadow-sm">
-                <Brain className="w-6 h-6" />
-              </div>
-              <span className="text-brand-purple/60 text-[10px] font-black uppercase tracking-widest">{language === "en" ? "Mind" : "Mente"}</span>
-              <h4 className="font-bold text-brand-navy mt-1 text-lg">{t("nav.mental")}</h4>
-            </Link>
-
-            {/* Category: Women's Health */}
-            <Link href="/womens-health" className="bg-white p-6 rounded-[2.5rem] shadow-sm border border-slate-100 hover:shadow-xl hover:-translate-y-1 transition-all group overflow-hidden relative">
-              <div className="absolute top-0 right-0 w-24 h-24 bg-brand-pink/10 rounded-full -mr-8 -mt-8 group-hover:bg-brand-pink/20 transition-colors" />
-              <div className="p-3 bg-brand-pink/20 text-brand-pink rounded-2xl w-fit mb-4 group-hover:bg-brand-pink group-hover:text-brand-navy transition-all shadow-sm">
+            {/* Category: Health Hub */}
+            <Link href="/health" className="bg-white p-6 rounded-[2.5rem] shadow-sm border border-slate-100 hover:shadow-xl hover:-translate-y-1 transition-all group overflow-hidden relative">
+              <div className="absolute top-0 right-0 w-24 h-24 bg-brand-irish-green/5 rounded-full -mr-8 -mt-8 group-hover:bg-brand-irish-green/10 transition-colors" />
+              <div className="p-3 bg-brand-irish-green/10 text-brand-irish-green rounded-2xl w-fit mb-4 group-hover:bg-brand-irish-green group-hover:text-white transition-all shadow-sm">
                 <Heart className="w-6 h-6" />
               </div>
-              <span className="text-brand-pink/60 text-[10px] font-black uppercase tracking-widest">{language === "en" ? "Care" : "Cuidado"}</span>
-              <h4 className="font-bold text-brand-navy mt-1 text-lg">{t("nav.women")}</h4>
-            </Link>
-
-            {/* Category: Physiotherapy */}
-            <Link href="/exercise/physiotherapy" className="bg-white p-6 rounded-[2.5rem] shadow-sm border border-slate-100 hover:shadow-xl hover:-translate-y-1 transition-all group overflow-hidden relative">
-              <div className="absolute top-0 right-0 w-24 h-24 bg-brand-teal/5 rounded-full -mr-8 -mt-8 group-hover:bg-brand-teal/10 transition-colors" />
-              <div className="p-3 bg-brand-teal/10 text-brand-teal rounded-2xl w-fit mb-4 group-hover:bg-brand-teal group-hover:text-white transition-all shadow-sm">
-                <Stethoscope className="w-6 h-6" />
-              </div>
-              <span className="text-brand-teal/60 text-[10px] font-black uppercase tracking-widest">{language === "en" ? "Recovery" : "Recuperación"}</span>
-              <h4 className="font-bold text-brand-navy mt-1 text-lg">{language === "en" ? "Physio" : "Fisioterapia"}</h4>
+              <span className="text-brand-irish-green/60 text-[10px] font-black uppercase tracking-widest">{t("cat.wellness")}</span>
+              <h4 className="font-bold text-brand-navy mt-1 text-lg">{t("nav.health")}</h4>
             </Link>
 
             {/* Category: Community */}
@@ -208,7 +186,7 @@ export default function Home() {
               <div className="p-3 bg-brand-sage/10 text-brand-sage rounded-2xl w-fit mb-4 group-hover:bg-brand-sage group-hover:text-white transition-all shadow-sm">
                 <Users className="w-6 h-6" />
               </div>
-              <span className="text-brand-sage/60 text-[10px] font-black uppercase tracking-widest">{language === "en" ? "Social" : "Social"}</span>
+              <span className="text-brand-sage/60 text-[10px] font-black uppercase tracking-widest">{t("cat.social")}</span>
               <h4 className="font-bold text-brand-navy mt-1 text-lg">{t("nav.community")}</h4>
             </Link>
 
@@ -218,28 +196,18 @@ export default function Home() {
               <div className="p-3 bg-brand-sunset/10 text-brand-sunset rounded-2xl w-fit mb-4 group-hover:bg-brand-sunset group-hover:text-white transition-all shadow-sm">
                 <Shield className="w-6 h-6" />
               </div>
-              <span className="text-brand-sunset/60 text-[10px] font-black uppercase tracking-widest">Visa & Housing</span>
+              <span className="text-brand-sunset/60 text-[10px] font-black uppercase tracking-widest">{t("cat.admin")}</span>
               <h4 className="font-bold text-brand-navy mt-1 text-lg">{t("nav.procedures")}</h4>
             </Link>
 
-            {/* Category: Jobs */}
-            <Link href="/jobs" className="bg-white p-6 rounded-[2.5rem] shadow-sm border border-slate-100 hover:shadow-xl hover:-translate-y-1 transition-all group overflow-hidden relative">
-              <div className="absolute top-0 right-0 w-24 h-24 bg-brand-turquoise/5 rounded-full -mr-8 -mt-8 group-hover:bg-brand-turquoise/10 transition-colors" />
-              <div className="p-3 bg-brand-turquoise/10 text-brand-turquoise rounded-2xl w-fit mb-4 group-hover:bg-brand-turquoise group-hover:text-white transition-all shadow-sm">
-                <Briefcase className="w-6 h-6" />
+            {/* Category: More */}
+            <Link href="/more" className="bg-white p-6 rounded-[2.5rem] shadow-sm border border-slate-100 hover:shadow-xl hover:-translate-y-1 transition-all group overflow-hidden relative">
+              <div className="absolute top-0 right-0 w-24 h-24 bg-brand-purple/5 rounded-full -mr-8 -mt-8 group-hover:bg-brand-purple/10 transition-colors" />
+              <div className="p-3 bg-brand-purple/10 text-brand-purple rounded-2xl w-fit mb-4 group-hover:bg-brand-purple group-hover:text-white transition-all shadow-sm">
+                <Sparkles className="w-6 h-6" />
               </div>
-              <span className="text-brand-turquoise/60 text-[10px] font-black uppercase tracking-widest">{language === "en" ? "Work" : "Trabajo"}</span>
-              <h4 className="font-bold text-brand-navy mt-1 text-lg">{language === "en" ? "Jobs" : "Empleo"}</h4>
-            </Link>
-
-            {/* Category: Calculator */}
-            <Link href="/calculator" className="bg-white p-6 rounded-[2.5rem] shadow-sm border border-slate-100 hover:shadow-xl hover:-translate-y-1 transition-all group overflow-hidden relative">
-              <div className="absolute top-0 right-0 w-24 h-24 bg-brand-sun/5 rounded-full -mr-8 -mt-8 group-hover:bg-brand-sun/10 transition-colors" />
-              <div className="p-3 bg-brand-sun/10 text-brand-sun rounded-2xl w-fit mb-4 group-hover:bg-brand-sun group-hover:text-brand-navy transition-all shadow-sm">
-                <Calculator className="w-6 h-6" />
-              </div>
-              <span className="text-brand-sun/60 text-[10px] font-black uppercase tracking-widest">{language === "en" ? "Budget" : "Presupuesto"}</span>
-              <h4 className="font-bold text-brand-navy mt-1 text-lg">{language === "en" ? "Calculator" : "Calculadora"}</h4>
+              <span className="text-brand-purple/60 text-[10px] font-black uppercase tracking-widest">{t("cat.extras")}</span>
+              <h4 className="font-bold text-brand-navy mt-1 text-lg">{t("nav.more")}</h4>
             </Link>
           </div>
         </section>
@@ -249,7 +217,7 @@ export default function Home() {
         {/* Shortcuts / Quick Actions */}
         <section className="pb-8 space-y-4">
           <h3 className="font-heading font-bold text-lg text-brand-navy px-1">
-            {language === "en" ? "Quick Access" : "Acceso Rápido"}
+            {t("home.quickAccess")}
           </h3>
           <div className="space-y-3">
             <Link href="/vault" className="flex items-center justify-between p-4 bg-white rounded-2xl shadow-sm border border-slate-100 hover:bg-slate-50 transition-colors">
@@ -269,7 +237,6 @@ export default function Home() {
           </div>
         </section>
       </div>
-      <SOSButton />
     </main>
   );
 }

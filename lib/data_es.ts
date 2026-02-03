@@ -766,31 +766,6 @@ Si eres no-UE y te quedas +90 días.
         `
     },
     {
-        title: "Empleo y Carrera",
-        description: "Consejos para encontrar trabajo en Dublín. Formato de CV, LinkedIn y agencias.",
-        distance: "Trabajo",
-        difficulty: "Medium",
-        icon: Briefcase,
-        slug: "jobs-career",
-        image: "/jobs_career.png",
-        content: `
-# Encontrar Trabajo en Dublín
-
-## Lo Básico
-- **Formato CV**: Máximo 2 páginas. Sin foto, sin fecha de nacimiento, sin dirección completa (solo "Dublín").
-- **LinkedIn**: Esencial para trabajos profesionales. Pon tu ubicación en "Dublín".
-
-## Dónde Buscar
-- **LinkedIn**: La herramienta #1 para trabajos tecnológicos y corporativos.
-- **Indeed.ie**: Bueno para trabajos generales, retail y hostelería.
-- **IrishJobs.ie**: Otro portal popular.
-
-## Agencias de Reclutamiento
-- Muchas empresas contratan a través de agencias como Cpl, Morgan McKinley y Sigmar.
-- Registrarse con ellas es gratis.
-        `
-    },
-    {
         title: "Costo de Vida",
         description: "Presupuesto para la vida en Dublín. Alquiler, comida y transporte.",
         distance: "Finanzas",
@@ -888,31 +863,6 @@ Si tú o alguien que conoces está angustiado, busca ayuda ahora. Estos servicio
 - Si estás en peligro inmediato, llama al **112** o **999** o ve al Departamento de Emergencias del Hospital más cercano (A&E).
         `
     },
-    {
-        title: "Saunas y Relajación",
-        description: "Descubre saunas públicas y suites termales para la recuperación corporal y relajación profunda.",
-        distance: "Bienestar",
-        difficulty: "Easy",
-        icon: Waves,
-        slug: "saunas-relaxation",
-        image: "/sauna_sunny.png",
-        content: `
-# Saunas y Relajación
-
-Cuidar tu cuerpo ayuda a tu mente. Dublín tiene varios lugares excelentes para terapia termal.
-
-## Saunas Públicas (Frente al Mar)
-- **The Hot Box**: Usualmente ubicado cerca de Bunkers Hill. Sauna de leña junto al mar.
-- **Sweatbox**: A menudo saunas móviles en playas como Portmarnock.
-
-## Suites Termales (Gimnasios/Spas)
-- **West Wood Club**: Ubicaciones en Clontarf y Sandymount tienen amplias instalaciones de spa.
-- **SportsLink** (Santry): Ofrece una piscina de ocio y sauna.
-
-## Consejos
-- Integrar una sesión de sauna después de un baño frío (como en el Forty Foot) es una actividad de "bienestar" muy popular en Dublín.
-        `
-    }
 ];
 
 export const exerciseGeneralEs: RouteItem[] = [
@@ -1209,15 +1159,6 @@ export const eventsEs: EventItem[] = [
         description: "Explora la historia de Irlanda con un guía profesional gratis.",
         category: "Culture"
     },
-    {
-        id: "job-workshop",
-        title: "Taller para Empleo de Migrantes",
-        date: "15 de Feb, 2026",
-        time: "14:00",
-        location: "Online / Zoom",
-        description: "Consejos sobre cómo adaptar tu CV para el mercado tecnológico irlandés.",
-        category: "Education"
-    }
 ];
 
 export const popularKeywordsEs = [

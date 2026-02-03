@@ -69,13 +69,13 @@ export function GlobalSearch() {
         <section className="relative z-30" ref={searchRef}>
             <div className={cn(
                 "bg-white rounded-[2.5rem] shadow-2xl border border-slate-100 transition-all duration-300 overflow-hidden",
-                isExpanded ? "ring-4 ring-brand-irish-green/10" : "hover:shadow-lg"
+                isExpanded ? "ring-4 ring-brand-turquoise/10" : "hover:shadow-lg"
             )}>
                 {/* Search Input Area */}
                 <div className="p-3 flex items-center gap-3">
                     <div className={cn(
                         "p-3 rounded-2xl transition-colors",
-                        isExpanded ? "bg-brand-irish-green text-white" : "bg-slate-50 text-slate-400"
+                        isExpanded ? "bg-brand-turquoise text-white" : "bg-slate-50 text-slate-400"
                     )}>
                         <Search className="w-5 h-5" />
                     </div>
@@ -84,7 +84,7 @@ export function GlobalSearch() {
                         value={searchQuery}
                         onFocus={() => setIsExpanded(true)}
                         onChange={(e) => setSearchQuery(e.target.value)}
-                        placeholder={language === "en" ? "Search Dublin resources..." : "Buscar recursos en Dublín..."}
+                        placeholder={t("search.placeholder")}
                         className="flex-1 bg-transparent border-none focus:ring-0 text-sm font-bold text-brand-navy placeholder:text-slate-300"
                     />
                     {searchQuery && (
@@ -108,9 +108,9 @@ export function GlobalSearch() {
                     {/* Tags Section */}
                     <div className="mb-6">
                         <div className="flex items-center gap-2 mb-3 px-1">
-                            <Tag className="w-3 h-3 text-brand-irish-green" />
+                            <Tag className="w-3 h-3 text-brand-turquoise" />
                             <span className="text-[10px] font-black uppercase tracking-widest text-slate-400">
-                                {language === "en" ? "Popular Keywords" : "Palabras Clave"}
+                                {t("search.popular")}
                             </span>
                         </div>
                         <div className="flex flex-wrap gap-2">
@@ -121,8 +121,8 @@ export function GlobalSearch() {
                                     className={cn(
                                         "px-4 py-2 rounded-xl text-xs font-bold transition-all border",
                                         searchQuery.toLowerCase() === kw.query.toLowerCase()
-                                            ? "bg-brand-irish-green text-white border-brand-irish-green shadow-md scale-105"
-                                            : "bg-slate-50 text-slate-600 border-slate-100 hover:border-brand-irish-green/30 hover:bg-white"
+                                            ? "bg-brand-turquoise text-white border-brand-turquoise shadow-md scale-105"
+                                            : "bg-slate-50 text-slate-600 border-slate-100 hover:border-brand-turquoise/30 hover:bg-white"
                                     )}
                                 >
                                     {kw.label}
@@ -136,7 +136,7 @@ export function GlobalSearch() {
                         <div className="space-y-2 pt-4 border-t border-slate-50">
                             <div className="flex items-center justify-between px-1 mb-3">
                                 <span className="text-[10px] font-black uppercase tracking-widest text-slate-400">
-                                    {language === "en" ? "Results" : "Resultados"}
+                                    {t("search.results")}
                                 </span>
                             </div>
                             <div className="grid grid-cols-1 gap-2">
@@ -147,11 +147,11 @@ export function GlobalSearch() {
                                         className="flex items-center justify-between p-4 rounded-3xl bg-slate-50 hover:bg-brand-irish-green/5 group transition-all"
                                     >
                                         <div className="flex items-center gap-4">
-                                            <div className="p-3 bg-white rounded-2xl shadow-sm text-brand-irish-green group-hover:scale-110 transition-transform">
+                                            <div className="p-3 bg-white rounded-2xl shadow-sm text-brand-turquoise group-hover:scale-110 transition-transform">
                                                 <result.icon className="w-5 h-5" />
                                             </div>
                                             <div>
-                                                <h5 className="text-sm font-black text-brand-navy leading-none mb-1 group-hover:text-brand-irish-green transition-colors">
+                                                <h5 className="text-sm font-black text-brand-navy leading-none mb-1 group-hover:text-brand-turquoise transition-colors">
                                                     {result.title}
                                                 </h5>
                                                 <p className="text-[10px] text-slate-400 font-medium line-clamp-1">
@@ -167,7 +167,7 @@ export function GlobalSearch() {
                     ) : searchQuery && (
                         <div className="text-center py-8">
                             <p className="text-sm font-bold text-slate-400">
-                                {language === "en" ? "No results found..." : "No se encontraron resultados..."}
+                                {t("search.noResults")}
                             </p>
                         </div>
                     )}

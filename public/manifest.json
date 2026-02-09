@@ -1,7 +1,7 @@
 {
     "name": "immiGrow - Dublin Newcomer Guide",
     "short_name": "immiGrow",
-    "description": "Premium guide for newcomers in Dublin. Exercise, Health, Admin and Community.",
+    "description": "Premium guide for newcomers in Dublin. Health, Activity, Admin and Community.",
     "start_url": "/",
     "display": "standalone",
     "background_color": "#FAF9F6",

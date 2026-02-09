@@ -16,17 +16,17 @@ const outfit = Outfit({
 });
 
 export const metadata: Metadata = {
-  title: "immiGrow Dublin | Guía para Migrantes: Trabajo, Salud y Trámites",
-  description: "La plataforma definitiva para recién llegados a Dublín. Encuentra trabajo, entiende los trámites de PPSN/IRP, cuida tu salud mental y únete a grupos deportivos gratuitos.",
+  title: "immiGrow Dublin | Salud, Actividad y Comunidad",
+  description: "La guía de bienestar para migrantes en Dublín. Trámites esenciales (IRP/PPSN), salud mental, deporte gratuito y vida comunitaria.",
   manifest: "/manifest.json",
   icons: {
     icon: "/iGrow-logo.jpg",
     apple: "/iGrow-logo.jpg",
   },
   openGraph: {
-    title: "immiGrow Dublin | Guía para Migrantes",
-    description: "Encuentra trabajo, salud y comunidad en Dublín.",
-    url: "https://immi-grow.vercel.app",
+    title: "immiGrow Dublin | Salud, Actividad y Comunidad",
+    description: "Salud, bienestar y trámites para migrantes en Dublín.",
+    url: "https://immigrow.ie",
     siteName: "immiGrow",
     images: [
       {
@@ -54,7 +54,7 @@ export const metadata: Metadata = {
     "apple-mobile-web-app-capable": "yes",
     "mobile-web-app-capable": "yes",
     "apple-touch-icon": "/icons/icon.png",
-    "keywords": "migrantes dublin, trabajar en irlanda, pps number dublin, salud mental inmigrantes, deportes gratis dublin, immigrow"
+    "keywords": "salud migrantes dublin, tramites irlanda, pps number dublin, salud mental inmigrantes, deportes gratis dublin, educacion irlanda, immigrow"
   }
 };
 

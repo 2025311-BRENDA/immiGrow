@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     siteName: "immiGrow",
     images: [
       {
-        url: "/iGrow-logo.jpg", // NEW LOGO
+        url: "https://immigrow.ie/iGrow-logo.jpg", // NEW LOGO WITH ABSOLUTE URL
         width: 1200,
         height: 630,
         alt: "immiGrow Logo",
@@ -41,9 +41,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "immiGrow Dublin",
-    description: "Guía completa para migrantes en Dublín.",
-    images: ["/iGrow-logo.jpg"],
+    title: "immiGrow Dublin | Salud, Actividad y Comunidad",
+    description: "Salud, bienestar y trámites para migrantes en Dublín.",
+    images: ["https://immigrow.ie/iGrow-logo.jpg"],
   },
   appleWebApp: {
     capable: true,

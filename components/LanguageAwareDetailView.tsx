@@ -9,6 +9,9 @@ import {
 import {
     tourismEs, parksEs, swimmingEs, cyclingEs, proceduresEs, mentalHealthEs, womensHealthEs, gymsEs, physiotherapyEs
 } from "@/lib/data_es";
+import {
+    tourismPt, parksPt, swimmingPt, cyclingPt, proceduresPt, mentalHealthPt, womensHealthPt, gymsPt, physiotherapyPt
+} from "@/lib/data_pt";
 
 type Category = "tourism" | "parks" | "swimming" | "cycling" | "procedures" | "mental-health" | "womens-health" | "gyms" | "physiotherapy";
 
@@ -35,7 +38,7 @@ export function LanguageAwareDetailView({ slug, category }: LanguageAwareDetailV
             case "gyms": data = gyms; break;
             case "physiotherapy": data = physiotherapy; break;
         }
-    } else {
+    } else if (language === "es") {
         switch (category) {
             case "tourism": data = tourismEs; break;
             case "parks": data = parksEs; break;
@@ -46,6 +49,18 @@ export function LanguageAwareDetailView({ slug, category }: LanguageAwareDetailV
             case "womens-health": data = womensHealthEs; break;
             case "gyms": data = gymsEs; break;
             case "physiotherapy": data = physiotherapyEs; break;
+        }
+    } else {
+        switch (category) {
+            case "tourism": data = tourismPt; break;
+            case "parks": data = parksPt; break;
+            case "swimming": data = swimmingPt; break;
+            case "cycling": data = cyclingPt; break;
+            case "procedures": data = proceduresPt; break;
+            case "mental-health": data = mentalHealthPt; break;
+            case "womens-health": data = womensHealthPt; break;
+            case "gyms": data = gymsPt; break;
+            case "physiotherapy": data = physiotherapyPt; break;
         }
     }
 

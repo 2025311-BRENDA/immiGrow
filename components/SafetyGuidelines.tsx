@@ -10,31 +10,39 @@ export function SafetyGuidelines() {
     const guidelines = [
         {
             icon: MapPin,
-            title: language === "en" ? "Public Places" : "Lugares Públicos",
+            title: language === "en" ? "Public Places" : language === "es" ? "Lugares Públicos" : "Locais Públicos",
             desc: language === "en"
                 ? "Always meet in busy, well-lit public areas like cafes or main parks."
-                : "Queda siempre en lugares concurridos y bien iluminados, como cafés o parques principales."
+                : language === "es"
+                    ? "Queda siempre en lugares concurridos y bien iluminados, como cafés o parques principales."
+                    : "Sempre se encontre em áreas públicas movimentadas e bem iluminadas, como cafés ou parques principais."
         },
         {
             icon: Users,
-            title: language === "en" ? "Inform Someone" : "Avisa a Terceros",
+            title: language === "en" ? "Inform Someone" : language === "es" ? "Avisa a Terceros" : "Informe Alguém",
             desc: language === "en"
                 ? "Let a friend or family member know where you are going and who you are meeting."
-                : "Informa a un amigo o familiar sobre a dónde vas y con quién te vas a encontrar."
+                : language === "es"
+                    ? "Informa a un amigo o familiar sobre a dónde vas y con quién te vas a encontrar."
+                    : "Avise um amigo ou familiar sobre para onde você está indo e com quem vai se encontrar."
         },
         {
             icon: ShieldAlert,
-            title: language === "en" ? "Protect Privacy" : "Cuida tu Privacidad",
+            title: language === "en" ? "Protect Privacy" : language === "es" ? "Cuida tu Privacidad" : "Proteja sua Privacidade",
             desc: language === "en"
                 ? "Don't share sensitive details like your bank account or home address immediately."
-                : "No compartas datos sensibles como tu cuenta bancaria o dirección exacta de inmediato."
+                : language === "es"
+                    ? "No compartas datos sensibles como tu cuenta bancaria o dirección exacta de inmediato."
+                    : "Não compartilhe detalhes confidenciais, como sua conta bancária ou endereço residencial, imediatamente."
         },
         {
             icon: Share2,
-            title: language === "en" ? "Trust Your Instinct" : "Confía en tu Instinto",
+            title: language === "en" ? "Trust Your Instinct" : language === "es" ? "Confía en tu Instinto" : "Confie no seu Instinto",
             desc: language === "en"
                 ? "If something feels wrong, it's okay to leave or cancel. Your safety comes first."
-                : "Si algo no se siente bien, está bien irse o cancelar. Tu seguridad es lo primero."
+                : language === "es"
+                    ? "Si algo no se siente bien, está bien irse o cancelar. Tu seguridad es lo primero."
+                    : "Se algo parecer errado, tudo bem ir embora ou cancelar. Sua segurança vem em primeiro lugar."
         }
     ];
 
@@ -68,7 +76,9 @@ export function SafetyGuidelines() {
                 <p className="text-[10px] text-brand-navy/70 leading-relaxed italic">
                     {language === "en"
                         ? "immiGrow is an information platform. Personal interactions are the responsibility of each user."
-                        : "immiGrow es una plataforma informativa. Las interacciones personales son responsabilidad de cada usuario."}
+                        : language === "es"
+                            ? "immiGrow es una plataforma informativa. Las interacciones personales son responsabilidad de cada usuario."
+                            : "immiGrow é uma plataforma de informação. As interações pessoais são de responsabilidade de cada usuário."}
                 </p>
             </div>
         </div>

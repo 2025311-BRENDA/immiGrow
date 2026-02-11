@@ -46,7 +46,7 @@ export function DetailView({
                         className={cn("inline-flex items-center font-bold text-slate-600 hover:text-brand-navy transition-colors", `hover:text-${accentColor}`)}
                     >
                         <ArrowLeft className={cn("w-4 h-4 mr-2", `text-${accentColor}`)} />
-                        {language === "en" ? "Back to" : "Volver a"} {parentLabel}
+                        {language === "en" ? "Back to" : language === "es" ? "Volver a" : "Voltar para"} {parentLabel}
                     </Link>
                 </div>
             </header>
@@ -102,7 +102,7 @@ export function DetailView({
                                 rel="noopener noreferrer"
                                 className={cn("inline-flex items-center justify-center w-full sm:w-auto px-8 py-3 text-lg font-bold text-white rounded-2xl transition-all shadow-md hover:-translate-y-0.5", `bg-${accentColor}`)}
                             >
-                                Visit Official Website
+                                {language === "en" ? "Visit Official Website" : language === "es" ? "Visitar Sitio Oficial" : "Visitar Site Oficial"}
                                 <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                                 </svg>

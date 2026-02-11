@@ -9,16 +9,16 @@ export function SOSButton() {
     const [isOpen, setIsOpen] = useState(false);
 
     const emergencyNumbers = [
-        { label: language === "en" ? "Emergency Services" : "Servicios de Emergencia", number: "999 / 112" },
-        { label: language === "en" ? "Gardai (Police)" : "Gardaí (Policía)", number: "999" },
-        { label: language === "en" ? "Medical Emergency" : "Emergencia Médica", number: "999" },
+        { label: language === "en" ? "Emergency Services" : language === "es" ? "Servicios de Emergencia" : "Serviços de Emergência", number: "999 / 112" },
+        { label: language === "en" ? "Gardai (Police)" : language === "es" ? "Gardaí (Policía)" : "Gardaí (Polícia)", number: "999" },
+        { label: language === "en" ? "Medical Emergency" : language === "es" ? "Emergencia Médica" : "Emergência Médica", number: "999" },
     ];
 
     const phrases = [
-        { en: "I need help", es: "Necesito ayuda" },
-        { en: "Where is the nearest hospital?", es: "¿Dónde está el hospital más cercano?" },
-        { en: "I have an emergency", es: "Tengo una emergencia" },
-        { en: "Call an ambulance", es: "Llame a una ambulancia" },
+        { en: "I need help", es: "Necesito ayuda", pt: "Preciso de ajuda" },
+        { en: "Where is the nearest hospital?", es: "¿Dónde está el hospital más cercano?", pt: "Onde fica o hospital mais próximo?" },
+        { en: "I have an emergency", es: "Tengo una emergencia", pt: "Tenho uma emergência" },
+        { en: "Call an ambulance", es: "Llame a una ambulancia", pt: "Chame uma ambulância" },
     ];
 
     return (
@@ -54,8 +54,8 @@ export function SOSButton() {
                                     <LifeBuoy className="w-8 h-8" />
                                 </div>
                                 <div>
-                                    <h3 className="text-2xl font-black">{language === "en" ? "Emergency Help" : "Ayuda de Emergencia"}</h3>
-                                    <p className="text-white/80 text-sm">{language === "en" ? "Get help instantly." : "Obtén ayuda al instante."}</p>
+                                    <h3 className="text-2xl font-black">{language === "en" ? "Emergency Help" : language === "es" ? "Ayuda de Emergencia" : "Ajuda de Emergência"}</h3>
+                                    <p className="text-white/80 text-sm">{language === "en" ? "Get help instantly." : language === "es" ? "Obtén ayuda al instante." : "Obtenha ajuda instantaneamente."}</p>
                                 </div>
                             </div>
                         </div>
@@ -65,7 +65,7 @@ export function SOSButton() {
                             {/* Numbers */}
                             <div>
                                 <h4 className="text-xs font-black text-slate-400 uppercase tracking-widest mb-4">
-                                    {language === "en" ? "Numbers to Call" : "Números para Llamar"}
+                                    {language === "en" ? "Numbers to Call" : language === "es" ? "Números para Llamar" : "Números para Ligar"}
                                 </h4>
                                 <div className="space-y-3">
                                     {emergencyNumbers.map((num) => (
@@ -89,14 +89,14 @@ export function SOSButton() {
                             {/* Key Phrases */}
                             <div>
                                 <h4 className="text-xs font-black text-slate-400 uppercase tracking-widest mb-4">
-                                    {language === "en" ? "Key Phrases (Translator)" : "Frases Clave (Traductor)"}
+                                    {language === "en" ? "Key Phrases (Translator)" : language === "es" ? "Frases Clave (Traductor)" : "Frases-Chave (Tradutor)"}
                                 </h4>
                                 <div className="grid grid-cols-1 gap-2">
                                     {phrases.map((phrase) => (
                                         <div key={phrase.en} className="p-3 bg-slate-50 rounded-xl flex justify-between items-center group">
-                                            <span className="text-sm font-bold text-brand-navy">{language === "en" ? phrase.es : phrase.en}</span>
+                                            <span className="text-sm font-bold text-brand-navy">{language === "pt" ? (phrase as any).en : (language === "en" ? (phrase as any).es : (phrase as any).en)}</span>
                                             <ChevronRight className="w-4 h-4 text-slate-300 group-hover:text-brand-turquoise transition-colors" />
-                                            <span className="text-sm font-black text-brand-turquoise">{language === "en" ? phrase.en : phrase.es}</span>
+                                            <span className="text-sm font-black text-brand-turquoise">{language === "pt" ? (phrase as any).pt : (language === "en" ? (phrase as any).en : (phrase as any).es)}</span>
                                         </div>
                                     ))}
                                 </div>

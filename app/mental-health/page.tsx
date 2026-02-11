@@ -3,14 +3,15 @@
 import { RouteCard } from "@/components/RouteCard";
 import { mentalHealth, professionals } from "@/lib/data";
 import { mentalHealthEs } from "@/lib/data_es";
+import { mentalHealthPt, professionalsPt } from "@/lib/data_pt";
 import { useLanguage } from "@/context/LanguageContext";
 import ProfessionalCard from "@/components/ProfessionalCard";
 import JoinNetworkCTA from "@/components/JoinNetworkCTA";
 
 export default function MentalHealthPage() {
     const { language, t } = useLanguage();
-    const data = language === "en" ? mentalHealth : mentalHealthEs;
-    const psychologists = professionals.filter(p => p.role === "Psychologist");
+    const data = language === "en" ? mentalHealth : language === "es" ? mentalHealthEs : mentalHealthPt;
+    const psychologists = (language === "en" ? professionals : language === "es" ? professionals : professionalsPt).filter(p => p.role === "Psychologist");
 
     return (
         <div className="container mx-auto px-4 py-8 pb-32">

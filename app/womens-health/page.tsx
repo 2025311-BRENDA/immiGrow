@@ -3,11 +3,12 @@
 import { RouteCard } from "@/components/RouteCard";
 import { womensHealth } from "@/lib/data";
 import { womensHealthEs } from "@/lib/data_es";
+import { womensHealthPt } from "@/lib/data_pt";
 import { useLanguage } from "@/context/LanguageContext";
 
 export default function WomensHealthPage() {
     const { language, t } = useLanguage();
-    const data = language === "en" ? womensHealth : womensHealthEs;
+    const data = language === "en" ? womensHealth : language === "es" ? womensHealthEs : womensHealthPt;
 
     return (
         <div className="container mx-auto px-4 py-8 pb-32">
@@ -17,7 +18,9 @@ export default function WomensHealthPage() {
             <p className="text-slate-600 mb-8 max-w-2xl">
                 {language === "en"
                     ? "Specific resources and care guides for women's health in Ireland."
-                    : "Recursos específicos y guías de atención para la salud de la mujer en Irlanda."}
+                    : language === "es"
+                        ? "Recursos específicos y guías de atención para la salud de la mujer en Irlanda."
+                        : "Recursos específicos e guias de cuidados para a saúde da mulher na Irlanda."}
             </p>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

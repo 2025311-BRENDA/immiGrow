@@ -5,12 +5,13 @@ import { CheckCircle2, Circle, Briefcase, ExternalLink, FileText, Search } from 
 import { useLanguage } from "@/context/LanguageContext";
 import { jobSteps } from "@/lib/data";
 import { jobStepsEs } from "@/lib/data_es";
+import { jobStepsPt } from "@/lib/data_pt";
 
 export function JobGuide() {
     const { language, t } = useLanguage();
     const [completedSteps, setCompletedSteps] = useState<string[]>([]);
 
-    const data = language === "en" ? jobSteps : jobStepsEs;
+    const data = language === "en" ? jobSteps : language === "es" ? jobStepsEs : jobStepsPt;
 
     useEffect(() => {
         const saved = localStorage.getItem("migrawell_jobs");
@@ -50,10 +51,10 @@ export function JobGuide() {
                 <div className="flex justify-between items-center mb-6">
                     <div>
                         <h3 className="text-2xl font-black text-brand-navy">
-                            {language === "en" ? "Dublin Ready Checklist" : "Preparación para el Empleo"}
+                            {language === "en" ? "Dublin Ready Checklist" : language === "es" ? "Preparación para el Empleo" : "Lista de Preparação para Dublin"}
                         </h3>
                         <p className="text-slate-500 text-sm mt-1">
-                            {language === "en" ? "Essential steps for your job search." : "Pasos esenciales para tu búsqueda de empleo."}
+                            {language === "en" ? "Essential steps for your job search." : language === "es" ? "Pasos esenciales para tu búsqueda de empleo." : "Passos essenciais para sua busca por emprego."}
                         </p>
                     </div>
                     <div className="text-right">
@@ -74,8 +75,8 @@ export function JobGuide() {
                             key={step.id}
                             onClick={() => toggleStep(step.id)}
                             className={`flex items-start gap-4 p-4 rounded-3xl cursor-pointer transition-all border ${completedSteps.includes(step.id)
-                                    ? "bg-brand-turquoise/5 border-brand-turquoise/20"
-                                    : "bg-slate-50 border-transparent hover:bg-slate-100"
+                                ? "bg-brand-turquoise/5 border-brand-turquoise/20"
+                                : "bg-slate-50 border-transparent hover:bg-slate-100"
                                 }`}
                         >
                             <div className={`p-3 rounded-2xl shrink-0 ${completedSteps.includes(step.id) ? "bg-brand-turquoise text-white" : "bg-white text-slate-400 shadow-sm"
@@ -104,7 +105,7 @@ export function JobGuide() {
 
                 <h3 className="text-xl font-black text-brand-sand mb-6 relative z-10 flex items-center gap-2">
                     <Search className="w-5 h-5" />
-                    {language === "en" ? "Top Job Portals" : "Portales de Empleo Principales"}
+                    {language === "en" ? "Top Job Portals" : language === "es" ? "Portales de Empleo Principales" : "Principais Portais de Emprego"}
                 </h3>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 relative z-10">
@@ -131,12 +132,14 @@ export function JobGuide() {
                     </div>
                     <div>
                         <h4 className="font-black text-brand-navy">
-                            {language === "en" ? "Pro Tip: Cultural Fit" : "Consejo: Fit Cultural"}
+                            {language === "en" ? "Pro Tip: Cultural Fit" : language === "es" ? "Consejo: Fit Cultural" : "Dica Pro: Fit Cultural"}
                         </h4>
                         <p className="text-sm text-slate-600 mt-2 leading-relaxed">
                             {language === "en"
                                 ? "In Ireland, networking is often as important as your CV. Use LinkedIn to connect with employees at companies you're interested in and ask for an 'informal coffee chat'."
-                                : "En Irlanda, el networking es tan importante como tu CV. Usa LinkedIn para conectar con empleados de empresas que te interesen y pide un 'café informal' (informal coffee chat)."}
+                                : language === "es"
+                                    ? "En Irlanda, el networking es tan importante como tu CV. Usa LinkedIn para conectar con empleados de empresas que te interesen y pide un 'café informal' (informal coffee chat)."
+                                    : "Na Irlanda, o networking costuma ser tão importante quanto o seu currículo. Use o LinkedIn para se conectar com funcionários de empresas do seu interesse e peça uma 'conversa informal para um café'."}
                         </p>
                     </div>
                 </div>

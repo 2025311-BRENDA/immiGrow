@@ -31,9 +31,9 @@ export function Footer() {
                 <div className="pt-8 border-t border-slate-50 flex flex-col md:flex-row justify-between items-center gap-6 text-[10px] text-slate-400 font-bold uppercase tracking-widest">
                     <span>&copy; {new Date().getFullYear()} immiGrow Dublin</span>
                     <div className="flex gap-8">
-                        <Link href="/privacy" className="hover:text-brand-teal transition-colors">Privacy</Link>
-                        <Link href="/privacy#terms" className="hover:text-brand-teal transition-colors">Terms</Link>
-                        <Link href="/contact" className="hover:text-brand-teal transition-colors">Contact</Link>
+                        <Link href="/privacy" className="hover:text-brand-teal transition-colors">{language === "en" ? "Privacy" : language === "es" ? "Privacidad" : "Privacidade"}</Link>
+                        <Link href="/privacy#terms" className="hover:text-brand-teal transition-colors">{language === "en" ? "Terms" : language === "es" ? "Términos" : "Termos"}</Link>
+                        <Link href="/contact" className="hover:text-brand-teal transition-colors">{language === "en" ? "Contact" : language === "es" ? "Contacto" : "Contato"}</Link>
                     </div>
                 </div>
             </div>

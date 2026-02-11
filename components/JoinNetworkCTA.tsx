@@ -5,19 +5,25 @@ import { useLanguage } from '@/context/LanguageContext';
 const JoinNetworkCTA: React.FC = () => {
     const { language } = useLanguage();
 
-    const title = language === "en" ? "Are you a professional?" : "¿Eres un profesional?";
+    const title = language === "en" ? "Are you a professional?" : language === "es" ? "¿Eres un profesional?" : "Você é um profissional?";
     const description = language === "en"
         ? "Join our network of trusted professionals and help the migrant community in Dublin."
-        : "Únete a nuestra red de profesionales de confianza y ayuda a la comunidad migrante en Dublín.";
-    const buttonText = language === "en" ? "Apply to Join" : "Solicitar Unirse";
+        : language === "es"
+            ? "Únete a nuestra red de profesionales de confianza y ayuda a la comunidad migrante en Dublín."
+            : "Junte-se à nossa rede de profissionais de confiança e ajude a comunidade migrante em Dublin.";
+    const buttonText = language === "en" ? "Apply to Join" : language === "es" ? "Solicitar Unirse" : "Candidatar-se para Participar";
 
     const emailSubject = language === "en"
         ? "Professional Network Application - immiGrow"
-        : "Solicitud Red de Profesionales - immiGrow";
+        : language === "es"
+            ? "Solicitud Red de Profesionales - immiGrow"
+            : "Candidatura para Rede Profissional - immiGrow";
 
     const emailBody = language === "en"
         ? "Hello,\n\nI am interested in joining the immiGrow professional network.\n\nName:\nRole:\nSpecialty:\nLocation:\n\nThank you."
-        : "Hola,\n\nEstoy interesado en unirme a la red de profesionales de immiGrow.\n\nNombre:\nRol:\nEspecialidad:\nUbicación:\n\nGracias.";
+        : language === "es"
+            ? "Hola,\n\nEstoy interesado en unirme a la red de profesionales de immiGrow.\n\nNombre:\nRol:\nEspecialidad:\nUbicación:\n\nGracias."
+            : "Olá,\n\nEstou interessado em participar da rede profissional immiGrow.\n\nNome:\nCargo:\nEspecialidade:\nLocalização:\n\nObrigado.";
 
     const mailtoLink = `mailto:join@immigrow.ie?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
 

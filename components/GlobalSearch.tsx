@@ -95,7 +95,7 @@ export function GlobalSearch() {
                         value={searchQuery}
                         onFocus={() => setIsExpanded(true)}
                         onChange={(e) => setSearchQuery(e.target.value)}
-                        placeholder="Search Dublin resources..."
+                        placeholder={language === "en" ? "Search Dublin resources..." : language === "es" ? "Buscar recursos en Dublín..." : "Pesquisar recursos em Dublin..."}
                         className="flex-1 bg-transparent border-none focus:ring-0 text-lg font-bold text-brand-navy placeholder:text-slate-300"
                     />
                     {searchQuery && (

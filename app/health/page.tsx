@@ -15,7 +15,9 @@ export default function HealthHubPage() {
             title: t("nav.women"),
             description: language === "en"
                 ? "Maternity, screenings, and specialized care."
-                : "Maternidad, chequeos y cuidado especializado.",
+                : language === "es"
+                    ? "Maternidad, chequeos y cuidado especializado."
+                    : "Maternidade, exames e cuidados especializados.",
             icon: Heart,
             href: "/womens-health",
             color: "text-brand-pink",
@@ -26,7 +28,9 @@ export default function HealthHubPage() {
             title: t("nav.mental"),
             description: language === "en"
                 ? "Support networks, psychologists, and well-being."
-                : "Redes de apoyo, psicólogos y bienestar.",
+                : language === "es"
+                    ? "Redes de apoyo, psicólogos y bienestar."
+                    : "Redes de apoio, psicólogos e bem-estar.",
             icon: Brain,
             href: "/mental-health",
             color: "text-brand-purple",
@@ -37,7 +41,9 @@ export default function HealthHubPage() {
             title: t("nav.physiotherapy"),
             description: language === "en"
                 ? "Recovery, community clinics, and specialists."
-                : "Recuperación, clínicas comunitarias y especialistas.",
+                : language === "es"
+                    ? "Recuperación, clínicas comunitarias y especialistas."
+                    : "Recuperação, clínicas comunitárias e especialistas.",
             icon: Activity,
             href: "/exercise/physiotherapy",
             color: "text-brand-turquoise",
@@ -55,7 +61,9 @@ export default function HealthHubPage() {
                 <p className="text-slate-600 text-lg max-w-2xl leading-relaxed">
                     {language === "en"
                         ? "Comprehensive care for your physical and mental well-being in Dublin."
-                        : "Cuidado integral para tu bienestar físico y mental en Dublín."}
+                        : language === "es"
+                            ? "Cuidado integral para tu bienestar físico y mental en Dublín."
+                            : "Cuidado integral para o seu bem-estar físico e mental em Dublin."}
                 </p>
             </header>
 

@@ -88,7 +88,9 @@ export default function VaultPage() {
                         <p className="text-brand-sand/70 text-sm mt-1">
                             {language === "en"
                                 ? "Private storage for your immigration deadlines."
-                                : "Almacenamiento privado para tus trámites de inmigración."}
+                                : language === "es"
+                                    ? "Almacenamiento privado para tus trámites de inmigración."
+                                    : "Armazenamento privado para seus prazos de imigração."}
                         </p>
                     </div>
                     <Shield className="w-10 h-10 text-brand-pink opacity-50" />
@@ -102,7 +104,9 @@ export default function VaultPage() {
                     <p>
                         {language === "en"
                             ? "All data is stored locally on your device. We never sync or see your private documents."
-                            : "Todos los datos se guardan localmente en tu dispositivo. Nunca sincronizamos ni vemos tus documentos."}
+                            : language === "es"
+                                ? "Todos los datos se guardan localmente en tu dispositivo. Nunca sincronizamos ni vemos tus documentos."
+                                : "Todos os dados são armazenados localmente no seu dispositivo. Nunca sincronizamos ou vemos seus documentos privados."}
                     </p>
                 </div>
 
@@ -113,16 +117,16 @@ export default function VaultPage() {
                         className="w-full p-4 bg-white border-2 border-dashed border-slate-200 rounded-2xl text-slate-500 font-bold hover:border-brand-teal hover:text-brand-teal transition-all flex items-center justify-center gap-2 mb-8 group"
                     >
                         <Plus className="w-5 h-5 group-hover:scale-125 transition-transform" />
-                        {language === "en" ? "Add Document" : "Agregar Documento"}
+                        {language === "en" ? "Add Document" : language === "es" ? "Agregar Documento" : "Adicionar Documento"}
                     </button>
                 ) : (
                     <div className="bg-white p-6 rounded-3xl shadow-md mb-8 border border-slate-100 animate-in fade-in slide-in-from-top-4">
                         <h3 className="text-lg font-bold text-brand-navy mb-4">
-                            {language === "en" ? "New Record" : "Nuevo Registro"}
+                            {language === "en" ? "New Record" : language === "es" ? "Nuevo Registro" : "Novo Registro"}
                         </h3>
                         <div className="space-y-4">
                             <div>
-                                <label className="block text-xs font-bold text-slate-400 uppercase mb-1">{language === "en" ? "Title" : "Título"}</label>
+                                <label className="block text-xs font-bold text-slate-400 uppercase mb-1">{language === "en" ? "Title" : language === "es" ? "Título" : "Título"}</label>
                                 <input
                                     type="text"
                                     value={newDoc.title}
@@ -157,14 +161,14 @@ export default function VaultPage() {
                                     onClick={() => setIsAddMode(false)}
                                     className="flex-1 p-3 text-slate-400 font-bold hover:text-slate-600"
                                 >
-                                    {language === "en" ? "Cancel" : "Cancelar"}
+                                    {language === "en" ? "Cancel" : language === "es" ? "Cancelar" : "Cancelar"}
                                 </button>
                                 <button
                                     onClick={handleAdd}
                                     disabled={!newDoc.title || !newDoc.expiryDate}
                                     className="flex-1 p-3 bg-brand-teal text-white font-bold rounded-xl shadow-md hover:bg-brand-teal/90 disabled:opacity-50 disabled:grayscale transition-all"
                                 >
-                                    {language === "en" ? "Save" : "Guardar"}
+                                    {language === "en" ? "Save" : language === "es" ? "Guardar" : "Salvar"}
                                 </button>
                             </div>
                         </div>
@@ -176,7 +180,7 @@ export default function VaultPage() {
                     {documents.length === 0 ? (
                         <div className="text-center py-12 opacity-30">
                             <Shield className="w-12 h-12 mx-auto mb-2" />
-                            <p className="font-medium">{language === "en" ? "No records yet" : "Sin registros aún"}</p>
+                            <p className="font-medium">{language === "en" ? "No records yet" : language === "es" ? "Sin registros aún" : "Nenhum registro ainda"}</p>
                         </div>
                     ) : (
                         documents.sort((a, b) => new Date(a.expiryDate).getTime() - new Date(b.expiryDate).getTime()).map((doc) => {
@@ -200,13 +204,13 @@ export default function VaultPage() {
                                             {warning && !expired && (
                                                 <div className="mt-2 text-[10px] font-bold text-yellow-600 uppercase tracking-wider flex items-center gap-1">
                                                     <AlertCircle className="w-3 h-3" />
-                                                    {language === "en" ? "Renovate soon!" : "¡Renovar pronto!"}
+                                                    {language === "en" ? "Renovate soon!" : language === "es" ? "¡Renovar pronto!" : "Renove logo!"}
                                                 </div>
                                             )}
                                             {expired && (
                                                 <div className="mt-2 text-[10px] font-bold text-red-500 uppercase tracking-wider flex items-center gap-1">
                                                     <AlertCircle className="w-3 h-3" />
-                                                    {language === "en" ? "Expired" : "Vencido"}
+                                                    {language === "en" ? "Expired" : language === "es" ? "Vencido" : "Vencido"}
                                                 </div>
                                             )}
                                         </div>

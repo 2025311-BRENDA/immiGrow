@@ -5,13 +5,13 @@ import { CheckCircle2, Circle } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 import { roadmapData } from "@/lib/data";
 import { roadmapDataEs } from "@/lib/data_es";
-import { roadmapPt } from "@/lib/data_pt";
+import { roadmapDataPt } from "@/lib/data_pt";
 
 export function Roadmap() {
     const { language, t } = useLanguage();
     const [completed, setCompleted] = useState<string[]>([]);
 
-    const data = language === "en" ? roadmapData : language === "es" ? roadmapDataEs : roadmapPt;
+    const data = language === "en" ? roadmapData : language === "es" ? roadmapDataEs : roadmapDataPt;
 
     useEffect(() => {
         const saved = localStorage.getItem("migrawell_completed");
@@ -20,7 +20,7 @@ export function Roadmap() {
                 const parsed = JSON.parse(saved);
                 // Validate IDs against current data to prevent "ghost" progress
                 // This fixes the issue where progress shows > 0% but no items are checked due to old IDs
-                const validIds = data.map(i => i.id);
+                const validIds = data.map((i: any) => i.id);
                 const validCompleted = parsed.filter((id: string) => validIds.includes(id));
 
                 setCompleted(validCompleted);
@@ -75,7 +75,7 @@ export function Roadmap() {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                {data.map((item) => {
+                {data.map((item: any) => {
                     const isDone = completed.includes(item.id);
                     return (
                         <div

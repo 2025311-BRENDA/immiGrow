@@ -15,7 +15,9 @@ export default function MorePage() {
             title: t("nav.jobs"),
             description: language === "en"
                 ? "Guides for finding work, CV tips, and recruitment agencies."
-                : "Guías para encontrar trabajo, consejos para CV y agencias.",
+                : language === "es"
+                    ? "Guías para encontrar trabajo, consejos para CV y agencias."
+                    : "Guias para encontrar trabalho, dicas de currículo e agências de recrutamento.",
             distance: "Career",
             difficulty: "Easy" as const,
             icon: Sparkles,
@@ -25,7 +27,9 @@ export default function MorePage() {
             title: t("nav.calculator"),
             description: language === "en"
                 ? "Estimate your monthly living costs in Dublin."
-                : "Estima tus gastos mensuales de vida en Dublín.",
+                : language === "es"
+                    ? "Estima tus gastos mensuales de vida en Dublín."
+                    : "Estime seus custos de vida mensais em Dublin.",
             distance: "Finanzas",
             difficulty: "Easy" as const,
             icon: FileText,
@@ -35,7 +39,9 @@ export default function MorePage() {
             title: t("nav.community"),
             description: language === "en"
                 ? "Join groups, circles, and connect with other migrants."
-                : "Únete a grupos, círculos y conecta con otros migrantes.",
+                : language === "es"
+                    ? "Únete a grupos, círculos y conecta con otros migrantes."
+                    : "Participe de grupos, círculos e conecte-se com outros migrantes.",
             distance: "Social",
             difficulty: "Easy" as const,
             icon: Heart,
@@ -53,16 +59,18 @@ export default function MorePage() {
                     <div className="flex items-center gap-3 mb-4">
                         <Sparkles className="w-5 h-5 text-brand-purple" />
                         <span className="text-[10px] font-black uppercase tracking-[0.2em] text-brand-purple/60">
-                            {language === "en" ? "Premium Content" : "Contenido Premium"}
+                            {language === "en" ? "Premium Content" : language === "es" ? "Contenido Premium" : "Conteúdo Premium"}
                         </span>
                     </div>
                     <h1 className="text-4xl font-heading font-black mb-4">
-                        {language === "en" ? "More Resources" : "Más Recursos"}
+                        {language === "en" ? "More Resources" : language === "es" ? "Más Recursos" : "Mais Recursos"}
                     </h1>
                     <p className="text-brand-navy/80 text-lg max-w-2xl font-medium leading-relaxed">
                         {language === "en"
                             ? "Dive deeper into life in Dublin with these specialized guides."
-                            : "Explora más sobre la vida en Dublín con estas guías especializadas."}
+                            : language === "es"
+                                ? "Explora más sobre la vida en Dublín con estas guías especializadas."
+                                : "Explore mais sobre a vida em Dublin com estes guias especializados."}
                     </p>
                 </div>
             </header>
@@ -89,12 +97,14 @@ export default function MorePage() {
                         </div>
                         <div className="flex-1 text-center md:text-left">
                             <h2 className="text-2xl font-bold mb-2">
-                                {language === "en" ? "Take immiGrow everywhere" : "Lleva immiGrow a todas partes"}
+                                {language === "en" ? "Take immiGrow everywhere" : language === "es" ? "Lleva immiGrow a todas partes" : "Leve o immiGrow para todos os lugares"}
                             </h2>
                             <p className="text-white/60 text-sm max-w-md">
                                 {language === "en"
                                     ? "Install the app on your home screen for faster access, offline mode, and a full-screen experience."
-                                    : "Instala la app en tu pantalla de inicio para un acceso más rápido, modo sin conexión y experiencia completa."}
+                                    : language === "es"
+                                        ? "Instala la app en tu pantalla de inicio para un acceso más rápido, modo sin conexión y experiencia completa."
+                                        : "Instale o aplicativo na sua tela inicial para acesso mais rápido, modo offline e uma experiência em tela cheia."}
                             </p>
                         </div>
                         <button
@@ -106,7 +116,9 @@ export default function MorePage() {
                                 if (isIOS) {
                                     alert(language === 'en'
                                         ? "To install on iPhone: Tap 'Share' icon and then 'Add to Home Screen'."
-                                        : "Para instalar en iPhone: Toca el icono de 'Compartir' y luego 'Añadir a la pantalla de inicio'.");
+                                        : language === 'es'
+                                            ? "Para instalar en iPhone: Toca el icono de 'Compartir' y luego 'Añadir a la pantalla de inicio'."
+                                            : "Para instalar no iPhone: Toque no ícone 'Compartilhar' e depois em 'Adicionar à Tela de Início'.");
                                 }
                             }}
                             className="bg-brand-sun text-brand-navy px-8 py-4 rounded-2xl font-black uppercase tracking-widest hover:scale-105 transition-all shadow-lg active:scale-95"

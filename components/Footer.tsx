@@ -3,6 +3,7 @@
 import React from "react";
 import { useLanguage } from "@/context/LanguageContext";
 import { Shield } from "lucide-react";
+import Link from "next/link";
 
 export function Footer() {
     const { language, t } = useLanguage();
@@ -41,9 +42,9 @@ export function Footer() {
                 <div className="mt-12 pt-8 border-t border-slate-50 flex flex-col md:flex-row justify-between items-center gap-4 text-[10px] text-slate-400 font-bold uppercase tracking-widest">
                     <span>&copy; {new Date().getFullYear()} immiGrow Dublin</span>
                     <div className="flex gap-6">
-                        <a href="#" className="hover:text-brand-teal transition-colors">Privacy</a>
+                        <Link href="/privacy" className="hover:text-brand-teal transition-colors">Privacy</Link>
                         <a href="#" className="hover:text-brand-teal transition-colors">Terms</a>
-                        <a href="#" className="hover:text-brand-teal transition-colors">Contact</a>
+                        <Link href="/contact" className="hover:text-brand-teal transition-colors">Contact</Link>
                     </div>
                 </div>
             </div>

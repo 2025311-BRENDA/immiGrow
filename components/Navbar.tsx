@@ -148,7 +148,12 @@ export function Navbar() {
                         </div>
                     </div>
 
-                    <div className="flex items-center gap-4">
+                    <div className="flex items-center justify-between w-full lg:w-auto">
+                        {/* Mobile Logo Only */}
+                        <Link href="/" className="lg:hidden w-8 h-8 rounded-lg overflow-hidden border border-slate-100">
+                            <img src="/iGrow-logo.jpg" alt="iGrow" className="w-full h-full object-cover" />
+                        </Link>
+
                         <div className="flex items-center gap-3">
                             <div className="hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-xl bg-slate-100 text-[10px] font-black uppercase tracking-wider text-slate-500 border border-slate-200">
                                 <Globe className="w-3 h-3" />
@@ -156,9 +161,10 @@ export function Navbar() {
                             </div>
                             <button
                                 onClick={toggleLanguage}
-                                className="flex items-center gap-2 px-4 py-2 rounded-xl bg-brand-irish-green text-white hover:bg-brand-deep-emerald transition-all text-xs font-bold shadow-sm active:scale-95 border-b-4 border-brand-deep-emerald/30"
+                                className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-slate-50 text-brand-navy hover:bg-brand-sand transition-all text-[10px] font-black uppercase tracking-wider border border-slate-200"
                             >
-                                {t("nav.lang_toggle")}
+                                <Globe className="w-3.5 h-3.5 text-brand-irish-green" />
+                                {t("nav.lang_toggle").split(' ')[0]}
                             </button>
                         </div>
                     </div>

@@ -10,6 +10,9 @@ import {
 import {
     parksEs, swimmingEs, cyclingEs, tourismEs, proceduresEs, popularKeywordsEs
 } from "@/lib/data_es";
+import {
+    parksPt, swimmingPt, cyclingPt, tourismPt, proceduresPt, popularKeywordsPt
+} from "@/lib/data_pt";
 import { cn } from "@/lib/utils";
 
 export function GlobalSearch() {
@@ -19,7 +22,7 @@ export function GlobalSearch() {
     const [isExpanded, setIsExpanded] = useState(false);
     const searchRef = useRef<HTMLDivElement>(null);
 
-    const keywords = language === "en" ? popularKeywords : popularKeywordsEs;
+    const keywords = language === "en" ? popularKeywords : language === "es" ? popularKeywordsEs : popularKeywordsPt;
     const allContent = language === "en"
         ? [
             ...parks.map(p => ({ ...p, type: "exercise/parks" })),
@@ -28,13 +31,21 @@ export function GlobalSearch() {
             ...tourism.map(t => ({ ...t, type: "tourism" })),
             ...procedures.map(p => ({ ...p, type: "procedures" }))
         ]
-        : [
-            ...parksEs.map(p => ({ ...p, type: "exercise/parks" })),
-            ...swimmingEs.map(s => ({ ...s, type: "exercise/swimming" })),
-            ...cyclingEs.map(c => ({ ...c, type: "exercise/cycling" })),
-            ...tourismEs.map(t => ({ ...t, type: "tourism" })),
-            ...proceduresEs.map(p => ({ ...p, type: "procedures" }))
-        ];
+        : language === "es"
+            ? [
+                ...parksEs.map(p => ({ ...p, type: "exercise/parks" })),
+                ...swimmingEs.map(s => ({ ...s, type: "exercise/swimming" })),
+                ...cyclingEs.map(c => ({ ...c, type: "exercise/cycling" })),
+                ...tourismEs.map(t => ({ ...t, type: "tourism" })),
+                ...proceduresEs.map(p => ({ ...p, type: "procedures" }))
+            ]
+            : [
+                ...parksPt.map(p => ({ ...p, type: "exercise/parks" })),
+                ...swimmingPt.map(s => ({ ...s, type: "exercise/swimming" })),
+                ...cyclingPt.map(c => ({ ...c, type: "exercise/cycling" })),
+                ...tourismPt.map(t => ({ ...t, type: "tourism" })),
+                ...proceduresPt.map(p => ({ ...p, type: "procedures" }))
+            ];
 
     useEffect(() => {
         if (searchQuery.trim() === "") {

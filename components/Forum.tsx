@@ -35,7 +35,9 @@ export function Forum() {
             time: "Just now",
             content: language === "en"
                 ? "Welcome to the immiGrow community! Feel free to ask anything about life in Dublin. ☘️"
-                : "¡Bienvenidos a la comunidad de immiGrow! Siéntete libre de preguntar lo que sea sobre la vida en Dublín. ☘️",
+                : language === "es"
+                    ? "¡Bienvenidos a la comunidad de immiGrow! Siéntete libre de preguntar lo que sea sobre la vida en Dublín. ☘️"
+                    : "Bem-vindos à comunidade immiGrow! Sinta-se à vontade para perguntar qualquer coisa sobre a vida em Dublin. ☘️",
             likes: 100,
             replies: []
         }

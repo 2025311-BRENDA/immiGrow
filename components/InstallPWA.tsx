@@ -67,8 +67,8 @@ export function InstallPWA() {
     if (!show) return null;
 
     return (
-        <div className="fixed bottom-24 left-4 right-4 z-50 animate-in slide-in-from-bottom-10 duration-700 ease-out">
-            <div className="bg-brand-navy text-white p-5 rounded-[2rem] shadow-2xl border border-white/10 flex items-center justify-between gap-4 backdrop-blur-lg bg-opacity-95">
+        <div className="fixed bottom-24 left-4 right-4 z-50 animate-in slide-in-from-bottom-10 duration-700 ease-out flex justify-center">
+            <div className="bg-brand-navy text-white p-5 rounded-[2rem] shadow-2xl border border-white/10 flex items-center justify-between gap-4 backdrop-blur-lg bg-opacity-95 w-full max-w-lg">
                 <div className="flex items-center gap-4">
                     <div className="p-2.5 bg-brand-teal rounded-xl shadow-inner">
                         <Smartphone className="w-5 h-5 text-white" />

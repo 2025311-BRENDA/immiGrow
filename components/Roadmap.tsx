@@ -5,12 +5,13 @@ import { CheckCircle2, Circle } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 import { roadmapData } from "@/lib/data";
 import { roadmapDataEs } from "@/lib/data_es";
+import { roadmapPt } from "@/lib/data_pt";
 
 export function Roadmap() {
     const { language, t } = useLanguage();
     const [completed, setCompleted] = useState<string[]>([]);
 
-    const data = language === "en" ? roadmapData : roadmapDataEs;
+    const data = language === "en" ? roadmapData : language === "es" ? roadmapDataEs : roadmapPt;
 
     useEffect(() => {
         const saved = localStorage.getItem("migrawell_completed");

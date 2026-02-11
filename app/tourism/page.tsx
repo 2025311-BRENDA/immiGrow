@@ -2,13 +2,14 @@
 
 import { tourism } from "@/lib/data";
 import { tourismEs } from "@/lib/data_es";
+import { tourismPt } from "@/lib/data_pt";
 import { useLanguage } from "@/context/LanguageContext";
 import { RouteCard } from "@/components/RouteCard";
 import { BackButton } from "@/components/BackButton";
 
 export default function TourismPage() {
     const { language, t } = useLanguage();
-    const data = language === "en" ? tourism : tourismEs;
+    const data = language === "en" ? tourism : language === "es" ? tourismEs : tourismPt;
 
     return (
         <div className="container mx-auto px-4 py-8 pb-32">

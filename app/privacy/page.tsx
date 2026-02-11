@@ -15,7 +15,7 @@ export default function PrivacyPage() {
                     <BackButton />
                     <h1 className="text-4xl font-heading font-black mb-4 flex items-center gap-4">
                         <Shield className="w-10 h-10 text-brand-teal" />
-                        {language === 'en' ? 'Privacy Policy' : 'Privacidad'}
+                        {language === 'en' ? 'Privacy & Terms' : 'Privacidad y Términos'}
                     </h1>
                     <p className="text-brand-sand/80 text-lg font-medium leading-relaxed max-w-lg">
                         {language === 'en'
@@ -67,6 +67,22 @@ export default function PrivacyPage() {
                         <p className="text-sm font-bold text-slate-400 mb-2">{language === 'en' ? 'Questions?' : '¿Dudas?'}</p>
                         <p className="text-[11px] text-slate-400 uppercase tracking-widest font-black">privacy@immigrow.ie</p>
                     </article>
+                </section>
+
+                <section id="terms" className="bg-brand-navy text-white p-10 rounded-[3rem] shadow-xl scroll-mt-24">
+                    <div className="flex items-center gap-4 mb-8">
+                        <div className="p-3 bg-brand-sun rounded-2xl text-brand-navy">
+                            <FileText className="w-6 h-6" />
+                        </div>
+                        <h2 className="text-2xl font-bold uppercase tracking-tight">
+                            {language === 'en' ? 'Terms of Use' : 'Términos de Uso'}
+                        </h2>
+                    </div>
+                    <div className="space-y-6 text-brand-sand/70 leading-relaxed font-medium">
+                        <p>1. {language === 'en' ? "immiGrow is an informational guide, not legal advice." : "immiGrow es una guía informativa, no asesoría legal."}</p>
+                        <p>2. {language === 'en' ? "User interactions and community meets are at your own risk." : "Las interacciones y encuentros comunitarios son bajo su propio riesgo."}</p>
+                        <p>3. {language === 'en' ? "Usage implies acceptance of these terms and safety guidelines." : "El uso implica la aceptación de estos términos y guías de seguridad."}</p>
+                    </div>
                 </section>
             </main>
         </div>

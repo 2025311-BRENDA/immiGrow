@@ -30,6 +30,7 @@ import { Forum } from "@/components/Forum";
 import { EventCalendar } from "@/components/EventCalendar";
 import { parks, swimming, cycling, tourism, procedures, roadmapData } from "@/lib/data";
 import { parksEs, swimmingEs, cyclingEs, tourismEs, proceduresEs, roadmapDataEs } from "@/lib/data_es";
+import { parksPt, swimmingPt, cyclingPt, tourismPt, proceduresPt, roadmapPt } from "@/lib/data_pt";
 import { GlobalSearch } from "@/components/GlobalSearch";
 import { InstallPWA } from "@/components/InstallPWA";
 

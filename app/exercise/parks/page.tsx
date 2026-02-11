@@ -2,12 +2,13 @@
 
 import { parks } from "@/lib/data";
 import { parksEs } from "@/lib/data_es";
+import { parksPt } from "@/lib/data_pt";
 import { useLanguage } from "@/context/LanguageContext";
 import { RouteCard } from "@/components/RouteCard";
 
 export default function ParksPage() {
     const { language, t } = useLanguage();
-    const data = language === "en" ? parks : parksEs;
+    const data = language === "en" ? parks : language === "es" ? parksEs : parksPt;
 
     return (
         <div className="container mx-auto px-4 py-8 pb-32">
@@ -17,7 +18,9 @@ export default function ParksPage() {
             <p className="text-slate-600 mb-8 max-w-2xl">
                 {language === "en"
                     ? "Explore Dublin's green spaces. A directory of the best parks for walking, running, and relaxing."
-                    : "Explora los espacios verdes de Dublín. Un directorio de los mejores parques para caminar, correr y relajarse."}
+                    : language === "es"
+                        ? "Explora los espacios verdes de Dublín. Un directorio de los mejores parques para caminar, correr y relajarse."
+                        : "Explore os espaços verdes de Dublin. Um diretório dos melhores parques para caminhar, correr e relaxar."}
             </p>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

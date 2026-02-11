@@ -2,13 +2,14 @@
 
 import { procedures } from "@/lib/data";
 import { proceduresEs } from "@/lib/data_es";
+import { proceduresPt } from "@/lib/data_pt";
 import { useLanguage } from "@/context/LanguageContext";
 import { RouteCard } from "@/components/RouteCard";
 import { BackButton } from "@/components/BackButton";
 
 export default function ProceduresPage() {
     const { language, t } = useLanguage();
-    const data = language === "en" ? procedures : proceduresEs;
+    const data = language === "en" ? procedures : language === "es" ? proceduresEs : proceduresPt;
 
     return (
         <div className="container mx-auto px-4 py-8 pb-32">

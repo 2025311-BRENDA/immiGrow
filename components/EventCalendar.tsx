@@ -5,22 +5,25 @@ import { Calendar, Clock, MapPin, Users, Ticket, Heart } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 import { events } from "@/lib/data";
 import { eventsEs } from "@/lib/data_es";
+import { eventsPt } from "@/lib/data_pt";
 
 export function EventCalendar() {
     const { language, t } = useLanguage();
 
-    const data = language === "en" ? events : eventsEs;
+    const data = language === "en" ? events : language === "es" ? eventsEs : eventsPt;
 
     // Add a welcome event at the top
     const welcomeEvent = {
         id: 'welcome',
-        title: language === 'en' ? "Welcome to immiGrow!" : "¡Bienvenidos a immiGrow!",
+        title: language === 'en' ? "Welcome to immiGrow!" : language === 'es' ? "¡Bienvenidos a immiGrow!" : "Bem-vindos ao immiGrow!",
         date: "14 Feb",
         time: "10:00 AM",
         location: "Phoenix Park / Global",
         description: language === 'en'
             ? "Thank you for joining our community. We are excited to help you grow in Dublin!"
-            : "Gracias por unirte a nuestra comunidad. ¡Estaros emocionados de ayudarte a crecer en Dublín!",
+            : language === 'es'
+                ? "Gracias por unirte a nuestra comunidad. ¡Estamos emocionados de ayudarte a crecer en Dublín!"
+                : "Obrigado por se juntar à nossa comunidade. Estamos animados para ajudá-lo a crescer em Dublin!",
         category: "Social",
         free: true
     };

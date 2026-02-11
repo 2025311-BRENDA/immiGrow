@@ -2,12 +2,13 @@
 
 import { swimming } from "@/lib/data";
 import { swimmingEs } from "@/lib/data_es";
+import { swimmingPt } from "@/lib/data_pt";
 import { useLanguage } from "@/context/LanguageContext";
 import { RouteCard } from "@/components/RouteCard";
 
 export default function SwimmingPage() {
     const { language, t } = useLanguage();
-    const data = language === "en" ? swimming : swimmingEs;
+    const data = language === "en" ? swimming : language === "es" ? swimmingEs : swimmingPt;
 
     return (
         <div className="container mx-auto px-4 py-8 pb-32">
@@ -17,7 +18,9 @@ export default function SwimmingPage() {
             <p className="text-slate-600 mb-8 max-w-2xl">
                 {language === "en"
                     ? "Safe spots for open water swimming in Dublin Bay."
-                    : "Lugares seguros para nadar en aguas abiertas en la Bahía de Dublín."}
+                    : language === "es"
+                        ? "Lugares seguros para nadar en aguas abiertas en la Bahía de Dublín."
+                        : "Locais seguros para natação em mar aberto na Baía de Dublin."}
             </p>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

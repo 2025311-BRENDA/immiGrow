@@ -16,13 +16,15 @@ export function Footer() {
                     <div className="flex items-center justify-center gap-2 text-brand-sun mb-4">
                         <Shield className="w-4 h-4" />
                         <h4 className="text-[10px] font-black uppercase tracking-[0.2em]">
-                            {language === "en" ? "Legal & Responsibility" : "Legal y Responsabilidad"}
+                            {language === "en" ? "Legal & Responsibility" : language === "es" ? "Legal y Responsabilidad" : "Legal e Responsabilidade"}
                         </h4>
                     </div>
                     <p className="text-[10px] text-slate-400 leading-relaxed italic max-w-2xl mx-auto">
                         {language === "en"
                             ? "immiGrow is a purely informative platform. We do not provide legal or medical advice. The responsibility for any interaction, agreement, or meeting resulting from the use of this application rests exclusively with the user."
-                            : "immiGrow es una plataforma puramente informativa. No proporcionamos asesoría legal ni médica. La responsabilidad de cualquier interacción, acuerdo o encuentro resultante del uso de esta aplicación recae exclusivamente en el usuario."}
+                            : language === "es"
+                                ? "immiGrow es una plataforma puramente informativa. No proporcionamos asesoría legal ni médica. La responsabilidad de cualquier interacción, acuerdo o encuentro resultante del uso de esta aplicación recae exclusivamente en el usuario."
+                                : "O immiGrow é uma plataforma puramente informativa. Não fornecemos aconselhamento jurídico ou médico. A responsabilidade por qualquer interação, acordo ou encontro decorrente do uso deste aplicativo cabe exclusivamente ao usuário."}
                     </p>
                 </div>
 

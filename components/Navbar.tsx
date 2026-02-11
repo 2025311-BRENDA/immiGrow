@@ -17,7 +17,9 @@ import {
     ChevronDown,
     Activity,
     ShieldCheck,
-    Award
+    Award,
+    Briefcase,
+    Calculator
 } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 import { cn } from "@/lib/utils";
@@ -65,6 +67,16 @@ export function Navbar() {
                 { name: t("nav.procedures"), href: "/procedures", icon: FileText },
                 { name: t("nav.vault"), href: "/vault", icon: ShieldCheck },
                 { name: t("nav.achievements"), href: "/achievements", icon: Award },
+            ]
+        },
+        {
+            id: "community",
+            label: t("nav.more"),
+            icon: Menu,
+            items: [
+                { name: language === 'en' ? "Community" : "Comunidad", href: "/community", icon: Globe },
+                { name: language === 'en' ? "Jobs" : "Empleos", href: "/jobs", icon: Briefcase },
+                { name: language === 'en' ? "Calculator" : "Calculadora", href: "/calculator", icon: Calculator },
             ]
         }
     ];

@@ -125,7 +125,7 @@ export function GlobalSearch() {
                             </span>
                         </div>
                         <div className="flex flex-wrap gap-2">
-                            {keywords.map((kw) => (
+                            {keywords.map((kw: { label: string, query: string }) => (
                                 <button
                                     key={kw.query}
                                     onClick={() => handleKeywordClick(kw.query)}

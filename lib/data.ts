@@ -71,6 +71,7 @@ export interface EventItem {
     location: string;
     description: string;
     category: "Social" | "Education" | "Culture";
+    free?: boolean;
 }
 
 export interface Professional {

@@ -29,7 +29,11 @@ export function Navbar() {
     const pathname = usePathname();
     const [openDropdown, setOpenDropdown] = useState<string | null>(null);
 
-    const categories = [
+    type NavCategory =
+        | { id: string; label: string; icon: any; items: { name: string; href: string; icon: any }[] }
+        | { id: string; label: string; icon: any; href: string };
+
+    const categories: NavCategory[] = [
         {
             id: "physical",
             label: t("nav.physical_activity"),
@@ -62,12 +66,8 @@ export function Navbar() {
         {
             id: "admin",
             label: t("nav.procedures"),
-            icon: FileText,
-            items: [
-                { name: t("nav.procedures"), href: "/procedures", icon: FileText },
-                { name: t("nav.vault"), href: "/vault", icon: ShieldCheck },
-                { name: t("nav.achievements"), href: "/achievements", icon: Award },
-            ]
+            href: "/procedures",
+            icon: FileText
         },
         {
             id: "community",
@@ -77,6 +77,8 @@ export function Navbar() {
                 { name: t("nav.community"), href: "/community", icon: Globe },
                 { name: t("nav.jobs"), href: "/jobs", icon: Briefcase },
                 { name: t("nav.calculator"), href: "/calculator", icon: Calculator },
+                { name: t("nav.vault"), href: "/vault", icon: ShieldCheck },
+                { name: t("nav.achievements"), href: "/achievements", icon: Award },
             ]
         }
     ];
@@ -115,48 +117,68 @@ export function Navbar() {
                                 {t("nav.home")}
                             </Link>
 
-                            {categories.map((cat) => (
-                                <div
-                                    key={cat.id}
-                                    className="relative group"
-                                    onMouseEnter={() => setOpenDropdown(cat.id)}
-                                    onMouseLeave={() => setOpenDropdown(null)}
-                                >
-                                    <button className={cn(
-                                        "flex items-center gap-1.5 text-sm font-bold transition-colors h-16",
-                                        cat.items.some(i => pathname.startsWith(i.href)) ? "text-brand-irish-green" : "text-slate-500 hover:text-brand-navy"
-                                    )}>
-                                        <cat.icon className="w-4 h-4" />
-                                        {cat.label}
-                                        <ChevronDown className={cn("w-3 h-3 transition-transform duration-200", openDropdown === cat.id && "rotate-180")} />
-                                    </button>
+                            {categories.map((cat) => {
+                                // If it's a direct link (no items)
+                                if (!("items" in cat)) {
+                                    return (
+                                        <Link
+                                            key={cat.id}
+                                            href={cat.href}
+                                            className={cn(
+                                                "flex items-center gap-1.5 text-sm font-bold transition-colors h-16",
+                                                pathname.startsWith(cat.href) ? "text-brand-irish-green" : "text-slate-500 hover:text-brand-navy"
+                                            )}
+                                        >
+                                            <cat.icon className="w-4 h-4" />
+                                            {cat.label}
+                                        </Link>
+                                    );
+                                }
 
-                                    {/* Dropdown Menu */}
-                                    <div className={cn(
-                                        "absolute top-full left-1/2 -translate-x-1/2 w-56 bg-white rounded-2xl shadow-xl border border-slate-100 p-2 transition-all duration-200 origin-top z-50",
-                                        openDropdown === cat.id ? "opacity-100 scale-100 translate-y-0" : "opacity-0 scale-95 -translate-y-2 pointer-events-none"
-                                    )}>
-                                        {cat.items.map((item) => (
-                                            <Link
-                                                key={item.href}
-                                                href={item.href}
-                                                className={cn(
-                                                    "flex items-center gap-3 p-3 rounded-xl transition-all",
-                                                    pathname === item.href ? "bg-brand-sand/30 text-brand-irish-green" : "hover:bg-slate-50 text-slate-600 hover:text-brand-navy"
-                                                )}
-                                            >
-                                                <div className={cn(
-                                                    "p-2 rounded-lg",
-                                                    pathname === item.href ? "bg-white shadow-sm" : "bg-slate-100/30"
-                                                )}>
-                                                    <item.icon className="w-4 h-4" />
-                                                </div>
-                                                <span className="font-semibold text-xs whitespace-nowrap">{item.name}</span>
-                                            </Link>
-                                        ))}
+                                // Fallback for dropdowns
+                                return (
+                                    <div
+                                        key={cat.id}
+                                        className="relative group"
+                                        onMouseEnter={() => setOpenDropdown(cat.id)}
+                                        onMouseLeave={() => setOpenDropdown(null)}
+                                    >
+                                        <button className={cn(
+                                            "flex items-center gap-1.5 text-sm font-bold transition-colors h-16",
+                                            cat.items.some(i => pathname.startsWith(i.href)) ? "text-brand-irish-green" : "text-slate-500 hover:text-brand-navy"
+                                        )}>
+                                            <cat.icon className="w-4 h-4" />
+                                            {cat.label}
+                                            <ChevronDown className={cn("w-3 h-3 transition-transform duration-200", openDropdown === cat.id && "rotate-180")} />
+                                        </button>
+
+                                        {/* Dropdown Menu */}
+                                        <div className={cn(
+                                            "absolute top-full left-1/2 -translate-x-1/2 w-56 bg-white rounded-2xl shadow-xl border border-slate-100 p-2 transition-all duration-200 origin-top z-50",
+                                            openDropdown === cat.id ? "opacity-100 scale-100 translate-y-0" : "opacity-0 scale-95 -translate-y-2 pointer-events-none"
+                                        )}>
+                                            {cat.items.map((item) => (
+                                                <Link
+                                                    key={item.href}
+                                                    href={item.href}
+                                                    className={cn(
+                                                        "flex items-center gap-3 p-3 rounded-xl transition-all",
+                                                        pathname === item.href ? "bg-brand-sand/30 text-brand-irish-green" : "hover:bg-slate-50 text-slate-600 hover:text-brand-navy"
+                                                    )}
+                                                >
+                                                    <div className={cn(
+                                                        "p-2 rounded-lg",
+                                                        pathname === item.href ? "bg-white shadow-sm" : "bg-slate-100/30"
+                                                    )}>
+                                                        <item.icon className="w-4 h-4" />
+                                                    </div>
+                                                    <span className="font-semibold text-xs whitespace-nowrap">{item.name}</span>
+                                                </Link>
+                                            ))}
+                                        </div>
                                     </div>
-                                </div>
-                            ))}
+                                );
+                            })}
                         </div>
                     </div>
 
@@ -166,50 +188,26 @@ export function Navbar() {
                             <img src="/iGrow-logo.jpg" alt="iGrow" className="w-full h-full object-cover" />
                         </Link>
 
-                        <div className="flex items-center gap-2">
-                            {/* Language Selector Dropdown */}
-                            <div
-                                className="relative"
-                                onMouseEnter={() => setOpenDropdown("language")}
-                                onMouseLeave={() => setOpenDropdown(null)}
-                            >
+                        {/* Static Language Switcher (EN | PT | ES) */}
+                        <div className="flex items-center bg-slate-100/80 p-1 rounded-xl border border-slate-200 ml-4 lg:ml-0">
+                            {[
+                                { code: "en", label: "EN" },
+                                { code: "pt", label: "PT" },
+                                { code: "es", label: "ES" }
+                            ].map((l) => (
                                 <button
-                                    onClick={() => setOpenDropdown(openDropdown === "language" ? null : "language")}
-                                    className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-slate-50 text-brand-navy hover:bg-brand-sand transition-all text-[10px] font-black uppercase tracking-wider border border-slate-200"
+                                    key={l.code}
+                                    onClick={() => setLanguage(l.code as any)}
+                                    className={cn(
+                                        "px-2.5 py-1.5 rounded-lg text-[10px] font-black transition-all",
+                                        language === l.code
+                                            ? "bg-white text-brand-irish-green shadow-sm ring-1 ring-slate-200/50"
+                                            : "text-slate-400 hover:text-brand-navy"
+                                    )}
                                 >
-                                    <Globe className="w-3.5 h-3.5 text-brand-irish-green" />
-                                    <span className="hidden sm:inline">{t("nav.lang_name")}</span>
-                                    <span className="sm:hidden uppercase">{language}</span>
-                                    <ChevronDown className={cn("w-3 h-3 transition-transform duration-200", openDropdown === "language" && "rotate-180")} />
+                                    {l.label}
                                 </button>
-
-                                {/* Dropdown Menu */}
-                                <div className={cn(
-                                    "absolute top-full right-0 mt-2 w-32 bg-white rounded-xl shadow-xl border border-slate-100 p-1 transition-all duration-200 origin-top-right z-[60]",
-                                    openDropdown === "language" ? "opacity-100 scale-100 translate-y-0" : "opacity-0 scale-95 -translate-y-2 pointer-events-none"
-                                )}>
-                                    {[
-                                        { code: "en", name: "English" },
-                                        { code: "pt", name: "Português" },
-                                        { code: "es", name: "Español" }
-                                    ].map((l) => (
-                                        <button
-                                            key={l.code}
-                                            onClick={() => {
-                                                setLanguage(l.code as any);
-                                                setOpenDropdown(null);
-                                            }}
-                                            className={cn(
-                                                "w-full flex items-center gap-3 p-2.5 rounded-lg transition-all text-left",
-                                                language === l.code ? "bg-brand-sand/30 text-brand-irish-green" : "hover:bg-slate-50 text-slate-600 hover:text-brand-navy"
-                                            )}
-                                        >
-                                            <span className="font-bold text-[10px] uppercase tracking-wider">{l.code}</span>
-                                            <span className="font-semibold text-xs">{l.name}</span>
-                                        </button>
-                                    ))}
-                                </div>
-                            </div>
+                            ))}
                         </div>
                     </div>
                 </div>

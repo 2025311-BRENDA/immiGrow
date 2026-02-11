@@ -48,21 +48,28 @@ export function EventCalendar() {
                 </div>
             </div>
 
-            <div className="space-y-3 relative z-10">
+            <div className="flex gap-4 relative z-10 overflow-x-auto pb-6 custom-scrollbar snap-x px-1">
                 {displayData.map((event) => (
                     <div
                         key={event.id}
-                        className="group flex flex-col md:flex-row gap-4 p-4 rounded-2xl bg-slate-50 border border-transparent hover:border-brand-pink/20 hover:bg-white hover:shadow-lg transition-all"
+                        className="group flex flex-col gap-4 p-5 rounded-3xl bg-slate-50 border border-slate-100 hover:border-brand-pink/20 hover:bg-white hover:shadow-xl transition-all min-w-[280px] max-w-[280px] snap-center shadow-sm"
                     >
-                        {/* Date Tag */}
-                        <div className="shrink-0 flex md:flex-col items-center justify-center p-3 bg-white rounded-xl shadow-sm border border-slate-100 min-w-[80px]">
-                            <span className="text-brand-pink font-black text-lg leading-tight">{event.date.split(' ')[0]}</span>
-                            <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">{event.date.split(' ').slice(1).join(' ')}</span>
+                        <div className="flex justify-between items-start">
+                            {/* Date Tag */}
+                            <div className="shrink-0 flex items-center justify-center p-2.5 bg-white rounded-xl shadow-sm border border-slate-100 min-w-[70px]">
+                                <div className="text-center">
+                                    <div className="text-brand-pink font-black text-base leading-none">{event.date.split(' ')[0]}</div>
+                                    <div className="text-[8px] font-bold text-slate-400 uppercase tracking-widest mt-0.5">{event.date.split(' ').slice(1).join(' ')}</div>
+                                </div>
+                            </div>
+                            <button className="p-2.5 bg-white text-slate-400 rounded-xl hover:bg-brand-pink hover:text-white transition-all shadow-sm">
+                                <Heart className="w-4 h-4" />
+                            </button>
                         </div>
 
                         <div className="flex-1">
-                            <div className="flex items-center gap-2 mb-1">
-                                <span className={`px-2 py-0.5 rounded-full text-[8px] font-black uppercase tracking-wider ${event.category === 'Social' ? 'bg-blue-100 text-blue-600' :
+                            <div className="flex items-center gap-2 mb-2">
+                                <span className={`px-2 py-0.5 rounded-md text-[7px] font-black uppercase tracking-wider ${event.category === 'Social' ? 'bg-blue-100 text-blue-600' :
                                     event.category === 'Culture' ? 'bg-orange-100 text-orange-600' :
                                         'bg-purple-100 text-purple-600'
                                     }`}>
@@ -74,15 +81,12 @@ export function EventCalendar() {
                                 </div>
                             </div>
 
-                            <h4 className="font-bold text-sm text-brand-navy group-hover:text-brand-pink transition-colors leading-tight">{event.title}</h4>
-                            <p className="text-[10px] text-slate-500 mt-1 leading-relaxed line-clamp-2">
-                                {event.description}
-                            </p>
+                            <h4 className="font-bold text-sm text-brand-navy group-hover:text-brand-pink transition-colors leading-tight mb-2">{event.title}</h4>
 
-                            <div className="mt-3 flex flex-wrap gap-3">
+                            <div className="space-y-1.5">
                                 <div className="flex items-center gap-1.5 text-[8px] font-bold text-slate-400">
-                                    <MapPin className="w-2.5 h-2.5 text-brand-pink" />
-                                    {event.location}
+                                    <MapPin className="w-2.5 h-2.5 text-brand-pink/50" />
+                                    <span className="truncate">{event.location}</span>
                                 </div>
                                 <div className="flex items-center gap-1.5 text-[8px] font-bold text-brand-turquoise uppercase tracking-widest">
                                     <Ticket className="w-2.5 h-2.5" />
@@ -90,10 +94,6 @@ export function EventCalendar() {
                                 </div>
                             </div>
                         </div>
-
-                        <button className="self-center p-3 bg-brand-navy text-white rounded-xl hover:bg-brand-pink transition-colors shadow-md group-hover:scale-105 transition-all">
-                            <Heart className="w-4 h-4" />
-                        </button>
                     </div>
                 ))}
             </div>

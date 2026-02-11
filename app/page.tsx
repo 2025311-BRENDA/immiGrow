@@ -112,46 +112,8 @@ export default function Home() {
       </section>
 
       <div className="container mx-auto px-6 space-y-10">
-        {/* Global Search overlapping the hero curved bottom */}
-        <section className="relative z-20 -mt-10">
-          <GlobalSearch />
-        </section>
-
-        {/* Daily Challenge Card */}
-        <section>
-          <div className="flex justify-between items-center mb-4">
-            <h3 className="font-heading font-bold text-lg text-brand-navy">
-              {t("challenge.title")}
-            </h3>
-            <Link href="/community/social-fit" className="text-brand-teal text-xs font-bold hover:underline">
-              {t("common.viewAll")}
-            </Link>
-          </div>
-          <div className="bg-brand-sand/50 rounded-[2rem] overflow-hidden border-2 border-brand-turquoise/20 shadow-sm group">
-            <div className="flex flex-col md:flex-row">
-              <div className="h-48 md:w-1/3 bg-cover bg-center transition-transform group-hover:scale-105 duration-700" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=1000')" }}></div>
-              <div className="p-6 flex-1 flex flex-col justify-center">
-                <h4 className="text-xl font-bold text-brand-navy mb-2">{t("challenge.name")}</h4>
-                <p className="text-slate-600 text-sm mb-6 leading-relaxed">
-                  {t("challenge.desc")}
-                </p>
-                <Link
-                  href="/exercise/parks/st-stephens-green"
-                  className="bg-brand-irish-green border-2 border-brand-turquoise text-white text-center py-3 rounded-2xl font-bold text-sm hover:bg-brand-deep-emerald transition-all shadow-md active:scale-95"
-                >
-                  {t("btn.startNow")}
-                </Link>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <Roadmap />
-
-        <Forum />
-
-        {/* Categories Grid - Vibrant & Organized */}
-        <section>
+        {/* Categories Grid - MOVED UP for direct action */}
+        <section className="relative z-20 -mt-8">
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
             {/* Category: Exercise */}
             <Link href="/exercise" className="bg-white p-6 rounded-[2.5rem] shadow-sm border border-slate-100 hover:shadow-xl hover:-translate-y-1 transition-all group overflow-hidden relative">
@@ -215,27 +177,42 @@ export default function Home() {
           </div>
         </section>
 
-        <EventCalendar />
+        {/* Global Search - Clean and accessible */}
+        <section>
+          <GlobalSearch />
+        </section>
 
-        {/* Shortcuts / Quick Actions */}
-        <section className="pb-8 space-y-4">
-          <h3 className="font-heading font-bold text-lg text-brand-navy px-1">
-            {t("home.quickAccess")}
-          </h3>
-          <div className="space-y-3">
-            <Link href="/vault" className="flex items-center justify-between p-4 bg-white rounded-2xl shadow-sm border border-slate-100 hover:bg-slate-50 transition-colors">
-              <div className="flex items-center gap-3">
-                <Shield className="w-5 h-5 text-brand-navy" />
-                <span className="font-bold text-sm text-brand-navy">{t("nav.vault")}</span>
+        <Roadmap />
+
+        {/* Horizontal Scrolling Sections for compactness */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <section className="bg-white p-6 rounded-[2.5rem] border border-slate-100 shadow-sm overflow-hidden">
+            <Forum />
+          </section>
+          <section className="bg-white p-6 rounded-[2.5rem] border border-slate-100 shadow-sm overflow-hidden">
+            <EventCalendar />
+          </section>
+        </div>
+
+        {/* Shortcuts / Quick Actions Dashboard Style */}
+        <section className="pb-8">
+          <div className="flex justify-between items-center mb-4">
+            <h3 className="font-heading font-bold text-lg text-brand-navy px-1">
+              {t("home.quickAccess")}
+            </h3>
+          </div>
+          <div className="grid grid-cols-2 gap-4">
+            <Link href="/vault" className="flex flex-col items-center gap-3 p-6 bg-white rounded-3xl shadow-sm border border-slate-100 hover:bg-slate-50 transition-all text-center">
+              <div className="p-3 bg-brand-navy/10 rounded-2xl">
+                <Shield className="w-6 h-6 text-brand-navy" />
               </div>
-              <ChevronRight className="w-4 h-4 text-slate-300" />
+              <span className="font-bold text-xs text-brand-navy uppercase tracking-wider">{t("nav.vault")}</span>
             </Link>
-            <Link href="/achievements" className="flex items-center justify-between p-4 bg-white rounded-2xl shadow-sm border border-slate-100 hover:bg-slate-50 transition-colors">
-              <div className="flex items-center gap-3">
-                <Award className="w-5 h-5 text-brand-teal" />
-                <span className="font-bold text-sm text-brand-navy">{t("nav.achievements")}</span>
+            <Link href="/achievements" className="flex flex-col items-center gap-3 p-6 bg-white rounded-3xl shadow-sm border border-slate-100 hover:bg-slate-50 transition-all text-center">
+              <div className="p-3 bg-brand-teal/10 rounded-2xl">
+                <Award className="w-6 h-6 text-brand-teal" />
               </div>
-              <ChevronRight className="w-4 h-4 text-slate-300" />
+              <span className="font-bold text-xs text-brand-navy uppercase tracking-wider">{t("nav.achievements")}</span>
             </Link>
           </div>
         </section>

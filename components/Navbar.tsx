@@ -94,7 +94,34 @@ export function Navbar() {
 
     return (
         <>
-            {/* TOP BAR (Desktop + Mobile Brand/Lang) */}
+            {/* TOP BAR: Dedicated Language Selection for Maximum Visibility */}
+            <div className="bg-slate-50 border-b border-slate-200 py-2">
+                <div className="container mx-auto px-6 flex items-center justify-end gap-3 text-[10px] font-black uppercase tracking-widest text-slate-400">
+                    <span className="hidden sm:inline mr-2">{t("nav.lang")}:</span>
+                    <div className="flex items-center bg-white shadow-sm ring-1 ring-slate-200 p-0.5 rounded-lg">
+                        {[
+                            { code: "en", label: "English" },
+                            { code: "pt", label: "Português" },
+                            { code: "es", label: "Español" }
+                        ].map((l) => (
+                            <button
+                                key={l.code}
+                                onClick={() => setLanguage(l.code as any)}
+                                className={cn(
+                                    "px-3 py-1 rounded-md transition-all duration-300",
+                                    language === l.code
+                                        ? "bg-brand-irish-green text-white shadow-md scale-105"
+                                        : "text-slate-500 hover:text-brand-navy hover:bg-slate-50"
+                                )}
+                            >
+                                {l.label}
+                            </button>
+                        ))}
+                    </div>
+                </div>
+            </div>
+
+            {/* MAIN NAVBAR */}
             <nav className="bg-white border-b border-slate-200 sticky top-0 z-50">
                 <div className="container mx-auto px-6 h-16 flex items-center justify-between">
                     <div className="flex items-center gap-12">
@@ -187,28 +214,6 @@ export function Navbar() {
                         <Link href="/" className="lg:hidden w-8 h-8 rounded-lg overflow-hidden border border-slate-100">
                             <img src="/iGrow-logo.jpg" alt="iGrow" className="w-full h-full object-cover" />
                         </Link>
-
-                        {/* Static Language Switcher (EN | PT | ES) */}
-                        <div className="flex items-center bg-slate-100/80 p-1 rounded-xl border border-slate-200 ml-4 lg:ml-0">
-                            {[
-                                { code: "en", label: "EN" },
-                                { code: "pt", label: "PT" },
-                                { code: "es", label: "ES" }
-                            ].map((l) => (
-                                <button
-                                    key={l.code}
-                                    onClick={() => setLanguage(l.code as any)}
-                                    className={cn(
-                                        "px-2.5 py-1.5 rounded-lg text-[10px] font-black transition-all",
-                                        language === l.code
-                                            ? "bg-white text-brand-irish-green shadow-sm ring-1 ring-slate-200/50"
-                                            : "text-slate-400 hover:text-brand-navy"
-                                    )}
-                                >
-                                    {l.label}
-                                </button>
-                            ))}
-                        </div>
                     </div>
                 </div>
             </nav>

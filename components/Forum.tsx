@@ -99,9 +99,9 @@ export function Forum() {
                 </div>
             </div>
 
-            <div className="space-y-4 mb-6 relative z-10 max-h-[400px] overflow-y-auto pr-2 custom-scrollbar">
+            <div className="flex gap-4 mb-6 relative z-10 overflow-x-auto pb-4 custom-scrollbar snap-x">
                 {posts.map(post => (
-                    <div key={post.id} className="bg-white/5 backdrop-blur-md rounded-2xl p-4 border border-white/10">
+                    <div key={post.id} className="bg-white/5 backdrop-blur-md rounded-2xl p-4 border border-white/10 min-w-[280px] max-w-[280px] snap-center">
                         <div className="flex items-center gap-2 mb-2">
                             <div className="w-6 h-6 rounded-full bg-brand-sand/20 flex items-center justify-center">
                                 <User className="w-3 h-3 text-brand-sand" />
@@ -111,54 +111,18 @@ export function Forum() {
                                 <span className="text-[8px] opacity-40">{post.time}</span>
                             </div>
                         </div>
-                        <p className="text-xs leading-relaxed mb-3 text-white/90">{post.content}</p>
-
-                        {/* Replies */}
-                        {post.replies.length > 0 && (
-                            <div className="ml-4 pl-4 border-l border-white/10 space-y-3 mb-3">
-                                {post.replies.map(reply => (
-                                    <div key={reply.id}>
-                                        <div className="flex items-center gap-1.5 mb-1">
-                                            <span className="text-[8px] font-bold text-brand-sand">{reply.author}</span>
-                                            <span className="text-[7px] opacity-30">{reply.time}</span>
-                                        </div>
-                                        <p className="text-[10px] text-white/70">{reply.content}</p>
-                                    </div>
-                                ))}
-                            </div>
-                        )}
+                        <p className="text-xs leading-relaxed mb-3 text-white/90 line-clamp-3 h-[48px]">{post.content}</p>
 
                         <div className="flex gap-4">
                             <button className="flex items-center gap-1.5 text-[8px] font-bold text-brand-sand/60 hover:text-brand-sand transition-colors">
                                 <ThumbsUp className="w-2.5 h-2.5" />
                                 {post.likes} {t("forum.likes")}
                             </button>
-                            <button
-                                onClick={() => setReplyingTo(replyingTo === post.id ? null : post.id)}
-                                className="flex items-center gap-1.5 text-[8px] font-bold text-brand-sand/60 hover:text-brand-sand transition-colors"
-                            >
+                            <button className="flex items-center gap-1.5 text-[8px] font-bold text-brand-sand/60 hover:text-brand-sand transition-colors">
                                 <Reply className="w-2.5 h-2.5" />
-                                {t("forum.replies")}
+                                {post.replies.length} {t("forum.replies")}
                             </button>
                         </div>
-
-                        {replyingTo === post.id && (
-                            <div className="mt-3 flex gap-2">
-                                <input
-                                    type="text"
-                                    value={replyText}
-                                    onChange={(e) => setReplyText(e.target.value)}
-                                    placeholder="Write a reply..."
-                                    className="flex-1 bg-white/5 border border-white/10 rounded-lg px-3 py-1.5 text-[10px] focus:ring-1 focus:ring-brand-sand outline-none"
-                                />
-                                <button
-                                    onClick={() => handleReply(post.id)}
-                                    className="p-1.5 bg-brand-sand text-brand-navy rounded-lg"
-                                >
-                                    <Send className="w-3 h-3" />
-                                </button>
-                            </div>
-                        )}
                     </div>
                 ))}
             </div>

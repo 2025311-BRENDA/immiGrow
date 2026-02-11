@@ -74,9 +74,9 @@ export function Navbar() {
             label: t("nav.more"),
             icon: Menu,
             items: [
-                { name: language === 'en' ? "Community" : "Comunidad", href: "/community", icon: Globe },
-                { name: language === 'en' ? "Jobs" : "Empleos", href: "/jobs", icon: Briefcase },
-                { name: language === 'en' ? "Calculator" : "Calculadora", href: "/calculator", icon: Calculator },
+                { name: t("nav.community"), href: "/community", icon: Globe },
+                { name: t("nav.jobs"), href: "/jobs", icon: Briefcase },
+                { name: t("nav.calculator"), href: "/calculator", icon: Calculator },
             ]
         }
     ];

@@ -16,6 +16,7 @@ const outfit = Outfit({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://immigrow.ie"),
   title: "immiGrow Dublin | Salud, Actividad y Comunidad",
   description: "La guía de bienestar para migrantes en Dublín. Trámites esenciales (IRP/PPSN), salud mental, deporte gratuito y vida comunitaria.",
   manifest: "/manifest.json",

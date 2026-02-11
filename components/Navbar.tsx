@@ -84,7 +84,8 @@ export function Navbar() {
             <nav className="bg-white border-b border-slate-200 sticky top-0 z-50">
                 <div className="container mx-auto px-6 h-16 flex items-center justify-between">
                     <div className="flex items-center gap-12">
-                        <Link href="/" className="flex items-center space-x-2 shrink-0">
+                        {/* Desktop ONLY Brand */}
+                        <Link href="/" className="hidden lg:flex items-center space-x-2 shrink-0">
                             <div className="w-10 h-10 rounded-xl flex items-center justify-center overflow-hidden shadow-sm border border-slate-100">
                                 <img src="/iGrow-logo.jpg" alt="iGrow" className="w-full h-full object-cover" />
                             </div>

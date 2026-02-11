@@ -5,6 +5,7 @@ import { BackButton } from "@/components/BackButton";
 import { FileText, Heart, Sparkles } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 import { SlangDictionary } from "@/components/SlangDictionary";
+import { Smartphone, Download } from "lucide-react";
 
 export default function MorePage() {
     const { language, t } = useLanguage();
@@ -77,6 +78,41 @@ export default function MorePage() {
                                 colorClass="bg-white hover:border-brand-purple/20 shadow-sm hover:shadow-xl transition-all"
                             />
                         ))}
+                    </div>
+                </section>
+
+                <section className="bg-brand-navy text-white p-8 rounded-[3rem] shadow-xl relative overflow-hidden">
+                    <div className="absolute top-0 right-0 w-64 h-64 bg-brand-sun/10 rounded-full -mr-32 -mt-32 blur-3xl" />
+                    <div className="flex flex-col md:flex-row items-center gap-8 relative z-10">
+                        <div className="p-6 bg-white/10 rounded-[2rem] border border-white/20">
+                            <Smartphone className="w-12 h-12 text-brand-sun" />
+                        </div>
+                        <div className="flex-1 text-center md:text-left">
+                            <h2 className="text-2xl font-bold mb-2">
+                                {language === "en" ? "Take immiGrow everywhere" : "Lleva immiGrow a todas partes"}
+                            </h2>
+                            <p className="text-white/60 text-sm max-w-md">
+                                {language === "en"
+                                    ? "Install the app on your home screen for faster access, offline mode, and a full-screen experience."
+                                    : "Instala la app en tu pantalla de inicio para un acceso más rápido, modo sin conexión y experiencia completa."}
+                            </p>
+                        </div>
+                        <button
+                            onClick={() => {
+                                // Trigger same logic as the banner
+                                window.dispatchEvent(new Event('beforeinstallprompt'));
+                                // If iOS, it shows the manual hint
+                                const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !(window as any).MSStream;
+                                if (isIOS) {
+                                    alert(language === 'en'
+                                        ? "To install on iPhone: Tap 'Share' icon and then 'Add to Home Screen'."
+                                        : "Para instalar en iPhone: Toca el icono de 'Compartir' y luego 'Añadir a la pantalla de inicio'.");
+                                }
+                            }}
+                            className="bg-brand-sun text-brand-navy px-8 py-4 rounded-2xl font-black uppercase tracking-widest hover:scale-105 transition-all shadow-lg active:scale-95"
+                        >
+                            {language === "en" ? "Install Now" : "Instalar Ahora"}
+                        </button>
                     </div>
                 </section>
 

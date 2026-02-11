@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { Download, X, Smartphone } from "lucide-react";
+import { X, Smartphone, Info } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 
 export function InstallPWA() {
@@ -14,6 +14,16 @@ export function InstallPWA() {
         const isStandalone = window.matchMedia('(display-mode: standalone)').matches;
         if (isStandalone) return;
 
+        // Check if user dismissed it in this session or recently
+        const dismissed = localStorage.getItem("immigrow_install_dismissed");
+        if (dismissed) {
+            // If dismissed more than 24h ago, we can show again
+            const dismissedDate = new Date(parseInt(dismissed));
+            const now = new Date();
+            const hoursSinceDismissal = Math.abs(now.getTime() - dismissedDate.getTime()) / 36e5;
+            if (hoursSinceDismissal < 24) return;
+        }
+
         const handler = (e: any) => {
             e.preventDefault();
             setDeferredPrompt(e);
@@ -22,11 +32,10 @@ export function InstallPWA() {
 
         window.addEventListener("beforeinstallprompt", handler);
 
-        // Manual check for iOS (which doesn't support beforeinstallprompt)
+        // Manual check for iOS
         const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !(window as any).MSStream;
         if (isIOS && !isStandalone) {
-            // For iOS, we just show a hint since we can't trigger the system prompt
-            const timer = setTimeout(() => setShow(true), 3000);
+            const timer = setTimeout(() => setShow(true), 2000);
             return () => clearTimeout(timer);
         }
 
@@ -35,11 +44,9 @@ export function InstallPWA() {
 
     const handleInstall = async () => {
         if (!deferredPrompt) {
-            // Hint for iOS or browsers without beforeinstallprompt
             alert(language === 'en'
                 ? "To install: Tap the 'Share' icon and then 'Add to Home Screen'!"
                 : "Para instalar: ¡Toca el icono de 'Compartir' y luego 'Añadir a la pantalla de inicio'!");
-            setShow(false);
             return;
         }
 
@@ -52,23 +59,26 @@ export function InstallPWA() {
         }
     };
 
+    const handleDismiss = () => {
+        localStorage.setItem("immigrow_install_dismissed", Date.now().toString());
+        setShow(false);
+    };
+
     if (!show) return null;
 
     return (
-        <div className="fixed bottom-24 left-6 right-6 z-50 animate-in slide-in-from-bottom-8 duration-500">
-            <div className="bg-brand-navy text-white p-5 rounded-[2.5rem] shadow-2xl border border-white/10 flex items-center justify-between gap-4">
+        <div className="fixed bottom-24 left-4 right-4 z-50 animate-in slide-in-from-bottom-10 duration-700 ease-out">
+            <div className="bg-brand-navy text-white p-5 rounded-[2rem] shadow-2xl border border-white/10 flex items-center justify-between gap-4 backdrop-blur-lg bg-opacity-95">
                 <div className="flex items-center gap-4">
-                    <div className="p-3 bg-brand-teal rounded-2xl">
-                        <Smartphone className="w-6 h-6" />
+                    <div className="p-2.5 bg-brand-teal rounded-xl shadow-inner">
+                        <Smartphone className="w-5 h-5 text-white" />
                     </div>
                     <div>
-                        <h4 className="font-bold text-sm">
-                            {language === 'en' ? 'Install immiGrow' : 'Instalar immiGrow'}
+                        <h4 className="font-bold text-[11px] leading-tight">
+                            {language === 'en' ? 'Get the App' : 'Descargar App'}
                         </h4>
-                        <p className="text-[10px] text-white/60 font-medium">
-                            {language === 'en'
-                                ? 'Access faster and offline'
-                                : 'Accede más rápido y sin conexión'}
+                        <p className="text-[9px] text-white/50">
+                            {language === 'en' ? 'Faster access' : 'Acceso rápido'}
                         </p>
                     </div>
                 </div>
@@ -76,13 +86,13 @@ export function InstallPWA() {
                 <div className="flex items-center gap-2">
                     <button
                         onClick={handleInstall}
-                        className="bg-white text-brand-navy px-4 py-2.5 rounded-xl text-xs font-black uppercase tracking-wider hover:bg-brand-sun transition-all active:scale-95"
+                        className="bg-brand-sun text-brand-navy px-5 py-2.5 rounded-xl text-xs font-black uppercase tracking-wider hover:scale-105 transition-all active:scale-95 shadow-lg shadow-brand-sun/20"
                     >
-                        {language === 'en' ? 'Add' : 'Añadir'}
+                        {language === 'en' ? 'Install' : 'Instalar'}
                     </button>
                     <button
-                        onClick={() => setShow(false)}
-                        className="p-2 text-white/40 hover:text-white"
+                        onClick={handleDismiss}
+                        className="p-2 text-white/30 hover:text-white transition-colors"
                     >
                         <X className="w-5 h-5" />
                     </button>

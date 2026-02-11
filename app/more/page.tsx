@@ -1,6 +1,7 @@
 "use client";
 
 import { RouteCard } from "@/components/RouteCard";
+import { BackButton } from "@/components/BackButton";
 import { FileText, Heart, Sparkles } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 import { SlangDictionary } from "@/components/SlangDictionary";
@@ -47,6 +48,7 @@ export default function MorePage() {
             <header className="bg-brand-beige text-brand-navy py-12 px-6 shadow-sm border-b border-brand-navy/5 relative overflow-hidden">
                 <div className="absolute top-0 right-0 w-64 h-64 bg-brand-purple/5 rounded-full -mr-32 -mt-32 blur-3xl" />
                 <div className="container mx-auto max-w-5xl relative z-10">
+                    <BackButton />
                     <div className="flex items-center gap-3 mb-4">
                         <Sparkles className="w-5 h-5 text-brand-purple" />
                         <span className="text-[10px] font-black uppercase tracking-[0.2em] text-brand-purple/60">

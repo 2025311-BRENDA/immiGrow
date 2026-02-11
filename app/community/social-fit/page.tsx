@@ -3,6 +3,8 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { useLanguage } from "@/context/LanguageContext";
+import { SafetyGuidelines } from "@/components/SafetyGuidelines";
+import { BackButton } from "@/components/BackButton";
 import {
     ChevronLeft,
     Users,
@@ -119,10 +121,7 @@ export default function SocialFitHub() {
         <div className="min-h-screen bg-brand-sand/30 pb-20">
             {/* Header */}
             <div className="bg-brand-pink text-brand-navy p-8 rounded-b-[3rem] shadow-sm mb-8">
-                <Link href="/community" className="inline-flex items-center text-brand-navy/60 mb-4 hover:text-brand-navy transition-colors">
-                    <ChevronLeft className="w-5 h-5 mr-1" />
-                    {t("nav.community")}
-                </Link>
+                <BackButton href="/community" label={t("nav.community")} />
                 <div className="flex items-center justify-between">
                     <div>
                         <h1 className="text-4xl font-heading font-bold">{t("nav.socialFit")}</h1>
@@ -137,6 +136,7 @@ export default function SocialFitHub() {
             </div>
 
             <main className="container mx-auto px-4 max-w-5xl space-y-12">
+                <SafetyGuidelines />
                 {/* Collective Challenge */}
                 <section className="bg-white rounded-[2.5rem] p-8 shadow-sm border border-brand-pink/20">
                     <div className="flex items-center gap-3 mb-6">

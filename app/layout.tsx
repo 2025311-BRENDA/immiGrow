@@ -3,6 +3,7 @@ import { Inter, Outfit } from "next/font/google"; // Using Inter for body, Outfi
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import { Navbar } from "@/components/Navbar";
+import { Footer } from "@/components/Footer";
 import { LanguageProvider } from "@/context/LanguageContext";
 
 const inter = Inter({
@@ -76,6 +77,7 @@ export default function RootLayout({
           <main className="min-h-screen">
             {children}
           </main>
+          <Footer />
           <Navbar />
         </LanguageProvider>
       </body>

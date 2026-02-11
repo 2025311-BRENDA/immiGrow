@@ -4,6 +4,8 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import { Users, Heart, Share2, Calendar, TrendingUp, UserCircle, Edit2, Check, ChevronLeft } from 'lucide-react';
 import { useLanguage } from '@/context/LanguageContext';
+import { SafetyGuidelines } from '@/components/SafetyGuidelines';
+import { BackButton } from '@/components/BackButton';
 
 export default function CommunityPage() {
     const { t, userName, setUserName } = useLanguage();
@@ -59,10 +61,7 @@ export default function CommunityPage() {
         <div className="min-h-screen bg-gray-50 pb-20">
             {/* Header & Profile */}
             <div className="bg-white shadow-sm p-6 mb-6 rounded-b-[2rem]">
-                <Link href="/" className="inline-flex items-center text-slate-400 mb-4 hover:text-brand-teal transition-colors">
-                    <ChevronLeft className="w-5 h-5 mr-1" />
-                    {t("lbl.backTo")} {t("nav.home")}
-                </Link>
+                <BackButton />
                 <div className="flex justify-between items-start mb-4">
                     <div>
                         <h1 className="text-3xl font-bold text-gray-800 mb-2">Comunidad</h1>
@@ -109,6 +108,7 @@ export default function CommunityPage() {
             </div>
 
             <div className="container mx-auto px-4 grid grid-cols-1 gap-4">
+                <SafetyGuidelines />
                 {sections.map((section) => (
                     <Link
                         key={section.title}

@@ -4,6 +4,7 @@ import { tourism } from "@/lib/data";
 import { tourismEs } from "@/lib/data_es";
 import { useLanguage } from "@/context/LanguageContext";
 import { RouteCard } from "@/components/RouteCard";
+import { BackButton } from "@/components/BackButton";
 
 export default function TourismPage() {
     const { language, t } = useLanguage();
@@ -11,6 +12,7 @@ export default function TourismPage() {
 
     return (
         <div className="container mx-auto px-4 py-8 pb-32">
+            <BackButton />
             <h1 className="text-4xl font-heading font-bold text-brand-navy mb-2">
                 {t("nav.tourism")}
             </h1>

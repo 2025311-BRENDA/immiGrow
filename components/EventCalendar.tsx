@@ -11,6 +11,22 @@ export function EventCalendar() {
 
     const data = language === "en" ? events : eventsEs;
 
+    // Add a welcome event at the top
+    const welcomeEvent = {
+        id: 'welcome',
+        title: language === 'en' ? "Welcome to immiGrow!" : "¡Bienvenidos a immiGrow!",
+        date: "14 Feb",
+        time: "10:00 AM",
+        location: "Phoenix Park / Global",
+        description: language === 'en'
+            ? "Thank you for joining our community. We are excited to help you grow in Dublin!"
+            : "Gracias por unirte a nuestra comunidad. ¡Estaros emocionados de ayudarte a crecer en Dublín!",
+        category: "Social",
+        free: true
+    };
+
+    const displayData = [welcomeEvent, ...data];
+
     return (
         <section className="bg-white rounded-[2rem] p-6 shadow-sm border border-slate-100 relative overflow-hidden">
             <div className="absolute top-0 left-0 w-24 h-24 bg-brand-pink/5 rounded-full -ml-8 -mt-8" />
@@ -30,7 +46,7 @@ export function EventCalendar() {
             </div>
 
             <div className="space-y-3 relative z-10">
-                {data.map((event) => (
+                {displayData.map((event) => (
                     <div
                         key={event.id}
                         className="group flex flex-col md:flex-row gap-4 p-4 rounded-2xl bg-slate-50 border border-transparent hover:border-brand-pink/20 hover:bg-white hover:shadow-lg transition-all"

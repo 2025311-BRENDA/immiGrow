@@ -1,6 +1,7 @@
 "use client";
 
 import { RouteCard } from "@/components/RouteCard";
+import { BackButton } from "@/components/BackButton";
 import { useLanguage } from "@/context/LanguageContext";
 import { Map, Users, TreeDeciduous, Footprints, Waves, Bike, Dumbbell, Stethoscope } from "lucide-react";
 
@@ -79,6 +80,7 @@ export default function ExercisePage() {
             {/* Header */}
             <header className="bg-brand-teal text-white py-12 px-4 shadow-sm">
                 <div className="container mx-auto max-w-5xl">
+                    <BackButton />
                     <h1 className="text-4xl font-heading font-bold mb-4">
                         {t("exercise.title")}
                     </h1>

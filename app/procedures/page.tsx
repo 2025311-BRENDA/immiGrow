@@ -4,6 +4,7 @@ import { procedures } from "@/lib/data";
 import { proceduresEs } from "@/lib/data_es";
 import { useLanguage } from "@/context/LanguageContext";
 import { RouteCard } from "@/components/RouteCard";
+import { BackButton } from "@/components/BackButton";
 
 export default function ProceduresPage() {
     const { language, t } = useLanguage();
@@ -11,6 +12,7 @@ export default function ProceduresPage() {
 
     return (
         <div className="container mx-auto px-4 py-8 pb-32">
+            <BackButton />
             <h1 className="text-4xl font-heading font-bold text-brand-navy mb-2">
                 {t("nav.procedures")}
             </h1>

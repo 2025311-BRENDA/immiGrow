@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { ChevronLeft } from 'lucide-react';
 import CommunityCard from '@/components/CommunityCard';
 import { useLanguage } from '@/context/LanguageContext';
+import { SafetyGuidelines } from '@/components/SafetyGuidelines';
 
 export default function CirclesPage() {
     const { t } = useLanguage();
@@ -69,21 +70,24 @@ export default function CirclesPage() {
                 </p>
             </div>
 
-            <div className="container mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-4">
-                {circles.map((circle) => {
-                    const isJoined = joinedCircles.includes(circle.id);
-                    return (
-                        <CommunityCard
-                            key={circle.id}
-                            title={circle.title}
-                            description={circle.description}
-                            tag={circle.tag}
-                            color={circle.color}
-                            actionLabel={isJoined ? "Salir del Grupo" : "Unirme"}
-                            onAction={() => toggleCircle(circle.id)}
-                        />
-                    );
-                })}
+            <div className="container mx-auto px-4">
+                <SafetyGuidelines />
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    {circles.map((circle) => {
+                        const isJoined = joinedCircles.includes(circle.id);
+                        return (
+                            <CommunityCard
+                                key={circle.id}
+                                title={circle.title}
+                                description={circle.description}
+                                tag={circle.tag}
+                                color={circle.color}
+                                actionLabel={isJoined ? "Salir del Grupo" : "Unirme"}
+                                onAction={() => toggleCircle(circle.id)}
+                            />
+                        );
+                    })}
+                </div>
             </div>
         </div>
     );

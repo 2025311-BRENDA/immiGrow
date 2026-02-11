@@ -12,6 +12,7 @@ import {
     CheckCircle2,
     Shield
 } from "lucide-react";
+import { BackButton } from "@/components/BackButton";
 
 interface UserDocument {
     id: string;
@@ -80,10 +81,7 @@ export default function VaultPage() {
         <div className="min-h-screen bg-slate-50 pb-20">
             {/* Header */}
             <div className="bg-brand-navy text-white p-6 rounded-b-[2rem] shadow-lg mb-8">
-                <Link href="/" className="inline-flex items-center text-brand-sand mb-4 opacity-80 hover:opacity-100 transition-opacity">
-                    <ChevronLeft className="w-5 h-5 mr-1" />
-                    {t("nav.home")}
-                </Link>
+                <BackButton />
                 <div className="flex items-center justify-between">
                     <div>
                         <h1 className="text-3xl font-heading font-bold">{t("nav.vault")}</h1>

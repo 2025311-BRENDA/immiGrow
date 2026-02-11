@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { ChevronLeft } from 'lucide-react';
 import CommunityCard from '@/components/CommunityCard';
 import { useLanguage } from '@/context/LanguageContext';
+import { SafetyGuidelines } from '@/components/SafetyGuidelines';
 
 export default function MentorsPage() {
     const { t } = useLanguage();
@@ -52,18 +53,21 @@ export default function MentorsPage() {
                 </p>
             </div>
 
-            <div className="container mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-4">
-                {mentors.map((mentor, index) => (
-                    <CommunityCard
-                        key={index}
-                        title={mentor.name}
-                        tag={mentor.experience}
-                        description={`${mentor.role}. ${mentor.description}`}
-                        color={mentor.color}
-                        actionLabel="Contactar"
-                        onAction={() => alert(`Solicitud enviada a ${mentor.name}`)}
-                    />
-                ))}
+            <div className="container mx-auto px-4">
+                <SafetyGuidelines />
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    {mentors.map((mentor, index) => (
+                        <CommunityCard
+                            key={index}
+                            title={mentor.name}
+                            tag={mentor.experience}
+                            description={`${mentor.role}. ${mentor.description}`}
+                            color={mentor.color}
+                            actionLabel="Contactar"
+                            onAction={() => alert(`Solicitud enviada a ${mentor.name}`)}
+                        />
+                    ))}
+                </div>
             </div>
         </div>
     );

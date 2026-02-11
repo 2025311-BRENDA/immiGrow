@@ -3,6 +3,7 @@
 import React from "react";
 import Link from "next/link";
 import { Heart, Brain, Activity, ChevronRight } from "lucide-react";
+import { BackButton } from "@/components/BackButton";
 import { useLanguage } from "@/context/LanguageContext";
 
 export default function HealthHubPage() {
@@ -46,6 +47,7 @@ export default function HealthHubPage() {
 
     return (
         <div className="container mx-auto px-6 py-12 pb-32">
+            <BackButton />
             <header className="mb-12">
                 <h1 className="text-4xl font-heading font-black text-brand-navy mb-4">
                     {t("nav.health")}

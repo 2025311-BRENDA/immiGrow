@@ -28,6 +28,16 @@ export function Forum() {
                 : "Recomiendo mucho Phoenix Park para correr por la mañana. ¡Los ciervos son increíbles!",
             likes: 12,
             replies: []
+        },
+        {
+            id: 3,
+            author: "immiGrow Team",
+            time: "Just now",
+            content: language === "en"
+                ? "Welcome to the immiGrow community! Feel free to ask anything about life in Dublin. ☘️"
+                : "¡Bienvenidos a la comunidad de immiGrow! Siéntete libre de preguntar lo que sea sobre la vida en Dublín. ☘️",
+            likes: 100,
+            replies: []
         }
     ]);
 

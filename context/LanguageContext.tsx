@@ -6,6 +6,7 @@ type Language = "en" | "es" | "pt";
 
 interface LanguageContextType {
     language: Language;
+    setLanguage: (lang: Language) => void;
     toggleLanguage: () => void;
     t: (key: string) => string;
     userName: string;
@@ -166,7 +167,7 @@ export const dictionaries = {
         "home.quickAccess": "Acceso Rápido",
         "nav.lang": "Idioma",
         "nav.lang_name": "Español",
-        "nav.lang_toggle": "Português",
+        "nav.lang_toggle": "English",
         "event.title": "Próximos Eventos",
         "event.subtitle": "Encuentros gratuitos y comunitarios.",
         "event.free": "Entrada Gratis",
@@ -265,7 +266,7 @@ export const dictionaries = {
         "home.quickAccess": "Acesso Rápido",
         "nav.lang": "Idioma",
         "nav.lang_name": "Português",
-        "nav.lang_toggle": "English",
+        "nav.lang_toggle": "Español",
         "event.title": "Próximos Eventos",
         "event.subtitle": "Encontros gratuitos e comunitários.",
         "event.free": "Entrada Grátis",
@@ -335,6 +336,11 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
         localStorage.setItem('iGrow_user', name);
     };
 
+    const changeLanguage = (newLang: Language) => {
+        setLanguage(newLang);
+        localStorage.setItem('iGrow_lang', newLang);
+    };
+
     const toggleLanguage = () => {
         setLanguage((prev) => {
             let newLang: Language;
@@ -353,7 +359,7 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
     };
 
     return (
-        <LanguageContext.Provider value={{ language, toggleLanguage, t, userName, setUserName }}>
+        <LanguageContext.Provider value={{ language, setLanguage: changeLanguage, toggleLanguage, t, userName, setUserName }}>
             {children}
         </LanguageContext.Provider>
     );

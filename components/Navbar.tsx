@@ -25,7 +25,7 @@ import { useLanguage } from "@/context/LanguageContext";
 import { cn } from "@/lib/utils";
 
 export function Navbar() {
-    const { language, toggleLanguage, t } = useLanguage();
+    const { language, setLanguage, toggleLanguage, t } = useLanguage();
     const pathname = usePathname();
     const [openDropdown, setOpenDropdown] = useState<string | null>(null);
 
@@ -166,18 +166,50 @@ export function Navbar() {
                             <img src="/iGrow-logo.jpg" alt="iGrow" className="w-full h-full object-cover" />
                         </Link>
 
-                        <div className="flex items-center gap-3">
-                            <div className="hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-xl bg-slate-100 text-[10px] font-black uppercase tracking-wider text-slate-500 border border-slate-200">
-                                <Globe className="w-3 h-3" />
-                                {t("nav.lang_name")}
-                            </div>
-                            <button
-                                onClick={toggleLanguage}
-                                className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-slate-50 text-brand-navy hover:bg-brand-sand transition-all text-[10px] font-black uppercase tracking-wider border border-slate-200"
+                        <div className="flex items-center gap-2">
+                            {/* Language Selector Dropdown */}
+                            <div
+                                className="relative"
+                                onMouseEnter={() => setOpenDropdown("language")}
+                                onMouseLeave={() => setOpenDropdown(null)}
                             >
-                                <Globe className="w-3.5 h-3.5 text-brand-irish-green" />
-                                {t("nav.lang_toggle").split(' ')[0]}
-                            </button>
+                                <button
+                                    onClick={() => setOpenDropdown(openDropdown === "language" ? null : "language")}
+                                    className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-slate-50 text-brand-navy hover:bg-brand-sand transition-all text-[10px] font-black uppercase tracking-wider border border-slate-200"
+                                >
+                                    <Globe className="w-3.5 h-3.5 text-brand-irish-green" />
+                                    <span className="hidden sm:inline">{t("nav.lang_name")}</span>
+                                    <span className="sm:hidden uppercase">{language}</span>
+                                    <ChevronDown className={cn("w-3 h-3 transition-transform duration-200", openDropdown === "language" && "rotate-180")} />
+                                </button>
+
+                                {/* Dropdown Menu */}
+                                <div className={cn(
+                                    "absolute top-full right-0 mt-2 w-32 bg-white rounded-xl shadow-xl border border-slate-100 p-1 transition-all duration-200 origin-top-right z-[60]",
+                                    openDropdown === "language" ? "opacity-100 scale-100 translate-y-0" : "opacity-0 scale-95 -translate-y-2 pointer-events-none"
+                                )}>
+                                    {[
+                                        { code: "en", name: "English" },
+                                        { code: "pt", name: "Português" },
+                                        { code: "es", name: "Español" }
+                                    ].map((l) => (
+                                        <button
+                                            key={l.code}
+                                            onClick={() => {
+                                                setLanguage(l.code as any);
+                                                setOpenDropdown(null);
+                                            }}
+                                            className={cn(
+                                                "w-full flex items-center gap-3 p-2.5 rounded-lg transition-all text-left",
+                                                language === l.code ? "bg-brand-sand/30 text-brand-irish-green" : "hover:bg-slate-50 text-slate-600 hover:text-brand-navy"
+                                            )}
+                                        >
+                                            <span className="font-bold text-[10px] uppercase tracking-wider">{l.code}</span>
+                                            <span className="font-semibold text-xs">{l.name}</span>
+                                        </button>
+                                    ))}
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

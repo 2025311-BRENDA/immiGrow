@@ -18,6 +18,51 @@ interface DetailViewProps {
     accentColor?: string;
 }
 
+const colorMap = {
+    "brand-sun": "bg-brand-sun text-brand-sun border-brand-sun",
+    "brand-purple": "bg-brand-purple text-brand-purple border-brand-purple",
+    "brand-pink": "bg-brand-pink text-brand-pink border-brand-pink",
+    "brand-sunset": "bg-brand-sunset text-brand-sunset border-brand-sunset",
+    "brand-teal": "bg-brand-teal text-brand-teal border-brand-teal",
+    "brand-turquoise": "bg-brand-turquoise text-brand-turquoise border-brand-turquoise",
+};
+
+const bgLightMap = {
+    "brand-sun": "bg-brand-sun/10",
+    "brand-purple": "bg-brand-purple/10",
+    "brand-pink": "bg-brand-pink/10",
+    "brand-sunset": "bg-brand-sunset/10",
+    "brand-teal": "bg-brand-teal/10",
+    "brand-turquoise": "bg-brand-turquoise/10",
+};
+
+const bgSoftMap = {
+    "brand-sun": "bg-brand-sun/5",
+    "brand-purple": "bg-brand-purple/5",
+    "brand-pink": "bg-brand-pink/5",
+    "brand-sunset": "bg-brand-sunset/5",
+    "brand-teal": "bg-brand-teal/5",
+    "brand-turquoise": "bg-brand-turquoise/5",
+};
+
+const textHoverMap = {
+    "brand-sun": "hover:text-brand-sun",
+    "brand-purple": "hover:text-brand-purple",
+    "brand-pink": "hover:text-brand-pink",
+    "brand-sunset": "hover:text-brand-sunset",
+    "brand-teal": "hover:text-brand-teal",
+    "brand-turquoise": "hover:text-brand-turquoise",
+};
+
+const textMap = {
+    "brand-sun": "text-brand-sun",
+    "brand-purple": "text-brand-purple",
+    "brand-pink": "text-brand-pink",
+    "brand-sunset": "text-brand-sunset",
+    "brand-teal": "text-brand-teal",
+    "brand-turquoise": "text-brand-turquoise",
+};
+
 export function DetailView({
     title,
     description,
@@ -32,20 +77,22 @@ export function DetailView({
     accentColor = "brand-teal",
 }: DetailViewProps) {
     const { language } = useLanguage();
+    const colorKey = accentColor as keyof typeof colorMap;
+
     return (
-        <div className={cn("min-h-screen pb-20 relative overflow-hidden", `bg-${accentColor}/5`)}>
+        <div className={cn("min-h-screen pb-20 relative overflow-hidden", bgSoftMap[colorKey] || "bg-brand-teal/5")}>
             {/* Background Decorative Blobs */}
-            <div className={cn("absolute top-[-10%] right-[-10%] w-[40%] h-[40%] rounded-full blur-[120px] opacity-20 pointer-events-none", `bg-${accentColor}`)} />
-            <div className={cn("absolute bottom-[-10%] left-[-10%] w-[30%] h-[30%] rounded-full blur-[100px] opacity-10 pointer-events-none", `bg-${accentColor}`)} />
+            <div className={cn("absolute top-[-10%] right-[-10%] w-[40%] h-[40%] rounded-full blur-[120px] opacity-20 pointer-events-none", colorMap[colorKey]?.split(" ")[0] || "bg-brand-teal")} />
+            <div className={cn("absolute bottom-[-10%] left-[-10%] w-[30%] h-[30%] rounded-full blur-[100px] opacity-10 pointer-events-none", colorMap[colorKey]?.split(" ")[0] || "bg-brand-teal")} />
 
             {/* Header */}
             <header className="bg-white/60 backdrop-blur-md sticky top-0 z-10 border-b border-slate-200/50">
                 <div className="container mx-auto max-w-4xl px-4 py-4">
                     <Link
                         href={parentHref}
-                        className={cn("inline-flex items-center font-bold text-slate-600 hover:text-brand-navy transition-colors", `hover:text-${accentColor}`)}
+                        className={cn("inline-flex items-center font-bold text-slate-600 hover:text-brand-navy transition-colors", textHoverMap[colorKey] || "hover:text-brand-teal")}
                     >
-                        <ArrowLeft className={cn("w-4 h-4 mr-2", `text-${accentColor}`)} />
+                        <ArrowLeft className={cn("w-4 h-4 mr-2", textMap[colorKey] || "text-brand-teal")} />
                         {language === "en" ? "Back to" : language === "es" ? "Volver a" : "Voltar para"} {parentLabel}
                     </Link>
                 </div>
@@ -64,8 +111,8 @@ export function DetailView({
 
                 <div className="bg-white rounded-[2.5rem] shadow-sm p-8 border border-slate-100">
                     <div className="flex items-start justify-between mb-6">
-                        <div className={cn("p-4 rounded-2xl shadow-sm", `bg-${accentColor}/10`)}>
-                            <Icon className={cn("w-12 h-12", `text-${accentColor}`)} />
+                        <div className={cn("p-4 rounded-2xl shadow-sm", bgLightMap[colorKey] || "bg-brand-teal/10")}>
+                            <Icon className={cn("w-12 h-12", textMap[colorKey] || "text-brand-teal")} />
                         </div>
                         <div className="flex gap-2">
                             {difficulty && (
@@ -100,7 +147,7 @@ export function DetailView({
                                 href={externalLink}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className={cn("inline-flex items-center justify-center w-full sm:w-auto px-8 py-3 text-lg font-bold text-white rounded-2xl transition-all shadow-md hover:-translate-y-0.5", `bg-${accentColor}`)}
+                                className={cn("inline-flex items-center justify-center w-full sm:w-auto px-8 py-3 text-lg font-bold text-white rounded-2xl transition-all shadow-md hover:-translate-y-0.5", colorMap[colorKey]?.split(" ")[0] || "bg-brand-teal")}
                             >
                                 {language === "en" ? "Visit Official Website" : language === "es" ? "Visitar Sitio Oficial" : "Visitar Site Oficial"}
                                 <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -146,8 +193,8 @@ export function DetailView({
                                     // H2 Rendering
                                     if (trimmed.startsWith("## ")) {
                                         return (
-                                            <h3 key={index} className={cn("text-xl font-black pt-8 mb-3 flex items-center gap-3", `text-${accentColor}`)}>
-                                                <div className={cn("w-2 h-8 rounded-full", `bg-${accentColor}`)}></div>
+                                            <h3 key={index} className={cn("text-xl font-black pt-8 mb-3 flex items-center gap-3", textMap[colorKey] || "text-brand-teal")}>
+                                                <div className={cn("w-2 h-8 rounded-full", colorMap[colorKey]?.split(" ")[0] || "bg-brand-teal")}></div>
                                                 {parseInline(trimmed.replace("## ", ""))}
                                             </h3>
                                         );

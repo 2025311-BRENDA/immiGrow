@@ -985,6 +985,7 @@ Programa Nacional de Triagem Cervical. Gratuito para todas as mulheres residente
         icon: Baby,
         slug: "maternity-services",
         image: "/maternity_care.png",
+        externalLink: "https://www.hse.ie/eng/services/list/3/maternity/",
         content: `
 # Cuidados de Maternidade
 
@@ -1004,6 +1005,7 @@ Toda mulher grávida e residente na Irlanda tem direito a cuidados de maternidad
         icon: Stethoscope,
         slug: "womens-clinics",
         image: "/womens_health.png",
+        externalLink: "https://www.wellwomancentre.ie/",
         content: `
 # Clínicas de Saúde da Mulher
 
@@ -1012,6 +1014,36 @@ Serviços comuns:
 - Cuidados na Menopausa
 - Exames de saúde sexual
         `
+    },
+    {
+        title: "Redes de Apoio",
+        description: "AkiDwA, NCP e Cairde - Conectando mulheres imigrantes para suporte social e de saúde.",
+        distance: "Comunidade",
+        difficulty: "Easy",
+        icon: Users,
+        slug: "womens-support-networks",
+        image: "/womens_support.png",
+        content: `
+# Suporte a Mulheres Migrantes
+
+Conectar-se com outras pessoas é fundamental para o bem-estar.
+
+## Organizações
+- **[AkiDwA](https://akidwa.ie/)**: Uma rede nacional de mulheres imigrantes que vivem na Irlanda.
+- **[NCP (New Communities Partnership)](https://www.newcommunities.ie/)**: Frequentemente organiza grupos de mulheres.
+- **[Cairde](https://cairde.ie/)**: Trabalhando para reduzir as desigualdades na saúde.
+        `
+    },
+    {
+        title: "Serviços de Saúde da Mulher",
+        description: "Lista abrangente de clínicas e serviços do portal do HSE.",
+        distance: "Diretório",
+        difficulty: "Easy",
+        icon: Stethoscope,
+        slug: "womens-clinics-hse",
+        externalLink: "https://www.hse.ie/eng/services/list/2/healthcentres/womenshealth/",
+        mapUrl: "https://www.google.com/maps/search/Womens+Health+Clinic+Ireland",
+        content: "# Serviços de Saúde da Mulher\n\nLista completa de clínicas para a saúde da mulher."
     }
 ];
 

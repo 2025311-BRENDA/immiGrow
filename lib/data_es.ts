@@ -634,6 +634,7 @@ export const proceduresEs: RouteItem[] = [
         slug: "leap-card",
         image: "/leap_card.png",
         externalLink: "https://about.leapcard.ie/",
+        mapUrl: "https://www.google.com/maps/search/Dublin+Bus+O'Connell+Street",
         content: `
 # TFI Leap Card
 
@@ -649,7 +650,7 @@ Tarjeta recargable para pagar transporte público. Es más barata que el efectiv
         `
     },
     {
-        title: "Tarjeta Biblioteca ILAC",
+        title: "Bibliotecas de Dublín",
         description: "Únete gratis. Libros, e-books y espacios de estudio.",
         distance: "Estilo de Vida",
         icon: Book,

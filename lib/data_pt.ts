@@ -675,7 +675,7 @@ export const proceduresPt: RouteItem[] = [
         slug: "leap-card",
         image: "/leap_card.png",
         externalLink: "https://about.leapcard.ie/",
-        mapUrl: "https://www.google.com/maps/search/TFI+Leap+Card+Outlet+Dublin",
+        mapUrl: "https://www.google.com/maps/search/Dublin+Bus+O'Connell+Street",
         content: `
 # TFI Leap Card
 
@@ -696,7 +696,7 @@ O Leap Card é um cartão inteligente recarregável usado para pagar passagens d
         `
     },
     {
-        title: "Cartão da Biblioteca ILAC",
+        title: "Bibliotecas da Cidade de Dublin",
         description: "Participe das Bibliotecas da Cidade de Dublin gratuitamente. Acesse livros, e-books e espaços de estudo.",
         distance: "Estilo de Vida",
         icon: Book,

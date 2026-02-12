@@ -1403,7 +1403,7 @@ export const professionals: Professional[] = [
         specialty: ["Sports Injury", "Back Pain"],
         languages: ["English", "Spanish", "Portuguese"],
         location: "Dublin 1 (City Center)",
-        contact: "+353 89 123 4567",
+        contact: "+353891234567",
         rating: 4.8,
         reviews: 24,
         verified: true
@@ -1439,7 +1439,7 @@ export const professionals: Professional[] = [
         specialty: ["Stress Management", "Workplace Issues"],
         languages: ["English"],
         location: "Online / Dublin 6",
-        contact: "+353 87 987 6543",
+        contact: "+353879876543",
         rating: 4.7,
         reviews: 30,
         verified: true

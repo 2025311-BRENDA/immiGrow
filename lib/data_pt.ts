@@ -1069,7 +1069,7 @@ export const professionalsPt: Professional[] = [
         specialty: ["Lesões Esportivas", "Dor nas Costas"],
         languages: ["Inglês", "Espanhol", "Português"],
         location: "Dublin 1 (Centro)",
-        contact: "+353 89 123 4567",
+        contact: "+353891234567",
         rating: 4.8,
         reviews: 24,
         verified: true

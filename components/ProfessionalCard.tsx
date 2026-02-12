@@ -1,6 +1,6 @@
 import React from 'react';
 import { Professional } from '@/lib/data';
-import { Star, MapPin, Phone, CheckCircle, Languages } from 'lucide-react';
+import { Star, MapPin, Phone, CheckCircle, Languages, Mail, MessageCircle } from 'lucide-react';
 
 interface ProfessionalCardProps {
     professional: Professional;
@@ -55,10 +55,36 @@ const ProfessionalCard: React.FC<ProfessionalCardProps> = ({ professional }) => 
                     </div>
                 </div>
 
-                <button className="w-full py-2 px-4 bg-slate-900 hover:bg-slate-800 text-white rounded-lg text-sm font-medium transition-colors flex items-center justify-center gap-2">
-                    <Phone className="w-4 h-4" />
-                    Contact
-                </button>
+                <div className="flex flex-col gap-2">
+                    {professional.contact.includes('@') ? (
+                        <a
+                            href={`mailto:${professional.contact}`}
+                            className="w-full py-2 px-4 bg-slate-900 hover:bg-slate-800 text-white rounded-lg text-sm font-medium transition-colors flex items-center justify-center gap-2"
+                        >
+                            <Mail className="w-4 h-4" />
+                            Email
+                        </a>
+                    ) : (
+                        <div className="flex gap-2">
+                            <a
+                                href={`tel:${professional.contact.replace(/\s+/g, '')}`}
+                                className="flex-1 py-2 px-4 bg-slate-900 hover:bg-slate-800 text-white rounded-lg text-sm font-medium transition-colors flex items-center justify-center gap-2"
+                            >
+                                <Phone className="w-4 h-4" />
+                                Call
+                            </a>
+                            <a
+                                href={`https://wa.me/${professional.contact.replace(/[\s+-]/g, '')}`}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="px-3 py-2 bg-green-600 hover:bg-green-700 text-white rounded-lg transition-colors flex items-center justify-center"
+                                title="WhatsApp"
+                            >
+                                <MessageCircle className="w-5 h-5" />
+                            </a>
+                        </div>
+                    )}
+                </div>
             </div>
         </div>
     );

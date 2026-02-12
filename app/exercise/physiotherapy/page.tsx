@@ -1,7 +1,7 @@
 "use client";
 
-import { physiotherapy, professionals } from "@/lib/data";
-import { physiotherapyEs } from "@/lib/data_es";
+import { physiotherapy, professionals, Professional } from "@/lib/data";
+import { physiotherapyEs, professionalsEs } from "@/lib/data_es";
 import { physiotherapyPt, professionalsPt } from "@/lib/data_pt";
 import { useLanguage } from "@/context/LanguageContext";
 import { RouteCard } from "@/components/RouteCard";
@@ -11,7 +11,7 @@ import JoinNetworkCTA from "@/components/JoinNetworkCTA";
 export default function PhysiotherapyPage() {
     const { language, t } = useLanguage();
     const data = language === "en" ? physiotherapy : language === "es" ? physiotherapyEs : physiotherapyPt;
-    const physios = (language === "en" ? professionals : language === "es" ? professionals : professionalsPt).filter(p => p.role === "Physiotherapist");
+    const physios = (language === "en" ? professionals : language === "es" ? professionalsEs : professionalsPt).filter((p: Professional) => p.role.includes("Physiotherapist") || p.role.includes("Fisiotera"));
 
     return (
         <div className="container mx-auto px-4 py-8 pb-32">
@@ -41,7 +41,7 @@ export default function PhysiotherapyPage() {
                     {language === "en" ? "Recommended Professionals" : language === "es" ? "Profesionales Recomendados" : "Profissionais Recomendados"}
                 </h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    {physios.map((prof) => (
+                    {physios.map((prof: Professional) => (
                         <ProfessionalCard key={prof.id} professional={prof} />
                     ))}
                 </div>

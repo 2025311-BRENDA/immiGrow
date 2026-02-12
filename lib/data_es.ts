@@ -24,7 +24,7 @@ import {
     X,
     Dumbbell
 } from "lucide-react";
-import { RouteItem, RoadmapItem, JobStep, ResourceLocation, EventItem } from "./data";
+import { RouteItem, RoadmapItem, JobStep, ResourceLocation, EventItem, Professional } from "./data";
 
 export const parksEs: RouteItem[] = [
     {
@@ -1248,5 +1248,68 @@ Si tienes una lesión deportiva específica, podrías necesitar un especialista.
 - **Sports Med Ireland**: Ubicada en Dublín 2.
 - **Santry Sports Clinic**: Instalación de alto nivel usada a menudo por atletas profesionales.
         `
+    }
+];
+
+export const professionalsEs: Professional[] = [
+    {
+        id: "physio-1",
+        name: "Carlos Mendez",
+        role: "Fisioterapeuta",
+        specialty: ["Lesiones Deportivas", "Dolor de Espalda"],
+        languages: ["Inglés", "Español", "Portugués"],
+        location: "Dublin 1 (Centro)",
+        contact: "+353891234567",
+        rating: 4.8,
+        reviews: 24,
+        verified: true
+    },
+    {
+        id: "physio-2",
+        name: "Sarah O'Connor",
+        role: "Fisioterapeuta",
+        specialty: ["Rehabilitación Postoperatoria", "Pilates"],
+        languages: ["Inglés", "Francés"],
+        location: "Dublin 4 (Ballsbridge)",
+        contact: "sarah.physio@example.com",
+        rating: 4.9,
+        reviews: 42,
+        verified: true
+    },
+    {
+        id: "psych-1",
+        name: "Dra. Elena Rossi",
+        role: "Psicóloga",
+        specialty: ["Ansiedad", "Adaptación Cultural", "Depresión"],
+        languages: ["Inglés", "Italiano", "Español"],
+        location: "Dublin 2 (Merrion Sq)",
+        contact: "elena.rossi@example.com",
+        rating: 5.0,
+        reviews: 18,
+        verified: true
+    },
+    {
+        id: "psych-2",
+        name: "Liam Byrne",
+        role: "Psicólogo",
+        specialty: ["Manejo del Estrés", "Asuntos Laborales"],
+        languages: ["Inglés"],
+        location: "Online / Dublin 6",
+        contact: "+353879876543",
+        rating: 4.7,
+        reviews: 30,
+        verified: true
+    },
+    {
+        id: "physio-3",
+        name: "Mariana Silva",
+        role: "Fisioterapeuta",
+        specialty: ["Salud de la Mujer", "Suelo Pélvico"],
+        languages: ["Inglés", "Portugués"],
+        location: "Dublin 15 (Blanchardstown)",
+        contact: "mariana.physio@example.com",
+        rating: 4.9,
+        reviews: 15,
+        verified: true
     }
 ];

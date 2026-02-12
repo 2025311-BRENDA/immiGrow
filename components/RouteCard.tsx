@@ -103,7 +103,7 @@ export function RouteCard({
                                     difficulty === "Medium" ? "bg-yellow-100 text-yellow-700" :
                                         "bg-red-100 text-red-700"
                                     }`}>
-                                    {difficulty}
+                                    {t(`diff.${difficulty.toLowerCase()}`)}
                                 </span>
                             )}
                         </div>

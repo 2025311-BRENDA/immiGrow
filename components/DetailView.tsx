@@ -76,7 +76,7 @@ export function DetailView({
     externalLink,
     accentColor = "brand-teal",
 }: DetailViewProps) {
-    const { language } = useLanguage();
+    const { language, t } = useLanguage();
     const colorKey = accentColor as keyof typeof colorMap;
 
     return (
@@ -120,7 +120,7 @@ export function DetailView({
                                     difficulty === "Medium" ? "bg-yellow-100 text-yellow-700" :
                                         "bg-red-100 text-red-700"
                                     }`}>
-                                    {difficulty}
+                                    {t(`diff.${difficulty.toLowerCase()}`)}
                                 </span>
                             )}
                         </div>

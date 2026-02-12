@@ -655,7 +655,7 @@ Tarjeta recargable para pagar transporte público. Es más barata que el efectiv
         icon: Book,
         slug: "ilac-library-card",
         image: "/ilac_library_real.png",
-        externalLink: "https://www.dublincity.ie/residential/libraries/join-library",
+        externalLink: "https://www.dublincity.ie/dublin-city-libraries",
         mapUrl: "https://www.google.com/maps/search/Central+Library+ILAC+Centre",
         content: `
 # Bibliotecas de Dublín

@@ -1255,7 +1255,7 @@ export const professionalsEs: Professional[] = [
     {
         id: "physio-1",
         name: "Carlos Mendez",
-        role: "Fisioterapeuta",
+        role: "Physiotherapist",
         specialty: ["Lesiones Deportivas", "Dolor de Espalda"],
         languages: ["Inglés", "Español", "Portugués"],
         location: "Dublin 1 (Centro)",
@@ -1266,9 +1266,9 @@ export const professionalsEs: Professional[] = [
     },
     {
         id: "physio-2",
-        name: "Sarah O'Connor",
-        role: "Fisioterapeuta",
-        specialty: ["Rehabilitación Postoperatoria", "Pilates"],
+        name: "Dra. Sarah Walsh",
+        role: "Physiotherapist",
+        specialty: ["Fisioterapia Pediátrica", "Postura"],
         languages: ["Inglés", "Francés"],
         location: "Dublin 4 (Ballsbridge)",
         contact: "sarah.physio@example.com",
@@ -1279,7 +1279,7 @@ export const professionalsEs: Professional[] = [
     {
         id: "psych-1",
         name: "Dra. Elena Rossi",
-        role: "Psicóloga",
+        role: "Psychologist",
         specialty: ["Ansiedad", "Adaptación Cultural", "Depresión"],
         languages: ["Inglés", "Italiano", "Español"],
         location: "Dublin 2 (Merrion Sq)",
@@ -1291,8 +1291,8 @@ export const professionalsEs: Professional[] = [
     {
         id: "psych-2",
         name: "Liam Byrne",
-        role: "Psicólogo",
-        specialty: ["Manejo del Estrés", "Asuntos Laborales"],
+        role: "Psychologist",
+        specialty: ["Terapia Cognitivo-Conductual", "Estrés", "Asuntos Laborales"],
         languages: ["Inglés"],
         location: "Online / Dublin 6",
         contact: "+353879876543",

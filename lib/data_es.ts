@@ -655,7 +655,7 @@ Tarjeta recargable para pagar transporte público. Es más barata que el efectiv
         icon: Book,
         slug: "ilac-library-card",
         image: "/ilac_library_real.png",
-        externalLink: "https://www.dublincity.ie/residential/libraries/using-your-library/join-library",
+        externalLink: "https://www.dublincity.ie/residential/libraries/join-library",
         mapUrl: "https://www.google.com/maps/search/Central+Library+ILAC+Centre",
         content: `
 # Bibliotecas de Dublín
@@ -1303,7 +1303,7 @@ export const professionalsEs: Professional[] = [
     {
         id: "physio-3",
         name: "Mariana Silva",
-        role: "Fisioterapeuta",
+        role: "Physiotherapist",
         specialty: ["Salud de la Mujer", "Suelo Pélvico"],
         languages: ["Inglés", "Portugués"],
         location: "Dublin 15 (Blanchardstown)",

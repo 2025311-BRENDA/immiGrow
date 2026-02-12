@@ -763,7 +763,7 @@ A Leap Card is a rechargeable smart card used to pay public transport fares in D
         icon: Book,
         slug: "ilac-library-card",
         image: "/ilac_library_real.png",
-        externalLink: "https://www.dublincity.ie/residential/libraries/using-your-library/join-library",
+        externalLink: "https://www.dublincity.ie/residential/libraries/join-library",
         mapUrl: "https://www.google.com/maps/search/Central+Library+ILAC+Centre",
         content: `
 # Dublin City Libraries

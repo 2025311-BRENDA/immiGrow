@@ -1161,7 +1161,6 @@ export const gymsEs: RouteItem[] = [
         title: "Gimnasios del Ayuntamiento (DCC)",
         description: "Gimnasios y piscinas asequibles y de alta calidad gestionados por el ayuntamiento.",
         distance: "Varias Ubicaciones",
-        difficulty: "Easy",
         icon: Dumbbell,
         slug: "dcc-fitness",
         externalLink: "https://www.dublincity.ie/residential/sports-and-leisure/sports-and-fitness-centres",

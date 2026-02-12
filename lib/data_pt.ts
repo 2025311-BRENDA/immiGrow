@@ -928,7 +928,6 @@ export const exerciseGeneralPt: RouteItem[] = [
         title: "Corrida Costeira (Dublin Bay)",
         description: "Respire o ar do mar neste caminho plano e cênico. Perfeito para corridas matinais.",
         distance: "5-10 km",
-        difficulty: "Easy",
         icon: Bike,
         slug: "coastal-run",
         mapUrl: "https://www.google.com/maps/search/Clontarf+Promenade",
@@ -938,7 +937,6 @@ export const exerciseGeneralPt: RouteItem[] = [
         title: "Esportes Comunitários",
         description: "Academias ao ar livre e encontros esportivos em parques como Herbert e Fairview.",
         distance: "Vários",
-        difficulty: "Easy",
         icon: Users,
         slug: "community-sports",
         image: "/community_sports.png",
@@ -1037,7 +1035,6 @@ export const gymsPt: RouteItem[] = [
         title: "Conselho Municipal de Dublin (Fitness)",
         description: "Academias e piscinas acessíveis geridas pelo conselho da cidade.",
         distance: "Vários Locais",
-        difficulty: "Easy",
         icon: Dumbbell,
         slug: "dcc-fitness",
         content: `

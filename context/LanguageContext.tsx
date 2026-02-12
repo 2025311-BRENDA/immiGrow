@@ -116,6 +116,9 @@ export const dictionaries = {
         "mental.professionals": "Recommended Professionals",
         "procedures.subtitle": "Essential guides for life in Ireland. PPSN, Housing, Visa, and more.",
         "tourism.subtitle": "Explore Dublin and its surroundings. Hikes, walks, and scenic spots.",
+        "diff.easy": "Easy",
+        "diff.medium": "Medium",
+        "diff.hard": "Hard",
     },
     es: {
         "nav.home": "Inicio",
@@ -217,6 +220,9 @@ export const dictionaries = {
         "mental.professionals": "Profesionales Recomendados",
         "procedures.subtitle": "Guías esenciales para la vida en Irlanda. PPSN, Vivienda, Visa y más.",
         "tourism.subtitle": "Explora Dublín y sus alrededores. Caminatas y lugares escénicos.",
+        "diff.easy": "Fácil",
+        "diff.medium": "Medio",
+        "diff.hard": "Difícil",
     },
     pt: {
         "nav.home": "Início",
@@ -316,6 +322,9 @@ export const dictionaries = {
         "mental.professionals": "Profissionais Recomendados",
         "procedures.subtitle": "Guias essenciais para a vida na Irlanda. PPSN, Aluguel, Visto e mais.",
         "tourism.subtitle": "Explore Dublin e arredores. Trilhas, caminhadas e pontos turísticos.",
+        "diff.easy": "Fácil",
+        "diff.medium": "Médio",
+        "diff.hard": "Difícil",
     }
 };
 

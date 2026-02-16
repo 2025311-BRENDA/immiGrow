@@ -74,11 +74,11 @@ export default function RootLayout({
         )}
       >
         <LanguageProvider>
+          <Navbar />
           <main className="min-h-screen">
             {children}
           </main>
           <Footer />
-          <Navbar />
         </LanguageProvider>
       </body>
     </html>

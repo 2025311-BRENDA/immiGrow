@@ -152,7 +152,10 @@ export default function Home() {
                 <Sparkles className="w-6 h-6" />
               </div>
               <span className="text-brand-purple/60 text-[10px] font-black uppercase tracking-widest">{t("cat.extras")}</span>
-              <h4 className="font-bold text-brand-navy mt-1 text-lg">{t("nav.toolkit")}</h4>
+              <h4 className="font-bold text-brand-navy mt-1 text-lg">
+                {t("nav.toolkit")}
+                <span className="block text-[10px] text-slate-400 font-normal mt-1">+ {t("nav.community")} & {t("nav.more")}</span>
+              </h4>
             </Link>
           </div>
         </section>

@@ -1,7 +1,6 @@
-"use client";
-
 import React, { useState } from "react";
-import { MessageSquare, Send, User, ThumbsUp, Reply } from "lucide-react";
+import Link from "next/link";
+import { MessageSquare, Send, User, ThumbsUp, Reply, ChevronRight } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 
 export function Forum() {
@@ -94,9 +93,10 @@ export function Forum() {
                         {t("forum.subtitle")}
                     </p>
                 </div>
-                <div className="p-2 bg-white/10 rounded-xl">
-                    <MessageSquare className="w-5 h-5 text-brand-sand" />
-                </div>
+                <Link href="/community" className="p-2 bg-white/10 rounded-xl hover:bg-white/20 transition-all text-brand-sand text-[10px] font-bold flex items-center gap-1">
+                    {t("nav.community")}
+                    <ChevronRight className="w-3 h-3" />
+                </Link>
             </div>
 
             <div className="flex gap-4 mb-6 relative z-10 overflow-x-auto pb-4 custom-scrollbar snap-x">

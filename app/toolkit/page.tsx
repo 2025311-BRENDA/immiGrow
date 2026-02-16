@@ -9,7 +9,8 @@ import {
     MessageSquare,
     Award,
     ChevronRight,
-    Sparkles
+    Sparkles,
+    Globe
 } from "lucide-react";
 import { BackButton } from "@/components/BackButton";
 import { useLanguage } from "@/context/LanguageContext";
@@ -82,6 +83,19 @@ export default function ToolkitPage() {
             href: "/achievements",
             color: "text-brand-teal",
             bgColor: "bg-brand-teal/10"
+        },
+        {
+            id: "community",
+            title: t("nav.community"),
+            description: language === "en"
+                ? "Connect with other migrants, join forums, and find events."
+                : language === "es"
+                    ? "Conecta con otros migrantes, únete a foros y busca eventos."
+                    : "Conecte-se com outros migrantes, participe de fóruns e eventos.",
+            icon: Globe,
+            href: "/community",
+            color: "text-brand-irish-green",
+            bgColor: "bg-brand-irish-green/10"
         }
     ];
 

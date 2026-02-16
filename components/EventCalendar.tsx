@@ -1,7 +1,8 @@
 "use client";
 
 import React from "react";
-import { Calendar, Clock, MapPin, Users, Ticket, Heart } from "lucide-react";
+import Link from "next/link";
+import { Calendar, Clock, MapPin, Users, Ticket, Heart, ChevronRight } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 import { events } from "@/lib/data";
 import { eventsEs } from "@/lib/data_es";
@@ -99,9 +100,9 @@ export function EventCalendar() {
             </div>
 
             <div className="mt-6 text-center">
-                <button className="text-[10px] font-black text-slate-400 hover:text-brand-navy transition-colors uppercase tracking-[0.2em]">
+                <Link href="/community" className="text-[10px] font-black text-slate-400 hover:text-brand-navy transition-colors uppercase tracking-[0.2em] inline-block">
                     {t("event.viewFull")}
-                </button>
+                </Link>
             </div>
         </section>
     );

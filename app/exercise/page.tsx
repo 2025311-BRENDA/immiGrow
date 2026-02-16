@@ -3,7 +3,7 @@
 import { RouteCard } from "@/components/RouteCard";
 import { BackButton } from "@/components/BackButton";
 import { useLanguage } from "@/context/LanguageContext";
-import { Map, Users, TreeDeciduous, Footprints, Waves, Bike, Dumbbell, Stethoscope } from "lucide-react";
+import { Map, Users, TreeDeciduous, Footprints, Waves, Bike, Dumbbell, Stethoscope, Mountain } from "lucide-react";
 
 export default function ExercisePage() {
     const { language, t } = useLanguage();
@@ -16,6 +16,14 @@ export default function ExercisePage() {
             difficulty: "Easy" as const,
             icon: TreeDeciduous,
             href: "/exercise/parks",
+        },
+        {
+            title: t("nav.tourism"),
+            description: t("tourism.subtitle"),
+            distance: t("cat.extras"),
+            difficulty: "Medium" as const,
+            icon: Mountain,
+            href: "/tourism",
         },
         {
             title: t("exercise.cat.swimming.title"),
@@ -40,14 +48,6 @@ export default function ExercisePage() {
             difficulty: "Easy" as const,
             icon: Dumbbell,
             href: "/exercise/gyms",
-        },
-        {
-            title: t("exercise.cat.physio.title"),
-            description: t("exercise.cat.physio.desc"),
-            distance: t("cat.extras"),
-            difficulty: "Easy" as const,
-            icon: Stethoscope,
-            href: "/exercise/physiotherapy",
         },
         {
             title: t("exercise.cat.run.title"),
@@ -82,7 +82,7 @@ export default function ExercisePage() {
                 <div className="container mx-auto max-w-5xl">
                     <BackButton />
                     <h1 className="text-4xl font-heading font-bold mb-4">
-                        {t("exercise.title")}
+                        {t("nav.physical_activity")}
                     </h1>
                     <p className="text-brand-sand/90 text-lg max-w-2xl">
                         {t("exercise.subtitle")}

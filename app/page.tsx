@@ -62,14 +62,8 @@ export default function Home() {
         <div className="absolute bottom-0 left-0 w-64 h-64 bg-brand-turquoise/10 rounded-full -ml-16 -mb-16 blur-2xl" />
 
         <div className="container mx-auto relative z-10">
-          {/* Header Row: Logo & Notifications */}
-          <div className="flex justify-between items-center mb-8">
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 bg-white/20 backdrop-blur-md rounded-xl flex items-center justify-center border border-white/20 overflow-hidden p-0.5 shadow-sm">
-                <img src="/iGrow-logo.jpg" alt="iGrow" className="w-full h-full object-cover" />
-              </div>
-              <h1 className="text-white font-heading text-3xl font-black tracking-tighter">immiGrow</h1>
-            </div>
+          {/* Header Row: Notifications Only (Logo is now in sticky Navbar) */}
+          <div className="flex justify-end items-center mb-8">
             <button className="p-3 bg-white/10 backdrop-blur-md rounded-full text-white border border-white/20 relative hover:bg-white/20 transition-all shadow-lg">
               <Bell className="w-5 h-5" />
               <span className="absolute top-2.5 right-2.5 w-2.5 h-2.5 bg-brand-sun rounded-full ring-4 ring-[#009B48]"></span>

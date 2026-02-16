@@ -112,10 +112,10 @@ export default function Home() {
       </section>
 
       <div className="container mx-auto px-6 space-y-10">
-        {/* Categories Grid - MOVED UP for direct action */}
+        {/* Categories Grid - STREAMLINED to 4 items */}
         <section className="relative z-20 -mt-8">
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-            {/* Category: Exercise */}
+          <div className="grid grid-cols-2 gap-4">
+            {/* Category: Activity (Exercise + Tourism combined) */}
             <Link href="/exercise" className="bg-white p-6 rounded-[2.5rem] shadow-sm border border-slate-100 hover:shadow-xl hover:-translate-y-1 transition-all group overflow-hidden relative">
               <div className="absolute top-0 right-0 w-24 h-24 bg-brand-turquoise/5 rounded-full -mr-8 -mt-8 group-hover:bg-brand-turquoise/10 transition-colors" />
               <div className="p-3 bg-brand-turquoise text-white rounded-2xl w-fit mb-4 shadow-md group-hover:scale-110 transition-all">
@@ -123,16 +123,6 @@ export default function Home() {
               </div>
               <span className="text-brand-turquoise/60 text-[10px] font-black uppercase tracking-widest">{t("cat.body")}</span>
               <h4 className="font-bold text-brand-navy mt-1 text-lg">{t("nav.physical_activity")}</h4>
-            </Link>
-
-            {/* Category: Tourism */}
-            <Link href="/tourism" className="bg-white p-6 rounded-[2.5rem] shadow-sm border border-slate-100 hover:shadow-xl hover:-translate-y-1 transition-all group overflow-hidden relative">
-              <div className="absolute top-0 right-0 w-24 h-24 bg-brand-sun/5 rounded-full -mr-8 -mt-8 group-hover:bg-brand-sun/10 transition-colors" />
-              <div className="p-3 bg-brand-sun/10 text-brand-sun rounded-2xl w-fit mb-4 group-hover:bg-brand-sun group-hover:text-brand-navy transition-all shadow-sm">
-                <MapPinned className="w-6 h-6" />
-              </div>
-              <span className="text-brand-sun/60 text-[10px] font-black uppercase tracking-widest">{t("cat.explore")}</span>
-              <h4 className="font-bold text-brand-navy mt-1 text-lg">{t("nav.tourism")}</h4>
             </Link>
 
             {/* Category: Health Hub */}
@@ -145,16 +135,6 @@ export default function Home() {
               <h4 className="font-bold text-brand-navy mt-1 text-lg">{t("nav.health")}</h4>
             </Link>
 
-            {/* Category: Community */}
-            <Link href="/community" className="bg-white p-6 rounded-[2.5rem] shadow-sm border border-slate-100 hover:shadow-xl hover:-translate-y-1 transition-all group overflow-hidden relative">
-              <div className="absolute top-0 right-0 w-24 h-24 bg-brand-sage/5 rounded-full -mr-8 -mt-8 group-hover:bg-brand-sage/10 transition-colors" />
-              <div className="p-3 bg-brand-sage/10 text-brand-sage rounded-2xl w-fit mb-4 group-hover:bg-brand-sage group-hover:text-white transition-all shadow-sm">
-                <Users className="w-6 h-6" />
-              </div>
-              <span className="text-brand-sage/60 text-[10px] font-black uppercase tracking-widest">{t("cat.social")}</span>
-              <h4 className="font-bold text-brand-navy mt-1 text-lg">{t("nav.community")}</h4>
-            </Link>
-
             {/* Category: Procedures */}
             <Link href="/procedures" className="bg-white p-6 rounded-[2.5rem] shadow-sm border border-slate-100 hover:shadow-xl hover:-translate-y-1 transition-all group overflow-hidden relative">
               <div className="absolute top-0 right-0 w-24 h-24 bg-brand-sunset/5 rounded-full -mr-8 -mt-8 group-hover:bg-brand-sunset/10 transition-colors" />
@@ -165,14 +145,14 @@ export default function Home() {
               <h4 className="font-bold text-brand-navy mt-1 text-lg">{t("nav.procedures")}</h4>
             </Link>
 
-            {/* Category: More */}
-            <Link href="/more" className="bg-white p-6 rounded-[2.5rem] shadow-sm border border-slate-100 hover:shadow-xl hover:-translate-y-1 transition-all group overflow-hidden relative">
+            {/* Category: Toolkit (The new central hub) */}
+            <Link href="/toolkit" className="bg-white p-6 rounded-[2.5rem] shadow-sm border border-slate-100 hover:shadow-xl hover:-translate-y-1 transition-all group overflow-hidden relative">
               <div className="absolute top-0 right-0 w-24 h-24 bg-brand-purple/5 rounded-full -mr-8 -mt-8 group-hover:bg-brand-purple/10 transition-colors" />
               <div className="p-3 bg-brand-purple/10 text-brand-purple rounded-2xl w-fit mb-4 group-hover:bg-brand-purple group-hover:text-white transition-all shadow-sm">
                 <Sparkles className="w-6 h-6" />
               </div>
               <span className="text-brand-purple/60 text-[10px] font-black uppercase tracking-widest">{t("cat.extras")}</span>
-              <h4 className="font-bold text-brand-navy mt-1 text-lg">{t("nav.more")}</h4>
+              <h4 className="font-bold text-brand-navy mt-1 text-lg">{t("nav.toolkit")}</h4>
             </Link>
           </div>
         </section>
@@ -182,9 +162,7 @@ export default function Home() {
           <GlobalSearch />
         </section>
 
-        <Roadmap />
-
-        {/* Horizontal Scrolling Sections for compactness */}
+        {/* Community Forum & Events */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <section className="bg-white p-6 rounded-[2.5rem] border border-slate-100 shadow-sm overflow-hidden">
             <Forum />
@@ -194,28 +172,7 @@ export default function Home() {
           </section>
         </div>
 
-        {/* Shortcuts / Quick Actions Dashboard Style */}
-        <section className="pb-8">
-          <div className="flex justify-between items-center mb-4">
-            <h3 className="font-heading font-bold text-lg text-brand-navy px-1">
-              {t("home.quickAccess")}
-            </h3>
-          </div>
-          <div className="grid grid-cols-2 gap-4">
-            <Link href="/vault" className="flex flex-col items-center gap-3 p-6 bg-white rounded-3xl shadow-sm border border-slate-100 hover:bg-slate-50 transition-all text-center">
-              <div className="p-3 bg-brand-navy/10 rounded-2xl">
-                <Shield className="w-6 h-6 text-brand-navy" />
-              </div>
-              <span className="font-bold text-xs text-brand-navy uppercase tracking-wider">{t("nav.vault")}</span>
-            </Link>
-            <Link href="/achievements" className="flex flex-col items-center gap-3 p-6 bg-white rounded-3xl shadow-sm border border-slate-100 hover:bg-slate-50 transition-all text-center">
-              <div className="p-3 bg-brand-teal/10 rounded-2xl">
-                <Award className="w-6 h-6 text-brand-teal" />
-              </div>
-              <span className="font-bold text-xs text-brand-navy uppercase tracking-wider">{t("nav.achievements")}</span>
-            </Link>
-          </div>
-        </section>
+        <Roadmap />
 
         <InstallPWA />
       </div>

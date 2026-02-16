@@ -12,14 +12,14 @@ import {
     FileText,
     Heart,
     Brain,
-    Menu,
     TreeDeciduous,
     ChevronDown,
     Activity,
     ShieldCheck,
     Award,
     Briefcase,
-    Calculator
+    Calculator,
+    Sparkles
 } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 import { cn } from "@/lib/utils";
@@ -35,20 +35,13 @@ export function Navbar() {
 
     const categories: NavCategory[] = [
         {
-            id: "physical",
+            id: "activity",
             label: t("nav.physical_activity"),
             icon: Activity,
             items: [
                 { name: t("nav.parks"), href: "/exercise/parks", icon: TreeDeciduous },
                 { name: t("nav.swimming"), href: "/exercise/swimming", icon: Waves },
                 { name: t("nav.cycling"), href: "/exercise/cycling", icon: Bike },
-            ]
-        },
-        {
-            id: "active",
-            label: t("nav.active"),
-            icon: Mountain,
-            items: [
                 { name: t("nav.tourism"), href: "/tourism", icon: Mountain },
             ]
         },
@@ -70,10 +63,11 @@ export function Navbar() {
             icon: FileText
         },
         {
-            id: "community",
-            label: t("nav.more"),
-            icon: Menu,
+            id: "toolkit",
+            label: t("nav.toolkit"),
+            icon: Sparkles,
             items: [
+                { name: t("nav.toolkit"), href: "/toolkit", icon: Sparkles },
                 { name: t("nav.community"), href: "/community", icon: Globe },
                 { name: t("nav.jobs"), href: "/jobs", icon: Briefcase },
                 { name: t("nav.calculator"), href: "/calculator", icon: Calculator },
@@ -85,11 +79,10 @@ export function Navbar() {
 
     const mobileNavItems = [
         { name: "Home", href: "/", icon: Home, labelKey: "nav.home" },
-        { name: "Physical", href: "/exercise", icon: Activity, labelKey: "nav.physical_activity" },
-        { name: "Active", href: "/tourism", icon: Mountain, labelKey: "nav.active" },
+        { name: "Activity", href: "/exercise", icon: Activity, labelKey: "nav.physical_activity", includes: ["tourism"] },
         { name: "Health", href: "/health", icon: Heart, labelKey: "nav.health", includes: ["mental", "women", "physio"] },
         { name: "Procedures", href: "/procedures", icon: FileText, labelKey: "nav.procedures" },
-        { name: "More", href: "/more", icon: Menu, labelKey: "nav.more", includes: ["jobs", "calculator", "community"] },
+        { name: "Toolkit", href: "/toolkit", icon: Sparkles, labelKey: "nav.toolkit", includes: ["jobs", "calculator", "community", "vault", "achievements"] },
     ];
 
     return (

@@ -22,8 +22,8 @@ export const metadata: Metadata = {
   description: "La guía de bienestar para migrantes en Dublín. Trámites esenciales (IRP/PPSN), salud mental, deporte gratuito y vida comunitaria.",
   manifest: "/manifest.json",
   icons: {
-    icon: "/logo.svg",
-    apple: "/logo.svg",
+    icon: "/logo.png",
+    apple: "/logo.png",
   },
   openGraph: {
     title: "immiGrow Dublin | Salud, Actividad y Comunidad",
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     siteName: "immiGrow",
     images: [
       {
-        url: "https://immigrow.ie/logo.svg", // NEW LOGO WITH ABSOLUTE URL
+        url: "https://immigrow.ie/logo.png", // NEW LOGO WITH ABSOLUTE URL
         width: 1200,
         height: 630,
         alt: "immiGrow Logo",
@@ -45,7 +45,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "immiGrow Dublin | Salud, Actividad y Comunidad",
     description: "Salud, bienestar y trámites para migrantes en Dublín.",
-    images: ["https://immigrow.ie/logo.svg"],
+    images: ["https://immigrow.ie/logo.png"],
   },
   appleWebApp: {
     capable: true,
@@ -55,7 +55,7 @@ export const metadata: Metadata = {
   other: {
     "apple-mobile-web-app-capable": "yes",
     "mobile-web-app-capable": "yes",
-    "apple-touch-icon": "/icons/icon.png",
+    "apple-touch-icon": "/logo.png",
     "keywords": "salud migrantes dublin, tramites irlanda, pps number dublin, salud mental inmigrantes, deportes gratis dublin, educacion irlanda, immigrow"
   }
 };

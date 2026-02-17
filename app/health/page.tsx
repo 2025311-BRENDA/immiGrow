@@ -52,9 +52,9 @@ export default function HealthHubPage() {
     ];
 
     const emergencyContacts = [
+        { name: "immiGrow Support", number: "083 332 0940", desc: language === "en" ? "General assistance" : "Apoyo general" },
         { name: "HSE Live", number: "1800 700 700", desc: language === "en" ? "General health info" : "Info de salud general" },
         { name: "Samaritans", number: "116 123", desc: language === "en" ? "24/7 Mental support" : "Apoyo mental 24/7" },
-        { name: "Emergency", number: "999 / 112", desc: language === "en" ? "Immediate danger" : "Peligro inmediato" }
     ];
 
     return (

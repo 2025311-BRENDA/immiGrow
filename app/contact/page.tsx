@@ -12,15 +12,15 @@ export default function ContactPage() {
         {
             icon: MessageCircle,
             title: "WhatsApp",
-            value: "+353 (0) 8X XXX XXXX",
-            href: "https://wa.me/3538XXXXXXXXX",
+            value: "083 332 0940",
+            href: "https://wa.me/353833320940",
             color: "bg-green-50 text-green-600"
         },
         {
             icon: Mail,
             title: "Email",
-            value: "hello@immigrow.ie",
-            href: "mailto:hello@immigrow.ie",
+            value: "immigrow@outlook.com",
+            href: "mailto:immigrow@outlook.com",
             color: "bg-blue-50 text-blue-600"
         }
     ];

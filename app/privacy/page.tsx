@@ -65,7 +65,7 @@ export default function PrivacyPage() {
 
                     <article className="bg-[#FAF9F6] p-8 rounded-[3rem] border-2 border-dashed border-slate-200 flex flex-col justify-center items-center text-center">
                         <p className="text-sm font-bold text-slate-400 mb-2">{language === 'en' ? 'Questions?' : '¿Dudas?'}</p>
-                        <p className="text-[11px] text-slate-400 uppercase tracking-widest font-black">privacy@immigrow.ie</p>
+                        <p className="text-[11px] text-slate-400 uppercase tracking-widest font-black">immigrow@outlook.com</p>
                     </article>
                 </section>
 

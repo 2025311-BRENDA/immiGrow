@@ -25,7 +25,7 @@ const JoinNetworkCTA: React.FC = () => {
             ? "Hola,\n\nEstoy interesado en unirme a la red de profesionales de immiGrow.\n\nNombre:\nRol:\nEspecialidad:\nUbicación:\n\nGracias."
             : "Olá,\n\nEstou interessado em participar da rede profissional immiGrow.\n\nNome:\nCargo:\nEspecialidade:\nLocalização:\n\nObrigado.";
 
-    const mailtoLink = `mailto:join@immigrow.ie?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
+    const mailtoLink = `mailto:immigrow@outlook.com?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
 
     return (
         <div className="mt-8 bg-brand-navy/5 border border-brand-navy/10 rounded-xl p-6 flex flex-col md:flex-row items-center justify-between gap-6">

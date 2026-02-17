@@ -41,7 +41,7 @@ ${formData.bio}
 `);
 
         // Placeholder email - user should replace this or I can ask
-        const destinationEmail = "hola@immigrow.ie";
+        const destinationEmail = "immigrow@outlook.com";
         window.location.href = `mailto:${destinationEmail}?subject=${subject}&body=${body}`;
 
         // Alert user that their email app should open

@@ -1,14 +1,17 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
 import { ChevronLeft } from 'lucide-react';
 import CommunityCard from '@/components/CommunityCard';
 import { useLanguage } from '@/context/LanguageContext';
 import { SafetyGuidelines } from '@/components/SafetyGuidelines';
+import { MentorRegistrationModal } from '@/components/MentorRegistrationModal';
 
 export default function MentorsPage() {
-    const { t } = useLanguage();
+    const { language, t } = useLanguage();
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
     const mentors = [
         {
             name: 'Carlos Ruiz',
@@ -47,10 +50,24 @@ export default function MentorsPage() {
                     <ChevronLeft className="w-5 h-5 mr-1" />
                     {t("lbl.backTo")} {t("nav.community")}
                 </Link>
-                <h1 className="text-2xl font-bold text-gray-800 mb-1">Mentores</h1>
-                <p className="text-gray-500 text-sm">
-                    Aprende de quienes ya recorrieron el camino. Conecta y recibe consejos prácticos.
-                </p>
+                <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+                    <div>
+                        <h1 className="text-2xl font-bold text-gray-800 mb-1">
+                            {language === 'en' ? 'Mentors' : 'Mentores'}
+                        </h1>
+                        <p className="text-gray-500 text-sm">
+                            {language === 'en'
+                                ? 'Learn from those who have already walked the path. Connect and get practical advice.'
+                                : 'Aprende de quienes ya recorrieron el camino. Conecta y recibe consejos prácticos.'}
+                        </p>
+                    </div>
+                    <button
+                        onClick={() => setIsModalOpen(true)}
+                        className="bg-brand-irish-green text-white px-6 py-3 rounded-2xl font-bold text-sm shadow-lg hover:scale-105 transition-all active:scale-95 whitespace-nowrap"
+                    >
+                        {language === 'en' ? 'Become a Mentor' : 'Quiero ser mentor'}
+                    </button>
+                </div>
             </div>
 
             <div className="container mx-auto px-4">
@@ -69,6 +86,11 @@ export default function MentorsPage() {
                     ))}
                 </div>
             </div>
+
+            <MentorRegistrationModal
+                isOpen={isModalOpen}
+                onClose={() => setIsModalOpen(false)}
+            />
         </div>
     );
 }

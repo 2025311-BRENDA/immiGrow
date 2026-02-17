@@ -9,8 +9,8 @@ export default function PrivacyPage() {
     const { language } = useLanguage();
 
     return (
-        <div className="min-h-screen bg-brand-sand/30 pb-20">
-            <header className="bg-brand-navy text-white py-16 px-6 rounded-b-[3.5rem] shadow-lg mb-12">
+        <div className="min-h-screen bg-brand-sand/30 pb-16">
+            <header className="bg-brand-navy text-white py-10 px-6 rounded-b-[3.5rem] shadow-lg mb-6">
                 <div className="container mx-auto max-w-4xl">
                     <BackButton />
                     <h1 className="text-4xl font-heading font-black mb-4 flex items-center gap-4">
@@ -25,7 +25,7 @@ export default function PrivacyPage() {
                 </div>
             </header>
 
-            <main className="container mx-auto max-w-4xl px-6 space-y-12">
+            <main className="container mx-auto max-w-4xl px-6 space-y-6">
                 <section className="bg-white p-8 rounded-[3rem] shadow-sm border border-slate-100">
                     <div className="flex items-center gap-4 mb-8">
                         <div className="p-3 bg-brand-teal/10 text-brand-teal rounded-2xl">

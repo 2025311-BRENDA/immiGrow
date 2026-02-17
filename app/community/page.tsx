@@ -58,9 +58,9 @@ export default function CommunityPage() {
     ];
 
     return (
-        <div className="min-h-screen bg-gray-50 pb-20">
+        <div className="min-h-screen bg-gray-50 pb-16">
             {/* Header & Profile */}
-            <div className="bg-white shadow-sm p-6 mb-6 rounded-b-[2rem]">
+            <div className="bg-white shadow-sm p-6 mb-4 rounded-b-[2rem]">
                 <BackButton />
                 <div className="flex justify-between items-start mb-4">
                     <div>

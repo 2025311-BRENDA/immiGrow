@@ -26,8 +26,8 @@ export default function ContactPage() {
     ];
 
     return (
-        <div className="min-h-screen bg-brand-sand/50 pb-20">
-            <header className="bg-brand-teal text-white py-16 px-6 rounded-b-[3.5rem] shadow-lg mb-12">
+        <div className="min-h-screen bg-brand-sand/50 pb-16">
+            <header className="bg-brand-teal text-white py-10 px-6 rounded-b-[3.5rem] shadow-lg mb-6">
                 <div className="container mx-auto max-w-4xl">
                     <BackButton />
                     <h1 className="text-4xl font-heading font-black mb-4">
@@ -41,7 +41,7 @@ export default function ContactPage() {
                 </div>
             </header>
 
-            <main className="container mx-auto max-w-4xl px-6 space-y-8">
+            <main className="container mx-auto max-w-4xl px-6 space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     {methods.map((method, index) => (
                         <a

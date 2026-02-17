@@ -87,8 +87,8 @@ export default function EventsPage() {
     };
 
     return (
-        <div className="min-h-screen bg-slate-50/50 pb-20">
-            <div className="bg-white shadow-sm p-8 mb-8 rounded-b-[3rem]">
+        <div className="min-h-screen bg-slate-50/50 pb-16">
+            <div className="bg-white shadow-sm p-6 mb-6 rounded-b-[3rem]">
                 <div className="flex justify-between items-start">
                     <div>
                         <Link href="/community" className="inline-flex items-center text-slate-400 mb-4 hover:text-brand-teal transition-colors">

@@ -12,12 +12,12 @@ export default function TourismPage() {
     const data = language === "en" ? tourism : language === "es" ? tourismEs : tourismPt;
 
     return (
-        <div className="container mx-auto px-4 py-8 pb-32">
+        <div className="container mx-auto px-4 py-6 pb-20">
             <BackButton />
             <h1 className="text-4xl font-heading font-bold text-brand-navy mb-2">
                 {t("nav.tourism")}
             </h1>
-            <p className="text-slate-600 mb-8 max-w-2xl">
+            <p className="text-slate-600 mb-6 max-w-2xl">
                 {t("tourism.subtitle")}
             </p>
 

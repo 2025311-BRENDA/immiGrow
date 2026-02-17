@@ -54,16 +54,16 @@ export default function Home() {
   const progressPercentage = Math.min((completedCount / 10) * 100, 100);
 
   return (
-    <main className="min-h-screen bg-brand-sand pb-24">
+    <main className="min-h-screen bg-brand-sand pb-16">
       {/* Redesigned Hero Header Section to match screenshot */}
-      <section className="bg-gradient-to-br from-[#009B48] via-[#009B48] to-[#2EBCC9] pt-8 pb-20 px-6 rounded-b-[3.5rem] relative overflow-hidden shadow-xl">
+      <section className="bg-gradient-to-br from-[#009B48] via-[#009B48] to-[#2EBCC9] pt-6 pb-12 px-6 rounded-b-[3.5rem] relative overflow-hidden shadow-xl">
         {/* Subtle decorative elements */}
         <div className="absolute top-0 right-0 w-96 h-96 bg-white/5 rounded-full -mr-32 -mt-32 blur-3xl" />
         <div className="absolute bottom-0 left-0 w-64 h-64 bg-brand-turquoise/10 rounded-full -ml-16 -mb-16 blur-2xl" />
 
         <div className="container mx-auto relative z-10">
           {/* Header Row: Notifications Only (Logo is now in sticky Navbar) */}
-          <div className="flex justify-end items-center mb-8">
+          <div className="flex justify-end items-center mb-4">
             <button className="p-3 bg-white/10 backdrop-blur-md rounded-full text-white border border-white/20 relative hover:bg-white/20 transition-all shadow-lg">
               <Bell className="w-5 h-5" />
               <span className="absolute top-2.5 right-2.5 w-2.5 h-2.5 bg-brand-sun rounded-full ring-4 ring-[#009B48]"></span>
@@ -71,12 +71,12 @@ export default function Home() {
           </div>
 
           {/* Location Tag */}
-          <div className="flex items-center gap-2 text-white/90 mb-10">
+          <div className="flex items-center gap-2 text-white/90 mb-6">
             <MapPin className="w-4 h-4 text-brand-sun fill-brand-sun" />
             <span className="text-[11px] font-black uppercase tracking-[0.2em]">Dublin, Ireland</span>
           </div>
 
-          <div className="flex items-center justify-between gap-8 mb-10">
+          <div className="flex items-center justify-between gap-8 mb-6">
             <div className="flex-1">
               <h2 className="text-4xl md:text-5xl font-black text-white leading-[1.1] tracking-tight">
                 {t("hero.greeting")},<br />
@@ -105,7 +105,7 @@ export default function Home() {
         </div>
       </section>
 
-      <div className="container mx-auto px-6 space-y-10">
+      <div className="container mx-auto px-6 space-y-6">
         {/* Categories Grid - STREAMLINED to 4 items */}
         <section className="relative z-20 -mt-8">
           <div className="grid grid-cols-2 gap-4">

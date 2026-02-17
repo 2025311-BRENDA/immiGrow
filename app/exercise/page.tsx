@@ -78,10 +78,10 @@ export default function ExercisePage() {
     return (
         <div className="min-h-screen bg-brand-sand">
             {/* Header */}
-            <header className="bg-brand-teal text-white py-12 px-4 shadow-sm">
+            <header className="bg-brand-teal text-white py-8 px-4 shadow-sm">
                 <div className="container mx-auto max-w-5xl">
                     <BackButton />
-                    <h1 className="text-4xl font-heading font-bold mb-4">
+                    <h1 className="text-4xl font-heading font-bold mb-2">
                         {t("nav.physical_activity")}
                     </h1>
                     <p className="text-brand-sand/90 text-lg max-w-2xl">
@@ -91,7 +91,7 @@ export default function ExercisePage() {
             </header>
 
             {/* Content */}
-            <main className="container mx-auto max-w-5xl px-4 py-12">
+            <main className="container mx-auto max-w-5xl px-4 py-8">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     {categories.map((category, index) => (
                         <RouteCard key={index} {...category} />

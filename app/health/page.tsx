@@ -58,9 +58,9 @@ export default function HealthHubPage() {
     ];
 
     return (
-        <div className="min-h-screen bg-slate-50 pb-24">
+        <div className="min-h-screen bg-slate-50 pb-16">
             {/* Header */}
-            <header className="bg-brand-irish-green text-white py-12 px-6 rounded-b-[3rem] shadow-lg mb-8 relative overflow-hidden">
+            <header className="bg-brand-irish-green text-white py-8 px-6 rounded-b-[3rem] shadow-lg mb-6 relative overflow-hidden">
                 <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full -mr-20 -mt-20 blur-3xl"></div>
                 <div className="container mx-auto max-w-5xl relative z-10">
                     <BackButton />
@@ -71,7 +71,7 @@ export default function HealthHubPage() {
 
             <main className="container mx-auto px-6 max-w-5xl">
                 {/* Emergency Row */}
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
                     {emergencyContacts.map((contact) => (
                         <div key={contact.name} className="bg-white p-4 rounded-2xl border border-red-100 flex items-center justify-between shadow-sm">
                             <div>
@@ -107,7 +107,7 @@ export default function HealthHubPage() {
                 </div>
 
                 {/* Direct Action: Finding a GP */}
-                <section className="mt-12 bg-white rounded-[2.5rem] p-8 border border-brand-turquoise/20 shadow-sm relative overflow-hidden">
+                <section className="mt-8 bg-white rounded-[2.5rem] p-8 border border-brand-turquoise/20 shadow-sm relative overflow-hidden">
                     <div className="absolute top-0 right-0 w-32 h-32 bg-brand-turquoise/5 rounded-full -mr-16 -mt-16"></div>
                     <div className="flex flex-col md:flex-row items-center justify-between gap-6 relative z-10">
                         <div>

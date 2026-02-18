@@ -22,8 +22,8 @@ export const metadata: Metadata = {
   description: "La guía de bienestar para migrantes en Dublín. Trámites esenciales (IRP/PPSN), salud mental, deporte gratuito y vida comunitaria.",
   manifest: "/manifest.json",
   icons: {
-    icon: "/logo.png",
-    apple: "/logo.png",
+    icon: "/logo_final.png",
+    apple: "/logo_final.png",
   },
   openGraph: {
     title: "immiGrow Dublin | Salud, Actividad y Comunidad",
@@ -55,7 +55,7 @@ export const metadata: Metadata = {
   other: {
     "apple-mobile-web-app-capable": "yes",
     "mobile-web-app-capable": "yes",
-    "apple-touch-icon": "/logo.png",
+    "apple-touch-icon": "/logo_final.png",
     "keywords": "salud migrantes dublin, tramites irlanda, pps number dublin, salud mental inmigrantes, deportes gratis dublin, educacion irlanda, immigrow"
   }
 };

@@ -79,8 +79,8 @@ export default function Home() {
           <div className="flex items-center justify-between gap-8 mb-6">
             <div className="flex-1">
               <h2 className="text-4xl md:text-5xl font-black text-white leading-[1.1] tracking-tight">
-                {t("hero.greeting")},<br />
-                <span className="text-white/95">{t("hero.subtitle")}?</span>
+                {t("hero.greeting")}<br />
+                <span className="text-white/95">{t("hero.subtitle")}</span>
               </h2>
             </div>
 
@@ -89,7 +89,7 @@ export default function Home() {
               <div className="w-24 h-24 rounded-[2rem] bg-white/10 backdrop-blur-xl border border-white/30 p-1 shadow-2xl relative overflow-hidden group">
                 <div className="absolute inset-0 bg-gradient-to-tr from-brand-turquoise/20 to-transparent pointer-events-none" />
                 <img
-                  src="https://api.dicebear.com/7.x/avataaars/svg?seed=Santiago&skinColor=ae5d29&hairColor=2c1b18&top=shortHair"
+                  src="https://api.dicebear.com/9.x/avataaars/svg?seed=Santiago&avatarStyle=transparent&skinColor=ae5d29&hairColor=2c1b18"
                   alt="Profile"
                   className="w-full h-full rounded-[1.8rem] bg-brand-sand"
                 />

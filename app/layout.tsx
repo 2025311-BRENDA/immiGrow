@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     siteName: "immiGrow",
     images: [
       {
-        url: "https://immigrow.ie/logo.png", // NEW LOGO WITH ABSOLUTE URL
+        url: "https://immigrow.ie/og-image.png", // HIGH-RES OG IMAGE
         width: 1200,
         height: 630,
         alt: "immiGrow Logo",
@@ -45,7 +45,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "immiGrow Dublin | Salud, Actividad y Comunidad",
     description: "Salud, bienestar y trámites para migrantes en Dublín.",
-    images: ["https://immigrow.ie/logo.png"],
+    images: ["https://immigrow.ie/og-image.png"],
   },
   appleWebApp: {
     capable: true,

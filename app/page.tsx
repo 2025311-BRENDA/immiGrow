@@ -89,9 +89,9 @@ export default function Home() {
               <div className="w-24 h-24 rounded-[2rem] bg-white/10 backdrop-blur-xl border border-white/30 p-1 shadow-2xl relative overflow-hidden group">
                 <div className="absolute inset-0 bg-gradient-to-tr from-brand-turquoise/20 to-transparent pointer-events-none" />
                 <img
-                  src="https://api.dicebear.com/7.x/avataaars/svg?seed=Clara&backgroundColor=c0aede"
+                  src="https://api.dicebear.com/7.x/open-peeps/svg?seed=Diego&mask=true&skinColor=ae5d29"
                   alt="Profile"
-                  className="w-full h-full rounded-[1.8rem] bg-white/20"
+                  className="w-full h-full rounded-[1.8rem] bg-brand-sand"
                 />
               </div>
               <div className="absolute -bottom-1 -right-1 bg-white text-brand-irish-green p-1.5 rounded-xl shadow-lg border border-slate-100 flex items-center justify-center">

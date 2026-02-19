@@ -19,7 +19,8 @@ import {
     Plus,
     X,
     Edit2,
-    Clock
+    Clock,
+    Sparkles
 } from "lucide-react";
 
 interface BuddyProfile {
@@ -143,84 +144,106 @@ export default function SocialFitHub() {
             <main className="container mx-auto px-4 max-w-5xl space-y-12">
                 <SafetyGuidelines />
                 {/* Collective Challenge */}
-                <section className="bg-white rounded-[2.5rem] p-8 shadow-sm border border-brand-pink/20 relative overflow-hidden">
-                    <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 mb-8">
-                        <div className="flex items-center gap-3">
-                            <TrendingUp className="w-8 h-8 text-brand-pink" />
-                            <h2 className="text-2xl font-heading font-bold text-brand-navy">{t("lbl.collectiveGoal")}</h2>
+                <section className="bg-white rounded-[2.5rem] p-8 shadow-xl border border-brand-pink/10 relative overflow-hidden group">
+                    {/* Decorative Background */}
+                    <div className="absolute top-0 right-0 w-64 h-64 bg-brand-pink/5 rounded-full -mr-32 -mt-32 blur-3xl group-hover:bg-brand-pink/10 transition-colors duration-700" />
+
+                    <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 mb-10 relative z-10">
+                        <div className="flex items-center gap-4">
+                            <div className="p-3 bg-brand-pink/10 rounded-2xl">
+                                <TrendingUp className="w-8 h-8 text-brand-pink" />
+                            </div>
+                            <div>
+                                <h2 className="text-2xl font-heading font-black text-brand-navy tracking-tight">{t("lbl.collectiveGoal")}</h2>
+                                <p className="text-[10px] text-slate-400 font-bold uppercase tracking-widest mt-1">
+                                    {language === 'en' ? 'Community Milestone' : 'Meta Comunitaria'}
+                                </p>
+                            </div>
                         </div>
                         <button
                             onClick={() => setShowContributeForm(!showContributeForm)}
-                            className="bg-brand-pink text-white px-6 py-3 rounded-2xl font-bold shadow-lg hover:scale-105 transition-all flex items-center gap-2"
+                            className="w-full md:w-auto bg-brand-pink text-white px-8 py-4 rounded-2xl font-black shadow-[0_8px_20px_rgba(255,107,157,0.3)] hover:shadow-none hover:translate-y-0.5 active:scale-95 transition-all flex items-center justify-center gap-2 group/btn"
                         >
-                            <Plus className="w-5 h-5" />
-                            {language === 'en' ? 'I want to contribute km' : 'Quiero aportar km'}
+                            <Plus className="w-5 h-5 group-hover/btn:rotate-90 transition-transform" />
+                            {language === 'en' ? 'Contribute KM' : 'Aportar KM'}
                         </button>
                     </div>
 
                     {showContributeForm && (
-                        <div className="mb-8 p-6 bg-brand-pink/5 rounded-3xl border-2 border-brand-pink/20 animate-in fade-in zoom-in duration-300">
-                            <div className="flex justify-between items-center mb-4">
-                                <h3 className="font-bold text-brand-navy">{language === 'en' ? 'Add your progress' : 'Suma tu avance'}</h3>
-                                <button onClick={() => setShowContributeForm(false)} className="text-slate-400"><X className="w-5 h-5" /></button>
+                        <div className="mb-10 p-8 bg-brand-pink/5 rounded-[2.5rem] border-2 border-brand-pink/10 animate-in fade-in zoom-in duration-500 relative z-10">
+                            <div className="flex justify-between items-center mb-6">
+                                <h3 className="font-black text-brand-navy uppercase tracking-widest text-xs">{language === 'en' ? 'Add your distance' : 'Suma tu distancia'}</h3>
+                                <button onClick={() => setShowContributeForm(false)} className="p-2 hover:bg-white rounded-full transition-colors text-slate-400"><X className="w-5 h-5" /></button>
                             </div>
                             <form onSubmit={handleContribute} className="flex flex-wrap gap-4">
-                                <div className="flex-1 min-w-[150px]">
+                                <div className="flex-1 min-w-[200px]">
                                     <input
                                         required
                                         type="number"
                                         value={kmValue}
                                         onChange={(e) => setKmValue(e.target.value)}
                                         placeholder="KM (ej: 5.4)"
-                                        className="w-full bg-white border-none rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-brand-pink shadow-sm"
+                                        className="w-full bg-white border-2 border-transparent focus:border-brand-pink outline-none rounded-2xl px-6 py-4 text-xs font-bold focus:ring-4 focus:ring-brand-pink/10 shadow-sm transition-all"
                                     />
                                 </div>
-                                <div className="flex-1 min-w-[150px]">
+                                <div className="flex-1 min-w-[200px]">
                                     <input
                                         required
                                         value={contribActivity}
                                         onChange={(e) => setContribActivity(e.target.value)}
-                                        placeholder={language === 'en' ? 'Activity (e.g. Run)' : 'Actividad (ej: Caminata)'}
-                                        className="w-full bg-white border-none rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-brand-pink shadow-sm"
+                                        placeholder={language === 'en' ? 'Activity (e.g. Hiking)' : 'Actividad (ej: Caminata)'}
+                                        className="w-full bg-white border-2 border-transparent focus:border-brand-pink outline-none rounded-2xl px-6 py-4 text-xs font-bold focus:ring-4 focus:ring-brand-pink/10 shadow-sm transition-all"
                                     />
                                 </div>
-                                <button type="submit" className="bg-brand-navy text-white px-8 py-3 rounded-xl font-bold shadow-md hover:bg-brand-navy/90 transition-all">
-                                    {language === 'en' ? 'Contribute' : 'Smar'}
+                                <button type="submit" className="w-full md:w-auto bg-brand-navy text-white px-10 py-4 rounded-2xl font-black shadow-lg hover:bg-brand-navy/90 transition-all">
+                                    {language === 'en' ? 'Submit' : 'Enviar'}
                                 </button>
                             </form>
                         </div>
                     )}
 
-                    <div className="space-y-4">
-                        <div className="flex justify-between items-end mb-2">
+                    <div className="space-y-6 relative z-10">
+                        <div className="flex justify-between items-end">
                             <div>
-                                <span className="text-5xl font-black text-brand-pink tracking-tight">{totalKm}</span>
-                                <span className="text-slate-400 font-bold ml-2">km / 1000km</span>
+                                <div className="flex items-baseline gap-2">
+                                    <span className="text-6xl font-black text-brand-pink tracking-tighter drop-shadow-sm">{totalKm}</span>
+                                    <span className="text-brand-navy/30 text-xl font-bold italic">km</span>
+                                </div>
+                                <p className="text-[10px] text-slate-400 font-bold uppercase tracking-[0.2em] mt-2">
+                                    {language === 'en' ? 'Progress to 1000km' : 'Progreso hacia 1000km'}
+                                </p>
                             </div>
                             <div className="text-right">
-                                <span className="block text-xs font-black text-brand-teal uppercase tracking-widest">{t("lbl.completed")}</span>
-                                <span className="text-2xl font-bold text-brand-teal">{progressPercent}%</span>
+                                <span className="block text-[10px] font-black text-brand-teal uppercase tracking-[0.2em] mb-1">{t("lbl.completed")}</span>
+                                <div className="text-3xl font-black text-brand-teal tabular-nums">{progressPercent}%</div>
                             </div>
                         </div>
-                        <div className="bg-slate-100 h-8 rounded-full overflow-hidden p-1.5 shadow-inner">
+                        <div className="bg-slate-100/50 h-10 rounded-full overflow-hidden p-2 shadow-inner border border-slate-200/50">
                             <div
-                                className="bg-brand-pink h-full rounded-full transition-all duration-1000 shadow-sm flex items-center justify-end px-2"
+                                className="bg-gradient-to-r from-brand-pink to-[#ff8cb3] h-full rounded-full transition-all duration-1000 shadow-[0_0_15px_rgba(255,107,157,0.4)] flex items-center justify-end px-3"
                                 style={{ width: `${progressPercent}%` }}
                             >
-                                <div className="w-2 h-2 bg-white rounded-full animate-pulse"></div>
+                                <div className="w-2.5 h-2.5 bg-white rounded-full animate-pulse shadow-sm shadow-white"></div>
                             </div>
                         </div>
                     </div>
 
                     {approvedContributions.length > 0 && (
-                        <div className="mt-8 border-t border-slate-100 pt-6">
-                            <p className="text-[10px] uppercase font-black tracking-widest text-slate-400 mb-4">{language === 'en' ? 'Recent Contributions' : 'Contribuciones Recientes'}</p>
-                            <div className="flex gap-3 overflow-x-auto pb-2 scrollbar-hide">
-                                {approvedContributions.slice(-5).reverse().map((c: any, i: number) => (
-                                    <div key={i} className="flex-shrink-0 bg-brand-sand/50 px-4 py-2 rounded-2xl flex items-center gap-2 border border-brand-sand">
-                                        <div className="w-2 h-2 bg-brand-pink rounded-full"></div>
-                                        <span className="text-xs font-bold text-brand-navy">+{c.kilometers}km</span>
-                                        <span className="text-[10px] text-slate-500 font-medium">by {c.name}</span>
+                        <div className="mt-12 border-t border-slate-100 pt-8 relative z-10">
+                            <h4 className="text-[10px] uppercase font-black tracking-[0.2em] text-slate-400 mb-6 flex items-center gap-2">
+                                <Sparkles className="w-3 h-3 text-brand-pink" />
+                                {language === 'en' ? 'Community Wall' : 'Muro de la Comunidad'}
+                            </h4>
+                            <div className="flex gap-4 overflow-x-auto pb-4 scrollbar-hide snap-x">
+                                {approvedContributions.slice(-6).reverse().map((c: any, i: number) => (
+                                    <div key={i} className="flex-shrink-0 bg-white px-5 py-3 rounded-2xl flex items-center gap-3 border border-slate-100 shadow-sm snap-start hover:border-brand-pink/30 hover:shadow-md transition-all">
+                                        <div className="w-8 h-8 bg-brand-pink/10 rounded-xl flex items-center justify-center font-black text-brand-pink text-[10px]">
+                                            +{c.kilometers}
+                                        </div>
+                                        <div>
+                                            <p className="text-[10px] font-black text-brand-navy leading-none mb-1">{c.name}</p>
+                                            <p className="text-[8px] text-slate-400 font-bold uppercase">{c.activity}</p>
+                                        </div>
                                     </div>
                                 ))}
                             </div>

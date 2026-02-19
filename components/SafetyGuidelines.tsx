@@ -47,39 +47,33 @@ export function SafetyGuidelines() {
     ];
 
     return (
-        <div className="bg-brand-navy/5 border-2 border-brand-teal/20 rounded-[2rem] p-6 mb-8 relative overflow-hidden">
-            <div className="flex items-center gap-3 mb-6">
-                <div className="p-2 bg-brand-teal text-white rounded-xl">
-                    <ShieldAlert className="w-5 h-5" />
+        <div className="bg-white/40 backdrop-blur-sm border-2 border-brand-teal/10 rounded-[2rem] p-4 mb-6 relative overflow-hidden shadow-sm">
+            <div className="flex items-center justify-between mb-4 px-1">
+                <div className="flex items-center gap-2">
+                    <ShieldAlert className="w-5 h-5 text-brand-teal" />
+                    <h3 className="text-[11px] font-black text-brand-navy uppercase tracking-widest">
+                        {language === "en" ? "Safety" : "Seguridad"}
+                    </h3>
                 </div>
-                <h3 className="text-xl font-bold text-brand-navy">
-                    {language === "en" ? "Safety & Trust" : "Seguridad y Confianza"}
-                </h3>
+                <div className="text-[9px] text-brand-navy/40 font-bold max-w-[200px] leading-tight text-right italic">
+                    {language === "en"
+                        ? "immiGrow is informative. Stay safe!"
+                        : language === "es"
+                            ? "immiGrow es informativo. ¡Cuídate!"
+                            : "immiGrow é informativo. Cuide-se!"}
+                </div>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
                 {guidelines.map((item, index) => (
-                    <div key={index} className="flex gap-4 p-4 bg-white/50 rounded-2xl border border-white">
-                        <div className="shrink-0 p-2 bg-brand-teal/10 text-brand-teal rounded-lg w-fit h-fit">
-                            <item.icon className="w-4 h-4" />
+                    <div key={index} className="flex flex-col gap-1 p-3 bg-white/60 rounded-xl border border-white hover:bg-white transition-all group">
+                        <div className="flex items-center gap-2">
+                            <item.icon className="w-3.5 h-3.5 text-brand-teal group-hover:scale-110 transition-transform" />
+                            <h4 className="text-[9px] font-black text-brand-navy uppercase tracking-tighter">{item.title}</h4>
                         </div>
-                        <div>
-                            <h4 className="text-sm font-bold text-brand-navy mb-1">{item.title}</h4>
-                            <p className="text-[11px] text-slate-600 leading-relaxed">{item.desc}</p>
-                        </div>
+                        <p className="text-[9px] text-slate-500 leading-tight line-clamp-2">{item.desc}</p>
                     </div>
                 ))}
-            </div>
-
-            <div className="mt-6 flex items-start gap-2 p-3 bg-brand-sun/10 rounded-xl border border-brand-sun/20">
-                <Info className="w-4 h-4 text-brand-sun shrink-0 mt-0.5" />
-                <p className="text-[10px] text-brand-navy/70 leading-relaxed italic">
-                    {language === "en"
-                        ? "immiGrow is an information platform. Personal interactions are the responsibility of each user."
-                        : language === "es"
-                            ? "immiGrow es una plataforma informativa. Las interacciones personales son responsabilidad de cada usuario."
-                            : "immiGrow é uma plataforma de informação. As interações pessoais são de responsabilidade de cada usuário."}
-                </p>
             </div>
         </div>
     );

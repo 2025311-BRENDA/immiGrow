@@ -8,9 +8,11 @@ interface LanguageContextType {
     language: Language;
     setLanguage: (lang: Language) => void;
     toggleLanguage: () => void;
-    t: (key: string) => string;
+    t: (key: string, params?: Record<string, string>) => string;
     userName: string;
     setUserName: (name: string) => void;
+    userPhoto: string;
+    setUserPhoto: (photo: string) => void;
 }
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
@@ -65,7 +67,7 @@ export const dictionaries = {
         "lbl.badges": "Badges",
         "lbl.trainWithMe": "Train With Me",
         "lbl.collectiveGoal": "Collective Goal",
-        "hero.greeting": "G'day,",
+        "hero.greeting": "G'day {name},",
         "hero.subtitle": "Ready to explore?",
         "challenge.title": "Daily Challenge",
         "challenge.name": "Nature Walk & Reflection",
@@ -377,7 +379,7 @@ export const dictionaries = {
         "lbl.badges": "Medallas",
         "lbl.trainWithMe": "Entrena Conmigo",
         "lbl.collectiveGoal": "Meta Colectiva",
-        "hero.greeting": "Hola,",
+        "hero.greeting": "Hola {name},",
         "hero.subtitle": "¿Listo para explorar?",
         "challenge.title": "Reto del Día",
         "challenge.name": "Paseo y Reflexión",
@@ -689,7 +691,7 @@ export const dictionaries = {
         "lbl.badges": "Medalhas",
         "lbl.trainWithMe": "Treine Comigo",
         "lbl.collectiveGoal": "Meta Colectiva",
-        "hero.greeting": "Olá,",
+        "hero.greeting": "Olá {name},",
         "hero.subtitle": "Pronto para explorar?",
         "challenge.title": "Desafio do Dia",
         "challenge.name": "Passeio e Reflexão",
@@ -918,6 +920,7 @@ export const dictionaries = {
 export function LanguageProvider({ children }: { children: React.ReactNode }) {
     const [language, setLanguage] = useState<Language>("en");
     const [userName, setUserNameState] = useState<string>("");
+    const [userPhoto, setUserPhotoState] = useState<string>("");
 
     useEffect(() => {
         const savedLang = localStorage.getItem('iGrow_lang') as Language;
@@ -925,11 +928,19 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
 
         const savedName = localStorage.getItem('iGrow_user');
         if (savedName) setUserNameState(savedName || "");
+
+        const savedPhoto = localStorage.getItem('iGrow_photo');
+        if (savedPhoto) setUserPhotoState(savedPhoto || "");
     }, []);
 
     const setUserName = (name: string) => {
         setUserNameState(name);
         localStorage.setItem('iGrow_user', name);
+    };
+
+    const setUserPhoto = (photo: string) => {
+        setUserPhotoState(photo);
+        localStorage.setItem('iGrow_photo', photo);
     };
 
     const changeLanguage = (newLang: Language) => {
@@ -949,13 +960,19 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
         });
     };
 
-    const t = (key: string) => {
+    const t = (key: string, params?: Record<string, string>) => {
         const dict = dictionaries[language] as Record<string, string>;
-        return dict[key] || key;
+        let text = dict[key] || key;
+        if (params) {
+            Object.entries(params).forEach(([k, v]) => {
+                text = text.replace(`{${k}}`, v);
+            });
+        }
+        return text;
     };
 
     return (
-        <LanguageContext.Provider value={{ language, setLanguage: changeLanguage, toggleLanguage, t, userName, setUserName }}>
+        <LanguageContext.Provider value={{ language, setLanguage: changeLanguage, toggleLanguage, t, userName, setUserName, userPhoto, setUserPhoto }}>
             {children}
         </LanguageContext.Provider>
     );

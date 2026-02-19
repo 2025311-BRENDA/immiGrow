@@ -33,10 +33,12 @@ import { parksEs, swimmingEs, cyclingEs, tourismEs, proceduresEs, roadmapDataEs 
 import { parksPt, swimmingPt, cyclingPt, tourismPt, proceduresPt, roadmapPt } from "@/lib/data_pt";
 import { GlobalSearch } from "@/components/GlobalSearch";
 import { InstallPWA } from "@/components/InstallPWA";
+import { ProfileModal } from "@/components/ProfileModal";
 
 export default function Home() {
-  const { t, language } = useLanguage();
+  const { t, language, userName, userPhoto } = useLanguage();
   const [completedCount, setCompletedCount] = useState(0);
+  const [isProfileOpen, setIsProfileOpen] = useState(false);
 
   const updateCount = () => {
     const saved = localStorage.getItem("migrawell_completed");
@@ -79,21 +81,24 @@ export default function Home() {
           <div className="flex items-center justify-between gap-8 mb-6">
             <div className="flex-1">
               <h2 className="text-4xl md:text-5xl font-black text-white leading-[1.1] tracking-tight">
-                {t("hero.greeting")}<br />
+                {t("hero.greeting", { name: userName || t("forum.visitor") })}<br />
                 <span className="text-white/95">{t("hero.subtitle")}</span>
               </h2>
             </div>
 
             {/* Profile Component with Badge */}
             <div className="relative shrink-0">
-              <div className="w-24 h-24 rounded-[2rem] bg-white/10 backdrop-blur-xl border border-white/30 p-1 shadow-2xl relative overflow-hidden group">
+              <button
+                onClick={() => setIsProfileOpen(true)}
+                className="w-24 h-24 rounded-[2rem] bg-white/10 backdrop-blur-xl border border-white/30 p-1 shadow-2xl relative overflow-hidden group hover:scale-105 transition-all text-left"
+              >
                 <div className="absolute inset-0 bg-gradient-to-tr from-brand-turquoise/20 to-transparent pointer-events-none" />
                 <img
-                  src="https://api.dicebear.com/9.x/avataaars/svg?seed=Santiago&avatarStyle=transparent&skinColor=ffdbac&hairColor=2c1b18&mouth=smile"
+                  src={userPhoto || "https://api.dicebear.com/9.x/avataaars/svg?seed=Santiago&avatarStyle=transparent&skinColor=ffdbac&hairColor=2c1b18&mouth=smile"}
                   alt="Profile"
-                  className="w-full h-full rounded-[1.8rem] bg-brand-sand"
+                  className="w-full h-full rounded-[1.8rem] bg-brand-sand object-cover"
                 />
-              </div>
+              </button>
               <div className="absolute -bottom-1 -right-1 bg-white text-brand-irish-green p-1.5 rounded-xl shadow-lg border border-slate-100 flex items-center justify-center">
                 <Award className="w-4 h-4" />
               </div>
@@ -173,6 +178,11 @@ export default function Home() {
 
         <InstallPWA />
       </div>
+
+      <ProfileModal
+        isOpen={isProfileOpen}
+        onClose={() => setIsProfileOpen(false)}
+      />
     </main>
   );
 }

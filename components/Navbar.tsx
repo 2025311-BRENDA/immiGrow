@@ -72,7 +72,7 @@ export function Navbar() {
             items: [
                 { name: t("nav.jobs"), href: "/jobs", icon: Briefcase },
                 { name: t("nav.community"), href: "/community", icon: Globe },
-                { name: language === 'es' ? 'Sabores de Casa' : 'Taste of Home', href: "/toolkit/recipes", icon: Sparkles },
+                { name: t("nav.recipes"), href: "/toolkit/recipes", icon: Sparkles },
                 { name: t("nav.vault"), href: "/vault", icon: ShieldCheck },
                 { name: t("nav.calculator"), href: "/calculator", icon: Calculator },
                 { name: t("nav.achievements"), href: "/achievements", icon: Award },
@@ -126,7 +126,7 @@ export function Navbar() {
                             <Link href="/" className="flex items-center space-x-2 shrink-0">
                                 <div className="w-10 h-10 rounded-xl flex items-center justify-center overflow-hidden shadow-sm border border-slate-100 flex-shrink-0">
                                     <img
-                                        src="/logo_final.png"
+                                        src="/logo_fixed_borderless.svg?v=4"
                                         alt="immiGrow"
                                         className="w-full h-full object-contain"
                                         style={{ imageRendering: 'auto' }}

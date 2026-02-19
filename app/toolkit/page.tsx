@@ -23,11 +23,7 @@ export default function ToolkitPage() {
         {
             id: "vault",
             title: t("nav.vault"),
-            description: language === "en"
-                ? "Private storage for your immigration deadlines and documents."
-                : language === "es"
-                    ? "Almacenamiento privado para tus trámites y fechas límite."
-                    : "Armazenamento privado para seus prazos e documentos.",
+            description: t("tool.vault.desc"),
             icon: Shield,
             href: "/vault",
             color: "text-brand-pink",
@@ -36,11 +32,7 @@ export default function ToolkitPage() {
         {
             id: "calculator",
             title: t("nav.budgeter"),
-            description: language === "en"
-                ? "Plan your finances with real local averages for Dublin."
-                : language === "es"
-                    ? "Planifica tus finanzas con promedios locales reales."
-                    : "Planeje suas finanças com médias locais de Dublin.",
+            description: t("tool.budgeter.desc"),
             icon: Calculator,
             href: "/calculator",
             color: "text-brand-sun",
@@ -49,11 +41,7 @@ export default function ToolkitPage() {
         {
             id: "jobs",
             title: t("nav.career"),
-            description: language === "en"
-                ? "Guides for finding work, CV tips, and recruitment in Ireland."
-                : language === "es"
-                    ? "Guías para encontrar trabajo y consejos para tu CV."
-                    : "Guias para encontrar trabalho e dicas de currículo.",
+            description: t("tool.career.desc"),
             icon: Briefcase,
             href: "/jobs",
             color: "text-brand-turquoise",
@@ -62,11 +50,7 @@ export default function ToolkitPage() {
         {
             id: "slang",
             title: t("nav.slang"),
-            description: language === "en"
-                ? "Learn essential Irish slang to sound like a native."
-                : language === "es"
-                    ? "Aprende el slang irlandés esencial para sonar como un local."
-                    : "Aprenda gírias essenciais para soar como um local.",
+            description: t("tool.slang.desc"),
             icon: MessageSquare,
             href: "/toolkit/slang",
             color: "text-brand-purple",
@@ -75,11 +59,7 @@ export default function ToolkitPage() {
         {
             id: "achievements",
             title: t("nav.achievements"),
-            description: language === "en"
-                ? "Track your progress and earn badges as you explore."
-                : language === "es"
-                    ? "Sigue tu progreso y gana medallas mientras exploras."
-                    : "Acompanhe seu progresso e ganhe medalhas.",
+            description: t("tool.achievements.desc"),
             icon: Award,
             href: "/achievements",
             color: "text-brand-teal",
@@ -88,11 +68,7 @@ export default function ToolkitPage() {
         {
             id: "community",
             title: t("nav.community"),
-            description: language === "en"
-                ? "Connect with other migrants, join forums, and find events."
-                : language === "es"
-                    ? "Conecta con otros migrantes, únete a foros y busca eventos."
-                    : "Conecte-se com outros migrantes, participe de fóruns e eventos.",
+            description: t("tool.community.desc"),
             icon: Globe,
             href: "/community",
             color: "text-brand-irish-green",
@@ -100,12 +76,8 @@ export default function ToolkitPage() {
         },
         {
             id: "recipes",
-            title: language === "en" ? "Home Flavors" : "Sabores de Casa",
-            description: language === "en"
-                ? "Community recipe book to cook your favorite Latin dishes."
-                : language === "es"
-                    ? "Recetario comunitario para cocinar tus platos latinos favoritos."
-                    : "Livro de receitas comunitário para cozinhar seus pratos favoritos.",
+            title: t("nav.recipes"),
+            description: t("tool.recipes.desc"),
             icon: Utensils,
             href: "/toolkit/recipes",
             color: "text-orange-500",
@@ -151,7 +123,7 @@ export default function ToolkitPage() {
                             <p className="text-slate-500 mb-8 text-sm leading-relaxed">{tool.description}</p>
 
                             <div className="flex items-center text-brand-irish-green font-bold text-sm">
-                                <span>{language === "en" ? "Open Tool" : "Abrir"}</span>
+                                <span>{t("tool.open")}</span>
                                 <ChevronRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
                             </div>
                         </Link>

@@ -10,39 +10,23 @@ export function SafetyGuidelines() {
     const guidelines = [
         {
             icon: MapPin,
-            title: language === "en" ? "Public Places" : language === "es" ? "Lugares Públicos" : "Locais Públicos",
-            desc: language === "en"
-                ? "Always meet in busy, well-lit public areas like cafes or main parks."
-                : language === "es"
-                    ? "Queda siempre en lugares concurridos y bien iluminados, como cafés o parques principales."
-                    : "Sempre se encontre em áreas públicas movimentadas e bem iluminadas, como cafés ou parques principais."
+            title: t("safe.public"),
+            desc: t("safe.public.desc")
         },
         {
             icon: Users,
-            title: language === "en" ? "Inform Someone" : language === "es" ? "Avisa a Terceros" : "Informe Alguém",
-            desc: language === "en"
-                ? "Let a friend or family member know where you are going and who you are meeting."
-                : language === "es"
-                    ? "Informa a un amigo o familiar sobre a dónde vas y con quién te vas a encontrar."
-                    : "Avise um amigo ou familiar sobre para onde você está indo e com quem vai se encontrar."
+            title: t("safe.inform"),
+            desc: t("safe.inform.desc")
         },
         {
             icon: ShieldAlert,
-            title: language === "en" ? "Protect Privacy" : language === "es" ? "Cuida tu Privacidad" : "Proteja sua Privacidade",
-            desc: language === "en"
-                ? "Don't share sensitive details like your bank account or home address immediately."
-                : language === "es"
-                    ? "No compartas datos sensibles como tu cuenta bancaria o dirección exacta de inmediato."
-                    : "Não compartilhe detalhes confidenciais, como sua conta bancária ou endereço residencial, imediatamente."
+            title: t("safe.privacy"),
+            desc: t("safe.privacy.desc")
         },
         {
             icon: Share2,
-            title: language === "en" ? "Trust Your Instinct" : language === "es" ? "Confía en tu Instinto" : "Confie no seu Instinto",
-            desc: language === "en"
-                ? "If something feels wrong, it's okay to leave or cancel. Your safety comes first."
-                : language === "es"
-                    ? "Si algo no se siente bien, está bien irse o cancelar. Tu seguridad es lo primero."
-                    : "Se algo parecer errado, tudo bem ir embora ou cancelar. Sua segurança vem em primeiro lugar."
+            title: t("safe.instinct"),
+            desc: t("safe.instinct.desc")
         }
     ];
 
@@ -52,15 +36,11 @@ export function SafetyGuidelines() {
                 <div className="flex items-center gap-2">
                     <ShieldAlert className="w-5 h-5 text-brand-teal" />
                     <h3 className="text-[11px] font-black text-brand-navy uppercase tracking-widest">
-                        {language === "en" ? "Safety" : "Seguridad"}
+                        {t("safe.title")}
                     </h3>
                 </div>
                 <div className="text-[9px] text-brand-navy/40 font-bold max-w-[200px] leading-tight text-right italic">
-                    {language === "en"
-                        ? "immiGrow is informative. Stay safe!"
-                        : language === "es"
-                            ? "immiGrow es informativo. ¡Cuídate!"
-                            : "immiGrow é informativo. Cuide-se!"}
+                    {t("safe.disclaimer")}
                 </div>
             </div>
 

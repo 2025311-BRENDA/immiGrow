@@ -16,11 +16,7 @@ export default function WomensHealthPage() {
                 {t("nav.women")}
             </h1>
             <p className="text-slate-600 mb-8 max-w-2xl">
-                {language === "en"
-                    ? "Specific resources and care guides for women's health in Ireland."
-                    : language === "es"
-                        ? "Recursos específicos y guías de atención para la salud de la mujer en Irlanda."
-                        : "Recursos específicos e guias de cuidados para a saúde da mulher na Irlanda."}
+                {t("women.subtitle")}
             </p>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

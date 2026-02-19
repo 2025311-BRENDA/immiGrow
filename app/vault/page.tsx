@@ -39,10 +39,10 @@ interface SecureNote {
 }
 
 const CATEGORIES = [
-    { id: "Identity", icon: CreditCard, labelEn: "Identity", labelEs: "Identidad", color: "bg-blue-500" },
-    { id: "Housing", icon: HomeIcon, labelEn: "Housing", labelEs: "Vivienda", color: "bg-orange-500" },
-    { id: "Health", icon: Stethoscope, labelEn: "Health", labelEs: "Salud", color: "bg-green-500" },
-    { id: "Work", icon: Briefcase, labelEn: "Work", labelEs: "Trabajo", color: "bg-purple-500" },
+    { id: "Identity", icon: CreditCard, label: "vault.cat.identity", color: "bg-blue-500" },
+    { id: "Housing", icon: HomeIcon, label: "vault.cat.housing", color: "bg-orange-500" },
+    { id: "Health", icon: Stethoscope, label: "vault.cat.health", color: "bg-green-500" },
+    { id: "Work", icon: Briefcase, label: "vault.cat.work", color: "bg-purple-500" },
 ];
 
 export default function VaultPage() {
@@ -116,9 +116,7 @@ export default function VaultPage() {
                             </div>
                             <h1 className="text-4xl font-heading font-black tracking-tight">{t("nav.vault")}</h1>
                             <p className="text-white/60 text-sm mt-2 max-w-sm leading-relaxed">
-                                {language === "en"
-                                    ? "Your personal immigration hub. Categories, notes, and reminders for your life in Ireland."
-                                    : "Tu centro personal de inmigración. Categorías, notas y recordatorios para tu vida en Irlanda."}
+                                {t("vault.subtitle")}
                             </p>
                         </div>
                         <div className="bg-white/10 p-5 rounded-[2.5rem] backdrop-blur-xl border border-white/20 shadow-inner">
@@ -134,13 +132,13 @@ export default function VaultPage() {
                     <div className="flex items-center justify-between mb-6 px-2">
                         <h2 className="text-xs font-black text-brand-navy uppercase tracking-widest flex items-center gap-2">
                             <Copy className="w-4 h-4 text-brand-teal" />
-                            {language === 'en' ? 'Quick Copy Notes' : 'Notas de Copia Rápida'}
+                            {t("vault.quickNotes")}
                         </h2>
                         <button
                             onClick={() => setIsAddNoteMode(!isAddNoteMode)}
                             className="text-[10px] font-black text-brand-teal uppercase tracking-widest hover:underline"
                         >
-                            {isAddNoteMode ? (language === 'en' ? 'Cancel' : 'Cancelar') : (language === 'en' ? '+ Add Note' : '+ Nueva Nota')}
+                            {isAddNoteMode ? t("vault.cancel") : t("vault.addNote")}
                         </button>
                     </div>
 
@@ -148,13 +146,13 @@ export default function VaultPage() {
                         <div className="bg-white p-6 rounded-[2rem] shadow-xl border-2 border-brand-teal/20 mb-6 animate-in zoom-in duration-300">
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                 <input
-                                    placeholder={language === 'en' ? "Label (e.g. PPSN)" : "Etiqueta (ej: PPSN)"}
+                                    placeholder={t("vault.label")}
                                     value={newNote.label}
                                     onChange={e => setNewNote({ ...newNote, label: e.target.value })}
                                     className="p-4 bg-slate-50 rounded-2xl border-none outline-none focus:ring-2 focus:ring-brand-teal text-sm font-bold"
                                 />
                                 <input
-                                    placeholder={language === 'en' ? "Content" : "Contenido"}
+                                    placeholder={t("vault.content")}
                                     value={newNote.content}
                                     onChange={e => setNewNote({ ...newNote, content: e.target.value })}
                                     className="p-4 bg-slate-50 rounded-2xl border-none outline-none focus:ring-2 focus:ring-brand-teal text-sm font-bold"
@@ -164,7 +162,7 @@ export default function VaultPage() {
                                 onClick={handleAddNote}
                                 className="w-full mt-4 bg-brand-teal text-white py-4 rounded-2xl font-black shadow-lg shadow-brand-teal/20"
                             >
-                                {language === 'en' ? 'Save Note' : 'Guardar Nota'}
+                                {t("vault.saveNote")}
                             </button>
                         </div>
                     )}
@@ -200,13 +198,13 @@ export default function VaultPage() {
                     <div className="flex items-center justify-between mb-6 px-2">
                         <h2 className="text-xs font-black text-brand-navy uppercase tracking-widest flex items-center gap-2">
                             <Folder className="w-4 h-4 text-brand-pink" />
-                            {language === 'en' ? 'My Documents' : 'Mis Documentos'}
+                            {t("vault.myDocs")}
                         </h2>
                         <button
                             onClick={() => setIsAddMode(!isAddMode)}
                             className="bg-brand-pink text-white px-5 py-2.5 rounded-2xl text-[10px] font-black uppercase tracking-widest shadow-lg shadow-brand-pink/30 hover:scale-105 active:scale-95 transition-all"
                         >
-                            {isAddMode ? (language === 'en' ? 'Close' : 'Cerrar') : (language === 'en' ? '+ New Doc' : '+ Nuevo Doc')}
+                            {isAddMode ? t("vault.cancel") : t("vault.newDoc")}
                         </button>
                     </div>
 
@@ -214,7 +212,7 @@ export default function VaultPage() {
                         <div className="bg-white p-8 rounded-[2.5rem] shadow-2xl border-2 border-brand-pink/20 mb-8 animate-in slide-in-from-top-10 duration-500">
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                 <div>
-                                    <label className="text-[10px] uppercase font-black text-slate-400 mb-2 block">{language === 'en' ? 'Document Name' : 'Nombre del Documento'}</label>
+                                    <label className="text-[10px] uppercase font-black text-slate-400 mb-2 block">{t("vault.docName")}</label>
                                     <input
                                         value={newDoc.title}
                                         onChange={e => setNewDoc({ ...newDoc, title: e.target.value })}
@@ -232,7 +230,7 @@ export default function VaultPage() {
                                     />
                                 </div>
                                 <div className="space-y-4">
-                                    <label className="text-[10px] uppercase font-black text-slate-400 mb-2 block">{language === 'en' ? 'Category' : 'Categoría'}</label>
+                                    <label className="text-[10px] uppercase font-black text-slate-400 mb-2 block">{t("vault.category")}</label>
                                     <div className="grid grid-cols-2 gap-3">
                                         {CATEGORIES.map(cat => (
                                             <button
@@ -242,7 +240,7 @@ export default function VaultPage() {
                                                 className={`p-4 rounded-2xl flex items-center gap-3 border-2 transition-all ${newDoc.category === cat.id ? 'border-brand-pink bg-brand-pink/5 text-brand-navy' : 'border-slate-50 bg-slate-50 text-slate-400 hover:border-slate-100'}`}
                                             >
                                                 <cat.icon className={`w-4 h-4 ${newDoc.category === cat.id ? 'text-brand-pink' : 'text-slate-300'}`} />
-                                                <span className="text-xs font-bold">{language === 'en' ? cat.labelEn : cat.labelEs}</span>
+                                                <span className="text-xs font-bold">{t(cat.label)}</span>
                                             </button>
                                         ))}
                                     </div>
@@ -252,7 +250,7 @@ export default function VaultPage() {
                                         <div className="flex items-center gap-3">
                                             <Calendar className="w-5 h-5 text-brand-pink" />
                                             <div>
-                                                <p className="text-xs font-bold text-brand-navy">{language === 'en' ? 'Exp. Reminder' : 'Recordatorio'}</p>
+                                                <p className="text-xs font-bold text-brand-navy">{t("lbl.reminder")}</p>
                                                 <p className="text-[10px] text-slate-400 font-medium">30 days before</p>
                                             </div>
                                         </div>
@@ -267,7 +265,7 @@ export default function VaultPage() {
                                         onClick={handleAddDoc}
                                         className="w-full mt-4 bg-brand-navy text-white py-4 rounded-2xl font-black shadow-xl"
                                     >
-                                        {language === 'en' ? 'Create Record' : 'Crear Registro'}
+                                        {t("vault.createRecord")}
                                     </button>
                                 </div>
                             </div>
@@ -294,7 +292,7 @@ export default function VaultPage() {
                                             <cat.icon className="w-6 h-6" />
                                         </div>
                                         <div className="flex-1">
-                                            <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-1">{language === 'en' ? cat.labelEn : cat.labelEs}</p>
+                                            <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-1">{t(cat.label)}</p>
                                             <h3 className="text-xl font-heading font-black text-brand-navy mb-1">{doc.title}</h3>
                                             <div className="flex items-center gap-2">
                                                 <Calendar className="w-3.5 h-3.5 text-slate-300" />
@@ -309,14 +307,14 @@ export default function VaultPage() {
                                         <div className="flex gap-2">
                                             {doc.remindMe && <CheckCircle2 className="w-4 h-4 text-brand-teal" />}
                                             <span className="text-[10px] font-bold text-slate-400">
-                                                {doc.remindMe ? (language === 'en' ? 'Reminder ON' : 'Aviso Activado') : ''}
+                                                {doc.remindMe ? t("vault.reminderOn") : ''}
                                             </span>
                                         </div>
                                         <button
                                             onClick={() => saveDocs(documents.filter(d => d.id !== doc.id))}
                                             className="text-[10px] font-black text-slate-300 hover:text-red-500 uppercase tracking-widest bg-slate-50 px-3 py-1.5 rounded-xl transition-colors"
                                         >
-                                            {language === 'en' ? 'Remove' : 'Borrar'}
+                                            {t("vault.remove")}
                                         </button>
                                     </div>
                                 </div>

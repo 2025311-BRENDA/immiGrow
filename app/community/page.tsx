@@ -21,36 +21,36 @@ export default function CommunityPage() {
 
     const sections = [
         {
-            title: 'Mi Historia',
-            description: 'Personaliza tu perfil, cuenta tu historia y conecta con otros.',
+            title: t('comm.myStory'),
+            description: t('comm.myStory.desc'),
             icon: <Users className="w-8 h-8 text-blue-500" />,
             href: '/community/profile',
             color: 'bg-blue-50',
         },
         {
-            title: 'Círculos',
-            description: 'Grupos de apoyo para mujeres, latinos, nuevos migrantes y más.',
+            title: t('comm.circles'),
+            description: t('comm.circles.desc'),
             icon: <Heart className="w-8 h-8 text-pink-500" />,
             href: '/community/circles',
             color: 'bg-pink-50',
         },
         {
-            title: 'Mentores',
-            description: 'Conecta con migrantes experimentados que pueden guiarte.',
+            title: t('comm.mentors'),
+            description: t('comm.mentors.desc'),
             icon: <Share2 className="w-8 h-8 text-purple-500" />,
             href: '/community/mentors',
             color: 'bg-purple-50',
         },
         {
-            title: 'Eventos',
-            description: 'Encuentros presenciales, caminatas y cafés para socializar.',
+            title: t('comm.events'),
+            description: t('comm.events.desc'),
             icon: <Calendar className="w-8 h-8 text-orange-500" />,
             href: '/community/events',
             color: 'bg-orange-50',
         },
         {
-            title: 'Fitness Social',
-            description: 'Entrena con otras, únete a retos y comparte tus logros.',
+            title: t('comm.socialFit'),
+            description: t('comm.socialFit.desc'),
             icon: <TrendingUp className="w-8 h-8 text-green-500" />,
             href: '/community/social-fit',
             color: 'bg-green-50',
@@ -64,9 +64,9 @@ export default function CommunityPage() {
                 <BackButton />
                 <div className="flex justify-between items-start mb-4">
                     <div>
-                        <h1 className="text-3xl font-bold text-gray-800 mb-2">Comunidad</h1>
+                        <h1 className="text-3xl font-bold text-gray-800 mb-2">{t('comm.title')}</h1>
                         <p className="text-gray-600 text-sm">
-                            El corazón de immiGrow. Conecta y crece junto a otros.
+                            {t('comm.subtitle')}
                         </p>
                     </div>
                 </div>
@@ -81,7 +81,7 @@ export default function CommunityPage() {
                                     <input
                                         value={tempName}
                                         onChange={(e) => setTempName(e.target.value)}
-                                        placeholder="Tu nombre o apodo..."
+                                        placeholder={t('comm.namePlaceholder')}
                                         className="flex-1 bg-white border-none rounded-xl px-4 py-2 text-sm focus:ring-2 focus:ring-brand-teal"
                                     />
                                     <button
@@ -94,7 +94,7 @@ export default function CommunityPage() {
                             ) : (
                                 <div className="flex items-center justify-between">
                                     <div>
-                                        <p className="text-[10px] text-gray-400 uppercase font-black tracking-widest leading-none mb-1">Tu Identidad</p>
+                                        <p className="text-[10px] text-gray-400 uppercase font-black tracking-widest leading-none mb-1">{t('comm.identity')}</p>
                                         <p className="text-lg font-bold text-gray-800">{userName}</p>
                                     </div>
                                     <button onClick={() => setIsEditing(true)} className="text-gray-400 hover:text-brand-teal">
@@ -150,7 +150,7 @@ export default function CommunityPage() {
                     className="mt-8 flex items-center justify-center gap-2 p-4 text-slate-400 hover:text-brand-teal transition-colors text-xs font-bold uppercase tracking-widest"
                 >
                     <Check className="w-4 h-4" />
-                    {language === 'en' ? 'Admin Authorizations' : 'Autorizaciones (Admin)'}
+                    {t('nav.admin')}
                 </Link>
             </div>
         </div>

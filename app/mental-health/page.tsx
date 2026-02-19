@@ -34,16 +34,16 @@ export default function MentalHealthPage() {
                         </div>
                         <div>
                             <h3 className="font-bold text-red-900 leading-tight">
-                                {language === "en" ? "Need help right now?" : "¿Necesitas ayuda ahora?"}
+                                {t("mental.crisis.title")}
                             </h3>
                             <p className="text-red-700/70 text-sm">
-                                {language === "en" ? "Confidential 24/7 support is just a text or call away." : "Apoyo confidencial 24/7 a un texto o llamada de distancia."}
+                                {t("mental.crisis.desc")}
                             </p>
                         </div>
                     </div>
                     <div className="flex gap-2">
                         <a href="tel:116123" className="bg-red-600 text-white px-6 py-3 rounded-2xl font-black text-sm hover:bg-red-700 transition-colors shadow-lg shadow-red-600/20">
-                            Call 116 123
+                            {t("mental.crisis.btn")}
                         </a>
                     </div>
                 </div>
@@ -53,7 +53,7 @@ export default function MentalHealthPage() {
                     <div className="flex items-center justify-between mb-6">
                         <h2 className="text-2xl font-bold text-brand-navy">{t("mental.professionals")}</h2>
                         <span className="bg-brand-purple/10 text-brand-purple text-[10px] font-black uppercase tracking-widest px-3 py-1 rounded-full">
-                            Support in your language
+                            {t("mental.support_lang")}
                         </span>
                     </div>
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -66,7 +66,7 @@ export default function MentalHealthPage() {
                 {/* Quick Guides Grid */}
                 <section className="bg-white rounded-[2.5rem] p-8 border border-slate-100 shadow-sm">
                     <h3 className="text-xl font-bold text-brand-navy mb-6">
-                        {language === "en" ? "Guides & Resources" : "Guías y Recursos"}
+                        {t("mental.guides")}
                     </h3>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                         {data.map((item) => (

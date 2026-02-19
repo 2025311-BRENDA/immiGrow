@@ -8,13 +8,22 @@
   <!-- Full bleed square background -->
   <rect width="512" height="512" fill="url(#finalGrad)"/>
   
-  <!-- Correct "Hybrid Line Art" Shamrock (from the user's second image) 
-       Centered and scaled down to leave 20% breathing room to prevent cutting -->
-  <g transform="translate(256, 256) scale(1.4) translate(-128, -135)">
-    <path d="M128 205 C128 185 128 165 128 145 
-             C155 145 185 125 185 100 C185 75 160 65 145 65 C135 65 128 75 128 75
-             C128 75 121 65 111 65 C96 65 71 75 71 100 C71 125 101 145 128 145
-             C105 150 90 170 90 190 C90 210 110 220 128 220 C146 220 166 210 166 190 C166 170 151 150 128 145" 
-      stroke="white" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <!-- Symmetrical continuous-line heart-shamrock (The one the user wants)
+       Scaled to ~1.4 and centered at (256, 260) to avoid any clipping on WhatsApp -->
+  <g transform="translate(256, 260) scale(1.4)">
+    <path d="M0 0
+             C -20 -10 -45 -40 -45 -60 C -45 -85 -15 -85 0 -65 
+             C 15 -85 45 -85 45 -60 C 45 -40 20 -10 0 0
+             
+             M0 0
+             C -15 20 -50 25 -65 40 C -85 55 -65 85 -45 85
+             C -25 85 -5 60 0 45
+             
+             M0 0
+             C 15 20 50 25 65 40 C 85 55 65 85 45 85
+             C 25 85 5 60 0 45
+             
+             M0 45 L0 85" 
+      stroke="white" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
   </g>
 </svg>

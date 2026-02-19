@@ -8,13 +8,13 @@
     "theme_color": "#2EBCC9",
     "icons": [
         {
-            "src": "/brand_logo_real_final.svg?v=13",
+            "src": "/immiGrow_official_final.svg?v=14",
             "sizes": "192x192 512x512",
             "type": "image/svg+xml",
             "purpose": "any maskable"
         },
         {
-            "src": "/brand_logo_real_final.svg?v=13",
+            "src": "/immiGrow_official_final.svg?v=14",
             "sizes": "1024x1024",
             "type": "image/svg+xml"
         }

@@ -1,8 +1,5 @@
 <svg width="1024" height="1024" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <!-- White Background -->
   <rect width="256" height="256" fill="white"/>
-  
-  <!-- Official Shamrock Path in Emerald Green -->
   <path d="M128 205 C128 185 128 165 128 145 
            C155 145 185 125 185 100 C185 75 160 65 145 65 C135 65 128 75 128 75
            C128 75 121 65 111 65 C96 65 71 75 71 100 C71 125 101 145 128 145

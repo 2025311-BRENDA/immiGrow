@@ -1,0 +1,7 @@
+<svg width="1024" height="1024" viewBox="0 0 880 880" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <!-- We "zoom in" by setting a smaller viewBox (e.g., 880x880) and shifting the image -->
+  <!-- This surgically removes the 10-15% white border present in the original PNG -->
+  <g transform="translate(-72, -72)">
+    <image href="/logo_final.png" width="1024" height="1024" />
+  </g>
+</svg>

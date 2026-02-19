@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   manifest: "/manifest.json",
   icons: {
     icon: "/logo_final.png",
-    apple: "/logo_pwa_official.svg",
+    apple: "/logo_official_borderless.svg?v=2",
   },
   openGraph: {
     title: "immiGrow Dublin | Salud, Actividad y Comunidad",
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     siteName: "immiGrow",
     images: [
       {
-        url: "https://immi-grow.vercel.app/logo_pwa_official.svg",
+        url: "https://immi-grow.vercel.app/logo_official_borderless.svg?v=2",
         width: 1024,
         height: 1024,
         alt: "immiGrow Logo",
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "immiGrow Dublin | Salud, Actividad y Comunidad",
     description: "Salud, bienestar y trámites para migrantes en Dublín.",
-    images: ["https://immi-grow.vercel.app/logo_pwa_official.svg"],
+    images: ["https://immi-grow.vercel.app/logo_official_borderless.svg?v=2"],
   },
   appleWebApp: {
     capable: true,
@@ -56,7 +56,7 @@ export const metadata: Metadata = {
   other: {
     "apple-mobile-web-app-capable": "yes",
     "mobile-web-app-capable": "yes",
-    "apple-touch-icon": "https://immi-grow.vercel.app/logo_pwa_official.svg",
+    "apple-touch-icon": "https://immi-grow.vercel.app/logo_official_borderless.svg?v=2",
     "keywords": "salud migrantes dublin, tramites irlanda, pps number dublin, salud mental inmigrantes, deportes gratis dublin, educacion irlanda, immigrow"
   }
 };

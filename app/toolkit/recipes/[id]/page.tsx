@@ -23,37 +23,55 @@ const RECIPE_DATA: Record<string, any> = {
         prepTime: "25 min",
         servings: "4",
         difficulty: "Easy",
-        image: "https://images.unsplash.com/photo-1548943487-a2e4e43b4853?q=80&w=2070&auto=format&fit=crop",
+        image: "https://images.unsplash.com/photo-1627308595186-e6bb3b511303?q=80&w=2070&auto=format&fit=crop",
         descriptionEn: "A traditional dish from Venezuela and Colombia, made of ground maize dough.",
         descriptionEs: "Un plato tradicional de Venezuela y Colombia, hecho de masa de maíz molido.",
-        ingredientsEn: [
-            "2 cups pre-cooked cornmeal",
-            "2 cups warm water",
-            "1 tsp salt",
-            "1 tbsp oil",
-            "Fillings (cheese, butter, meat, beans)"
-        ],
-        ingredientsEs: [
-            "2 tazas de harina de maíz precocida",
-            "2 tazas de agua tibia",
-            "1 cdta de sal",
-            "1 cda de aceite",
-            "Rellenos (queso, mantequilla, carne, frijoles)"
-        ],
-        stepsEn: [
-            "In a large bowl, mix water, salt, and oil.",
-            "Gradually add the cornmeal while mixing with your hands until smooth.",
-            "Form balls and flatten them into discs (about 1 inch thick).",
-            "Cook on a griddle or non-stick pan over medium heat for 5-7 mins per side.",
-            "Open with a knife and fill with your favorite ingredients."
-        ],
-        stepsEs: [
-            "En un bol grande, mezcla el agua, la sal y el aceite.",
-            "Agrega la harina poco a poco mientras mezclas con las manos hasta que esté suave.",
-            "Forma bolas y aplastalas en discos (aproximadamente 2 cm de grosor).",
-            "Cocina en un budare o sartén a fuego medio por 5-7 min por cada lado.",
-            "Ábrelas con un cuchillo y rellena con tus ingredientes favoritos."
-        ]
+        ingredientsEn: ["2 cups pre-cooked cornmeal", "2 cups warm water", "1 tsp salt", "1 tbsp oil", "Fillings (cheese, butter, meat, beans)"],
+        ingredientsEs: ["2 tazas de harina de maíz precocida", "2 tazas de agua tibia", "1 cdta de sal", "1 cda de aceite", "Rellenos (queso, mantequilla, carne, frijoles)"],
+        stepsEn: ["In a large bowl, mix water, salt, and oil.", "Gradually add the cornmeal while mixing with your hands until smooth.", "Form balls and flatten them into discs.", "Cook on a griddle for 5-7 mins per side.", "Open and fill."],
+        stepsEs: ["En un bol grande, mezcla el agua, la sal y el aceite.", "Agrega la harina poco a poco hasta que esté suave.", "Forma discos y cocina en un budare por 5-7 min por lado.", "Ábrelas y rellena."]
+    },
+    "2": {
+        title: "Tacos al Pastor",
+        country: "México",
+        prepTime: "2h",
+        servings: "6",
+        difficulty: "Medium",
+        image: "https://images.unsplash.com/photo-1565299585323-38d6b0865b47?q=80&w=2070&auto=format&fit=crop",
+        descriptionEn: "Iconic Mexican tacos with marinated pork and pineapple.",
+        descriptionEs: "Tacos mexicanos icónicos con cerdo marinado y piña.",
+        ingredientsEn: ["1kg pork shoulder", "Achiote paste", "Dried chillies", "Corn tortillas", "Fresh pineapple"],
+        ingredientsEs: ["1kg de carne de cerdo", "Pasta de achiote", "Chiles secos", "Tortillas de maíz", "Piña fresca"],
+        stepsEn: ["Marinate the meat for at least 4 hours.", "Grill the meat until crispy.", "Serve in tortillas with pineapple, onion, and cilantro."],
+        stepsEs: ["Marina la carne por al menos 4 horas.", "Cocina la carne a la parrilla hasta que esté crocante.", "Sirve en tortillas con piña, cebolla y cilantro."]
+    },
+    "3": {
+        title: "Empanadas Mendocinas",
+        country: "Argentina",
+        prepTime: "1.5h",
+        servings: "12",
+        difficulty: "Medium",
+        image: "https://images.unsplash.com/photo-1628102434033-5c026859e99a?q=80&w=2070&auto=format&fit=crop",
+        descriptionEn: "Traditional Argentine beef empanadas from Mendoza.",
+        descriptionEs: "Tradicionales empanadas argentinas de carne de Mendoza.",
+        ingredientsEn: ["Dough rounds", "Minced beef", "Onions", "Cumin", "Hard-boiled eggs"],
+        ingredientsEs: ["Tapas de empanada", "Carne picada", "Cebollas", "Comino", "Huevos duros"],
+        stepsEn: ["Sauté onions and beef with spices.", "Let the filling cool down.", "Fill the dough rounds, fold, and bake until golden."],
+        stepsEs: ["Saltear cebolla y carne con especias.", "Dejar enfriar el relleno.", "Rellenar las tapas, hacer el repulgue y hornear hasta dorar."]
+    },
+    "4": {
+        title: "Ceviche limeño",
+        country: "Perú",
+        prepTime: "30 min",
+        servings: "2",
+        difficulty: "Easy",
+        image: "https://images.unsplash.com/photo-1535399831218-d5bd36d1a6b3?q=80&w=2070&auto=format&fit=crop",
+        descriptionEn: "Fresh fish marinated in lime juice, a Peruvian classic.",
+        descriptionEs: "Pescado fresco marinado en jugo de limón, un clásico peruano.",
+        ingredientsEn: ["Fresh white fish", "Limes", "Red onion", "Cilantro", "Sweet potato"],
+        ingredientsEs: ["Pescado blanco fresco", "Limones", "Cebolla roja", "Cilantro", "Camote"],
+        stepsEn: ["Cut the fish into cubes.", "Marinate in lime juice with onion and salt for 5-10 mins.", "Serve immediately with sweet potato and corn."],
+        stepsEs: ["Cortar el pescado en cubos.", "Marinar en jugo de limón con cebolla y sal por 5-10 min.", "Servir inmediatamente con camote y choclo."]
     }
 };
 

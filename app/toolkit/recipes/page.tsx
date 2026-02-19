@@ -37,7 +37,7 @@ const STATIC_RECIPES: Recipe[] = [
         servings: "4",
         difficulty: "Easy",
         category: "Bread",
-        image: "https://images.unsplash.com/photo-1548943487-a2e4e43b4853?q=80&w=2070&auto=format&fit=crop"
+        image: "https://images.unsplash.com/photo-1627308595186-e6bb3b511303?q=80&w=2070&auto=format&fit=crop"
     },
     {
         id: "2",
@@ -47,7 +47,7 @@ const STATIC_RECIPES: Recipe[] = [
         servings: "6",
         difficulty: "Medium",
         category: "Main",
-        image: "https://images.unsplash.com/photo-1593179241557-bce1eb92e47e?q=80&w=1974&auto=format&fit=crop"
+        image: "https://images.unsplash.com/photo-1565299585323-38d6b0865b47?q=80&w=2070&auto=format&fit=crop"
     },
     {
         id: "3",
@@ -124,8 +124,8 @@ export default function RecipesPage() {
                                 key={country}
                                 onClick={() => setSelectedCountry(country)}
                                 className={`px-4 py-2 rounded-xl text-[10px] font-bold whitespace-nowrap transition-all ${selectedCountry === country
-                                        ? 'bg-brand-navy text-white shadow-md'
-                                        : 'bg-white text-slate-500 border border-slate-100 hover:border-brand-turquoise'
+                                    ? 'bg-brand-navy text-white shadow-md'
+                                    : 'bg-white text-slate-500 border border-slate-100 hover:border-brand-turquoise'
                                     }`}
                             >
                                 {country === "All" ? (language === 'es' ? "Todos" : "All") : country}
@@ -190,8 +190,8 @@ export default function RecipesPage() {
                                         <span className="text-[10px] font-bold">{recipe.servings} p.</span>
                                     </div>
                                     <div className={`px-2 py-0.5 rounded-lg text-[8px] font-black uppercase tracking-widest ${recipe.difficulty === 'Easy' || recipe.difficulty === 'Fácil'
-                                            ? 'bg-green-50 text-green-600'
-                                            : 'bg-orange-50 text-orange-600'
+                                        ? 'bg-green-50 text-green-600'
+                                        : 'bg-orange-50 text-orange-600'
                                         }`}>
                                         {recipe.difficulty}
                                     </div>

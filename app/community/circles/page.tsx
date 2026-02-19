@@ -64,9 +64,9 @@ export default function CirclesPage() {
                     <ChevronLeft className="w-5 h-5 mr-1" />
                     {t("lbl.backTo")} {t("nav.community")}
                 </Link>
-                <h1 className="text-2xl font-bold text-gray-800 mb-1">Círculos</h1>
+                <h1 className="text-2xl font-bold text-gray-800 mb-1">{t("comm.circles.title")}</h1>
                 <p className="text-gray-500 text-sm">
-                    Encuentra tu tribu. Grupos basados en intereses y experiencias compartidas.
+                    {t("comm.circles.subtitle")}
                 </p>
             </div>
 
@@ -82,13 +82,14 @@ export default function CirclesPage() {
                                 description={circle.description}
                                 tag={circle.tag}
                                 color={circle.color}
-                                actionLabel={isJoined ? "Salir del Grupo" : "Unirme"}
+                                actionLabel={isJoined ? t("comm.circles.exit") : t("comm.circles.join")}
                                 onAction={() => toggleCircle(circle.id)}
                             />
                         );
                     })}
                 </div>
             </div>
+
         </div>
     );
 }

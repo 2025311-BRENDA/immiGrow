@@ -16,11 +16,7 @@ export default function SwimmingPage() {
                 {t("nav.swimming")}
             </h1>
             <p className="text-slate-600 mb-8 max-w-2xl">
-                {language === "en"
-                    ? "Safe spots for open water swimming in Dublin Bay."
-                    : language === "es"
-                        ? "Lugares seguros para nadar en aguas abiertas en la Bahía de Dublín."
-                        : "Locais seguros para natação em mar aberto na Baía de Dublin."}
+                {t("exercise.swimming.subtitle")}
             </p>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

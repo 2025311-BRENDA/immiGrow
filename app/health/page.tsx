@@ -13,11 +13,7 @@ export default function HealthHubPage() {
         {
             id: "womens-health",
             title: t("nav.women"),
-            description: language === "en"
-                ? "Maternity, screenings, and specialized care."
-                : language === "es"
-                    ? "Maternidad, chequeos y cuidado especializado."
-                    : "Maternidade, exames e cuidados especializados.",
+            description: t("health.sections.women"),
             icon: Heart,
             href: "/womens-health",
             color: "text-brand-pink",
@@ -26,11 +22,7 @@ export default function HealthHubPage() {
         {
             id: "mental-health",
             title: t("nav.mental"),
-            description: language === "en"
-                ? "Support networks, psychologists, and well-being."
-                : language === "es"
-                    ? "Redes de apoyo, psicólogos y bienestar."
-                    : "Redes de apoio, psicólogos e bem-estar.",
+            description: t("health.sections.mental"),
             icon: Brain,
             href: "/mental-health",
             color: "text-brand-purple",
@@ -39,11 +31,7 @@ export default function HealthHubPage() {
         {
             id: "physiotherapy",
             title: t("nav.physiotherapy"),
-            description: language === "en"
-                ? "Recovery, community clinics, and specialists."
-                : language === "es"
-                    ? "Recuperación, clínicas comunitarias y especialistas."
-                    : "Recuperação, clínicas comunitárias e especialistas.",
+            description: t("health.sections.physio"),
             icon: Activity,
             href: "/exercise/physiotherapy",
             color: "text-brand-turquoise",
@@ -52,9 +40,9 @@ export default function HealthHubPage() {
     ];
 
     const emergencyContacts = [
-        { name: "immiGrow Support", number: "083 332 0940", desc: language === "en" ? "General assistance" : "Apoyo general" },
-        { name: "HSE Live", number: "1800 700 700", desc: language === "en" ? "General health info" : "Info de salud general" },
-        { name: "Samaritans", number: "116 123", desc: language === "en" ? "24/7 Mental support" : "Apoyo mental 24/7" },
+        { name: "immiGrow Support", number: "083 332 0940", desc: t("health.emergency.support") },
+        { name: "HSE Live", number: "1800 700 700", desc: t("health.emergency.hse") },
+        { name: "Samaritans", number: "116 123", desc: t("health.emergency.samaritans") },
     ];
 
     return (
@@ -65,7 +53,7 @@ export default function HealthHubPage() {
                 <div className="container mx-auto max-w-5xl relative z-10">
                     <BackButton />
                     <h1 className="text-4xl font-heading font-black mb-2">{t("nav.health")}</h1>
-                    <p className="text-white/80 max-w-xl">{language === "en" ? "Immediate access to vetted health resources for migrants." : "Acceso inmediato a recursos de salud verificados para migrantes."}</p>
+                    <p className="text-white/80 max-w-xl">{t("health.hero.subtitle")}</p>
                 </div>
             </header>
 
@@ -99,7 +87,7 @@ export default function HealthHubPage() {
                             <h2 className="text-2xl font-bold text-brand-navy mb-2">{section.title}</h2>
                             <p className="text-slate-500 mb-6 text-sm leading-relaxed">{section.description}</p>
                             <div className="flex items-center text-brand-irish-green font-bold text-sm">
-                                <span>{language === "en" ? "Enter Section" : "Entrar"}</span>
+                                <span>{t("health.enter")}</span>
                                 <ChevronRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
                             </div>
                         </Link>
@@ -112,12 +100,10 @@ export default function HealthHubPage() {
                     <div className="flex flex-col md:flex-row items-center justify-between gap-6 relative z-10">
                         <div>
                             <h3 className="text-2xl font-bold text-brand-navy mb-2">
-                                {language === "en" ? "Register with a local GP" : "Regístrate con un GP local"}
+                                {t("health.gp.title")}
                             </h3>
                             <p className="text-slate-500 max-w-lg">
-                                {language === "en"
-                                    ? "Finding a doctor is the first step to accessing healthcare in Ireland. Use the official HSE finder."
-                                    : "Encontrar un médico es el primer paso para acceder a la salud en Irlanda. Usa el buscador oficial de la HSE."}
+                                {t("health.gp.desc")}
                             </p>
                         </div>
                         <a
@@ -126,10 +112,11 @@ export default function HealthHubPage() {
                             rel="noopener noreferrer"
                             className="bg-brand-turquoise text-white px-8 py-4 rounded-2xl font-bold shadow-lg shadow-brand-turquoise/20 hover:scale-105 transition-transform whitespace-nowrap"
                         >
-                            {language === "en" ? "Find GP Near Me" : "Buscar GP cercano"}
+                            {t("health.gp.btn")}
                         </a>
                     </div>
                 </section>
+
             </main>
         </div>
     );

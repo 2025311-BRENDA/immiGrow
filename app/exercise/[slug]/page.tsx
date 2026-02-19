@@ -4,8 +4,9 @@ import { use, useState } from "react";
 import Link from "next/link";
 import { useLanguage } from "@/context/LanguageContext";
 import { useSubmissions } from "@/context/SubmissionContext";
-import { exerciseGeneral } from "@/lib/data";
-import { exerciseGeneralEs } from "@/lib/data_es";
+import { exerciseGeneral, womensHealth } from "@/lib/data";
+import { exerciseGeneralEs, womensHealthEs } from "@/lib/data_es";
+import { exerciseGeneralPt, womensHealthPt } from "@/lib/data_pt";
 import { ChevronLeft, Map, CheckCircle2, Plus, X, Users, Trophy } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { BackButton } from "@/components/BackButton";
@@ -22,8 +23,13 @@ export default function ExerciseDetail({ params }: { params: Promise<{ slug: str
     const [location, setLocation] = useState("");
     const [teamDesc, setTeamDesc] = useState("");
 
-    // Find the item in the data
-    const data = language === "en" ? exerciseGeneral : exerciseGeneralEs;
+    // Find the item in the data across all general and health collections
+    const data = language === "en"
+        ? [...exerciseGeneral, ...womensHealth]
+        : language === "es"
+            ? [...exerciseGeneralEs, ...womensHealthEs]
+            : [...exerciseGeneralPt, ...womensHealthPt];
+
     const item = data.find((i) => i.slug === slug);
 
     if (!item) {
@@ -31,9 +37,9 @@ export default function ExerciseDetail({ params }: { params: Promise<{ slug: str
             <div className="min-h-screen flex items-center justify-center bg-brand-sand">
                 <div className="text-center">
                     <h1 className="text-4xl font-bold text-brand-navy mb-4">404</h1>
-                    <p className="text-slate-600 mb-8">Item not found.</p>
+                    <p className="text-slate-600 mb-8">{t("exercise.detail.notFound")}</p>
                     <Link href="/exercise" className="text-brand-teal font-bold hover:underline">
-                        Go back to Exercise
+                        {t("lbl.backTo")} {t("nav.physical_activity")}
                     </Link>
                 </div>
             </div>
@@ -56,9 +62,7 @@ export default function ExerciseDetail({ params }: { params: Promise<{ slug: str
         setSport("");
         setLocation("");
         setTeamDesc("");
-        alert(language === 'en'
-            ? "Team submitted for authorization! It will appear once approved."
-            : "¡Equipo enviado para autorización! Aparecerá una vez sea aprobado.");
+        alert(t("exercise.teams.success"));
     };
 
     return (
@@ -66,13 +70,13 @@ export default function ExerciseDetail({ params }: { params: Promise<{ slug: str
             {/* Header / Nav */}
             <div className="bg-white border-b sticky top-0 z-10">
                 <div className="container mx-auto px-4 py-4 flex items-center justify-between">
-                    <BackButton href="/exercise" label="Exercise" />
+                    <BackButton href="/exercise" label={t("nav.physical_activity")} />
                     {slug === "community-sports" && (
                         <button
                             onClick={() => setShowTeamForm(true)}
                             className="bg-brand-teal text-white px-4 py-2 rounded-xl font-bold text-sm shadow-sm hover:scale-105 transition-all"
                         >
-                            {language === 'en' ? 'Create Team' : 'Crear Equipo'}
+                            {t("exercise.teams.create")}
                         </button>
                     )}
                 </div>
@@ -84,7 +88,7 @@ export default function ExerciseDetail({ params }: { params: Promise<{ slug: str
                     <div className="bg-white p-6 rounded-[2rem] shadow-lg border-2 border-brand-teal/20 mb-8 animate-in fade-in slide-in-from-top-4 duration-300">
                         <div className="flex justify-between items-center mb-4">
                             <h3 className="font-bold text-brand-navy">
-                                {language === 'en' ? 'Register New Team' : 'Registrar Nuevo Equipo'}
+                                {t("exercise.teams.title")}
                             </h3>
                             <button onClick={() => setShowTeamForm(false)} className="text-slate-400">
                                 <X className="w-5 h-5" />
@@ -95,7 +99,7 @@ export default function ExerciseDetail({ params }: { params: Promise<{ slug: str
                                 required
                                 value={teamName}
                                 onChange={(e) => setTeamName(e.target.value)}
-                                placeholder={language === 'en' ? "Team Name" : "Nombre del Equipo"}
+                                placeholder={t("exercise.teams.name")}
                                 className="w-full bg-slate-50 border-none rounded-xl px-4 py-2 text-sm focus:ring-2 focus:ring-brand-teal"
                             />
                             <div className="grid grid-cols-2 gap-3">
@@ -103,14 +107,14 @@ export default function ExerciseDetail({ params }: { params: Promise<{ slug: str
                                     required
                                     value={sport}
                                     onChange={(e) => setSport(e.target.value)}
-                                    placeholder={language === 'en' ? "Sport (e.g. Football)" : "Deporte (ej: Fútbol)"}
+                                    placeholder={t("exercise.teams.sport")}
                                     className="w-full bg-slate-50 border-none rounded-xl px-4 py-2 text-sm focus:ring-2 focus:ring-brand-teal"
                                 />
                                 <input
                                     required
                                     value={location}
                                     onChange={(e) => setLocation(e.target.value)}
-                                    placeholder={language === 'en' ? "Location" : "Ubicación"}
+                                    placeholder={t("exercise.teams.location")}
                                     className="w-full bg-slate-50 border-none rounded-xl px-4 py-2 text-sm focus:ring-2 focus:ring-brand-teal"
                                 />
                             </div>
@@ -118,11 +122,11 @@ export default function ExerciseDetail({ params }: { params: Promise<{ slug: str
                                 required
                                 value={teamDesc}
                                 onChange={(e) => setTeamDesc(e.target.value)}
-                                placeholder={language === 'en' ? "Short description / level / contact info" : "Descripción corta / nivel / contacto"}
+                                placeholder={t("exercise.teams.desc")}
                                 className="w-full bg-slate-50 border-none rounded-xl px-4 py-2 text-sm h-24 focus:ring-2 focus:ring-brand-teal"
                             />
                             <button type="submit" className="w-full py-3 bg-brand-navy text-white rounded-xl font-bold hover:bg-brand-navy/90 transition-all">
-                                {language === 'en' ? 'Submit for Authorization' : 'Enviar para Autorización'}
+                                {t("exercise.teams.submit")}
                             </button>
                         </form>
                     </div>
@@ -139,12 +143,14 @@ export default function ExerciseDetail({ params }: { params: Promise<{ slug: str
                                 {item.title}
                             </h1>
                             <div className="flex gap-2 mt-1">
-                                <span className={cn(
-                                    "text-xs font-semibold px-2 py-1 rounded-full",
-                                    item.difficulty === "Easy" ? "bg-green-100 text-green-700" : "bg-yellow-100 text-yellow-700"
-                                )}>
-                                    {item.difficulty}
-                                </span>
+                                {item.difficulty && (
+                                    <span className={cn(
+                                        "text-xs font-semibold px-2 py-1 rounded-full",
+                                        item.difficulty === "Easy" ? "bg-green-100 text-green-700" : "bg-yellow-100 text-yellow-700"
+                                    )}>
+                                        {t(`diff.${item.difficulty.toLowerCase()}`)}
+                                    </span>
+                                )}
                                 {item.distance && (
                                     <span className="text-xs font-semibold px-2 py-1 bg-blue-100 text-blue-700 rounded-full">
                                         {item.distance}
@@ -225,7 +231,7 @@ export default function ExerciseDetail({ params }: { params: Promise<{ slug: str
                                     <div className="mt-12 space-y-6">
                                         <h3 className="text-xl font-black pt-8 mb-3 flex items-center gap-3 text-brand-pink">
                                             <div className="w-2 h-8 rounded-full bg-brand-pink"></div>
-                                            {language === 'en' ? 'Community Teams' : 'Equipos de la Comunidad'}
+                                            {t("exercise.teams.community")}
                                         </h3>
                                         <div className="grid grid-cols-1 gap-4">
                                             {approvedTeams.map((team: any, idx: number) => (
@@ -252,7 +258,7 @@ export default function ExerciseDetail({ params }: { params: Promise<{ slug: str
                                 )}
                             </div>
                         ) : (
-                            <p className="text-slate-400 italic">No additional details available for this item yet.</p>
+                            <p className="text-slate-400 italic">{t("exercise.detail.noDetails")}</p>
                         )}
                     </div>
 
@@ -263,9 +269,7 @@ export default function ExerciseDetail({ params }: { params: Promise<{ slug: str
                                 {t("lbl.gettingThere")}
                             </h3>
                             <p className="text-slate-600 mb-6">
-                                {language === "en"
-                                    ? "Open this location in Google Maps to start your navigation."
-                                    : "Abre esta ubicación en Google Maps para comenzar tu navegación."}
+                                {t("lbl.maps.desc")}
                             </p>
                             <a
                                 href={item.mapUrl}
@@ -274,7 +278,7 @@ export default function ExerciseDetail({ params }: { params: Promise<{ slug: str
                                 className="inline-flex items-center gap-2 px-8 py-4 bg-brand-teal text-white font-bold rounded-2xl shadow-lg hover:shadow-xl hover:scale-105 active:scale-95 transition-all w-full justify-center lg:w-auto"
                             >
                                 <Map className="w-5 h-5" />
-                                {language === "en" ? "Open Maps" : "Abrir Mapas"}
+                                {t("lbl.maps.btn")}
                             </a>
                         </div>
                     )}

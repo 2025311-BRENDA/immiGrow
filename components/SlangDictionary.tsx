@@ -8,7 +8,7 @@ import { dublinSlangEs } from "@/lib/data_es";
 import { dublinSlangPt } from "@/lib/data_pt";
 
 export function SlangDictionary() {
-    const { language } = useLanguage();
+    const { language, t } = useLanguage();
     const data = language === "en" ? dublinSlang : language === "es" ? dublinSlangEs : dublinSlangPt;
 
     return (
@@ -19,10 +19,10 @@ export function SlangDictionary() {
                 </div>
                 <div>
                     <h3 className="text-2xl font-black text-brand-navy">
-                        {language === "en" ? "Speak like a Local" : language === "es" ? "Habla como un local" : "Fale como um Local"}
+                        {t("slang.title")}
                     </h3>
                     <p className="text-slate-500 text-sm mt-1">
-                        {language === "en" ? "Common Dublin phrases and what they actually mean." : language === "es" ? "Frases comunes de Dublín y lo que realmente significan." : "Frases comuns de Dublin e o que elas realmente significam."}
+                        {t("slang.subtitle")}
                     </p>
                 </div>
             </div>
@@ -53,14 +53,10 @@ export function SlangDictionary() {
                 <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -mr-16 -mt-16 blur-xl" />
                 <h5 className="font-bold mb-2 flex items-center gap-2">
                     <span className="text-xl">🍀</span>
-                    {language === "en" ? "Pro Tip" : language === "es" ? "Consejo Pro" : "Dica Pro"}
+                    {t("slang.pro.title")}
                 </h5>
                 <p className="text-sm text-white/80 leading-relaxed font-medium">
-                    {language === "en"
-                        ? "Irish English is very rhythmic. Don't worry about being perfect; just aim for the vibe. Using 'Grand' for everything is a great start!"
-                        : language === "es"
-                            ? "El inglés de Irlanda es muy rítmico. No te preocupes por ser perfecta; intenta captar la vibra. ¡Usar 'Grand' para todo es un excelente comienzo!"
-                            : "O inglês irlandês é muito rítmico. Não se preocupe em ser perfeito; apenas procure sentir a 'vibe'. Usar 'Grand' para tudo é um ótimo começo!"}
+                    {t("slang.pro.desc")}
                 </p>
             </div>
         </section>

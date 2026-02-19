@@ -60,7 +60,7 @@ export default function ProfilePage() {
                 <div className="bg-white rounded-2xl p-5 shadow-sm border border-gray-100 mb-4">
                     <h3 className="text-lg font-semibold text-gray-800 mb-3 flex items-center">
                         <BookOpen className="w-5 h-5 mr-2 text-purple-500" />
-                        Mi Historia Migrante
+                        {t("comm.profile.story")}
                     </h3>
                     {isEditing ? (
                         <textarea
@@ -82,7 +82,7 @@ export default function ProfilePage() {
                     <div className="bg-white rounded-2xl p-5 shadow-sm border border-gray-100">
                         <h3 className="text-md font-semibold text-gray-800 mb-3 flex items-center">
                             <Globe className="w-5 h-5 mr-2 text-blue-500" />
-                            Idiomas
+                            {t("comm.profile.languages")}
                         </h3>
                         <div className="flex flex-wrap gap-2">
                             {profile.languages.map((lang, idx) => (
@@ -97,7 +97,7 @@ export default function ProfilePage() {
                     <div className="bg-white rounded-2xl p-5 shadow-sm border border-gray-100">
                         <h3 className="text-md font-semibold text-gray-800 mb-3 flex items-center">
                             <Heart className="w-5 h-5 mr-2 text-pink-500" />
-                            Intereses
+                            {t("comm.profile.interests")}
                         </h3>
                         <div className="flex flex-wrap gap-2">
                             {profile.interests.map((interest, idx) => (

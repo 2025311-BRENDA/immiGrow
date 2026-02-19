@@ -13,14 +13,10 @@ export default function GymsPage() {
     return (
         <div className="container mx-auto px-4 py-8 pb-32">
             <h1 className="text-4xl font-heading font-bold text-brand-navy mb-2">
-                {language === "en" ? "Public Gyms & Pools" : language === "es" ? "Gimnasios Públicos y Piscinas" : "Academias Públicas e Piscinas"}
+                {t("exercise.gyms.title")}
             </h1>
             <p className="text-slate-600 mb-8 max-w-2xl">
-                {language === "en"
-                    ? "Affordable, high-quality leisure centers run by Dublin City Council. No long contracts, great facilities."
-                    : language === "es"
-                        ? "Centros de ocio asequibles y de alta calidad gestionados por el Ayuntamiento de Dublín. Sin contratos largos, excelentes instalaciones."
-                        : "Centros de lazer acessíveis e de alta qualidade geridos pelo Conselho Municipal de Dublin. Sem contratos longos, ótimas instalações."}
+                {t("exercise.gyms.subtitle")}
             </p>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

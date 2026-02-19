@@ -103,7 +103,7 @@ export default function SocialFitHub() {
         setNewDesc("");
         setNewLocation("");
         setNewTime("");
-        alert(language === 'en' ? "Post submitted for authorization!" : "¡Anuncio enviado para autorización!");
+        alert(t("comm.socialFit.postSuccess"));
     };
 
     const handleContribute = (e: React.FormEvent) => {
@@ -118,9 +118,7 @@ export default function SocialFitHub() {
         setShowContributeForm(false);
         setKmValue("");
         setContribActivity("");
-        alert(language === 'en'
-            ? "Thank you! Your contribution will be added once authorized."
-            : "¡Gracias! Tu contribución se añadirá una vez sea autorizada.");
+        alert(t("comm.socialFit.contribSuccess"));
     };
 
     return (
@@ -132,9 +130,7 @@ export default function SocialFitHub() {
                     <div>
                         <h1 className="text-4xl font-heading font-bold">{t("nav.socialFit")}</h1>
                         <p className="text-brand-navy/70 mt-2 font-medium max-w-md text-sm">
-                            {language === "en"
-                                ? "Connect with others, share your steps, and grow together."
-                                : "Conecta con otras, comparte tus pasos y creced juntas."}
+                            {t("comm.socialFit.subtitle")}
                         </p>
                     </div>
                     <Users className="w-12 h-12 text-brand-navy/20" />
@@ -156,7 +152,7 @@ export default function SocialFitHub() {
                             <div>
                                 <h2 className="text-2xl font-heading font-black text-brand-navy tracking-tight">{t("lbl.collectiveGoal")}</h2>
                                 <p className="text-[10px] text-slate-400 font-bold uppercase tracking-widest mt-1">
-                                    {language === 'en' ? 'Community Milestone' : 'Meta Comunitaria'}
+                                    {t("comm.socialFit.milestone")}
                                 </p>
                             </div>
                         </div>
@@ -165,14 +161,14 @@ export default function SocialFitHub() {
                             className="w-full md:w-auto bg-brand-pink text-white px-8 py-4 rounded-2xl font-black shadow-[0_8px_20px_rgba(255,107,157,0.3)] hover:shadow-none hover:translate-y-0.5 active:scale-95 transition-all flex items-center justify-center gap-2 group/btn"
                         >
                             <Plus className="w-5 h-5 group-hover/btn:rotate-90 transition-transform" />
-                            {language === 'en' ? 'Contribute KM' : 'Aportar KM'}
+                            {t("comm.socialFit.contribute")}
                         </button>
                     </div>
 
                     {showContributeForm && (
                         <div className="mb-10 p-8 bg-brand-pink/5 rounded-[2.5rem] border-2 border-brand-pink/10 animate-in fade-in zoom-in duration-500 relative z-10">
                             <div className="flex justify-between items-center mb-6">
-                                <h3 className="font-black text-brand-navy uppercase tracking-widest text-xs">{language === 'en' ? 'Add your distance' : 'Suma tu distancia'}</h3>
+                                <h3 className="font-black text-brand-navy uppercase tracking-widest text-xs">{t("comm.socialFit.addDistance")}</h3>
                                 <button onClick={() => setShowContributeForm(false)} className="p-2 hover:bg-white rounded-full transition-colors text-slate-400"><X className="w-5 h-5" /></button>
                             </div>
                             <form onSubmit={handleContribute} className="flex flex-wrap gap-4">
@@ -191,12 +187,12 @@ export default function SocialFitHub() {
                                         required
                                         value={contribActivity}
                                         onChange={(e) => setContribActivity(e.target.value)}
-                                        placeholder={language === 'en' ? 'Activity (e.g. Hiking)' : 'Actividad (ej: Caminata)'}
+                                        placeholder={t("comm.socialFit.activityPlaceholder")}
                                         className="w-full bg-white border-2 border-transparent focus:border-brand-pink outline-none rounded-2xl px-6 py-4 text-xs font-bold focus:ring-4 focus:ring-brand-pink/10 shadow-sm transition-all"
                                     />
                                 </div>
                                 <button type="submit" className="w-full md:w-auto bg-brand-navy text-white px-10 py-4 rounded-2xl font-black shadow-lg hover:bg-brand-navy/90 transition-all">
-                                    {language === 'en' ? 'Submit' : 'Enviar'}
+                                    {t("lbl.submit")}
                                 </button>
                             </form>
                         </div>
@@ -210,14 +206,14 @@ export default function SocialFitHub() {
                                     <span className="text-brand-navy/30 text-xl font-bold italic">km</span>
                                 </div>
                                 <p className="text-[10px] text-slate-400 font-bold uppercase tracking-[0.2em] mt-2">
-                                    {language === 'en' ? 'Progress to 1000km' : 'Progreso hacia 1000km'}
+                                    {t("comm.socialFit.progressTo")}
                                 </p>
                             </div>
                             <div className="text-right">
                                 <span className={`block text-[10px] font-black uppercase tracking-[0.2em] mb-1 ${progressPercent >= 100 ? 'text-brand-teal' : 'text-brand-pink'}`}>
                                     {progressPercent >= 100
-                                        ? (language === 'en' ? 'COMPLETED!' : '¡META LOGRADA!')
-                                        : (language === 'en' ? 'IN PROGRESS' : 'EN PROGRESO')}
+                                        ? t("comm.socialFit.completed")
+                                        : t("comm.socialFit.inProgress")}
                                 </span>
                                 <div className={`text-3xl font-black tabular-nums ${progressPercent >= 100 ? 'text-brand-teal' : 'text-brand-pink'}`}>
                                     {progressPercent}%
@@ -238,7 +234,7 @@ export default function SocialFitHub() {
                         <div className="mt-12 border-t border-slate-100 pt-8 relative z-10">
                             <h4 className="text-[10px] uppercase font-black tracking-[0.2em] text-slate-400 mb-6 flex items-center gap-2">
                                 <Sparkles className="w-3 h-3 text-brand-pink" />
-                                {language === 'en' ? 'Community Wall' : 'Muro de la Comunidad'}
+                                {t("comm.socialFit.wall")}
                             </h4>
                             <div className="flex gap-4 overflow-x-auto pb-4 scrollbar-hide snap-x">
                                 {approvedContributions.slice(-6).reverse().map((c: any, i: number) => (
@@ -266,7 +262,7 @@ export default function SocialFitHub() {
                             className="bg-brand-teal text-white px-6 py-4 rounded-2xl font-bold transition-all shadow-md hover:scale-105 flex items-center gap-3"
                         >
                             <Plus className="w-6 h-6" />
-                            <span>{language === 'en' ? 'Create post' : 'Publicar anuncio'}</span>
+                            <span>{t("comm.socialFit.createPost")}</span>
                         </button>
                     </div>
 
@@ -274,7 +270,7 @@ export default function SocialFitHub() {
                         <div className="bg-white p-6 rounded-[2rem] shadow-lg border-2 border-brand-teal/20 mb-8 animate-in fade-in slide-in-from-top-4 duration-300">
                             <div className="flex justify-between items-center mb-4">
                                 <h3 className="font-bold text-brand-navy">
-                                    {language === 'en' ? 'New Session' : 'Nueva Sesión'}
+                                    {t("comm.socialFit.newSession")}
                                 </h3>
                                 <button onClick={() => { setShowPostForm(false); setNewActivity(""); setNewDesc(""); setNewLocation(""); setNewTime(""); }} className="text-slate-400 hover:text-brand-navy">
                                     <X className="w-5 h-5" />
@@ -324,7 +320,7 @@ export default function SocialFitHub() {
                                     />
                                 </div>
                                 <button type="submit" className="w-full py-3 bg-brand-navy text-white rounded-xl font-bold hover:bg-brand-navy/90 transition-all">
-                                    {language === 'en' ? 'Submit for approval' : 'Enviar para autorización'}
+                                    {t("comm.socialFit.submitApproval")}
                                 </button>
                             </form>
                         </div>
@@ -339,7 +335,7 @@ export default function SocialFitHub() {
                                         <Smile className="w-10 h-10 text-brand-teal" />
                                         {isOwner && (
                                             <div className="absolute -top-2 -right-2 bg-brand-navy text-white text-[8px] font-black uppercase px-2 py-0.5 rounded-full ring-2 ring-white">
-                                                {language === 'en' ? 'Mine' : 'Mío'}
+                                                {t("lbl.mine")}
                                             </div>
                                         )}
                                     </div>
@@ -366,7 +362,7 @@ export default function SocialFitHub() {
                                                 <button
                                                     className={`px-6 py-4 rounded-2xl font-bold transition-all flex items-center justify-center gap-2 bg-brand-teal/5 text-brand-teal hover:bg-brand-teal hover:text-white`}
                                                 >
-                                                    {language === 'en' ? 'Join' : 'Unirme'}
+                                                    {t("comm.circles.join")}
                                                 </button>
                                                 <button className="p-4 bg-slate-50 text-slate-400 rounded-2xl hover:bg-brand-navy hover:text-white transition-all">
                                                     <MessageCircle className="w-5 h-5" />

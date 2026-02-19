@@ -68,7 +68,7 @@ export function Forum() {
         const { error } = await supabase
             .from('posts')
             .insert([{
-                author: userName || "Visitante",
+                author: userName || t("forum.visitor"),
                 content: newPost,
                 likes: 0,
                 replies: []
@@ -99,7 +99,7 @@ export function Forum() {
 
         const newReply = {
             id: Date.now().toString(),
-            author: userName || "Visitante",
+            author: userName || t("forum.visitor"),
             content: replyText,
             time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
         };
@@ -155,7 +155,7 @@ export function Forum() {
                         {t("forum.title")}
                     </h3>
                     <p className="text-white/60 text-[10px] mt-0.5 lowercase">
-                        {language === 'es' ? 'hilos de conversación activos' : 'active conversation threads'}
+                        {t("forum.activeThreads")}
                     </p>
                 </div>
                 <Link href="/community" className="p-2 bg-white/10 rounded-xl hover:bg-white/20 transition-all text-brand-sand text-[10px] font-bold flex items-center gap-1">
@@ -172,7 +172,7 @@ export function Forum() {
                     </div>
                 ) : posts.length === 0 ? (
                     <div className="text-center w-full py-10 opacity-40">
-                        <p className="text-xs">{language === 'es' ? 'No hay hilos aún. ¡Inicia uno!' : 'No threads yet. Start one!'}</p>
+                        <p className="text-xs">{t("forum.noThreads")}</p>
                     </div>
                 ) : (
                     posts.map(post => (
@@ -294,7 +294,7 @@ export function Forum() {
                             type="text"
                             value={replyText}
                             onChange={(e) => setReplyText(e.target.value)}
-                            placeholder={language === 'es' ? "Escribe una respuesta..." : "Write a reply..."}
+                            placeholder={t("forum.replyPlaceholder")}
                             className="flex-1 bg-white/10 border-white/20 rounded-xl px-4 py-3 text-xs focus:ring-brand-sand focus:border-brand-sand placeholder:text-white/20"
                         />
                         <button

@@ -84,9 +84,7 @@ export default function EventsPage() {
         setLocation("");
         setDesc("");
 
-        alert(language === 'en'
-            ? "Event submitted! It will appear once authorized."
-            : "¡Evento enviado! Aparecerá una vez sea autorizado.");
+        alert(t("comm.events.success"));
     };
 
     const toggleRSVP = (id: string) => {
@@ -104,10 +102,10 @@ export default function EventsPage() {
                     <div>
                         <BackButton href="/community" label={t("nav.community")} />
                         <h1 className="text-4xl font-heading font-bold text-brand-navy">
-                            {language === 'en' ? 'Upcoming Events' : 'Próximos Eventos'}
+                            {t("comm.events.title")}
                         </h1>
                         <p className="text-slate-500 mt-2 font-medium">
-                            {language === 'en' ? 'Free and community-focused meetups.' : 'Encuentros gratuitos y enfocados en la comunidad.'}
+                            {t("comm.events.subtitle")}
                         </p>
                     </div>
                     <button
@@ -115,7 +113,7 @@ export default function EventsPage() {
                         className={`px-6 py-4 rounded-2xl font-bold transition-all flex items-center gap-3 ${showForm ? 'bg-slate-100 text-slate-400' : 'bg-brand-teal text-white shadow-lg hover:scale-105'}`}
                     >
                         <Plus className={`w-6 h-6 transition-transform ${showForm ? 'rotate-45' : ''}`} />
-                        {!showForm && <span>{language === 'en' ? 'Create Event' : 'Crear evento'}</span>}
+                        {!showForm && <span>{t("comm.events.create")}</span>}
                     </button>
                 </div>
             </div>
@@ -125,7 +123,7 @@ export default function EventsPage() {
                     <div className="bg-white p-6 rounded-[2rem] shadow-lg border-2 border-brand-teal/20 mb-8 animate-in fade-in slide-in-from-top-4 duration-300">
                         <div className="flex justify-between items-center mb-4">
                             <h3 className="font-bold text-gray-800">
-                                {language === 'en' ? 'Create New Event' : 'Crear Nuevo Evento'}
+                                {t("comm.events.newTitle")}
                             </h3>
                             <button onClick={() => setShowForm(false)} className="text-slate-400 font-bold">
                                 <X className="w-5 h-5" />
@@ -136,7 +134,7 @@ export default function EventsPage() {
                                 required
                                 value={title}
                                 onChange={(e) => setTitle(e.target.value)}
-                                placeholder={language === 'en' ? "Event title (e.g. Picnic in St Stephens)" : "Título del evento (ej: Picnic en St Stephens)"}
+                                placeholder={t("comm.events.placeholder.title")}
                                 className="w-full bg-slate-50 border-none rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-brand-teal"
                             />
                             <div className="grid grid-cols-2 gap-3">
@@ -144,14 +142,14 @@ export default function EventsPage() {
                                     required
                                     value={date}
                                     onChange={(e) => setDate(e.target.value)}
-                                    placeholder={language === 'en' ? "Date and Time" : "Fecha y Hora"}
+                                    placeholder={t("comm.events.placeholder.date")}
                                     className="w-full bg-slate-50 border-none rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-brand-teal"
                                 />
                                 <input
                                     required
                                     value={location}
                                     onChange={(e) => setLocation(e.target.value)}
-                                    placeholder={language === 'en' ? "Location" : "Lugar"}
+                                    placeholder={t("comm.events.placeholder.location")}
                                     className="w-full bg-slate-50 border-none rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-brand-teal"
                                 />
                             </div>
@@ -159,11 +157,11 @@ export default function EventsPage() {
                                 required
                                 value={desc}
                                 onChange={(e) => setDesc(e.target.value)}
-                                placeholder={language === 'en' ? "Description: What will we do? What to bring?" : "Descripción: ¿Qué haremos? ¿Qué hay que llevar?"}
+                                placeholder={t("comm.events.placeholder.desc")}
                                 className="w-full bg-slate-50 border-none rounded-xl px-4 py-3 text-sm h-24 focus:ring-2 focus:ring-brand-teal"
                             />
                             <button type="submit" className="w-full py-4 bg-brand-teal text-white rounded-xl font-bold shadow-sm hover:bg-brand-teal/90 transition-all">
-                                {language === 'en' ? 'Submit for Authorization' : 'Enviar para Autorización'}
+                                {t("comm.events.submit")}
                             </button>
                         </form>
                     </div>
@@ -222,7 +220,7 @@ export default function EventsPage() {
                                             <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
                                                 <path strokeLinecap="round" strokeLinejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                                             </svg>
-                                            FREE ENTRY
+                                            {t("comm.events.free")}
                                         </div>
                                     </div>
                                 </div>

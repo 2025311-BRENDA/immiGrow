@@ -19,15 +19,11 @@ export function EventCalendar() {
     // Add a welcome event at the top
     const welcomeEvent = {
         id: 'welcome',
-        title: language === 'en' ? "St. Patrick's Networking" : language === 'es' ? "Networking de San Patricio" : "Networking de São Patrício",
+        title: t("event.welcome.title"),
         date: "15 Mar",
         time: "14:00",
         location: "Grand Canal Dock, Dublin",
-        description: language === 'en'
-            ? "Celebrate St. Patrick's week with us! Connect with other migrants and share your journey."
-            : language === 'es'
-                ? "¡Celebra la semana de San Patricio con nosotros! Conecta con otras personas migrantes y comparte tu experiencia."
-                : "Celebre a semana de São Patrício conosco! Conecte-se com outros imigrantes e compartilhe sua jornada.",
+        description: t("event.welcome.desc"),
         category: "Social",
         free: true
     };

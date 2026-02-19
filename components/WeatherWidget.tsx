@@ -84,7 +84,7 @@ export function WeatherWidget() {
                 <div>
                     <div className="flex items-baseline gap-2">
                         <span className="text-3xl font-black tracking-tight">{weather.temp}°C</span>
-                        <span className="text-[10px] font-black uppercase tracking-widest opacity-60">Dublin</span>
+                        <span className="text-[10px] font-black uppercase tracking-widest opacity-60">{t("lbl.dublinIreland").split(", ")[0]}</span>
                     </div>
                     <p className="text-xs font-bold opacity-80 -mt-1">{weather.condition}</p>
                 </div>

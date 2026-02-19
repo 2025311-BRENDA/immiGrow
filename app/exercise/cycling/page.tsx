@@ -16,11 +16,7 @@ export default function CyclingPage() {
                 {t("nav.cycling")}
             </h1>
             <p className="text-slate-600 mb-8 max-w-2xl">
-                {language === "en"
-                    ? "Cycling routes for all levels, from coastal paths to park loops."
-                    : language === "es"
-                        ? "Rutas de ciclismo para todos los niveles, desde caminos costeros hasta bucles en parques."
-                        : "Rotas de ciclismo para todos os níveis, desde caminhos costeiros a circuitos em parques."}
+                {t("exercise.cycling.subtitle")}
             </p>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

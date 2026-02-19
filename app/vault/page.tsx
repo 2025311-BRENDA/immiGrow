@@ -216,7 +216,7 @@ export default function VaultPage() {
                                     <input
                                         value={newDoc.title}
                                         onChange={e => setNewDoc({ ...newDoc, title: e.target.value })}
-                                        placeholder="e.g. Passport, IRP, GNIB"
+                                        placeholder={t("vault.docPlaceholder")}
                                         className="w-full p-4 bg-slate-50 rounded-2xl border-none outline-none focus:ring-2 focus:ring-brand-pink text-sm font-bold"
                                     />
                                 </div>
@@ -251,7 +251,7 @@ export default function VaultPage() {
                                             <Calendar className="w-5 h-5 text-brand-pink" />
                                             <div>
                                                 <p className="text-xs font-bold text-brand-navy">{t("lbl.reminder")}</p>
-                                                <p className="text-[10px] text-slate-400 font-medium">30 days before</p>
+                                                <p className="text-[10px] text-slate-400 font-medium">30 {t("vault.daysBefore")}</p>
                                             </div>
                                         </div>
                                         <input
@@ -284,7 +284,7 @@ export default function VaultPage() {
                                 <div key={doc.id} className="bg-white p-6 rounded-[2.5rem] shadow-sm border border-slate-100 flex flex-col justify-between group hover:shadow-xl transition-all relative overflow-hidden">
                                     {/* Expiry Badge */}
                                     <div className={`absolute top-0 right-0 px-4 py-2 rounded-bl-2xl text-[9px] font-black uppercase tracking-widest ${isExpired ? 'bg-red-500 text-white' : isWarning ? 'bg-brand-sun text-brand-navy' : 'bg-brand-teal text-white'}`}>
-                                        {isExpired ? 'Expired' : isWarning ? `30d Warning` : 'Valid'}
+                                        {isExpired ? t("vault.expired") : isWarning ? `30d ${t("vault.warning")}` : t("vault.valid")}
                                     </div>
 
                                     <div className="flex items-start gap-5">

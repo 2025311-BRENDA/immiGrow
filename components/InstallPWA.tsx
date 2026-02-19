@@ -5,7 +5,7 @@ import { X, Smartphone, Info } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 
 export function InstallPWA() {
-    const { language } = useLanguage();
+    const { language, t } = useLanguage();
     const [show, setShow] = useState(false);
     const [deferredPrompt, setDeferredPrompt] = useState<any>(null);
 
@@ -44,9 +44,7 @@ export function InstallPWA() {
 
     const handleInstall = async () => {
         if (!deferredPrompt) {
-            alert(language === 'en'
-                ? "To install: Tap the 'Share' icon and then 'Add to Home Screen'!"
-                : "Para instalar: ¡Toca el icono de 'Compartir' y luego 'Añadir a la pantalla de inicio'!");
+            alert(t("pwa.iosInstructions"));
             return;
         }
 
@@ -75,10 +73,10 @@ export function InstallPWA() {
                     </div>
                     <div>
                         <h4 className="font-bold text-[11px] leading-tight">
-                            {language === 'en' ? 'Get the App' : 'Descargar App'}
+                            {t("pwa.install")}
                         </h4>
                         <p className="text-[9px] text-white/50">
-                            {language === 'en' ? 'Faster access' : 'Acceso rápido'}
+                            {t("pwa.access")}
                         </p>
                     </div>
                 </div>
@@ -88,7 +86,7 @@ export function InstallPWA() {
                         onClick={handleInstall}
                         className="bg-brand-sun text-brand-navy px-5 py-2.5 rounded-xl text-xs font-black uppercase tracking-wider hover:scale-105 transition-all active:scale-95 shadow-lg shadow-brand-sun/20"
                     >
-                        {language === 'en' ? 'Install' : 'Instalar'}
+                        {t("pwa.btn")}
                     </button>
                     <button
                         onClick={handleDismiss}
@@ -101,3 +99,4 @@ export function InstallPWA() {
         </div>
     );
 }
+

@@ -1,30 +1,21 @@
-<svg width="1024" height="1024" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+<svg width="1024" height="1024" viewBox="0 0 1024 1024" fill="none" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <linearGradient id="unifiedGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#009B48;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#2EBCC9;stop-opacity:1" />
+    <linearGradient id="brand_gradient" x1="512" y1="0" x2="512" y2="1024" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#26D66E"/>
+      <stop offset="1" stop-color="#2EBCC9"/>
     </linearGradient>
+    <clipPath id="squircle_clip">
+      <rect width="1024" height="1024" rx="220" fill="white"/>
+    </clipPath>
   </defs>
-  <!-- Full bleed background -->
-  <rect width="512" height="512" fill="url(#unifiedGrad)"/>
-  
-  <!-- Final Symmetrical Organic clover
-       - Scaled for visibility (centered at 256, 256)
-       - Continuous line following the "Hybrid Line Art" topology
-       - Refined for "puffy" heart shapes matching the user's reference -->
-  <g transform="translate(256, 256) scale(1.6) translate(-128, -135)">
-    <path d="M128 215 
-             C128 190 128 170 128 145 
-             C165 145 200 120 200 90 
-             C200 60 170 50 150 50 
-             C135 50 128 65 128 65 
-             C128 65 121 50 106 50 
-             C86 50 56 60 56 90 
-             C56 120 91 145 128 145 
-             C95 150 75 180 75 205 
-             C75 235 100 250 128 250 
-             C156 250 181 235 181 205 
-             C181 180 161 150 128 145" 
-      stroke="white" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <g clip-path="url(#squircle_clip)">
+    <rect width="1024" height="1024" fill="url(#brand_gradient)"/>
+    <!-- Shamrock Path: Refined for a more elegant, minimalist look matching the reference -->
+    <path d="M512 750C512 750 512 850 512 900" stroke="white" stroke-width="32" stroke-linecap="round" opacity="0.3"/>
+    <path d="M512 720C512 720 512 620 512 560C512 500 560 460 620 460C680 460 720 500 720 560C720 620 660 680 512 720Z" stroke="white" stroke-width="32" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M512 720C512 720 512 620 512 560C512 500 464 460 404 460C344 460 304 500 304 560C304 620 364 680 512 720Z" stroke="white" stroke-width="32" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M512 300C512 300 412 300 412 400C412 460 462 500 512 540C562 500 612 460 612 400C612 300 512 300 512 300Z" stroke="white" stroke-width="32" stroke-linecap="round" stroke-linejoin="round"/>
+    <!-- stem -->
+    <path d="M512 540C512 600 512 720 512 800C512 850 480 880 450 900" stroke="white" stroke-width="32" stroke-linecap="round" stroke-linejoin="round"/>
   </g>
 </svg>

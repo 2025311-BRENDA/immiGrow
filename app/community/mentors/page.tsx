@@ -50,7 +50,7 @@ export default function MentorsPage() {
     const approvedMentors = approvedMentorsRaw.map((m: any) => ({
         name: m.name,
         role: m.occupation,
-        experience: `${m.years} ${language === 'en' ? 'in Ireland' : 'en Irlanda'}`,
+        experience: `${m.years} ${t("comm.mentors.experience")}`,
         description: m.bio,
         color: 'bg-emerald-100', // Different color for community mentors
     }));
@@ -64,19 +64,17 @@ export default function MentorsPage() {
                 <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
                     <div>
                         <h1 className="text-2xl font-bold text-gray-800 mb-1">
-                            {language === 'en' ? 'Mentors' : 'Mentores'}
+                            {t("comm.mentors.title")}
                         </h1>
                         <p className="text-gray-500 text-sm">
-                            {language === 'en'
-                                ? 'Learn from those who have already walked the path. Connect and get practical advice.'
-                                : 'Aprende de quienes ya recorrieron el camino. Conecta y recibe consejos prácticos.'}
+                            {t("comm.mentors.subtitle")}
                         </p>
                     </div>
                     <button
                         onClick={() => setIsModalOpen(true)}
                         className="bg-brand-irish-green text-white px-6 py-3 rounded-2xl font-bold text-sm shadow-lg hover:scale-105 transition-all active:scale-95 whitespace-nowrap"
                     >
-                        {language === 'en' ? 'Become a Mentor' : 'Quiero ser mentor'}
+                        {t("comm.mentors.become")}
                     </button>
                 </div>
             </div>
@@ -91,12 +89,13 @@ export default function MentorsPage() {
                             tag={mentor.experience}
                             description={`${mentor.role}. ${mentor.description}`}
                             color={mentor.color}
-                            actionLabel={language === 'en' ? 'Contact' : 'Contactar'}
-                            onAction={() => alert(`${language === 'en' ? 'Request sent to' : 'Solicitud enviada a'} ${mentor.name}`)}
+                            actionLabel={t("comm.mentors.contact")}
+                            onAction={() => alert(`${t("comm.mentors.requestSent")} ${mentor.name}`)}
                         />
                     ))}
                 </div>
             </div>
+
 
             <MentorRegistrationModal
                 isOpen={isModalOpen}

@@ -1,11 +1,21 @@
-<svg width="512" height="512" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <!-- White Background -->
-  <rect width="256" height="256" fill="white"/>
+<svg width="1024" height="1024" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Pure white background square -->
+  <rect width="512" height="512" fill="white"/>
   
-  <!-- Official Shamrock Path in Emerald Green -->
-  <path d="M128 205 C128 185 128 165 128 145 
-           C155 145 185 125 185 100 C185 75 160 65 145 65 C135 65 128 75 128 75
-           C128 75 121 65 111 65 C96 65 71 75 71 100 C71 125 101 145 128 145
-           C105 150 90 170 90 190 C90 210 110 220 128 220 C146 220 166 210 166 190 C166 170 151 150 128 145" 
-    stroke="#009B48" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <g transform="translate(256, 260) scale(2.2)">
+    <path d="M0 0
+             C -25 -10 -55 -45 -55 -75 C -55 -105 -10 -100 0 -80 
+             C 10 -100 55 -105 55 -75 C 55 -45 25 -10 0 0
+             
+             M0 0
+             C -20 15 -60 25 -85 45 C -110 65 -80 105 -50 105
+             C -30 105 -5 75 0 55
+             
+             M0 0
+             C 20 15 60 25 85 45 C 110 65 80 105 50 105
+             C 30 105 5 75 0 55
+             
+             M0 55 L0 100" 
+      stroke="#009B48" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  </g>
 </svg>

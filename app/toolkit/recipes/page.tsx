@@ -57,7 +57,7 @@ const STATIC_RECIPES: Recipe[] = [
         servings: "12 units",
         difficulty: "Medium",
         category: "Snack",
-        image: "https://images.unsplash.com/photo-1633533448454-992bd8c32bb2?q=80&w=2070&auto=format&fit=crop"
+        image: "https://images.unsplash.com/photo-1563273183-f27305d233c4?q=80&w=2070&auto=format&fit=crop"
     },
     {
         id: "4",

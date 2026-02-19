@@ -52,7 +52,7 @@ const RECIPE_DATA: Record<string, any> = {
         prepTime: "1.5h",
         servings: "12",
         difficulty: "Medium",
-        image: "https://images.unsplash.com/photo-1633533448454-992bd8c32bb2?q=80&w=2070&auto=format&fit=crop",
+        image: "https://images.unsplash.com/photo-1563273183-f27305d233c4?q=80&w=2070&auto=format&fit=crop",
         descriptionEn: "Traditional Argentine beef empanadas from Mendoza.",
         descriptionEs: "Tradicionales empanadas argentinas de carne de Mendoza.",
         ingredientsEn: ["Dough rounds", "Minced beef", "Onions", "Cumin", "Hard-boiled eggs"],

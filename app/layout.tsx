@@ -23,8 +23,8 @@ export const metadata: Metadata = {
   description: "La guía de bienestar para migrantes en Dublín. Trámites esenciales (IRP/PPSN), salud mental, deporte gratuito y vida comunitaria.",
   manifest: "/manifest.json",
   icons: {
-    icon: "/logo_final.png",
-    apple: "/logo_official_borderless.svg?v=2",
+    icon: "/logo_fixed_borderless.svg?v=4",
+    apple: "/logo_fixed_borderless.svg?v=4",
   },
   openGraph: {
     title: "immiGrow Dublin | Salud, Actividad y Comunidad",
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     siteName: "immiGrow",
     images: [
       {
-        url: "https://immi-grow.vercel.app/logo_official_borderless.svg?v=2",
+        url: "https://immi-grow.vercel.app/logo_fixed_borderless.svg?v=4",
         width: 1024,
         height: 1024,
         alt: "immiGrow Logo",
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "immiGrow Dublin | Salud, Actividad y Comunidad",
     description: "Salud, bienestar y trámites para migrantes en Dublín.",
-    images: ["https://immi-grow.vercel.app/logo_official_borderless.svg?v=2"],
+    images: ["https://immi-grow.vercel.app/logo_fixed_borderless.svg?v=4"],
   },
   appleWebApp: {
     capable: true,
@@ -56,7 +56,7 @@ export const metadata: Metadata = {
   other: {
     "apple-mobile-web-app-capable": "yes",
     "mobile-web-app-capable": "yes",
-    "apple-touch-icon": "https://immi-grow.vercel.app/logo_official_borderless.svg?v=2",
+    "apple-touch-icon": "https://immi-grow.vercel.app/logo_fixed_borderless.svg?v=4",
     "keywords": "salud migrantes dublin, tramites irlanda, pps number dublin, salud mental inmigrantes, deportes gratis dublin, educacion irlanda, immigrow"
   }
 };

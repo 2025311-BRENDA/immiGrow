@@ -32,15 +32,15 @@ export default function AddRecipePage() {
         difficulty: "Easy"
     });
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        addSubmission("recipe", {
+        setSubmitted(true); // Show success UI immediately for better UX
+        await addSubmission("recipe", {
             ...formData,
             ingredients: formData.ingredients.split("\n").filter(i => i.trim()),
             steps: formData.steps.split("\n").filter(s => s.trim()),
             image: "https://images.unsplash.com/photo-1495521821757-a1efb6729352?q=80&w=1926&auto=format&fit=crop"
         });
-        setSubmitted(true);
     };
 
     if (submitted) {

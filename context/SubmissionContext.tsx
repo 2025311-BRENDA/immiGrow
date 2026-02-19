@@ -1,6 +1,5 @@
-"use client";
-
 import React, { createContext, useContext, useState, useEffect } from "react";
+import { supabase } from "@/lib/supabase";
 
 export type SubmissionType = "social-fit" | "event" | "mentor" | "sport-team" | "fitness-contribution" | "recipe";
 
@@ -9,15 +8,16 @@ export interface Submission {
     type: SubmissionType;
     status: "pending" | "approved" | "rejected";
     data: any;
-    createdAt: number;
+    createdAt: string;
 }
 
 interface SubmissionContextType {
     submissions: Submission[];
-    addSubmission: (type: SubmissionType, data: any) => void;
-    approveSubmission: (id: string) => void;
-    rejectSubmission: (id: string) => void;
+    addSubmission: (type: SubmissionType, data: any) => Promise<void>;
+    approveSubmission: (id: string) => Promise<void>;
+    rejectSubmission: (id: string) => Promise<void>;
     getApprovedByType: (type: SubmissionType) => any[];
+    refreshSubmissions: () => Promise<void>;
 }
 
 const SubmissionContext = createContext<SubmissionContextType | undefined>(undefined);
@@ -25,35 +25,69 @@ const SubmissionContext = createContext<SubmissionContextType | undefined>(undef
 export function SubmissionProvider({ children }: { children: React.ReactNode }) {
     const [submissions, setSubmissions] = useState<Submission[]>([]);
 
-    useEffect(() => {
-        const saved = localStorage.getItem("immiGrow_submissions");
-        if (saved) {
-            setSubmissions(JSON.parse(saved));
+    const refreshSubmissions = async () => {
+        const { data, error } = await supabase
+            .from('submissions')
+            .select('*')
+            .order('created_at', { ascending: false });
+
+        if (error) {
+            console.error("Error fetching submissions:", error);
+            return;
         }
+
+        if (data) {
+            const formatted: Submission[] = data.map(item => ({
+                id: item.id,
+                type: item.type as SubmissionType,
+                status: item.status as any,
+                data: item.data,
+                createdAt: item.created_at
+            }));
+            setSubmissions(formatted);
+        }
+    };
+
+    useEffect(() => {
+        refreshSubmissions();
     }, []);
 
-    const save = (newSubmissions: Submission[]) => {
-        setSubmissions(newSubmissions);
-        localStorage.setItem("immiGrow_submissions", JSON.stringify(newSubmissions));
+    const addSubmission = async (type: SubmissionType, data: any) => {
+        const { error } = await supabase
+            .from('submissions')
+            .insert([{ type, data, status: 'pending' }]);
+
+        if (error) {
+            console.error("Error adding submission:", error);
+        } else {
+            await refreshSubmissions();
+        }
     };
 
-    const addSubmission = (type: SubmissionType, data: any) => {
-        const newSubmission: Submission = {
-            id: Date.now().toString(),
-            type,
-            status: "pending",
-            data,
-            createdAt: Date.now(),
-        };
-        save([...submissions, newSubmission]);
+    const approveSubmission = async (id: string) => {
+        const { error } = await supabase
+            .from('submissions')
+            .update({ status: 'approved' })
+            .eq('id', id);
+
+        if (error) {
+            console.error("Error approving submission:", error);
+        } else {
+            await refreshSubmissions();
+        }
     };
 
-    const approveSubmission = (id: string) => {
-        save(submissions.map(s => s.id === id ? { ...s, status: "approved" } : s));
-    };
+    const rejectSubmission = async (id: string) => {
+        const { error } = await supabase
+            .from('submissions')
+            .delete()
+            .eq('id', id);
 
-    const rejectSubmission = (id: string) => {
-        save(submissions.filter(s => s.id !== id));
+        if (error) {
+            console.error("Error rejecting submission:", error);
+        } else {
+            await refreshSubmissions();
+        }
     };
 
     const getApprovedByType = (type: SubmissionType) => {
@@ -63,7 +97,7 @@ export function SubmissionProvider({ children }: { children: React.ReactNode }) 
     };
 
     return (
-        <SubmissionContext.Provider value={{ submissions, addSubmission, approveSubmission, rejectSubmission, getApprovedByType }}>
+        <SubmissionContext.Provider value={{ submissions, addSubmission, approveSubmission, rejectSubmission, getApprovedByType, refreshSubmissions }}>
             {children}
         </SubmissionContext.Provider>
     );

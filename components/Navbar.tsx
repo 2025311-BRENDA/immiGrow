@@ -126,7 +126,7 @@ export function Navbar() {
                             <Link href="/" className="flex items-center space-x-2 shrink-0">
                                 <div className="w-10 h-10 rounded-xl flex items-center justify-center overflow-hidden flex-shrink-0 shadow-sm border border-brand-irish-green/10">
                                     <img
-                                        src="/brand_logo_unified_final.svg"
+                                        src="/logo_final.png"
                                         alt="immiGrow"
                                         className="w-full h-full object-contain"
                                     />

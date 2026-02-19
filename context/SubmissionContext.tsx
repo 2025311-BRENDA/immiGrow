@@ -2,7 +2,7 @@
 
 import React, { createContext, useContext, useState, useEffect } from "react";
 
-export type SubmissionType = "social-fit" | "event" | "mentor" | "sport-team" | "fitness-contribution";
+export type SubmissionType = "social-fit" | "event" | "mentor" | "sport-team" | "fitness-contribution" | "recipe";
 
 export interface Submission {
     id: string;

@@ -10,7 +10,8 @@ import {
     Award,
     ChevronRight,
     Sparkles,
-    Globe
+    Globe,
+    Utensils
 } from "lucide-react";
 import { BackButton } from "@/components/BackButton";
 import { useLanguage } from "@/context/LanguageContext";
@@ -96,6 +97,19 @@ export default function ToolkitPage() {
             href: "/community",
             color: "text-brand-irish-green",
             bgColor: "bg-brand-irish-green/10"
+        },
+        {
+            id: "recipes",
+            title: language === "en" ? "Home Flavors" : "Sabores de Casa",
+            description: language === "en"
+                ? "Community recipe book to cook your favorite Latin dishes."
+                : language === "es"
+                    ? "Recetario comunitario para cocinar tus platos latinos favoritos."
+                    : "Livro de receitas comunitário para cozinhar seus pratos favoritos.",
+            icon: Utensils,
+            href: "/toolkit/recipes",
+            color: "text-orange-500",
+            bgColor: "bg-orange-50"
         }
     ];
 

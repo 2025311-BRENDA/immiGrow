@@ -83,7 +83,7 @@ export default function SocialFitHub() {
     const allBuddies = [...approvedBuddies, ...initialBuddies];
 
     const approvedContributions = getApprovedByType("fitness-contribution");
-    const baseKm = 842;
+    const baseKm = 924;
     const additionalKm = approvedContributions.reduce((sum: number, c: any) => sum + (Number(c.kilometers) || 0), 0);
     const totalKm = baseKm + additionalKm;
     const progressPercent = Math.min(100, Math.floor((totalKm / 1000) * 100));
@@ -214,8 +214,14 @@ export default function SocialFitHub() {
                                 </p>
                             </div>
                             <div className="text-right">
-                                <span className="block text-[10px] font-black text-brand-teal uppercase tracking-[0.2em] mb-1">{t("lbl.completed")}</span>
-                                <div className="text-3xl font-black text-brand-teal tabular-nums">{progressPercent}%</div>
+                                <span className={`block text-[10px] font-black uppercase tracking-[0.2em] mb-1 ${progressPercent >= 100 ? 'text-brand-teal' : 'text-brand-pink'}`}>
+                                    {progressPercent >= 100
+                                        ? (language === 'en' ? 'COMPLETED!' : '¡META LOGRADA!')
+                                        : (language === 'en' ? 'IN PROGRESS' : 'EN PROGRESO')}
+                                </span>
+                                <div className={`text-3xl font-black tabular-nums ${progressPercent >= 100 ? 'text-brand-teal' : 'text-brand-pink'}`}>
+                                    {progressPercent}%
+                                </div>
                             </div>
                         </div>
                         <div className="bg-slate-100/50 h-10 rounded-full overflow-hidden p-2 shadow-inner border border-slate-200/50">

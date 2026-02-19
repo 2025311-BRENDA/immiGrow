@@ -40,12 +40,12 @@ export function Navbar() {
             label: t("nav.physical_activity"),
             icon: Activity,
             items: [
+                { name: t("nav.socialFit"), href: "/community/social-fit", icon: Users },
+                { name: t("nav.sportsTeams"), href: "/community/sports-teams", icon: Bike },
+                { name: t("nav.tourism"), href: "/tourism", icon: Mountain },
                 { name: t("nav.parks"), href: "/exercise/parks", icon: TreeDeciduous },
                 { name: t("nav.swimming"), href: "/exercise/swimming", icon: Waves },
                 { name: t("nav.cycling"), href: "/exercise/cycling", icon: Bike },
-                { name: t("nav.tourism"), href: "/tourism", icon: Mountain },
-                { name: t("nav.socialFit"), href: "/community/social-fit", icon: Users },
-                { name: t("nav.sportsTeams"), href: "/community/sports-teams", icon: Bike }, // Assuming this slug
             ]
         },
         {

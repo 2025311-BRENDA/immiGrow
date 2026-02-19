@@ -7,11 +7,14 @@ import { useLanguage } from "@/context/LanguageContext";
 import { events } from "@/lib/data";
 import { eventsEs } from "@/lib/data_es";
 import { eventsPt } from "@/lib/data_pt";
+import { useSubmissions } from "@/context/SubmissionContext";
 
 export function EventCalendar() {
     const { language, t } = useLanguage();
+    const { getApprovedByType } = useSubmissions();
 
-    const data = language === "en" ? events : language === "es" ? eventsEs : eventsPt;
+    const staticData = language === "en" ? events : language === "es" ? eventsEs : eventsPt;
+    const dynamicEvents = getApprovedByType("event");
 
     // Add a welcome event at the top
     const welcomeEvent = {
@@ -29,7 +32,7 @@ export function EventCalendar() {
         free: true
     };
 
-    const displayData = [welcomeEvent, ...data];
+    const displayData = [welcomeEvent, ...dynamicEvents, ...staticData];
 
     return (
         <section className="bg-white rounded-[2rem] p-6 shadow-sm border border-slate-100 relative overflow-hidden">

@@ -37,7 +37,7 @@ const STATIC_RECIPES: Recipe[] = [
         servings: "4",
         difficulty: "Easy",
         category: "Bread",
-        image: "https://images.unsplash.com/photo-1627308595186-e6bb3b511303?q=80&w=2070&auto=format&fit=crop"
+        image: "https://images.unsplash.com/photo-1548943487-a2e4e43b4853?q=80&w=2070&auto=format&fit=crop"
     },
     {
         id: "2",
@@ -47,7 +47,7 @@ const STATIC_RECIPES: Recipe[] = [
         servings: "6",
         difficulty: "Medium",
         category: "Main",
-        image: "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?q=80&w=2070&auto=format&fit=crop"
+        image: "https://images.unsplash.com/photo-1551504734-5ee1c4a1479b?q=80&w=2070&auto=format&fit=crop"
     },
     {
         id: "3",
@@ -57,7 +57,7 @@ const STATIC_RECIPES: Recipe[] = [
         servings: "12 units",
         difficulty: "Medium",
         category: "Snack",
-        image: "https://plus.unsplash.com/premium_photo-1701550993043-41bbd005ea7e?q=80&w=2070&auto=format&fit=crop"
+        image: "https://images.unsplash.com/photo-1628102434033-5c026859e99a?q=80&w=2070&auto=format&fit=crop"
     },
     {
         id: "4",

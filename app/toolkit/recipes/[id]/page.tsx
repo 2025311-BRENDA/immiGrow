@@ -15,6 +15,7 @@ import {
 } from "lucide-react";
 import { BackButton } from "@/components/BackButton";
 import { useLanguage } from "@/context/LanguageContext";
+import { useSubmissions, Submission } from "@/context/SubmissionContext";
 
 const RECIPE_DATA: Record<string, any> = {
     "1": {
@@ -51,7 +52,7 @@ const RECIPE_DATA: Record<string, any> = {
         prepTime: "1.5h",
         servings: "12",
         difficulty: "Medium",
-        image: "https://images.unsplash.com/photo-1628102434033-5c026859e99a?q=80&w=2070&auto=format&fit=crop",
+        image: "https://plus.unsplash.com/premium_photo-1701550993043-41bbd005ea7e?q=80&w=2070&auto=format&fit=crop",
         descriptionEn: "Traditional Argentine beef empanadas from Mendoza.",
         descriptionEs: "Tradicionales empanadas argentinas de carne de Mendoza.",
         ingredientsEn: ["Dough rounds", "Minced beef", "Onions", "Cumin", "Hard-boiled eggs"],
@@ -65,7 +66,7 @@ const RECIPE_DATA: Record<string, any> = {
         prepTime: "30 min",
         servings: "2",
         difficulty: "Easy",
-        image: "https://images.unsplash.com/photo-1535399831218-d5bd36d1a6b3?q=80&w=2070&auto=format&fit=crop",
+        image: "https://images.unsplash.com/photo-1549488344-cbb6c34ce08b?q=80&w=2070&auto=format&fit=crop",
         descriptionEn: "Fresh fish marinated in lime juice, a Peruvian classic.",
         descriptionEs: "Pescado fresco marinado en jugo de limón, un clásico peruano.",
         ingredientsEn: ["Fresh white fish", "Limes", "Red onion", "Cilantro", "Sweet potato"],
@@ -78,7 +79,27 @@ const RECIPE_DATA: Record<string, any> = {
 export default function RecipeDetail() {
     const { id } = useParams();
     const { language } = useLanguage();
-    const recipe = RECIPE_DATA[id as string];
+    const { submissions } = useSubmissions();
+
+    // First check static data
+    let recipe = RECIPE_DATA[id as string];
+
+    // If not found in static, check in submissions (from Supabase)
+    if (!recipe) {
+        const submission = (submissions as Submission[]).find(s => s.id === id);
+        if (submission) {
+            recipe = {
+                ...submission.data,
+                // Map dynamic data to match the expected structure
+                ingredientsEn: submission.data.ingredients,
+                ingredientsEs: submission.data.ingredients,
+                stepsEn: submission.data.steps,
+                stepsEs: submission.data.steps,
+                descriptionEn: submission.data.title,
+                descriptionEs: submission.data.title
+            };
+        }
+    }
 
     if (!recipe) {
         return (
@@ -97,7 +118,7 @@ export default function RecipeDetail() {
     return (
         <div className="min-h-screen bg-white pb-20">
             {/* Hero Image */}
-            <div className="relative h-[45vh] w-full">
+            <div className="relative h-[55vh] w-full">
                 <img
                     src={recipe.image}
                     alt={recipe.title}

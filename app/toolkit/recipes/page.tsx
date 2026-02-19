@@ -47,7 +47,7 @@ const STATIC_RECIPES: Recipe[] = [
         servings: "6",
         difficulty: "Medium",
         category: "Main",
-        image: "https://images.unsplash.com/photo-1565299585323-38d6b0865b47?q=80&w=2070&auto=format&fit=crop"
+        image: "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?q=80&w=2070&auto=format&fit=crop"
     },
     {
         id: "3",
@@ -57,7 +57,7 @@ const STATIC_RECIPES: Recipe[] = [
         servings: "12 units",
         difficulty: "Medium",
         category: "Snack",
-        image: "https://images.unsplash.com/photo-1628102434033-5c026859e99a?q=80&w=2070&auto=format&fit=crop"
+        image: "https://plus.unsplash.com/premium_photo-1701550993043-41bbd005ea7e?q=80&w=2070&auto=format&fit=crop"
     },
     {
         id: "4",
@@ -67,7 +67,7 @@ const STATIC_RECIPES: Recipe[] = [
         servings: "2",
         difficulty: "Easy",
         category: "Starter",
-        image: "https://images.unsplash.com/photo-1535399831218-d5bd36d1a6b3?q=80&w=2070&auto=format&fit=crop"
+        image: "https://images.unsplash.com/photo-1549488344-cbb6c34ce08b?q=80&w=2070&auto=format&fit=crop"
     }
 ];
 
@@ -156,7 +156,7 @@ export default function RecipesPage() {
                             href={`/toolkit/recipes/${recipe.id}`}
                             className="group bg-white rounded-[2.5rem] overflow-hidden border border-slate-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all"
                         >
-                            <div className="relative h-48 overflow-hidden">
+                            <div className="relative aspect-video overflow-hidden">
                                 <img
                                     src={recipe.image}
                                     alt={recipe.title}

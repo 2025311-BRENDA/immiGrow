@@ -1,5 +1,9 @@
 "use client";
 
+import React, { useState, useEffect } from "react";
+import Link from "next/link";
+import { useLanguage } from "@/context/LanguageContext";
+
 import {
     ChevronLeft,
     Plus,

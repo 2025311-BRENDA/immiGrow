@@ -1,5 +1,9 @@
 "use client";
 
+import React, { useState, useEffect } from "react";
+import Link from "next/link";
+import { useLanguage } from "@/context/LanguageContext";
+
 import {
     ChevronLeft,
     Trophy,
@@ -13,7 +17,8 @@ import {
     TrendingUp,
     Zap,
     MapPinned,
-    Sparkles
+    Sparkles,
+    ChevronRight
 } from "lucide-react";
 import { BackButton } from "@/components/BackButton";
 

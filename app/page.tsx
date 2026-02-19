@@ -89,7 +89,7 @@ export default function Home() {
               <div className="w-24 h-24 rounded-[2rem] bg-white/10 backdrop-blur-xl border border-white/30 p-1 shadow-2xl relative overflow-hidden group">
                 <div className="absolute inset-0 bg-gradient-to-tr from-brand-turquoise/20 to-transparent pointer-events-none" />
                 <img
-                  src="https://api.dicebear.com/9.x/avataaars/svg?seed=Santiago&avatarStyle=transparent&skinColor=ae5d29&hairColor=2c1b18"
+                  src="https://api.dicebear.com/9.x/avataaars/svg?seed=Santiago&avatarStyle=transparent&skinColor=ffdbac&hairColor=2c1b18&mouth=smile"
                   alt="Profile"
                   className="w-full h-full rounded-[1.8rem] bg-brand-sand"
                 />

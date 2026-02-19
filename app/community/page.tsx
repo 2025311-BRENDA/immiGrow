@@ -8,7 +8,7 @@ import { SafetyGuidelines } from '@/components/SafetyGuidelines';
 import { BackButton } from '@/components/BackButton';
 
 export default function CommunityPage() {
-    const { t, userName, setUserName } = useLanguage();
+    const { t, userName, setUserName, language } = useLanguage();
     const [tempName, setTempName] = useState(userName);
     const [isEditing, setIsEditing] = useState(!userName);
 
@@ -144,6 +144,14 @@ export default function CommunityPage() {
                         </div>
                     </Link>
                 ))}
+
+                <Link
+                    href="/community/admin"
+                    className="mt-8 flex items-center justify-center gap-2 p-4 text-slate-400 hover:text-brand-teal transition-colors text-xs font-bold uppercase tracking-widest"
+                >
+                    <Check className="w-4 h-4" />
+                    {language === 'en' ? 'Admin Authorizations' : 'Autorizaciones (Admin)'}
+                </Link>
             </div>
         </div>
     );

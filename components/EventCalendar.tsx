@@ -16,15 +16,15 @@ export function EventCalendar() {
     // Add a welcome event at the top
     const welcomeEvent = {
         id: 'welcome',
-        title: language === 'en' ? "Welcome to immiGrow!" : language === 'es' ? "¡Bienvenidos a immiGrow!" : "Bem-vindos ao immiGrow!",
-        date: "14 Feb",
-        time: "10:00 AM",
-        location: "Phoenix Park / Global",
+        title: language === 'en' ? "St. Patrick's Networking" : language === 'es' ? "Networking de San Patricio" : "Networking de São Patrício",
+        date: "15 Mar",
+        time: "14:00",
+        location: "Grand Canal Dock, Dublin",
         description: language === 'en'
-            ? "Thank you for joining our community. We are excited to help you grow in Dublin!"
+            ? "Celebrate St. Patrick's week with us! Connect with other migrants and share your journey."
             : language === 'es'
-                ? "Gracias por unirte a nuestra comunidad. ¡Estamos emocionados de ayudarte a crecer en Dublín!"
-                : "Obrigado por se juntar à nossa comunidade. Estamos animados para ajudá-lo a crescer em Dublin!",
+                ? "¡Celebra la semana de San Patricio con nosotros! Conecta con otras personas migrantes y comparte tu experiencia."
+                : "Celebre a semana de São Patrício conosco! Conecte-se com outros imigrantes e compartilhe sua jornada.",
         category: "Social",
         free: true
     };

@@ -1,16 +1,26 @@
 "use client";
 
-import { use } from "react";
+import { use, useState } from "react";
 import Link from "next/link";
 import { useLanguage } from "@/context/LanguageContext";
+import { useSubmissions } from "@/context/SubmissionContext";
 import { exerciseGeneral } from "@/lib/data";
 import { exerciseGeneralEs } from "@/lib/data_es";
-import { ChevronLeft, Map, CheckCircle2 } from "lucide-react";
+import { ChevronLeft, Map, CheckCircle2, Plus, X, Users, Trophy } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { BackButton } from "@/components/BackButton";
 
 export default function ExerciseDetail({ params }: { params: Promise<{ slug: string }> }) {
     const { slug } = use(params);
     const { language, t } = useLanguage();
+    const { addSubmission, getApprovedByType } = useSubmissions();
+    const [showTeamForm, setShowTeamForm] = useState(false);
+
+    // Form state
+    const [teamName, setTeamName] = useState("");
+    const [sport, setSport] = useState("");
+    const [location, setLocation] = useState("");
+    const [teamDesc, setTeamDesc] = useState("");
 
     // Find the item in the data
     const data = language === "en" ? exerciseGeneral : exerciseGeneralEs;
@@ -30,23 +40,95 @@ export default function ExerciseDetail({ params }: { params: Promise<{ slug: str
         );
     }
 
+    const approvedTeams = getApprovedByType("sport-team");
+
+    const handleCreateTeam = (e: React.FormEvent) => {
+        e.preventDefault();
+        const submissionData = {
+            title: teamName,
+            sport,
+            location,
+            description: teamDesc
+        };
+        addSubmission("sport-team", submissionData);
+        setShowTeamForm(false);
+        setTeamName("");
+        setSport("");
+        setLocation("");
+        setTeamDesc("");
+        alert(language === 'en'
+            ? "Team submitted for authorization! It will appear once approved."
+            : "¡Equipo enviado para autorización! Aparecerá una vez sea aprobado.");
+    };
+
     return (
         <div className="min-h-screen bg-brand-sand pb-20">
             {/* Header / Nav */}
             <div className="bg-white border-b sticky top-0 z-10">
                 <div className="container mx-auto px-4 py-4 flex items-center justify-between">
-                    <Link
-                        href="/exercise"
-                        className="flex items-center text-brand-teal font-bold hover:text-brand-teal/80 transition-colors"
-                    >
-                        <ChevronLeft className="w-5 h-5 mr-1" />
-                        {t("lbl.backTo")} Exercise
-                    </Link>
+                    <BackButton href="/exercise" label="Exercise" />
+                    {slug === "community-sports" && (
+                        <button
+                            onClick={() => setShowTeamForm(true)}
+                            className="bg-brand-teal text-white px-4 py-2 rounded-xl font-bold text-sm shadow-sm hover:scale-105 transition-all"
+                        >
+                            {language === 'en' ? 'Create Team' : 'Crear Equipo'}
+                        </button>
+                    )}
                 </div>
             </div>
 
             <main className="container mx-auto max-w-3xl px-4 py-8">
-                {/* Hero / Cover Emoji or similar? Using Icon for now */}
+                {/* Team Creation Form Modal-ish */}
+                {showTeamForm && (
+                    <div className="bg-white p-6 rounded-[2rem] shadow-lg border-2 border-brand-teal/20 mb-8 animate-in fade-in slide-in-from-top-4 duration-300">
+                        <div className="flex justify-between items-center mb-4">
+                            <h3 className="font-bold text-brand-navy">
+                                {language === 'en' ? 'Register New Team' : 'Registrar Nuevo Equipo'}
+                            </h3>
+                            <button onClick={() => setShowTeamForm(false)} className="text-slate-400">
+                                <X className="w-5 h-5" />
+                            </button>
+                        </div>
+                        <form onSubmit={handleCreateTeam} className="space-y-4">
+                            <input
+                                required
+                                value={teamName}
+                                onChange={(e) => setTeamName(e.target.value)}
+                                placeholder={language === 'en' ? "Team Name" : "Nombre del Equipo"}
+                                className="w-full bg-slate-50 border-none rounded-xl px-4 py-2 text-sm focus:ring-2 focus:ring-brand-teal"
+                            />
+                            <div className="grid grid-cols-2 gap-3">
+                                <input
+                                    required
+                                    value={sport}
+                                    onChange={(e) => setSport(e.target.value)}
+                                    placeholder={language === 'en' ? "Sport (e.g. Football)" : "Deporte (ej: Fútbol)"}
+                                    className="w-full bg-slate-50 border-none rounded-xl px-4 py-2 text-sm focus:ring-2 focus:ring-brand-teal"
+                                />
+                                <input
+                                    required
+                                    value={location}
+                                    onChange={(e) => setLocation(e.target.value)}
+                                    placeholder={language === 'en' ? "Location" : "Ubicación"}
+                                    className="w-full bg-slate-50 border-none rounded-xl px-4 py-2 text-sm focus:ring-2 focus:ring-brand-teal"
+                                />
+                            </div>
+                            <textarea
+                                required
+                                value={teamDesc}
+                                onChange={(e) => setTeamDesc(e.target.value)}
+                                placeholder={language === 'en' ? "Short description / level / contact info" : "Descripción corta / nivel / contacto"}
+                                className="w-full bg-slate-50 border-none rounded-xl px-4 py-2 text-sm h-24 focus:ring-2 focus:ring-brand-teal"
+                            />
+                            <button type="submit" className="w-full py-3 bg-brand-navy text-white rounded-xl font-bold hover:bg-brand-navy/90 transition-all">
+                                {language === 'en' ? 'Submit for Authorization' : 'Enviar para Autorización'}
+                            </button>
+                        </form>
+                    </div>
+                )}
+
+                {/* Hero / Content */}
                 <div className="bg-white rounded-[2rem] p-8 shadow-sm border border-slate-100 mb-8 overflow-hidden relative">
                     <div className="flex items-center gap-4 mb-6">
                         <div className="p-4 bg-brand-sand/50 rounded-2xl">
@@ -57,7 +139,10 @@ export default function ExerciseDetail({ params }: { params: Promise<{ slug: str
                                 {item.title}
                             </h1>
                             <div className="flex gap-2 mt-1">
-                                <span className={`text-xs font-semibold px-2 py-1 rounded-full ${item.difficulty === "Easy" ? "bg-green-100 text-green-700" : "bg-yellow-100 text-yellow-700"}`}>
+                                <span className={cn(
+                                    "text-xs font-semibold px-2 py-1 rounded-full",
+                                    item.difficulty === "Easy" ? "bg-green-100 text-green-700" : "bg-yellow-100 text-yellow-700"
+                                )}>
                                     {item.difficulty}
                                 </span>
                                 {item.distance && (
@@ -80,7 +165,7 @@ export default function ExerciseDetail({ params }: { params: Promise<{ slug: str
                                     const trimmed = line.trim();
                                     if (!trimmed) return <div key={index} className="h-4" />;
 
-                                    // Helper to parse inline markdown (Bold and Links)
+                                    // Helper to parse inline markdown
                                     const parseInline = (text: string) => {
                                         return text.split(/(\[[^\]]+\]\([^)]+\)|\*\*[^*]+\*\*)/g).map((part, i) => {
                                             if (part.startsWith("[") && part.includes("](")) {
@@ -95,7 +180,6 @@ export default function ExerciseDetail({ params }: { params: Promise<{ slug: str
                                         });
                                     };
 
-                                    // H1 Rendering
                                     if (trimmed.startsWith("# ")) {
                                         return (
                                             <h2 key={index} className="text-2xl font-heading font-black text-brand-navy pt-6 pb-2 border-b-4 border-brand-sand w-max max-w-full">
@@ -104,17 +188,15 @@ export default function ExerciseDetail({ params }: { params: Promise<{ slug: str
                                         );
                                     }
 
-                                    // H2 Rendering
                                     if (trimmed.startsWith("## ")) {
                                         return (
-                                            <h3 className="text-xl font-black pt-8 mb-3 flex items-center gap-3 text-brand-teal">
+                                            <h3 key={index} className="text-xl font-black pt-8 mb-3 flex items-center gap-3 text-brand-teal">
                                                 <div className="w-2 h-8 rounded-full bg-brand-teal"></div>
                                                 {parseInline(trimmed.replace("## ", ""))}
                                             </h3>
                                         );
                                     }
 
-                                    // List Item Rendering (Beautiful Cards)
                                     if (trimmed.startsWith("- ")) {
                                         const cleanLine = trimmed.replace("- ", "");
                                         return (
@@ -131,13 +213,43 @@ export default function ExerciseDetail({ params }: { params: Promise<{ slug: str
                                         );
                                     }
 
-                                    // Regular Paragraph
                                     return (
                                         <p key={index} className="text-lg text-slate-600 leading-relaxed">
                                             {parseInline(trimmed)}
                                         </p>
                                     );
                                 })}
+
+                                {/* Approved Teams specifically for this section */}
+                                {slug === "community-sports" && approvedTeams.length > 0 && (
+                                    <div className="mt-12 space-y-6">
+                                        <h3 className="text-xl font-black pt-8 mb-3 flex items-center gap-3 text-brand-pink">
+                                            <div className="w-2 h-8 rounded-full bg-brand-pink"></div>
+                                            {language === 'en' ? 'Community Teams' : 'Equipos de la Comunidad'}
+                                        </h3>
+                                        <div className="grid grid-cols-1 gap-4">
+                                            {approvedTeams.map((team: any, idx: number) => (
+                                                <div key={idx} className="bg-white p-6 rounded-[2rem] border-2 border-brand-teal/5 shadow-sm hover:border-brand-teal/20 transition-all flex flex-col md:flex-row gap-4 items-center">
+                                                    <div className="w-16 h-16 bg-brand-pink/10 rounded-2xl flex items-center justify-center shrink-0">
+                                                        <Trophy className="w-8 h-8 text-brand-pink" />
+                                                    </div>
+                                                    <div className="flex-1 text-center md:text-left">
+                                                        <h4 className="font-bold text-brand-navy text-lg">{team.title}</h4>
+                                                        <div className="flex flex-wrap justify-center md:justify-start gap-2 mt-1">
+                                                            <span className="bg-brand-teal/10 text-brand-teal text-[10px] font-black uppercase px-2 py-0.5 rounded-full">
+                                                                {team.sport}
+                                                            </span>
+                                                            <span className="bg-slate-100 text-slate-500 text-[10px] font-black uppercase px-2 py-0.5 rounded-full">
+                                                                {team.location}
+                                                            </span>
+                                                        </div>
+                                                        <p className="text-sm text-slate-500 mt-2">{team.description}</p>
+                                                    </div>
+                                                </div>
+                                            ))}
+                                        </div>
+                                    </div>
+                                )}
                             </div>
                         ) : (
                             <p className="text-slate-400 italic">No additional details available for this item yet.</p>

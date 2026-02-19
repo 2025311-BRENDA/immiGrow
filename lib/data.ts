@@ -1024,7 +1024,6 @@ export const exerciseGeneral: RouteItem[] = [
         icon: Users,
         slug: "community-sports",
         image: "/community_sports.png",
-        mapUrl: "https://www.google.com/maps/search/Outdoor+Gym+Dublin",
         content: `
 # Community Sports
 

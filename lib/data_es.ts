@@ -884,7 +884,6 @@ export const exerciseGeneralEs: RouteItem[] = [
         difficulty: "Easy",
         icon: Users,
         slug: "community-sports",
-        mapUrl: "https://www.google.com/maps/search/Outdoor+Gym+Dublin",
         content: `
 # Deportes Comunitarios
 

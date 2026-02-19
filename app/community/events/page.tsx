@@ -1,13 +1,15 @@
-'use client';
+"use client";
 
 import React, { useState } from 'react';
 import Link from 'next/link';
-import { ChevronLeft, Plus, X, Calendar as CalendarIcon, MapPin, Users as UsersIcon } from 'lucide-react';
+import { ChevronLeft, Plus, X, Calendar as CalendarIcon, MapPin, Users as UsersIcon, Heart as HeartIcon } from 'lucide-react';
 import { useLanguage } from '@/context/LanguageContext';
+import { useSubmissions } from '@/context/SubmissionContext';
+import { BackButton } from '@/components/BackButton';
 
 const INITIAL_EVENTS = [
     {
-        id: 4,
+        id: "4",
         title: 'English/Spanish Exchange',
         date: '19:00',
         frequency: 'Every THURSDAY',
@@ -19,7 +21,7 @@ const INITIAL_EVENTS = [
         category: 'SOCIAL'
     },
     {
-        id: 5,
+        id: "5",
         title: 'Free Museum Tour',
         date: '11:00',
         frequency: 'First SUNDAY OF MONTH',
@@ -31,7 +33,7 @@ const INITIAL_EVENTS = [
         category: 'CULTURE'
     },
     {
-        id: 0,
+        id: "0",
         title: 'Caminata en Howth',
         date: '10:00 AM',
         frequency: 'Sábado 15 Mayo',
@@ -46,8 +48,8 @@ const INITIAL_EVENTS = [
 
 export default function EventsPage() {
     const { t, userName, language } = useLanguage();
-    const [events, setEvents] = useState(INITIAL_EVENTS);
-    const [rsvps, setRsvps] = useState<number[]>([]);
+    const { addSubmission, getApprovedByType } = useSubmissions();
+    const [rsvps, setRsvps] = useState<string[]>([]);
     const [showForm, setShowForm] = useState(false);
 
     // Form state
@@ -56,10 +58,13 @@ export default function EventsPage() {
     const [location, setLocation] = useState("");
     const [desc, setDesc] = useState("");
 
+    const approvedEvents = getApprovedByType("event");
+    const allEvents = [...approvedEvents, ...INITIAL_EVENTS];
+
     const handleCreateEvent = (e: React.FormEvent) => {
         e.preventDefault();
-        const newEvent = {
-            id: Date.now(),
+
+        const submissionData = {
             title,
             date: "12:00",
             frequency: date,
@@ -67,18 +72,24 @@ export default function EventsPage() {
             description: desc,
             color: 'bg-purple-50',
             baseAttendees: 0,
-            author: userName || "Me",
+            author: userName || (language === 'en' ? 'Me' : 'Yo'),
             category: 'COMMUNITY'
         };
-        setEvents([newEvent, ...events]);
+
+        addSubmission("event", submissionData);
+
         setShowForm(false);
         setTitle("");
         setDate("");
         setLocation("");
         setDesc("");
+
+        alert(language === 'en'
+            ? "Event submitted! It will appear once authorized."
+            : "¡Evento enviado! Aparecerá una vez sea autorizado.");
     };
 
-    const toggleRSVP = (id: number) => {
+    const toggleRSVP = (id: string) => {
         setRsvps(prev =>
             prev.includes(id)
                 ? prev.filter(eId => eId !== id)
@@ -91,13 +102,12 @@ export default function EventsPage() {
             <div className="bg-white shadow-sm p-6 mb-6 rounded-b-[3rem]">
                 <div className="flex justify-between items-start">
                     <div>
-                        <Link href="/community" className="inline-flex items-center text-slate-400 mb-4 hover:text-brand-teal transition-colors">
-                            <ChevronLeft className="w-5 h-5 mr-1" />
-                            {t("lbl.backTo")} {t("nav.community")}
-                        </Link>
-                        <h1 className="text-4xl font-heading font-bold text-brand-navy">Upcoming Events</h1>
+                        <BackButton href="/community" label={t("nav.community")} />
+                        <h1 className="text-4xl font-heading font-bold text-brand-navy">
+                            {language === 'en' ? 'Upcoming Events' : 'Próximos Eventos'}
+                        </h1>
                         <p className="text-slate-500 mt-2 font-medium">
-                            Free and community-focused meetups.
+                            {language === 'en' ? 'Free and community-focused meetups.' : 'Encuentros gratuitos y enfocados en la comunidad.'}
                         </p>
                     </div>
                     <button
@@ -114,7 +124,9 @@ export default function EventsPage() {
                 {showForm && (
                     <div className="bg-white p-6 rounded-[2rem] shadow-lg border-2 border-brand-teal/20 mb-8 animate-in fade-in slide-in-from-top-4 duration-300">
                         <div className="flex justify-between items-center mb-4">
-                            <h3 className="font-bold text-gray-800">Crear Nuevo Evento</h3>
+                            <h3 className="font-bold text-gray-800">
+                                {language === 'en' ? 'Create New Event' : 'Crear Nuevo Evento'}
+                            </h3>
                             <button onClick={() => setShowForm(false)} className="text-slate-400 font-bold">
                                 <X className="w-5 h-5" />
                             </button>
@@ -124,7 +136,7 @@ export default function EventsPage() {
                                 required
                                 value={title}
                                 onChange={(e) => setTitle(e.target.value)}
-                                placeholder="Título del evento (ej: Picnic en St Stephens)"
+                                placeholder={language === 'en' ? "Event title (e.g. Picnic in St Stephens)" : "Título del evento (ej: Picnic en St Stephens)"}
                                 className="w-full bg-slate-50 border-none rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-brand-teal"
                             />
                             <div className="grid grid-cols-2 gap-3">
@@ -132,14 +144,14 @@ export default function EventsPage() {
                                     required
                                     value={date}
                                     onChange={(e) => setDate(e.target.value)}
-                                    placeholder="Fecha y Hora"
+                                    placeholder={language === 'en' ? "Date and Time" : "Fecha y Hora"}
                                     className="w-full bg-slate-50 border-none rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-brand-teal"
                                 />
                                 <input
                                     required
                                     value={location}
                                     onChange={(e) => setLocation(e.target.value)}
-                                    placeholder="Lugar"
+                                    placeholder={language === 'en' ? "Location" : "Lugar"}
                                     className="w-full bg-slate-50 border-none rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-brand-teal"
                                 />
                             </div>
@@ -147,20 +159,20 @@ export default function EventsPage() {
                                 required
                                 value={desc}
                                 onChange={(e) => setDesc(e.target.value)}
-                                placeholder="Descripción: ¿Qué haremos? ¿Qué hay que llevar?"
+                                placeholder={language === 'en' ? "Description: What will we do? What to bring?" : "Descripción: ¿Qué haremos? ¿Qué hay que llevar?"}
                                 className="w-full bg-slate-50 border-none rounded-xl px-4 py-3 text-sm h-24 focus:ring-2 focus:ring-brand-teal"
                             />
                             <button type="submit" className="w-full py-4 bg-brand-teal text-white rounded-xl font-bold shadow-sm hover:bg-brand-teal/90 transition-all">
-                                Publicar Evento
+                                {language === 'en' ? 'Submit for Authorization' : 'Enviar para Autorización'}
                             </button>
                         </form>
                     </div>
                 )}
 
                 <div className="space-y-6">
-                    {events.map((event: any) => {
+                    {allEvents.map((event: any) => {
                         const isGoing = rsvps.includes(event.id);
-                        const isOwner = event.author === (userName || "Me");
+                        const isOwner = event.author === (userName || (language === 'en' ? 'Me' : 'Yo'));
 
                         const freqParts = (event.frequency || "").split(' ');
                         const bigText = freqParts[0] || "";
@@ -229,13 +241,5 @@ export default function EventsPage() {
                 </div>
             </div>
         </div>
-    );
-}
-
-function HeartIcon(props: any) {
-    return (
-        <svg {...props} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
-        </svg>
     );
 }

@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { X, Send, User, Mail, Globe, Briefcase, Calendar, MessageSquare } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
+import { useSubmissions } from "@/context/SubmissionContext";
 
 interface MentorRegistrationModalProps {
     isOpen: boolean;
@@ -11,6 +12,7 @@ interface MentorRegistrationModalProps {
 
 export function MentorRegistrationModal({ isOpen, onClose }: MentorRegistrationModalProps) {
     const { language } = useLanguage();
+    const { addSubmission } = useSubmissions();
     const [formData, setFormData] = useState({
         name: "",
         email: "",
@@ -25,31 +27,22 @@ export function MentorRegistrationModal({ isOpen, onClose }: MentorRegistrationM
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
 
-        // Construct mailto link
-        const subject = encodeURIComponent(language === 'en' ? "New Mentor Application - immiGrow" : "Nueva Postulación de Mentor - immiGrow");
-        const body = encodeURIComponent(`
-${language === 'en' ? 'New Mentor Applicant' : 'Nueva Solicitud de Mentor'}:
-----------------------------------
-${language === 'en' ? 'Name' : 'Nombre'}: ${formData.name}
-${language === 'en' ? 'Email' : 'Correo'}: ${formData.email}
-${language === 'en' ? 'Country of Origin' : 'País de Origen'}: ${formData.origin}
-${language === 'en' ? 'Occupation' : 'Ocupación'}: ${formData.occupation}
-${language === 'en' ? 'Years in Ireland' : 'Años en Irlanda'}: ${formData.years}
-${language === 'en' ? 'About me / How I can help' : 'Sobre mí / Cómo puedo ayudar'}:
-${formData.bio}
-----------------------------------
-`);
+        addSubmission("mentor", formData);
 
-        // Placeholder email - user should replace this or I can ask
-        const destinationEmail = "immigrow@outlook.com";
-        window.location.href = `mailto:${destinationEmail}?subject=${subject}&body=${body}`;
-
-        // Alert user that their email app should open
+        // Alert user
         alert(language === 'en'
-            ? "Your email app will open to send the final application. Please press 'Send' there!"
-            : "Se abrirá tu aplicación de correo para enviar la solicitud final. ¡Por favor, pulsa 'Enviar' allí!");
+            ? "Your application has been submitted for authorization! It will appear once approved."
+            : "¡Tu postulación ha sido enviada para autorización! Aparecerá una vez sea aprobada.");
 
         onClose();
+        setFormData({
+            name: "",
+            email: "",
+            origin: "",
+            occupation: "",
+            years: "",
+            bio: "",
+        });
     };
 
     return (

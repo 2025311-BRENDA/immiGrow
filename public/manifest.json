@@ -8,13 +8,13 @@
     "theme_color": "#2EBCC9",
     "icons": [
         {
-            "src": "/brand_logo_unified_final.svg?v=1",
+            "src": "/brand_logo_unified_final.svg",
             "sizes": "192x192 512x512",
             "type": "image/svg+xml",
             "purpose": "any maskable"
         },
         {
-            "src": "/brand_logo_unified_final.svg?v=1",
+            "src": "/brand_logo_unified_final.svg",
             "sizes": "1024x1024",
             "type": "image/svg+xml"
         }

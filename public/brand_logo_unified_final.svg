@@ -1,21 +1,23 @@
 <svg width="1024" height="1024" viewBox="0 0 1024 1024" fill="none" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <linearGradient id="brand_gradient" x1="512" y1="0" x2="512" y2="1024" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#26D66E"/>
+    <linearGradient id="paint0_linear" x1="0" y1="0" x2="1024" y2="1024" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#009B48"/>
       <stop offset="1" stop-color="#2EBCC9"/>
     </linearGradient>
-    <clipPath id="squircle_clip">
-      <rect width="1024" height="1024" rx="220" fill="white"/>
-    </clipPath>
   </defs>
-  <g clip-path="url(#squircle_clip)">
-    <rect width="1024" height="1024" fill="url(#brand_gradient)"/>
-    <!-- Shamrock Path: Refined for a more elegant, minimalist look matching the reference -->
-    <path d="M512 750C512 750 512 850 512 900" stroke="white" stroke-width="32" stroke-linecap="round" opacity="0.3"/>
-    <path d="M512 720C512 720 512 620 512 560C512 500 560 460 620 460C680 460 720 500 720 560C720 620 660 680 512 720Z" stroke="white" stroke-width="32" stroke-linecap="round" stroke-linejoin="round"/>
-    <path d="M512 720C512 720 512 620 512 560C512 500 464 460 404 460C344 460 304 500 304 560C304 620 364 680 512 720Z" stroke="white" stroke-width="32" stroke-linecap="round" stroke-linejoin="round"/>
-    <path d="M512 300C512 300 412 300 412 400C412 460 462 500 512 540C562 500 612 460 612 400C612 300 512 300 512 300Z" stroke="white" stroke-width="32" stroke-linecap="round" stroke-linejoin="round"/>
-    <!-- stem -->
-    <path d="M512 540C512 600 512 720 512 800C512 850 480 880 450 900" stroke="white" stroke-width="32" stroke-linecap="round" stroke-linejoin="round"/>
-  </g>
+  <!-- Squircle Background -->
+  <path d="M512 0C171.333 0 0 171.333 0 512C0 852.667 171.333 1024 512 1024C852.667 1024 1024 852.667 1024 512C1024 171.333 852.667 0 512 0Z" fill="url(#paint0_linear)"/>
+  
+  <!-- Minimalist Shamrock Outline -->
+  <path d="M512 750C512 750 512 850 512 900C512 916.569 498.569 930 482 930C465.431 930 452 916.569 452 900" 
+        stroke="white" stroke-width="40" stroke-linecap="round" stroke-linejoin="round"/>
+  
+  <path d="M512 550C562 550 632 500 632 400C632 300 562 250 512 250C462 250 392 300 392 400C392 500 462 550 512 550Z" 
+        stroke="white" stroke-width="40" stroke-linecap="round" stroke-linejoin="round"/>
+        
+  <path d="M462 600C412 600 342 650 342 750C342 850 412 900 462 900C512 900 582 850 582 750C582 650 512 600 462 600Z" 
+        stroke="white" stroke-width="40" stroke-linecap="round" stroke-linejoin="round" transform="translate(-120, -100) rotate(-45, 462, 750)"/>
+        
+  <path d="M562 600C612 600 682 650 682 750C682 850 612 900 562 900C512 900 442 850 442 750C442 650 512 600 562 600Z" 
+        stroke="white" stroke-width="40" stroke-linecap="round" stroke-linejoin="round" transform="translate(120, -100) rotate(45, 562, 750)"/>
 </svg>

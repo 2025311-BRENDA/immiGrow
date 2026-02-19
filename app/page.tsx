@@ -56,7 +56,7 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-brand-sand pb-16">
       {/* Redesigned Hero Header Section to match screenshot */}
-      <section className="bg-gradient-to-br from-[#26D66E] via-[#26D66E] to-[#2EBCC9] pt-6 pb-12 px-6 rounded-b-[3.5rem] relative overflow-hidden shadow-xl">
+      <section className="bg-gradient-to-br from-[#009B48] via-[#009B48] to-[#2EBCC9] pt-6 pb-12 px-6 rounded-b-[3.5rem] relative overflow-hidden shadow-xl">
         {/* Subtle decorative elements */}
         <div className="absolute top-0 right-0 w-96 h-96 bg-white/5 rounded-full -mr-32 -mt-32 blur-3xl" />
         <div className="absolute bottom-0 left-0 w-64 h-64 bg-brand-turquoise/10 rounded-full -ml-16 -mb-16 blur-2xl" />
@@ -66,7 +66,7 @@ export default function Home() {
           <div className="flex justify-end items-center mb-4">
             <button className="p-3 bg-white/10 backdrop-blur-md rounded-full text-white border border-white/20 relative hover:bg-white/20 transition-all shadow-lg">
               <Bell className="w-5 h-5" />
-              <span className="absolute top-2.5 right-2.5 w-2.5 h-2.5 bg-brand-sun rounded-full ring-4 ring-[#26D66E]"></span>
+              <span className="absolute top-2.5 right-2.5 w-2.5 h-2.5 bg-brand-sun rounded-full ring-4 ring-[#009B48]"></span>
             </button>
           </div>
 

@@ -124,12 +124,11 @@ export function Navbar() {
                         <div className="flex items-center gap-12">
                             {/* Desktop Brand */}
                             <Link href="/" className="flex items-center space-x-2 shrink-0">
-                                <div className="w-10 h-10 rounded-xl flex items-center justify-center overflow-hidden flex-shrink-0">
+                                <div className="w-10 h-10 rounded-xl flex items-center justify-center overflow-hidden flex-shrink-0 shadow-sm border border-brand-irish-green/10">
                                     <img
-                                        src="/brand_logo_unified_final.svg?v=1"
+                                        src="/brand_logo_unified_final.svg"
                                         alt="immiGrow"
-                                        className="w-full h-full object-cover"
-                                        style={{ imageRendering: 'auto' }}
+                                        className="w-full h-full object-contain"
                                     />
                                 </div>
                                 <span className="text-xl sm:text-2xl font-heading font-black text-brand-irish-green tracking-tight">

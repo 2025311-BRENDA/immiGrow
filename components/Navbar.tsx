@@ -70,11 +70,11 @@ export function Navbar() {
             label: t("nav.toolkit"),
             icon: Sparkles,
             items: [
-                { name: t("nav.toolkit"), href: "/toolkit", icon: Sparkles },
-                { name: t("nav.community"), href: "/community", icon: Globe },
                 { name: t("nav.jobs"), href: "/jobs", icon: Briefcase },
-                { name: t("nav.calculator"), href: "/calculator", icon: Calculator },
+                { name: t("nav.community"), href: "/community", icon: Globe },
+                { name: language === 'es' ? 'Sabores de Casa' : 'Taste of Home', href: "/toolkit/recipes", icon: Sparkles },
                 { name: t("nav.vault"), href: "/vault", icon: ShieldCheck },
+                { name: t("nav.calculator"), href: "/calculator", icon: Calculator },
                 { name: t("nav.achievements"), href: "/achievements", icon: Award },
             ]
         }

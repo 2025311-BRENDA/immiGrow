@@ -85,37 +85,62 @@ export function Forum() {
     const handleAddReply = async (postId: string) => {
         if (!replyText.trim()) return;
 
-        const postToUpdate = posts.find(p => p.id === postId);
-        if (!postToUpdate) return;
+        // Fetch the latest version of the post to avoid overwriting existing replies
+        const { data: latestPost, error: fetchError } = await supabase
+            .from('posts')
+            .select('replies')
+            .eq('id', postId)
+            .single();
+
+        if (fetchError || !latestPost) {
+            console.error("Error fetching latest post data:", fetchError);
+            return;
+        }
 
         const newReply = {
             id: Date.now().toString(),
             author: userName || "Visitante",
             content: replyText,
-            time: "Just now"
+            time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
         };
 
-        const { error } = await supabase
+        const currentReplies = latestPost.replies || [];
+        const { error: updateError } = await supabase
             .from('posts')
-            .update({ replies: [...postToUpdate.replies, newReply] })
+            .update({ replies: [...currentReplies, newReply] })
             .eq('id', postId);
 
-        if (error) {
-            console.error("Error adding reply:", error);
+        if (updateError) {
+            console.error("Error adding reply:", updateError);
         } else {
             setReplyText("");
             fetchPosts();
         }
     };
 
-    const handleLike = async (postId: string, currentLikes: number) => {
-        const { error } = await supabase
+    const handleLike = async (postId: string) => {
+        // Fetch the latest version of the post to get the most accurate like count
+        const { data: latestPost, error: fetchError } = await supabase
             .from('posts')
-            .update({ likes: currentLikes + 1 })
+            .select('likes')
+            .eq('id', postId)
+            .single();
+
+        if (fetchError || !latestPost) {
+            console.error("Error fetching latest likes:", fetchError);
+            return;
+        }
+
+        const { error: updateError } = await supabase
+            .from('posts')
+            .update({ likes: (latestPost.likes || 0) + 1 })
             .eq('id', postId);
 
-        if (error) console.error("Error liking post:", error);
-        else fetchPosts();
+        if (updateError) {
+            console.error("Error liking post:", updateError);
+        } else {
+            fetchPosts();
+        }
     };
 
     const selectedPost = posts.find(p => p.id === selectedPostId);
@@ -169,7 +194,7 @@ export function Forum() {
 
                             <div className="flex gap-4">
                                 <button
-                                    onClick={(e) => { e.stopPropagation(); handleLike(post.id, post.likes); }}
+                                    onClick={(e) => { e.stopPropagation(); handleLike(post.id); }}
                                     className="flex items-center gap-1.5 text-[8px] font-bold text-brand-sand/60 hover:text-brand-sand transition-colors"
                                 >
                                     <ThumbsUp className="w-2.5 h-2.5" />
@@ -235,7 +260,7 @@ export function Forum() {
                             <p className="text-sm leading-relaxed text-white/90 mb-4">{selectedPost.content}</p>
                             <div className="flex gap-4 pt-4 border-t border-white/5">
                                 <button
-                                    onClick={() => handleLike(selectedPost.id, selectedPost.likes)}
+                                    onClick={() => handleLike(selectedPost.id)}
                                     className="flex items-center gap-2 text-[10px] font-bold text-brand-sand/60 hover:text-brand-sand"
                                 >
                                     <Heart className="w-3.5 h-3.5 text-red-400 fill-red-400" />

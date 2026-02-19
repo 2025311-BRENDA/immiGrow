@@ -1,0 +1,22 @@
+<svg width="1024" height="1024" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- White Background -->
+  <rect width="512" height="512" fill="white"/>
+  
+  <!-- Symmetrical emerald shamrock -->
+  <g transform="translate(256, 250) scale(1.8)">
+    <path d="M0 0
+             C -25 -10 -55 -45 -55 -70 C -55 -100 -10 -95 0 -75 
+             C 10 -95 55 -100 55 -70 C 55 -45 25 -10 0 0
+             
+             M0 0
+             C -20 15 -60 25 -80 45 C -100 65 -75 100 -50 100
+             C -25 100 -5 70 0 50
+             
+             M0 0
+             C 20 15 60 25 80 45 C 100 65 75 100 50 100
+             C 25 100 5 70 0 50
+             
+             M0 50 L0 100" 
+      stroke="#009B48" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  </g>
+</svg>

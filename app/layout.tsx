@@ -23,13 +23,13 @@ export const metadata: Metadata = {
   description: "La guía de bienestar para migrantes en Dublín. Trámites esenciales (IRP/PPSN), salud mental, deporte gratuito y vida comunitaria.",
   manifest: "/manifest.json",
   icons: {
-    icon: "/logo_fixed.svg",
-    apple: "/logo_fixed.svg",
+    icon: "/logo_final.png",
+    apple: "/logo_final.png",
   },
   openGraph: {
     title: "immiGrow Dublin | Salud, Actividad y Comunidad",
     description: "Salud, bienestar y trámites para migrantes en Dublín.",
-    url: "https://immigrow.ie",
+    url: "https://immi-grow.vercel.app",
     siteName: "immiGrow",
     images: [
       {

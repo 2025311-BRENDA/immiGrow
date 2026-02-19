@@ -18,13 +18,13 @@ const outfit = Outfit({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://immigrow.ie"),
+  metadataBase: new URL("https://immi-grow.vercel.app"),
   title: "immiGrow Dublin | Salud, Actividad y Comunidad",
   description: "La guía de bienestar para migrantes en Dublín. Trámites esenciales (IRP/PPSN), salud mental, deporte gratuito y vida comunitaria.",
   manifest: "/manifest.json",
   icons: {
-    icon: "/logo_final.png",
-    apple: "/logo_final.png",
+    icon: "/logo_fixed.svg",
+    apple: "/logo_fixed.svg",
   },
   openGraph: {
     title: "immiGrow Dublin | Salud, Actividad y Comunidad",

@@ -21,7 +21,8 @@ import {
   Briefcase,
   Calculator,
   Stethoscope,
-  Sparkles
+  Sparkles,
+  Plus,
 } from "lucide-react";
 
 import { Roadmap } from "@/components/Roadmap";
@@ -84,6 +85,15 @@ export default function Home() {
                 {t("hero.greeting", { name: userName || t("forum.visitor") })}<br />
                 <span className="text-white/95">{t("hero.subtitle")}</span>
               </h2>
+              {!userName && (
+                <button
+                  onClick={() => setIsProfileOpen(true)}
+                  className="mt-4 flex items-center gap-2 px-4 py-2 bg-white/20 hover:bg-white/30 backdrop-blur-md rounded-xl text-white text-[10px] font-black uppercase tracking-widest transition-all"
+                >
+                  <Plus className="w-3 h-3" />
+                  Poner mi nombre
+                </button>
+              )}
             </div>
 
             {/* Profile Component with Badge */}
@@ -98,7 +108,21 @@ export default function Home() {
                   alt="Profile"
                   className="w-full h-full rounded-[1.8rem] bg-brand-sand object-cover"
                 />
+
+                {/* Edit Overlay on Hover */}
+                <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                  <Plus className="w-8 h-8 text-white" />
+                </div>
               </button>
+
+              {/* Pulsating Edit Indicator if no name is set */}
+              {!userName && (
+                <div className="absolute -top-1 -right-1 flex h-4 w-4">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-turquoise opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-4 w-4 bg-brand-turquoise"></span>
+                </div>
+              )}
+
               <div className="absolute -bottom-1 -right-1 bg-white text-brand-irish-green p-1.5 rounded-xl shadow-lg border border-slate-100 flex items-center justify-center">
                 <Award className="w-4 h-4" />
               </div>

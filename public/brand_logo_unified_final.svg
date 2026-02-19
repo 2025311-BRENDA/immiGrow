@@ -1,0 +1,30 @@
+<svg width="1024" height="1024" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="unifiedGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#009B48;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2EBCC9;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <!-- Full bleed background -->
+  <rect width="512" height="512" fill="url(#unifiedGrad)"/>
+  
+  <!-- Final Symmetrical Organic clover
+       - Scaled for visibility (centered at 256, 256)
+       - Continuous line following the "Hybrid Line Art" topology
+       - Refined for "puffy" heart shapes matching the user's reference -->
+  <g transform="translate(256, 256) scale(1.6) translate(-128, -135)">
+    <path d="M128 215 
+             C128 190 128 170 128 145 
+             C165 145 200 120 200 90 
+             C200 60 170 50 150 50 
+             C135 50 128 65 128 65 
+             C128 65 121 50 106 50 
+             C86 50 56 60 56 90 
+             C56 120 91 145 128 145 
+             C95 150 75 180 75 205 
+             C75 235 100 250 128 250 
+             C156 250 181 235 181 205 
+             C181 180 161 150 128 145" 
+      stroke="white" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  </g>
+</svg>

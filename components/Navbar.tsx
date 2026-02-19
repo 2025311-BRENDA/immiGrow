@@ -126,9 +126,9 @@ export function Navbar() {
                             <Link href="/" className="flex items-center space-x-2 shrink-0">
                                 <div className="w-10 h-10 rounded-xl flex items-center justify-center overflow-hidden flex-shrink-0">
                                     <img
-                                        src="/immiGrow_official_final.svg?v=14"
+                                        src="/brand_logo_unified_final.svg?v=15"
                                         alt="immiGrow"
-                                        className="w-full h-full object-contain"
+                                        className="w-full h-full object-cover"
                                         style={{ imageRendering: 'auto' }}
                                     />
                                 </div>

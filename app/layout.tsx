@@ -33,9 +33,9 @@ export const metadata: Metadata = {
     siteName: "immiGrow",
     images: [
       {
-        url: "https://immigrow.ie/og-image.png", // HIGH-RES OG IMAGE
-        width: 1200,
-        height: 630,
+        url: "https://immi-grow.vercel.app/logo_final.png",
+        width: 1024,
+        height: 1024,
         alt: "immiGrow Logo",
       },
     ],
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "immiGrow Dublin | Salud, Actividad y Comunidad",
     description: "Salud, bienestar y trámites para migrantes en Dublín.",
-    images: ["https://immigrow.ie/og-image.png"],
+    images: ["https://immi-grow.vercel.app/logo_final.png"],
   },
   appleWebApp: {
     capable: true,
@@ -56,7 +56,7 @@ export const metadata: Metadata = {
   other: {
     "apple-mobile-web-app-capable": "yes",
     "mobile-web-app-capable": "yes",
-    "apple-touch-icon": "/logo_final.png",
+    "apple-touch-icon": "https://immi-grow.vercel.app/logo_final.png",
     "keywords": "salud migrantes dublin, tramites irlanda, pps number dublin, salud mental inmigrantes, deportes gratis dublin, educacion irlanda, immigrow"
   }
 };

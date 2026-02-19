@@ -18,22 +18,22 @@ const outfit = Outfit({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://immi-grow.vercel.app"),
+  metadataBase: new URL("https://www.immigrow.ie"),
   title: "immiGrow Dublin | Salud, Actividad y Comunidad",
   description: "La guía de bienestar para migrantes en Dublín. Trámites esenciales (IRP/PPSN), salud mental, deporte gratuito y vida comunitaria.",
   manifest: "/manifest.json",
   icons: {
-    icon: "/logo_fixed_borderless.svg?v=4",
-    apple: "/logo_fixed_borderless.svg?v=4",
+    icon: "/logo_final_v2.svg?v=7",
+    apple: "/logo_final_v2.svg?v=7",
   },
   openGraph: {
     title: "immiGrow Dublin | Salud, Actividad y Comunidad",
     description: "Salud, bienestar y trámites para migrantes en Dublín.",
-    url: "https://immi-grow.vercel.app",
+    url: "https://www.immigrow.ie",
     siteName: "immiGrow",
     images: [
       {
-        url: "https://immi-grow.vercel.app/logo_fixed_borderless.svg?v=4",
+        url: "https://www.immigrow.ie/logo_final_v2.svg?v=7",
         width: 1024,
         height: 1024,
         alt: "immiGrow Logo",
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "immiGrow Dublin | Salud, Actividad y Comunidad",
     description: "Salud, bienestar y trámites para migrantes en Dublín.",
-    images: ["https://immi-grow.vercel.app/logo_fixed_borderless.svg?v=4"],
+    images: ["https://www.immigrow.ie/logo_final_v2.svg?v=7"],
   },
   appleWebApp: {
     capable: true,
@@ -56,7 +56,7 @@ export const metadata: Metadata = {
   other: {
     "apple-mobile-web-app-capable": "yes",
     "mobile-web-app-capable": "yes",
-    "apple-touch-icon": "https://immi-grow.vercel.app/logo_fixed_borderless.svg?v=4",
+    "apple-touch-icon": "https://www.immigrow.ie/logo_final_v2.svg?v=7",
     "keywords": "salud migrantes dublin, tramites irlanda, pps number dublin, salud mental inmigrantes, deportes gratis dublin, educacion irlanda, immigrow"
   }
 };

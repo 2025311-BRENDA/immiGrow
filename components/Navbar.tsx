@@ -31,7 +31,7 @@ export function Navbar() {
     const [openDropdown, setOpenDropdown] = useState<string | null>(null);
 
     type NavCategory =
-        | { id: string; label: string; icon: any; items: { name: string; href: string; icon: any }[] }
+        | { id: string; label: string; icon: any; items: { name: string; href: string; icon: any }[]; href?: string }
         | { id: string; label: string; icon: any; href: string };
 
     const categories: NavCategory[] = [
@@ -39,6 +39,7 @@ export function Navbar() {
             id: "activity",
             label: t("nav.physical_activity"),
             icon: Activity,
+            href: "/exercise",
             items: [
                 { name: t("nav.socialFit"), href: "/community/social-fit", icon: Users },
                 { name: t("nav.sportsTeams"), href: "/community/sports-teams", icon: Bike },
@@ -52,6 +53,7 @@ export function Navbar() {
             id: "health",
             label: t("nav.health"),
             icon: Heart,
+            href: "/health",
             items: [
                 { name: t("nav.health"), href: "/health", icon: Activity },
                 { name: t("nav.mental"), href: "/mental-health", icon: Brain },
@@ -69,6 +71,7 @@ export function Navbar() {
             id: "toolkit",
             label: t("nav.toolkit"),
             icon: Sparkles,
+            href: "/toolkit",
             items: [
                 { name: t("nav.jobs"), href: "/jobs", icon: Briefcase },
                 { name: t("nav.community"), href: "/community", icon: Globe },
@@ -171,14 +174,28 @@ export function Navbar() {
                                             onMouseEnter={() => setOpenDropdown(cat.id)}
                                             onMouseLeave={() => setOpenDropdown(null)}
                                         >
-                                            <button className={cn(
-                                                "flex items-center gap-1.5 text-sm font-bold transition-colors h-16",
-                                                cat.items.some(i => pathname.startsWith(i.href)) ? "text-brand-irish-green" : "text-slate-500 hover:text-brand-navy"
-                                            )}>
-                                                <cat.icon className="w-4 h-4" />
-                                                {cat.label}
-                                                <ChevronDown className={cn("w-3 h-3 transition-transform duration-200", openDropdown === cat.id && "rotate-180")} />
-                                            </button>
+                                            {cat.href ? (
+                                                <Link
+                                                    href={cat.href}
+                                                    className={cn(
+                                                        "flex items-center gap-1.5 text-sm font-bold transition-colors h-16",
+                                                        cat.items && cat.items.some(i => pathname.startsWith(i.href)) ? "text-brand-irish-green" : "text-slate-500 hover:text-brand-navy"
+                                                    )}
+                                                >
+                                                    <cat.icon className="w-4 h-4" />
+                                                    {cat.label}
+                                                    <ChevronDown className={cn("w-3 h-3 transition-transform duration-200", openDropdown === cat.id && "rotate-180")} />
+                                                </Link>
+                                            ) : (
+                                                <button className={cn(
+                                                    "flex items-center gap-1.5 text-sm font-bold transition-colors h-16",
+                                                    cat.items && cat.items.some(i => pathname.startsWith(i.href)) ? "text-brand-irish-green" : "text-slate-500 hover:text-brand-navy"
+                                                )}>
+                                                    <cat.icon className="w-4 h-4" />
+                                                    {cat.label}
+                                                    <ChevronDown className={cn("w-3 h-3 transition-transform duration-200", openDropdown === cat.id && "rotate-180")} />
+                                                </button>
+                                            )}
 
                                             {/* Dropdown Menu */}
                                             <div className={cn(

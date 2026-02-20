@@ -11,9 +11,9 @@ interface ProfileModalProps {
 }
 
 const AVATAR_OPTIONS = [
-    { id: "male", name: "Hombre", seed: "Santiago" },
-    { id: "female", name: "Mujer", seed: "Aneka" },
-    { id: "lgbtq", name: "LGBTQ+", seed: "Eden" },
+    { id: "male", name: "Hombre", seed: "Felix" },
+    { id: "female", name: "Mujer", seed: "Sophia" },
+    { id: "lgbtq", name: "LGBTQ+", seed: "Charlie" },
 ];
 
 export function ProfileModal({ isOpen, onClose }: ProfileModalProps) {

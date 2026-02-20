@@ -21,6 +21,24 @@ export default function ToolkitPage() {
 
     const tools = [
         {
+            id: "community",
+            title: t("nav.community"),
+            description: t("tool.community.desc"),
+            icon: Globe,
+            href: "/community",
+            color: "text-brand-irish-green",
+            bgColor: "bg-brand-irish-green/10"
+        },
+        {
+            id: "jobs",
+            title: t("nav.career"),
+            description: t("tool.career.desc"),
+            icon: Briefcase,
+            href: "/jobs",
+            color: "text-brand-turquoise",
+            bgColor: "bg-brand-turquoise/10"
+        },
+        {
             id: "vault",
             title: t("nav.vault"),
             description: t("tool.vault.desc"),
@@ -39,15 +57,6 @@ export default function ToolkitPage() {
             bgColor: "bg-brand-sun/10"
         },
         {
-            id: "jobs",
-            title: t("nav.career"),
-            description: t("tool.career.desc"),
-            icon: Briefcase,
-            href: "/jobs",
-            color: "text-brand-turquoise",
-            bgColor: "bg-brand-turquoise/10"
-        },
-        {
             id: "slang",
             title: t("nav.slang"),
             description: t("tool.slang.desc"),
@@ -57,24 +66,6 @@ export default function ToolkitPage() {
             bgColor: "bg-brand-purple/10"
         },
         {
-            id: "achievements",
-            title: t("nav.achievements"),
-            description: t("tool.achievements.desc"),
-            icon: Award,
-            href: "/achievements",
-            color: "text-brand-teal",
-            bgColor: "bg-brand-teal/10"
-        },
-        {
-            id: "community",
-            title: t("nav.community"),
-            description: t("tool.community.desc"),
-            icon: Globe,
-            href: "/community",
-            color: "text-brand-irish-green",
-            bgColor: "bg-brand-irish-green/10"
-        },
-        {
             id: "recipes",
             title: t("nav.recipes"),
             description: t("tool.recipes.desc"),
@@ -82,6 +73,15 @@ export default function ToolkitPage() {
             href: "/toolkit/recipes",
             color: "text-orange-500",
             bgColor: "bg-orange-50"
+        },
+        {
+            id: "achievements",
+            title: t("nav.achievements"),
+            description: t("tool.achievements.desc"),
+            icon: Award,
+            href: "/achievements",
+            color: "text-brand-teal",
+            bgColor: "bg-brand-teal/10"
         }
     ];
 
@@ -167,13 +167,29 @@ export default function ToolkitPage() {
                         </div>
 
                         <div className="shrink-0">
-                            <div className="w-48 h-48 bg-white p-4 rounded-[2rem] shadow-2xl rotate-3 hover:rotate-0 transition-transform duration-500">
+                            <div className="w-48 h-48 bg-white p-4 rounded-[2rem] shadow-2xl rotate-3 hover:rotate-0 transition-transform duration-500 flex items-center justify-center overflow-hidden">
                                 <img
                                     src="/qrcode_ready.png"
-                                    alt="QR Code"
+                                    alt="QR Code immiGrow"
                                     className="w-full h-full object-contain"
                                     onError={(e) => {
-                                        (e.target as HTMLImageElement).src = 'https://api.dicebear.com/9.x/icons/svg?seed=qr&icon=qrCode';
+                                        const target = e.target as HTMLImageElement;
+                                        // If qrcode_ready doesn't exist, try local logo
+                                        if (target.src.includes('qrcode_ready.png')) {
+                                            target.src = '/logo_final.png';
+                                        } else {
+                                            target.style.display = 'none';
+                                            const parent = target.parentElement;
+                                            if (parent && !parent.querySelector('.qr-placeholder')) {
+                                                const placeholder = document.createElement('div');
+                                                placeholder.className = 'qr-placeholder flex flex-col items-center justify-center text-slate-300 gap-2';
+                                                placeholder.innerHTML = `
+                                                    <svg viewBox="0 0 24 24" width="48" height="48" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+                                                    <span class="text-[10px] font-black uppercase text-slate-400 text-center">QR No Encontrado</span>
+                                                `;
+                                                parent.appendChild(placeholder);
+                                            }
+                                        }
                                     }}
                                 />
                             </div>

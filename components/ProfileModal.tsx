@@ -11,9 +11,9 @@ interface ProfileModalProps {
 }
 
 const AVATAR_OPTIONS = [
-    { id: "male", name: "Hombre", seed: "Felix", params: "&top=shortFlat&eyes=default&mouth=smile&accessoriesProbability=0" },
-    { id: "female", name: "Mujer", seed: "Sophia", params: "&top=longHairStraight&eyes=default&mouth=smile&accessoriesProbability=0" },
-    { id: "lgbtq", name: "LGBTQ+", seed: "Eden", params: "&top=shaggy&eyes=default&mouth=smile&accessoriesProbability=0" },
+    { id: "male", name: "Hombre", seed: "Jack", params: "&top=shortHairTheCaesar&eyes=default&mouth=smile&accessoriesProbability=0" },
+    { id: "female", name: "Mujer", seed: "Sophia", params: "&top=longHairCurvy&eyes=default&mouth=smile&accessoriesProbability=0" },
+    { id: "lgbtq", name: "LGBTQ+", seed: "Eden", params: "&top=shortHairShortWaved&eyes=default&mouth=smile&accessoriesProbability=0" },
 ];
 
 export function ProfileModal({ isOpen, onClose }: ProfileModalProps) {

@@ -174,21 +174,9 @@ export default function ToolkitPage() {
                                     className="w-full h-full object-contain"
                                     onError={(e) => {
                                         const target = e.target as HTMLImageElement;
-                                        // If qrcode_ready doesn't exist, try local logo
+                                        // If qrcode_ready doesn't exist, use a dynamic QR API for immigrow.ie
                                         if (target.src.includes('qrcode_ready.png')) {
-                                            target.src = '/logo_final.png';
-                                        } else {
-                                            target.style.display = 'none';
-                                            const parent = target.parentElement;
-                                            if (parent && !parent.querySelector('.qr-placeholder')) {
-                                                const placeholder = document.createElement('div');
-                                                placeholder.className = 'qr-placeholder flex flex-col items-center justify-center text-slate-300 gap-2';
-                                                placeholder.innerHTML = `
-                                                    <svg viewBox="0 0 24 24" width="48" height="48" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
-                                                    <span class="text-[10px] font-black uppercase text-slate-400 text-center">QR No Encontrado</span>
-                                                `;
-                                                parent.appendChild(placeholder);
-                                            }
+                                            target.src = `https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=${encodeURIComponent('https://immigrow.ie')}`;
                                         }
                                     }}
                                 />

@@ -11,9 +11,9 @@ interface ProfileModalProps {
 }
 
 const AVATAR_OPTIONS = [
-    { id: "male", name: "Hombre", seed: "Felix" },
-    { id: "female", name: "Mujer", seed: "Sophia" },
-    { id: "lgbtq", name: "LGBTQ+", seed: "Charlie" },
+    { id: "male", name: "Hombre", seed: "Jack", params: "&top=shortHair&mouth=smile" },
+    { id: "female", name: "Mujer", seed: "Amaya", params: "&top=longHairStraight&eyes=default&mouth=smile" },
+    { id: "lgbtq", name: "LGBTQ+", seed: "Riley", params: "&top=shaggy&mouth=smile" },
 ];
 
 export function ProfileModal({ isOpen, onClose }: ProfileModalProps) {
@@ -24,8 +24,8 @@ export function ProfileModal({ isOpen, onClose }: ProfileModalProps) {
 
     if (!isOpen) return null;
 
-    const handleAvatarSelect = (seed: string) => {
-        const avatarUrl = `https://api.dicebear.com/9.x/avataaars/svg?seed=${seed}&avatarStyle=transparent&skinColor=ffdbac`;
+    const handleAvatarSelect = (seed: string, params: string) => {
+        const avatarUrl = `https://api.dicebear.com/9.x/avataaars/svg?seed=${seed}${params}&avatarStyle=transparent&skinColor=ffdbac`;
         setTempPhoto(avatarUrl);
     };
 
@@ -129,7 +129,7 @@ export function ProfileModal({ isOpen, onClose }: ProfileModalProps) {
                                 {AVATAR_OPTIONS.map((opt) => (
                                     <button
                                         key={opt.id}
-                                        onClick={() => handleAvatarSelect(opt.seed)}
+                                        onClick={() => handleAvatarSelect(opt.seed, opt.params)}
                                         className={cn(
                                             "w-16 h-16 rounded-2xl overflow-hidden border-2 transition-all hover:scale-105",
                                             tempPhoto?.includes(opt.seed)
@@ -138,7 +138,7 @@ export function ProfileModal({ isOpen, onClose }: ProfileModalProps) {
                                         )}
                                     >
                                         <img
-                                            src={`https://api.dicebear.com/9.x/avataaars/svg?seed=${opt.seed}&avatarStyle=transparent&skinColor=ffdbac`}
+                                            src={`https://api.dicebear.com/9.x/avataaars/svg?seed=${opt.seed}${opt.params}&avatarStyle=transparent&skinColor=ffdbac`}
                                             alt={opt.name}
                                             className="w-full h-full"
                                         />

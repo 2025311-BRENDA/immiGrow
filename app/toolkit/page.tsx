@@ -129,6 +129,57 @@ export default function ToolkitPage() {
                         </Link>
                     ))}
                 </div>
+
+                {/* Share Section */}
+                <div className="mt-12 bg-brand-navy rounded-[2.5rem] p-8 md:p-12 text-white shadow-2xl relative overflow-hidden group">
+                    <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full -mr-32 -mt-32 blur-3xl group-hover:bg-white/10 transition-colors" />
+
+                    <div className="flex flex-col md:flex-row items-center gap-8 relative z-10">
+                        <div className="flex-1 text-center md:text-left">
+                            <h2 className="text-3xl font-black mb-4">
+                                Comparte immiGrow ☘️
+                            </h2>
+                            <p className="text-white/70 text-lg mb-6 leading-relaxed">
+                                ¿Conoces a alguien nuevo en Dublín? Ayúdales a encontrar su camino. Muestra este código QR para que puedan descargar la guía al instante.
+                            </p>
+                            <div className="flex flex-wrap justify-center md:justify-start gap-4">
+                                <Link
+                                    href="/toolkit/outreach"
+                                    className="px-6 py-3 bg-brand-sun text-brand-navy font-black rounded-xl hover:scale-105 active:scale-95 transition-all shadow-lg"
+                                >
+                                    Kit de Difusión
+                                </Link>
+                                <button
+                                    onClick={() => {
+                                        if (navigator.share) {
+                                            navigator.share({
+                                                title: 'immiGrow',
+                                                text: 'Dales un vistazo a esta guía para inmigrantes en Dublín.',
+                                                url: window.location.origin
+                                            });
+                                        }
+                                    }}
+                                    className="px-6 py-3 bg-white/10 hover:bg-white/20 border border-white/20 text-white font-bold rounded-xl transition-all"
+                                >
+                                    Compartir Enlace
+                                </button>
+                            </div>
+                        </div>
+
+                        <div className="shrink-0">
+                            <div className="w-48 h-48 bg-white p-4 rounded-[2rem] shadow-2xl rotate-3 hover:rotate-0 transition-transform duration-500">
+                                <img
+                                    src="/qrcode_ready.png"
+                                    alt="QR Code"
+                                    className="w-full h-full object-contain"
+                                    onError={(e) => {
+                                        (e.target as HTMLImageElement).src = 'https://api.dicebear.com/9.x/icons/svg?seed=qr&icon=qrCode';
+                                    }}
+                                />
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </main>
         </div>
     );

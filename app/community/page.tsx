@@ -37,9 +37,9 @@ export default function CommunityPage() {
         {
             title: t('comm.lgbtq.title'),
             description: t('comm.lgbtq.desc'),
-            icon: <Sparkles className="w-8 h-8 text-indigo-500" />,
+            icon: <Sparkles className="w-8 h-8 text-white" />,
             href: '/community/lgbtq',
-            color: 'bg-indigo-50',
+            color: 'bg-gradient-to-br from-red-400 via-yellow-400 via-green-400 via-blue-400 to-purple-400',
         },
         {
             title: t('comm.mentors'),

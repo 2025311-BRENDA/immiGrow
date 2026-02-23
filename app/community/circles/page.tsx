@@ -52,7 +52,7 @@ export default function CirclesPage() {
             title: t("comm.circles.lgbtq.title"),
             description: t("comm.circles.lgbtq.desc"),
             tag: t("comm.circles.lgbtq.tag"),
-            color: 'bg-orange-200',
+            color: 'bg-gradient-to-r from-red-200 via-yellow-200 via-green-200 via-blue-200 to-purple-200',
         },
     ];
 

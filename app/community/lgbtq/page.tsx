@@ -41,12 +41,17 @@ export default function LGBTQPage() {
 
     return (
         <div className="min-h-screen bg-slate-50 pb-24">
-            <header className="bg-indigo-600 text-white py-12 px-6 rounded-b-[3.5rem] shadow-lg mb-10 relative overflow-hidden">
-                <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full -mr-20 -mt-20 blur-3xl"></div>
-                <div className="container mx-auto max-w-4xl relative z-10">
+            <header className="bg-gradient-to-r from-[#FF0000] via-[#FF8B00] via-[#E2ED44] via-[#008121] via-[#004CFF] to-[#760089] text-white py-12 px-6 rounded-b-[3.5rem] shadow-xl mb-10 relative overflow-hidden">
+                <div className="absolute inset-0 bg-black/10 backdrop-blur-[1px]"></div>
+                <div className="container mx-auto max-w-4xl relative z-10 text-center">
                     <BackButton />
-                    <h1 className="text-4xl font-heading font-black mb-2">{t("comm.lgbtq.title")}</h1>
-                    <p className="text-white/80 max-w-xl">{t("comm.lgbtq.desc")}</p>
+                    <div className="flex justify-center mb-4">
+                        <div className="p-4 bg-white/20 backdrop-blur-md rounded-3xl border border-white/30">
+                            <Sparkles className="w-10 h-10 text-white animate-pulse" />
+                        </div>
+                    </div>
+                    <h1 className="text-4xl md:text-5xl font-heading font-black mb-4 drop-shadow-lg">{t("comm.lgbtq.title")}</h1>
+                    <p className="text-white font-medium max-w-xl mx-auto drop-shadow-md">{t("comm.lgbtq.desc")}</p>
                 </div>
             </header>
 

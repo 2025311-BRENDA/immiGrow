@@ -35,6 +35,13 @@ export default function CommunityPage() {
             color: 'bg-pink-50',
         },
         {
+            title: t('comm.lgbtq.title'),
+            description: t('comm.lgbtq.desc'),
+            icon: <Sparkles className="w-8 h-8 text-indigo-500" />,
+            href: '/community/lgbtq',
+            color: 'bg-indigo-50',
+        },
+        {
             title: t('comm.mentors'),
             description: t('comm.mentors.desc'),
             icon: <Share2 className="w-8 h-8 text-purple-500" />,
@@ -54,13 +61,6 @@ export default function CommunityPage() {
             icon: <TrendingUp className="w-8 h-8 text-green-500" />,
             href: '/community/social-fit',
             color: 'bg-green-50',
-        },
-        {
-            title: t('comm.lgbtq.title'),
-            description: t('comm.lgbtq.desc'),
-            icon: <Sparkles className="w-8 h-8 text-indigo-500" />,
-            href: '/community/circles', // For now, link back to circles since the new group is there
-            color: 'bg-indigo-50',
         },
     ];
 

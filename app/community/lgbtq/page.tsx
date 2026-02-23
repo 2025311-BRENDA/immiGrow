@@ -41,8 +41,11 @@ export default function LGBTQPage() {
 
     return (
         <div className="min-h-screen bg-slate-50 pb-24">
-            <header className="bg-gradient-to-r from-[#FF0000] via-[#FF8B00] via-[#E2ED44] via-[#008121] via-[#004CFF] to-[#760089] text-white py-12 px-6 rounded-b-[3.5rem] shadow-xl mb-10 relative overflow-hidden">
-                <div className="absolute inset-0 bg-black/10 backdrop-blur-[1px]"></div>
+            <header
+                className="text-white py-12 px-6 rounded-b-[3.5rem] shadow-xl mb-10 relative overflow-hidden"
+                style={{ background: 'linear-gradient(90deg, #E40303 0%, #FF8C00 16.6%, #FFED00 33.3%, #008026 50%, #24408E 66.6%, #732982 83.3%, #732982 100%)' }}
+            >
+                <div className="absolute inset-0 bg-black/5 backdrop-blur-[0.5px]"></div>
                 <div className="container mx-auto max-w-4xl relative z-10 text-center">
                     <BackButton />
                     <div className="flex justify-center mb-4">

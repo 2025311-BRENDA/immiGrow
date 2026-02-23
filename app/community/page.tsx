@@ -39,7 +39,7 @@ export default function CommunityPage() {
             description: t('comm.lgbtq.desc'),
             icon: <Sparkles className="w-8 h-8 text-white" />,
             href: '/community/lgbtq',
-            color: 'bg-gradient-to-br from-red-400 via-yellow-400 via-green-400 via-blue-400 to-purple-400',
+            style: { background: 'linear-gradient(135deg, #E40303 0%, #FF8C00 20%, #FFED00 40%, #008026 60%, #24408E 80%, #732982 100%)' },
         },
         {
             title: t('comm.mentors'),
@@ -122,7 +122,10 @@ export default function CommunityPage() {
                         href={section.href}
                         className="bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow flex items-center space-x-4 border border-gray-100"
                     >
-                        <div className={`p-4 rounded-xl ${section.color}`}>
+                        <div
+                            className={`p-4 rounded-xl ${section.color || ''}`}
+                            style={section.style}
+                        >
                             {section.icon}
                         </div>
                         <div className="flex-1">

@@ -8,6 +8,7 @@ interface CommunityCardProps {
     actionLabel?: string;
     onAction?: () => void;
     color?: string; // e.g., 'bg-pink-100'
+    style?: React.CSSProperties;
 }
 
 export default function CommunityCard({
@@ -17,10 +18,11 @@ export default function CommunityCard({
     actionLabel = 'Ver más',
     onAction,
     color = 'bg-gray-100',
+    style,
 }: CommunityCardProps) {
     return (
         <div className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden flex flex-col h-full hover:shadow-md transition-shadow">
-            <div className={`h-24 ${color} relative`}>
+            <div className={`h-24 ${color} relative`} style={style}>
                 {tag && (
                     <span className="absolute top-3 right-3 bg-white/90 backdrop-blur-sm text-xs font-medium px-2 py-1 rounded-full text-gray-700 shadow-sm">
                         {tag}

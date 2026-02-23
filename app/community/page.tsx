@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
-import { Users, Heart, Share2, Calendar, TrendingUp, UserCircle, Edit2, Check, ChevronLeft } from 'lucide-react';
+import { Users, Heart, Share2, Calendar, TrendingUp, UserCircle, Edit2, Check, ChevronLeft, Sparkles } from 'lucide-react';
 import { useLanguage } from '@/context/LanguageContext';
 import { SafetyGuidelines } from '@/components/SafetyGuidelines';
 import { BackButton } from '@/components/BackButton';
@@ -54,6 +54,13 @@ export default function CommunityPage() {
             icon: <TrendingUp className="w-8 h-8 text-green-500" />,
             href: '/community/social-fit',
             color: 'bg-green-50',
+        },
+        {
+            title: t('comm.lgbtq.title'),
+            description: t('comm.lgbtq.desc'),
+            icon: <Sparkles className="w-8 h-8 text-indigo-500" />,
+            href: '/community/circles', // For now, link back to circles since the new group is there
+            color: 'bg-indigo-50',
         },
     ];
 

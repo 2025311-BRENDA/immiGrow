@@ -920,7 +920,67 @@ Se você ou alguém que você conhece estiver em perigo, entre em contato agora.
 - **Texto 50808**: Serviço de texto gratuito 24/7. Envie HELLO para 50808.
 - **Pieta House**: Para risco de suicídio ou automutilação. Ligue grátis para **1800 247 247**.
         `
-    }
+    },
+    {
+        title: "Psicologia de Atenção Primária (HSE)",
+        description: "Serviços públicos de psicologia disponíveis através do seu centro de saúde local.",
+        distance: "Serviço HSE",
+        icon: Stethoscope,
+        slug: "hse-primary-care",
+        externalLink: "https://www2.hse.ie/mental-health/services-support/primary-care-psychology/",
+        content: `
+# Psicologia de Atenção Primária (HSE)
+
+Serviços públicos de psicologia estão disponíveis através da Atenção Primária. Estes serviços são para pessoas com dificuldades de saúde mental de leves a moderadas.
+
+## Como Acessar
+- **Encaminhamento**: Geralmente requer um encaminhamento do seu médico de família (GP).
+- **Custo**: Gratuito.
+- **Listas de Espera**: Esteja ciente de que os tempos de espera podem variar conforme a área.
+
+[Visitar site do HSE](https://www2.hse.ie/mental-health/services-support/primary-care-psychology/)
+        `
+    },
+    {
+        title: "Treehouse Practice",
+        description: "Serviços especializados de psicologia clínica e psicoterapia.",
+        distance: "Prática Privada",
+        icon: Stethoscope,
+        slug: "treehouse-practice",
+        externalLink: "https://treehousepractice.ie/",
+        content: `
+# Treehouse Practice
+
+Um serviço privado especializado em psicologia clínica e psicoterapia.
+
+## Serviços
+- Terapia individual para adultos e crianças.
+- Atendimento focado em trauma.
+- Avaliações especializadas.
+
+[Visitar Treehouse Practice](https://treehousepractice.ie/)
+        `
+    },
+    {
+        title: "Grove Court (Inclusão Social)",
+        description: "Suporte de ligação de inclusão social para comunidades marginalizadas.",
+        distance: "Suporte Específico",
+        icon: Users,
+        slug: "grove-court-social-inclusion",
+        externalLink: "https://www2.hse.ie/services/primary-care-centres/grove-court-primary-care/departments-services/social-inclusion-liasion-officer/",
+        content: `
+# Grove Court - Inclusão Social
+
+O Oficial de Ligação de Inclusão Social fornece apoio a membros de comunidades marginalizadas.
+
+## Áreas de Foco
+- Apoio para migrantes, refugiados e pessoas no sistema de proteção internacional.
+- Conectar indivíduos aos serviços de atenção primária.
+- Navegar no sistema de saúde.
+
+[Visitar HSE Grove Court](https://www2.hse.ie/services/primary-care-centres/grove-court-primary-care/departments-services/social-inclusion-liasion-officer/)
+        `
+    },
 ];
 
 export const exerciseGeneralPt: RouteItem[] = [

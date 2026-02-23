@@ -47,6 +47,13 @@ export default function CirclesPage() {
             tag: 'Familia',
             color: 'bg-purple-200',
         },
+        {
+            id: 5,
+            title: t("comm.circles.lgbtq.title"),
+            description: t("comm.circles.lgbtq.desc"),
+            tag: t("comm.circles.lgbtq.tag"),
+            color: 'bg-orange-200',
+        },
     ];
 
     const toggleCircle = (id: number) => {

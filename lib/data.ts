@@ -993,6 +993,66 @@ If you or someone you know is in distress, reach out now. These services are fre
 - If you are in immediate danger, call **112** or **999** or go to the nearest Hospital Emergency Department (A&E).
         `
     },
+    {
+        title: "HSE Primary Care Psychology",
+        description: "Public psychology services available through your local health center.",
+        distance: "HSE Service",
+        icon: Stethoscope,
+        slug: "hse-primary-care",
+        externalLink: "https://www2.hse.ie/mental-health/services-support/primary-care-psychology/",
+        content: `
+# HSE Primary Care Psychology
+
+Public psychology services are available through Primary Care. These services are for people with mild to moderate mental health difficulties.
+
+## How to Access
+- **Referral**: Usually requires a referral from your GP (General Practitioner).
+- **Cost**: Free of charge.
+- **Waitlists**: Be aware that wait times can vary by area.
+
+[Visit HSE Website](https://www2.hse.ie/mental-health/services-support/primary-care-psychology/)
+        `
+    },
+    {
+        title: "Treehouse Practice",
+        description: "Specialized clinical psychology and psychotherapy services.",
+        distance: "Private Practice",
+        icon: Stethoscope,
+        slug: "treehouse-practice",
+        externalLink: "https://treehousepractice.ie/",
+        content: `
+# Treehouse Practice
+
+A specialist private clinical psychology and psychotherapy service.
+
+## Services
+- Individual therapy for adults and children.
+- Trauma-informed care.
+- Specialized assessments.
+
+[Visit Treehouse Practice](https://treehousepractice.ie/)
+        `
+    },
+    {
+        title: "Grove Court (Social Inclusion)",
+        description: "Social Inclusion Liaison support for marginalized communities.",
+        distance: "Specific Support",
+        icon: Users,
+        slug: "grove-court-social-inclusion",
+        externalLink: "https://www2.hse.ie/services/primary-care-centres/grove-court-primary-care/departments-services/social-inclusion-liasion-officer/",
+        content: `
+# Grove Court - Social Inclusion
+
+The Social Inclusion Liaison Officer provides support to members of marginalized communities.
+
+## Focus Areas
+- Support for migrants, refugees, and those in the protection system.
+- Connecting individuals with primary care services.
+- Navigating the healthcare system.
+
+[Visit HSE Grove Court](https://www2.hse.ie/services/primary-care-centres/grove-court-primary-care/departments-services/social-inclusion-liasion-officer/)
+        `
+    },
 ];
 
 export const exerciseGeneral: RouteItem[] = [

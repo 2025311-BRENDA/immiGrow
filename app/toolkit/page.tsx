@@ -167,7 +167,7 @@ export default function ToolkitPage() {
                         </div>
 
                         <div className="shrink-0">
-                            <div className="w-48 h-48 bg-white p-4 rounded-[2rem] shadow-2xl rotate-3 hover:rotate-0 transition-transform duration-500 flex items-center justify-center overflow-hidden">
+                            <div className="w-48 h-48 bg-white p-4 rounded-[2rem] shadow-2xl rotate-3 hover:rotate-0 transition-all duration-500 flex items-center justify-center overflow-hidden animate-[float_4s_ease-in-out_infinite]">
                                 <img
                                     src="/qrcode_ready.png"
                                     alt="QR Code immiGrow"

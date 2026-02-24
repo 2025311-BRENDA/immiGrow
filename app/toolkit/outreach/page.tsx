@@ -1,92 +1,96 @@
-"use client";
+'use client';
 
-import React, { useState } from "react";
-import { Share2, Copy, Check, MessageCircle, Instagram, Facebook, ChevronLeft } from "lucide-react";
-import { BackButton } from "@/components/BackButton";
-import { useLanguage } from "@/context/LanguageContext";
+import React from 'react';
+import { Shield, Heart, Plane, Users, Link as LinkIcon, Download, Printer, MessageSquare } from 'lucide-react';
+import Link from 'next/link';
 
-export default function OutreachKitPage() {
-    const { t } = useLanguage();
-    const [copiedIndex, setCopiedIndex] = useState<number | null>(null);
-
-    const shareMessages = [
-        {
-            lang: "Español 🇪🇸",
-            title: "Mensaje para WhatsApp",
-            content: `¡Hola a todos! 👋 ¿Eres nuevo en Dublín o quieres ayudar a alguien que acaba de llegar? He estado usando immiGrow ☘️ y es una maravilla para los inmigrantes. Tiene guías de salud, rutas de natación, foros y un espacio para tus documentos. Es gratuita y súper útil. Échale un ojo aquí: https://immigrow.ie`
-        },
-        {
-            lang: "Português 🇧🇷",
-            title: "Mensagem para WhatsApp",
-            content: `Olá pessoal! 👋 Você é novo em Dublin ou conhece alguém que acabou de chegar? Comecei a usar o immiGrow ☘️ e é incrível para imigrantes. Tem guias de saúde, rotas de natação, fóruns e um espaço para seus documentos. É gratuito e muito prático. Confira aqui: https://immigrow.ie`
-        },
-        {
-            lang: "English 🇬🇧",
-            title: "WhatsApp Message",
-            content: `Hi everyone! 👋 Are you new to Dublin or want to help someone who just arrived? I've been using immiGrow ☘️ and it's a game-changer for migrants. It includes health care guides, swimming routes, forums, and a vault for your documents. It's free and extremely helpful. Check it out: https://immigrow.ie`
-        }
-    ];
-
-    const handleCopy = (text: string, index: number) => {
-        navigator.clipboard.writeText(text);
-        setCopiedIndex(index);
-        setTimeout(() => setCopiedIndex(null), 2000);
-    };
-
+export default function OutreachPage() {
     return (
-        <div className="min-h-screen bg-brand-sand pb-32">
-            <header className="bg-brand-navy text-white py-16 px-6 rounded-b-[3.5rem] relative overflow-hidden shadow-xl">
-                <div className="absolute top-0 right-0 w-96 h-96 bg-white/5 rounded-full -mr-32 -mt-32 blur-3xl" />
-                <div className="container mx-auto max-w-3xl relative z-10">
-                    <BackButton />
-                    <div className="flex items-center gap-3 mb-4">
-                        <Share2 className="w-5 h-5 text-brand-sun" />
-                        <span className="text-[10px] font-black uppercase tracking-[0.2em] text-white/60">
-                            Outreach Kit
-                        </span>
-                    </div>
-                    <h1 className="text-4xl font-black mb-4">Ayúdanos a crecer ☘️</h1>
-                    <p className="text-white/80 text-lg leading-relaxed">
-                        Copia y pega estos mensajes en tus grupos de WhatsApp o redes sociales para ayudar a otros inmigrantes en Dublín.
-                    </p>
+        <div className="min-h-screen bg-slate-50 pb-20">
+            {/* Header section for the app view */}
+            <div className="bg-emerald-600 text-white py-12 px-6 rounded-b-[3.5rem] shadow-lg mb-10 print:hidden">
+                <div className="container mx-auto max-w-4xl">
+                    <h1 className="text-3xl font-heading font-black mb-2 text-center">Material de Difusión</h1>
+                    <p className="text-emerald-50 text-center">Ayúdanos a llegar a más migrantes compartiendo este flyer.</p>
                 </div>
-            </header>
+            </div>
 
-            <main className="container mx-auto max-w-3xl px-6 -mt-8 relative z-20 space-y-6">
-                {shareMessages.map((msg, index) => (
-                    <div key={index} className="bg-white rounded-[2.5rem] p-8 shadow-sm border border-slate-100">
-                        <div className="flex items-center justify-between mb-4">
-                            <div>
-                                <span className="text-[10px] font-black uppercase tracking-widest text-brand-irish-green">{msg.lang}</span>
-                                <h2 className="text-xl font-bold text-brand-navy">{msg.title}</h2>
+            <main className="container mx-auto px-6 max-w-4xl">
+                <div className="flex justify-end mb-6 space-x-4 print:hidden">
+                    <button
+                        onClick={() => window.print()}
+                        className="flex items-center space-x-2 bg-white px-4 py-2 rounded-xl shadow-sm border border-emerald-100 text-emerald-700 font-bold hover:bg-emerald-50 transition-colors"
+                    >
+                        <Printer size={18} />
+                        <span>Imprimir Flyer</span>
+                    </button>
+                </div>
+
+                {/* Printable Flyer starts here */}
+                <div className="bg-white shadow-2xl rounded-[2.5rem] overflow-hidden border border-slate-100 aspect-[1/1.414] max-w-2xl mx-auto print:shadow-none print:border-none print:m-0 relative">
+                    {/* The Full Background Gradient */}
+                    <div className="absolute inset-0"
+                        style={{ background: 'linear-gradient(180deg, #059669 0%, #10b981 40%, #06b6d4 100%)' }}></div>
+
+                    <div className="relative h-full flex flex-col items-center justify-between p-12 text-center text-white">
+                        {/* Original Suitcase Logo */}
+                        <div className="mt-4 mb-4">
+                            <div className="bg-white/20 backdrop-blur-md p-6 rounded-[2.5rem] border border-white/30 shadow-xl">
+                                <img
+                                    src="/logo_final.png"
+                                    alt="immiGrow Logo"
+                                    className="w-24 h-24 object-contain drop-shadow-lg"
+                                />
                             </div>
-                            <button
-                                onClick={() => handleCopy(msg.content, index)}
-                                className={`p-3 rounded-xl transition-all ${copiedIndex === index ? 'bg-brand-irish-green text-white' : 'bg-slate-50 text-slate-400 hover:bg-brand-sun hover:text-brand-navy'}`}
-                            >
-                                {copiedIndex === index ? <Check className="w-5 h-5" /> : <Copy className="w-5 h-5" />}
-                            </button>
                         </div>
-                        <div className="bg-slate-50 rounded-2xl p-6 text-sm text-slate-600 italic leading-relaxed border border-slate-100">
-                            "{msg.content}"
+
+                        <div className="flex flex-col items-center">
+                            <h2 className="text-4xl md:text-5xl font-heading font-black mb-4 drop-shadow-md tracking-tight leading-tight">
+                                immiGrow: Your Dublin Journey Starts Here
+                            </h2>
+                            <div className="h-1.5 w-32 bg-white/40 rounded-full mb-8"></div>
+                        </div>
+
+                        <div className="grid grid-cols-3 gap-8 w-full px-8 mb-8">
+                            <div className="flex flex-col items-center">
+                                <div className="p-3 bg-white/10 backdrop-blur-md rounded-2xl mb-2 border border-white/20">
+                                    <Heart className="text-white" size={24} />
+                                </div>
+                                <span className="text-sm font-black uppercase tracking-wider">Health</span>
+                            </div>
+                            <div className="flex flex-col items-center">
+                                <div className="p-3 bg-white/10 backdrop-blur-md rounded-2xl mb-2 border border-white/20">
+                                    <Users className="text-white" size={24} />
+                                </div>
+                                <span className="text-sm font-black uppercase tracking-wider">Activity</span>
+                            </div>
+                            <div className="flex flex-col items-center">
+                                <div className="p-3 bg-white/10 backdrop-blur-md rounded-2xl mb-2 border border-white/20">
+                                    <MessageSquare className="text-white" size={24} />
+                                </div>
+                                <span className="text-sm font-black uppercase tracking-wider">Community</span>
+                            </div>
+                        </div>
+
+                        <div className="flex flex-col items-center">
+                            <div className="p-6 bg-white rounded-3xl shadow-2xl border-4 border-white">
+                                <img
+                                    src="/qrcode_ready.png"
+                                    alt="QR Code immiGrow"
+                                    className="w-40 h-40"
+                                />
+                            </div>
+                            <p className="mt-4 text-xs font-black tracking-widest uppercase opacity-80 decoration-white">Scan to Download</p>
+                        </div>
+
+                        <div className="w-full mt-4 py-8 border-t border-white/20">
+                            <p className="text-xl font-black italic tracking-wide">Hecho por migrantes, para migrantes</p>
                         </div>
                     </div>
-                ))}
+                </div>
 
-                <div className="bg-brand-sun/10 border-2 border-brand-sun/20 rounded-[2.5rem] p-8">
-                    <h3 className="text-lg font-bold text-brand-navy mb-4 flex items-center gap-2">
-                        <Instagram className="w-5 h-5" /> Redes Sociales
-                    </h3>
-                    <p className="text-sm text-slate-700 mb-6 leading-relaxed">
-                        "Mudarse a un nuevo país es un viaje, y no tienes que caminarlo solo. ☘️ immiGrow está aquí para ayudarte a navegar por Dublín con confianza. #immiGrow #NewToDublin"
-                    </p>
-                    <button
-                        onClick={() => handleCopy("Mudarse a un nuevo país es un viaje, y no tienes que caminarlo solo. ☘️ immiGrow está aquí para ayudarte a navegar por Dublín con confianza. #immiGrow #NewToDublin", 99)}
-                        className="flex items-center gap-2 text-brand-navy font-bold text-sm bg-brand-sun px-4 py-2 rounded-xl"
-                    >
-                        {copiedIndex === 99 ? <Check className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
-                        Copiar Caption
-                    </button>
+                <div className="mt-12 text-center text-slate-400 text-sm print:hidden">
+                    <p>Consejo: Imprime esto en papel grueso o cartulina para colocarlo en locales o centros comunitarios.</p>
                 </div>
             </main>
         </div>

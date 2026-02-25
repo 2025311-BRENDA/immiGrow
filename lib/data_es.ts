@@ -760,8 +760,6 @@ Si eres no-UE y te quedas +90 días.
 - **Stamp 1G**: Si te gradúas con un Título de Honor (Nivel 8) o Maestría (Nivel 9), puedes obtener una "Visa de Graduado" de 1-2 años para buscar trabajo a tiempo completo.
         `
     },
-    `
-    },
     {
         title: "Bancos y Finanzas",
         description: "Cómo abrir una cuenta bancaria en Irlanda. AIB, Bank of Ireland y alternativas digitales.",

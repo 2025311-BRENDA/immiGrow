@@ -838,8 +838,6 @@ Encontrar acomodação pode ser um desafio. Aqui está o que você precisa saber
 - **Stamp 1G**: Se você se formar com um Honours Degree (Nível 8) ou Mestrado (Nível 9), pode obter um "Visto de Graduado" de 1-2 anos para procurar trabalho em tempo integral.
         `
     },
-    `
-    },
     {
         title: "Bancos e Finanças",
         description: "Como abrir uma conta bancária na Irlanda. AIB, Bank of Ireland e alternativas digitais.",

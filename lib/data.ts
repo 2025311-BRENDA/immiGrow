@@ -940,26 +940,61 @@ Many migrants prefer starting with a digital bank because the setup is much fast
         slug: "mygovid-guide",
         externalLink: "https://www.mygovid.ie/",
         content: `
-# Using myGovID in Ireland
+# 🔐 Comprehensive myGovID Guide
 
-myGovID is your single, secure account that lets you access various Irish government services online.
+myGovID is your single, secure account that lets you access various Irish government services online. It is essential for managing your taxes and social welfare.
 
-## Account Types
+## 🔸 Account Types
 
 ### 1. Basic Account
-- **What you need**: Just an email address.
-- **What you can do**: Book appointments (e.g., for PPSN) and access limited services.
+*   **What you need**: Just a valid email address.
+*   **Best for**: Booking appointments (e.g., for PPSN or PSC) and accessing basic online services.
 
-### 2. Verified Account
-- **What you need**: A PPS Number and a Public Services Card (PSC).
-- **What you can do**: Full access to Revenue (myAccount), MyWelfare, Social Welfare applications, and Driving License (NDLS) services.
+### 2. Verified Account (Strongly Recommended)
+*   **What you need**: A PPS Number and a Public Services Card (PSC).
+*   **Best for**: Full access to **Revenue (myAccount)**, **MyWelfare** (social payments), and **NDLS** (Driving License).
 
-## How to Set It Up
-1.  Go to [myGovID.ie](https://www.mygovid.ie/) and click 'Create Account'.
-2.  Follow the steps to verify your email.
-3.  To get 'Verified' status, you will need to attend an in-person appointment at an Intreo centre to get your Public Services Card first.
+## 🛠️ How to Set It Up
+1.  **Create Basic Account**: Go to [myGovID.ie](https://www.mygovid.ie/) and click 'Create Account'.
+2.  **Verify Email**: Secure your account via the link sent to your inbox.
+3.  **Get verified**: Once you have your PPSN, book a 'PSC appointment' at an Intreo centre. After getting your card, you can 'verify' your myGovID online to unlock all features.
 
 [Official myGovID Portal](https://www.mygovid.ie/)
+        `
+    },
+    {
+        title: "Revenue & Taxes",
+        description: "Manage your PAYE, avoid Emergency Tax, and claim Tax Credits.",
+        distance: "Financial",
+        icon: Landmark,
+        slug: "revenue-taxes",
+        externalLink: "https://www.revenue.ie/",
+        content: `
+# 💸 Managing Your Taxes (Revenue)
+
+In Ireland, the tax authority is called **Revenue**. As an employee, you typically pay tax via the **PAYE** (Pay As You Earn) system.
+
+## 🚨 Avoid 'Emergency Tax'!
+If your employer doesn't have your PPSN or your job isn't registered with Revenue, you might be put on **Emergency Tax**, which can take up to 40% of your paycheck!
+
+**How to fix it:**
+1.  Register for **Revenue myAccount**.
+2.  Register your new job as soon as you start.
+3.  Once registered, your employer receives a 'notification' and will refund any overpaid tax in your next paycheck.
+
+## 💰 Tax Credits & Refunds
+Tax credits reduce the amount of tax you pay. Common credits include:
+*   **Personal Tax Credit**: For every resident.
+*   **PAYE Tax Credit**: For those working in employment.
+*   **Rent Tax Credit**: You can get money back (up to €750+ per year) if you pay for private rent!
+
+## 💻 myAccount Portal
+Use [Revenue myAccount](https://www.revenue.ie/) to:
+- Review your tax yearly.
+- Claim your tax credits (like the Rent Credit).
+- Add or change jobs.
+
+[Login to Revenue myAccount](https://www.revenue.ie/)
         `
     }
 ];

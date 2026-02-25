@@ -879,26 +879,61 @@ Muitos imigrantes preferem começar com um banco digital porque a configuração
         slug: "mygovid-guide",
         externalLink: "https://www.mygovid.ie/",
         content: `
-# Como usar o myGovID na Irlanda
+# 🔐 Guia Completo do myGovID
 
-O myGovID é a sua conta única e segura que permite aceder a vários serviços governamentais irlandeses online.
+O myGovID é a sua conta única e segura que permite aceder a vários serviços governamentais irlandeses online. É essencial para gerir os seus impostos e apoios sociais.
 
-## Tipos de Conta
+## 🔸 Tipos de Conta
 
 ### 1. Conta Básica
-- **O que você precisa**: Apenas um endereço de e-mail.
-- **O que você pode fazer**: Agendar compromissos (ex: para o PPSN) e aceder a serviços limitados.
+*   **O que você precisa**: Apenas um endereço de e-mail válido.
+*   **Ideal para**: Agendar compromissos (ex: para o PPSN ou o PSC) e aceder a serviços básicos online.
 
-### 2. Conta Verificada
-- **O que você precisa**: Um número PPS e um Cartão de Serviços Públicos (PSC).
-- **O que você pode fazer**: Acesso total ao Revenue (myAccount), MyWelfare, pedidos de segurança social e serviços de carta de condução (NDLS).
+### 2. Conta Verificada (Fortemente Recomendada)
+*   **O que você precisa**: Um número PPS e um Cartão de Serviços Públicos (PSC).
+*   **Ideal para**: Acesso total ao **Revenue (myAccount)**, **MyWelfare** (pagamentos sociais) e **NDLS** (Carta de Condução).
 
-## Como Configurar
-1.  Vá para [myGovID.ie](https://www.mygovid.ie/) e clique em 'Create Account'.
-2.  Siga as etapas para verificar o seu e-mail.
-3.  Para obter o status 'Verificado', primeiro você precisará comparecer a um agendamento presencial em um centro Intreo para obter o seu Cartão de Serviços Públicos (PSC).
+## 🛠️ Como Configurar
+1.  **Criar Conta Básica**: Vá para [myGovID.ie](https://www.mygovid.ie/) e clique em 'Create Account'.
+2.  **Verificar E-mail**: Segure a sua conta através do link enviado para a sua caixa de entrada.
+3.  **Verificar-se**: Assim que tiver o seu PPSN, agende um 'compromisso para o PSC' num centro Intreo. Depois de obter o seu cartão, poderá 'verificar' o seu myGovID online para desbloquear todas as funcionalidades.
 
 [Portal Oficial do myGovID](https://www.mygovid.ie/)
+        `
+    },
+    {
+        title: "Impostos (Revenue)",
+        description: "Gerencie seu PAYE, evite o Emergency Tax e solicite créditos fiscais.",
+        distance: "Financeiro",
+        icon: Landmark,
+        slug: "revenue-taxes",
+        externalLink: "https://www.revenue.ie/",
+        content: `
+# 💸 Gestão de Impostos (Revenue)
+
+Na Irlanda, a autoridade fiscal chama-se **Revenue**. Como funcionário, normalmente paga impostos através do sistema **PAYE** (Pay As You Earn - Pague conforme ganha).
+
+## 🚨 Evite o 'Emergency Tax'!
+Se o seu empregador não tiver o seu PPSN ou se o seu trabalho não estiver registado no Revenue, poderá ser colocado no **Emergency Tax**, que pode reter até 40% do seu salário!
+
+**Como resolver:**
+1.  Registe-se no **Revenue myAccount**.
+2.  Registe o seu novo emprego assim que começar.
+3.  Uma vez registado, o seu empregador receberá uma 'notificação' e reembolsará qualquer imposto pago a mais no seu próximo salário.
+
+## 💰 Créditos Fiscais e Reembolsos
+Os créditos fiscais reduzem o valor do imposto que você paga. Créditos comuns incluem:
+*   **Crédito Fiscal Pessoal**: Para todos os residentes.
+*   **Crédito Fiscal PAYE**: Para quem trabalha por conta de outrem.
+*   **Crédito Fiscal de Aluguel (Rent Credit)**: Pode receber dinheiro de volta (até €750+ por ano) se pagar aluguer privado!
+
+## 💻 Portal myAccount
+Use o [Revenue myAccount](https://www.revenue.ie/) para:
+- Rever os seus impostos anualmente.
+- Solicitar os seus créditos fiscais (como o Rent Credit).
+- Adicionar ou alterar empregos.
+
+[Iniciar sessão no Revenue myAccount](https://www.revenue.ie/)
         `
     }
 ];

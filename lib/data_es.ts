@@ -760,33 +760,7 @@ Si eres no-UE y te quedas +90 días.
 - **Stamp 1G**: Si te gradúas con un Título de Honor (Nivel 8) o Maestría (Nivel 9), puedes obtener una "Visa de Graduado" de 1-2 años para buscar trabajo a tiempo completo.
         `
     },
-    {
-        title: "Costo de Vida",
-        description: "Presupuesto para la vida en Dublín. Alquiler, comida y transporte.",
-        distance: "Finanzas",
-        icon: CreditCard,
-        slug: "cost-of-living",
-        image: "/cost_of_living.png",
-        content: `
-# Costo de Vida en Dublín
-
-Dublín es una ciudad cara. Aquí hay algunos costos mensuales promedio para ayudarte a presupuestar.
-
-## Alojamiento
-- **Habitación Individual**: €800 - €1,200+
-- **Habitación Compartida**: €500 - €800
-- **Apartamento 1 Hab**: €1,800+
-
-## Otros Gastos
-- **Transporte**: ~€100 (con tope de Leap Card).
-- **Comida**: ~€250 - €350 por persona.
-- **Teléfono**: €20 (ej. 48.ie o GoMo).
-
-## Consejos
-- Compra en **Lidl** o **Aldi** para ahorrar en comida.
-- Usa una **Leap Card** para todo el transporte.
-- Cocina en casa; comer fuera es caro (€15-€20 por plato principal).
-        `
+    `
     },
     {
         title: "Bancos y Finanzas",
@@ -800,24 +774,24 @@ Dublín es una ciudad cara. Aquí hay algunos costos mensuales promedio para ayu
 
 Tener una cuenta bancaria local es esencial para recibir tu salario, pagar el alquiler y gestionar tus gastos diarios.
 
-## Bancos Tradicionales ("Los dos grandes")
+## Bancos Tradicionales("Los dos grandes")
 Estos bancos tienen muchas sucursales físicas y ofrecen servicios completos.
-- **AIB (Allied Irish Banks)**: Uno de los más grandes. Suelen requerir un PPSN y prueba de dirección para abrir una cuenta.
-- **Bank of Ireland (BoI)**: Otro banco tradicional importante con una larga historia. Requisitos similares a AIB.
+- ** AIB(Allied Irish Banks) **: Uno de los más grandes.Suelen requerir un PPSN y prueba de dirección para abrir una cuenta.
+- ** Bank of Ireland(BoI) **: Otro banco tradicional importante con una larga historia.Requisitos similares a AIB.
 
-## Bancos Digitales (Rápido y Fácil)
+## Bancos Digitales(Rápido y Fácil)
 Muchos migrantes prefieren empezar con un banco digital porque la configuración es mucho más rápida.
-- **Revolut**: Extremadamente popular en Irlanda. Puedes abrir una cuenta en minutos usando tu pasaporte y tarjeta IRP. Proporciona un IBAN irlandés.
-- **Money Jar**: Una alternativa digital con sede en Irlanda que es muy amigable para los migrantes.
+- ** Revolut **: Extremadamente popular en Irlanda.Puedes abrir una cuenta en minutos usando tu pasaporte y tarjeta IRP.Proporciona un IBAN irlandés.
+- ** Money Jar **: Una alternativa digital con sede en Irlanda que es muy amigable para los migrantes.
 
 ## Qué Necesitas
-1.  **Identificación Válida**: Usualmente tu Pasaporte.
-2.  **Prueba de Dirección**: Una factura de servicios públicos, un contrato de alquiler o una carta de tu empleador/anfitrión.
-3.  **Número PPS**: A menudo requerido por los bancos tradicionales para verificar tu estatus fiscal.
+1. ** Identificación Válida **: Usualmente tu Pasaporte.
+2. ** Prueba de Dirección **: Una factura de servicios públicos, un contrato de alquiler o una carta de tu empleador / anfitrión.
+3. ** Número PPS **: A menudo requerido por los bancos tradicionales para verificar tu estatus fiscal.
 
 ## Consejos
-- La mayoría de los bancos tradicionales cobran una comisión trimestral de mantenimiento (alrededor de €4.50 - €6.00).
-- Las cuentas de estudiante (si tienes un Stamp 2) suelen estar exentas de comisiones de mantenimiento.
+    - La mayoría de los bancos tradicionales cobran una comisión trimestral de mantenimiento(alrededor de €4.50 - €6.00).
+- Las cuentas de estudiante(si tienes un Stamp 2) suelen estar exentas de comisiones de mantenimiento.
         `
     }
 ];
@@ -833,16 +807,16 @@ export const mentalHealthEs: RouteItem[] = [
         content: `
 # Encontrar un Psicólogo
 
-Encontrar el profesional de salud mental adecuado es importante. Aquí hay algunos recursos para encontrar apoyo multicultural y multilingüe.
+Encontrar el profesional de salud mental adecuado es importante.Aquí hay algunos recursos para encontrar apoyo multicultural y multilingüe.
 
 ## Directorios
-- **Psychological Society of Ireland (PSI)**: Usa la herramienta "Find a Psychologist" en su sitio web. Puedes filtrar por idioma.
-- **MyMind**: Un proveedor sin fines de lucro de atención de salud mental accesible. Ofrecen servicios en +15 idiomas.
-- **Counselling Directory**: Una base de datos completa de consejeros y psicoterapeutas.
+    - ** Psychological Society of Ireland(PSI) **: Usa la herramienta "Find a Psychologist" en su sitio web.Puedes filtrar por idioma.
+- ** MyMind **: Un proveedor sin fines de lucro de atención de salud mental accesible.Ofrecen servicios en + 15 idiomas.
+- ** Counselling Directory **: Una base de datos completa de consejeros y psicoterapeutas.
 
 ## Consejos
-- Pregunta si tienen experiencia trabajando con migrantes o expatriados.
-- Verifica sus calificaciones (acreditación PSI o IACP).
+    - Pregunta si tienen experiencia trabajando con migrantes o expatriados.
+- Verifica sus calificaciones(acreditación PSI o IACP).
         `
     },
     {
@@ -857,13 +831,13 @@ Encontrar el profesional de salud mental adecuado es importante. Aquí hay algun
 Conectar con otros que están pasando por experiencias similares puede ser muy sanador.
 
 ## Grupos Específicos para Migrantes
-- **New Communities Partnership (NCP)**: Ofrece varios servicios de apoyo y grupos sociales.
-- **First Fortnight**: Una organización benéfica de salud mental basada en las artes que a menudo organiza eventos inclusivos.
-- **Meetup.com**: Busca grupos de "Expat" o "New in Dublin" para construir un círculo social.
+    - ** New Communities Partnership(NCP) **: Ofrece varios servicios de apoyo y grupos sociales.
+- ** First Fortnight **: Una organización benéfica de salud mental basada en las artes que a menudo organiza eventos inclusivos.
+- ** Meetup.com **: Busca grupos de "Expat" o "New in Dublin" para construir un círculo social.
 
 ## Grupos de Salud Mental
-- **Grow**: Movimiento comunitario de salud mental con reuniones semanales.
-- **Aware**: Grupos de apoyo para la depresión y el trastorno bipolar.
+    - ** Grow **: Movimiento comunitario de salud mental con reuniones semanales.
+- ** Aware **: Grupos de apoyo para la depresión y el trastorno bipolar.
         `
     },
     {
@@ -875,15 +849,15 @@ Conectar con otros que están pasando por experiencias similares puede ser muy s
         content: `
 # Líneas de Ayuda en Crisis
 
-Si tú o alguien que conoces está angustiado, busca ayuda ahora. Estos servicios son gratuitos y confidenciales.
+Si tú o alguien que conoces está angustiado, busca ayuda ahora.Estos servicios son gratuitos y confidenciales.
 
-## Servicios 24/7
-- **Samaritans**: Teléfono gratuito **116 123** (A cualquier hora, día o noche).
-- **Text 50808**: Un servicio de texto gratuito 24/7. Envía HELLO al 50808.
-- **Pieta House**: Para aquellos en riesgo de suicidio o autolesiones. Teléfono gratuito **1800 247 247**.
+## Servicios 24 / 7
+    - ** Samaritans **: Teléfono gratuito ** 116 123 ** (A cualquier hora, día o noche).
+- ** Text 50808 **: Un servicio de texto gratuito 24 / 7. Envía HELLO al 50808.
+    - ** Pieta House **: Para aquellos en riesgo de suicidio o autolesiones.Teléfono gratuito ** 1800 247 247 **.
 
 ## Emergencia
-- Si estás en peligro inmediato, llama al **112** o **999** o ve al Departamento de Emergencias del Hospital más cercano (A&E).
+    - Si estás en peligro inmediato, llama al ** 112 ** o ** 999 ** o ve al Departamento de Emergencias del Hospital más cercano(A & E).
         `
     },
     {
@@ -894,14 +868,14 @@ Si tú o alguien que conoces está angustiado, busca ayuda ahora. Estos servicio
         slug: "hse-primary-care",
         externalLink: "https://www2.hse.ie/mental-health/services-support/primary-care-psychology/",
         content: `
-# Psicología de Atención Primaria (HSE)
+# Psicología de Atención Primaria(HSE)
 
-Los servicios públicos de psicología están disponibles a través de Atención Primaria. Estos servicios son para personas con dificultades de salud mental leves a moderadas.
+Los servicios públicos de psicología están disponibles a través de Atención Primaria.Estos servicios son para personas con dificultades de salud mental leves a moderadas.
 
 ## Cómo acceder
-- **Referencia**: Generalmente requiere una referencia de su médico de cabecera (GP).
-- **Costo**: Gratuito.
-- **Listas de espera**: Tenga en cuenta que los tiempos de espera pueden variar según el área.
+    - ** Referencia **: Generalmente requiere una referencia de su médico de cabecera(GP).
+- ** Costo **: Gratuito.
+- ** Listas de espera **: Tenga en cuenta que los tiempos de espera pueden variar según el área.
 
 [Visitar sitio web de la HSE](https://www2.hse.ie/mental-health/services-support/primary-care-psychology/)
         `
@@ -919,7 +893,7 @@ Los servicios públicos de psicología están disponibles a través de Atención
 Un servicio especializado de psicología clínica y psicoterapia privada.
 
 ## Servicios
-- Terapia individual para adultos y niños.
+    - Terapia individual para adultos y niños.
 - Atención informada en trauma.
 - Evaluaciones especializadas.
 
@@ -939,7 +913,7 @@ Un servicio especializado de psicología clínica y psicoterapia privada.
 El Oficial de Enlace de Inclusión Social brinda apoyo a miembros de comunidades marginadas.
 
 ## Áreas de Enfoque
-- Apoyo para migrantes, refugiados y personas en el sistema de protección internacional.
+    - Apoyo para migrantes, refugiados y personas en el sistema de protección internacional.
 - Conectar a las personas con los servicios de atención primaria.
 - Navegar por el sistema de salud.
 
@@ -982,13 +956,13 @@ export const exerciseGeneralEs: RouteItem[] = [
 Mantenerse activa y socializar gratis es muy sencillo en Dublín.
 
 ## Grupos y Eventos Gratuitos
-- **parkrun Ireland**: Carreras de 5 km cronometradas, gratuitas y semanales cada sábado a las 9:30 AM en parques como Phoenix Park, Fairview y St. Anne's. El registro es gratis.
-- **Fútbol Social**: Muchos grupos amateur organizan partidos gratuitos o de muy bajo coste en los parques (Fairview Park y Herbert Park son puntos clave). Consulta Meetup.com o grupos locales de Facebook.
-- **Sporting Pride**: Una organización multideportiva inclusiva que a menudo organiza sesiones de introducción gratuitas.
-- **Sanctuary Runners**: Un movimiento de solidaridad a través del deporte que une a residentes locales y personas en el sistema de protección internacional.
+- ** parkrun Ireland **: Carreras de 5 km cronometradas, gratuitas y semanales cada sábado a las 9: 30 AM en parques como Phoenix Park, Fairview y St.Anne's. El registro es gratis.
+    - ** Fútbol Social **: Muchos grupos amateur organizan partidos gratuitos o de muy bajo coste en los parques(Fairview Park y Herbert Park son puntos clave).Consulta Meetup.com o grupos locales de Facebook.
+- ** Sporting Pride **: Una organización multideportiva inclusiva que a menudo organiza sesiones de introducción gratuitas.
+- ** Sanctuary Runners **: Un movimiento de solidaridad a través del deporte que une a residentes locales y personas en el sistema de protección internacional.
 
 ## Equipo Gratuito
-- **Gimnasios al aire libre**: La mayoría de los grandes parques de Dublín tienen equipos de fitness al aire libre de alta calidad y gratuitos (Fairview, Herbert Park, Mt. Merrion).
+    - ** Gimnasios al aire libre **: La mayoría de los grandes parques de Dublín tienen equipos de fitness al aire libre de alta calidad y gratuitos(Fairview, Herbert Park, Mt.Merrion).
         `
     }
 ];
@@ -1008,12 +982,12 @@ export const womensHealthEs: RouteItem[] = [
 El Programa Nacional de Detección Cervical.
 
 ## Elegibilidad
-- **Gratis** para todas las mujeres de 25 a 65 años.
+    - ** Gratis ** para todas las mujeres de 25 a 65 años.
 - Debes consultar el registro para asegurarte de que estás incluida.
 
 ## Cómo funciona
 1.  Recibe una carta invitándote a un chequeo.
-2.  Reserva una cita con un evaluador registrado (generalmente un médico de cabecera o enfermera de práctica).
+2.  Reserva una cita con un evaluador registrado(generalmente un médico de cabecera o enfermera de práctica).
 3.  La prueba es gratuita.
         `
     },
@@ -1027,18 +1001,18 @@ El Programa Nacional de Detección Cervical.
         content: `
 # Atención de Maternidad en Irlanda
 
-**Esquema de Atención Materna e Infantil**: Toda mujer embarazada y residente ordinaria en Irlanda tiene derecho a atención de maternidad gratuita.
+    ** Esquema de Atención Materna e Infantil **: Toda mujer embarazada y residente ordinaria en Irlanda tiene derecho a atención de maternidad gratuita.
 
 ## Atención Pública
-- Atención compartida entre tu médico de cabecera y un hospital de maternidad.
-- **Costo**: Gratis.
-- **Hospitales**:
-    - The Rotunda
+    - Atención compartida entre tu médico de cabecera y un hospital de maternidad.
+- ** Costo **: Gratis.
+- ** Hospitales **:
+        - The Rotunda
     - The Coombe
-    - National Maternity Hospital (Holles St)
+    - National Maternity Hospital(Holles St)
 
 ## Registro
-- Visita a tu médico de cabecera tan pronto como creas que estás embarazada.
+    - Visita a tu médico de cabecera tan pronto como creas que estás embarazada.
 - Ellos confirmarán el embarazo y te ayudarán a registrarte en un hospital.
         `
     },
@@ -1054,13 +1028,13 @@ El Programa Nacional de Detección Cervical.
 # Clínicas de Salud para Mujeres
 
 Las clínicas especializadas a menudo ofrecen servicios como:
-- Anticoncepción
-- Atención de la menopausia
-- Exámenes de salud sexual
+        - Anticoncepción
+        - Atención de la menopausia
+    - Exámenes de salud sexual
 
 ## Tipos de Clínicas
-- **Well Woman Centre**: Ubicaciones en todo Dublín (Liffey St, Coolock, Pembroke Rd).
-- **IFPA (Asociación Irlandesa de Planificación Familiar)**: Clínicas en el centro de la ciudad y Tallaght.
+    - ** Well Woman Centre **: Ubicaciones en todo Dublín(Liffey St, Coolock, Pembroke Rd).
+- ** IFPA(Asociación Irlandesa de Planificación Familiar) **: Clínicas en el centro de la ciudad y Tallaght.
         `
     },
     {
@@ -1075,9 +1049,9 @@ Las clínicas especializadas a menudo ofrecen servicios como:
 Conectar con otras es clave para el bienestar.
 
 ## Organizaciones
-- **[AkiDwA](https://akidwa.ie/)**: Red nacional de mujeres migrantes en Irlanda.
-- **[NCP (New Communities Partnership)](https://www.newcommunities.ie/)**: A menudo organiza grupos de mujeres.
-- **[Cairde](https://cairde.ie/)**: Trabajando para reducir desigualdades en salud.
+    - ** [AkiDwA](https://akidwa.ie/)**: Red nacional de mujeres migrantes en Irlanda.
+- ** [NCP(New Communities Partnership)](https://www.newcommunities.ie/)**: A menudo organiza grupos de mujeres.
+- ** [Cairde](https://cairde.ie/)**: Trabajando para reducir desigualdades en salud.
         `
     },
     {
@@ -1259,25 +1233,25 @@ export const gymsEs: RouteItem[] = [
         content: `
 # Dublin City Council Sports & Fitness
 
-El Ayuntamiento de Dublín opera una red de centros deportivos y de fitness en toda la ciudad. Son instalaciones públicas diseñadas para ser accesibles y asequibles para todos.
+El Ayuntamiento de Dublín opera una red de centros deportivos y de fitness en toda la ciudad.Son instalaciones públicas diseñadas para ser accesibles y asequibles para todos.
 
-## ¿Por qué elegir estos gimnasios?
-- **Económicos**: Generalmente más baratos que los gimnasios privados.
-- **Sin Contrato**: Muchos ofrecen opciones de "Pago por uso" o mensualidades flexibles.
-- **Enfoque Comunitario**: Ambiente amigable, adecuado para todas las edades y niveles.
+## ¿Por qué elegir estos gimnasios ?
+- ** Económicos **: Generalmente más baratos que los gimnasios privados.
+- ** Sin Contrato **: Muchos ofrecen opciones de "Pago por uso" o mensualidades flexibles.
+- ** Enfoque Comunitario **: Ambiente amigable, adecuado para todas las edades y niveles.
 
 ## Ubicaciones
 Hay centros por todo Dublín, incluyendo:
-- **Markievicz Leisure Centre** (Centro de la ciudad)
-- **Irishtown Stadium** (Ringsend)
-- **Swan Leisure** (Rathmines)
-- **Ballymun Sports & Fitness**
+- ** Markievicz Leisure Centre ** (Centro de la ciudad)
+        - ** Irishtown Stadium ** (Ringsend)
+    - ** Swan Leisure ** (Rathmines)
+    - ** Ballymun Sports & Fitness **
 
 ## Servicios
-- Piscinas
-- Gimnasios totalmente equipados
-- Clases de fitness (Yoga, Pilates, Spinning, etc.)
-- Campos y canchas
+    - Piscinas
+    - Gimnasios totalmente equipados
+    - Clases de fitness(Yoga, Pilates, Spinning, etc.)
+    - Campos y canchas
         `
     }
 ];
@@ -1296,15 +1270,15 @@ export const physiotherapyEs: RouteItem[] = [
 Muchos migrantes en Irlanda son fisioterapeutas calificados que ofrecen servicios dentro de sus comunidades.
 
 ## Cómo Conectar
-- **Grupos de Facebook**: Busca en grupos como "Latinos en Dublin" o "Brasileiros na Irlanda". A menudo, los profesionales anuncian sus servicios allí.
-- **WhatsApp**: Los grupos comunitarios son una excelente manera de obtener recomendaciones.
-- **Idioma**: Un gran beneficio es encontrar a alguien que hable tu idioma nativo y entienda tus necesidades específicas.
+    - ** Grupos de Facebook **: Busca en grupos como "Latinos en Dublin" o "Brasileiros na Irlanda".A menudo, los profesionales anuncian sus servicios allí.
+- ** WhatsApp **: Los grupos comunitarios son una excelente manera de obtener recomendaciones.
+- ** Idioma **: Un gran beneficio es encontrar a alguien que hable tu idioma nativo y entienda tus necesidades específicas.
 
 ## Servicios Comunes
-- Masaje deportivo
-- Ejercicios de rehabilitación
-- Punción seca (Dry needling)
-- Recuperación postoperatoria
+    - Masaje deportivo
+    - Ejercicios de rehabilitación
+    - Punción seca(Dry needling)
+    - Recuperación postoperatoria
         `
     },
     {
@@ -1317,12 +1291,12 @@ Muchos migrantes en Irlanda son fisioterapeutas calificados que ofrecen servicio
         content: `
 # Directorio ISCP
 
-La Sociedad Irlandesa de Fisioterapeutas Colegiados (ISCP) es el organismo profesional en Irlanda.
+La Sociedad Irlandesa de Fisioterapeutas Colegiados(ISCP) es el organismo profesional en Irlanda.
 
 ## Encontrar un Fisio
-- Usa su herramienta online "Find a Physio".
+    - Usa su herramienta online "Find a Physio".
 - Puedes filtrar por ubicación y especialidad.
-- **Seguro**: La mayoría de los seguros privados (VHI, Laya) requieren que tu fisio sea "Chartered" (MISCP) para reembolsarte el dinero.
+- ** Seguro **: La mayoría de los seguros privados(VHI, Laya) requieren que tu fisio sea "Chartered"(MISCP) para reembolsarte el dinero.
         `
     },
     {
@@ -1337,8 +1311,8 @@ La Sociedad Irlandesa de Fisioterapeutas Colegiados (ISCP) es el organismo profe
 Si tienes una lesión deportiva específica, podrías necesitar un especialista.
 
 ## Clínicas Populares
-- **Sports Med Ireland**: Ubicada en Dublín 2.
-- **Santry Sports Clinic**: Instalación de alto nivel usada a menudo por atletas profesionales.
+    - ** Sports Med Ireland **: Ubicada en Dublín 2.
+    - ** Santry Sports Clinic **: Instalación de alto nivel usada a menudo por atletas profesionales.
         `
     }
 ];

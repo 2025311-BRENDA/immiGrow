@@ -900,34 +900,6 @@ Finding accommodation can be challenging. Here is what you need to know.
         `
     },
     {
-        title: "Cost of Living",
-        description: "Budgeting for life in Dublin. Rent, groceries, and transport costs.",
-        distance: "Finance",
-        icon: CreditCard,
-        slug: "cost-of-living",
-        image: "/cost_of_living.png",
-        content: `
-# Cost of Living in Dublin
-
-Dublin is an expensive city. Here are some average monthly costs to help you budget.
-
-## Accommodation
-- **Single Room**: €800 - €1,200+
-- **Shared Room**: €500 - €800
-- **1-Bed Apartment**: €1,800+
-
-## Other Expenses
-- **Transport**: ~€100 (with Leap Card capping).
-- **Groceries**: ~€250 - €350 per person.
-- **Phone**: €20 (e.g., 48.ie or GoMo).
-
-## Tips
-- Shop at **Lidl** or **Aldi** to save on groceries.
-- Use a **Leap Card** for all transport.
-- Cook at home; eating out is pricey (€15-€20 for a main dish).
-        `
-    },
-    {
         title: "Banking & Finances",
         description: "How to open a bank account in Ireland. AIB, Bank of Ireland, and digital alternatives.",
         distance: "Finance",
@@ -939,24 +911,24 @@ Dublin is an expensive city. Here are some average monthly costs to help you bud
 
 Having a local bank account is essential for receiving your salary, paying rent, and managing your daily expenses.
 
-## Traditional Banks ("The Big Two")
+## Traditional Banks("The Big Two")
 These banks have many physical branches and offer full services.
-- **AIB (Allied Irish Banks)**: One of the largest. They often require a PPSN and proof of address to open an account.
-- **Bank of Ireland (BoI)**: Another major traditional bank with a long history. Similar requirements to AIB.
+- ** AIB(Allied Irish Banks) **: One of the largest.They often require a PPSN and proof of address to open an account.
+- ** Bank of Ireland(BoI) **: Another major traditional bank with a long history.Similar requirements to AIB.
 
-## Digital Banks (Quick & Easy)
+## Digital Banks(Quick & Easy)
 Many migrants prefer starting with a digital bank because the setup is much faster.
-- **Revolut**: Extremely popular in Ireland. You can open an account in minutes using your passport and IRP card. It provides an Irish IBAN.
-- **Money Jar**: An Irish-based digital alternative that is very migrant-friendly.
+- ** Revolut **: Extremely popular in Ireland.You can open an account in minutes using your passport and IRP card.It provides an Irish IBAN.
+- ** Money Jar **: An Irish - based digital alternative that is very migrant - friendly.
 
 ## What You Need
-1.  **Valid ID**: Usually your Passport.
-2.  **Proof of Address**: A utility bill, a lease agreement, or a letter from your employer/host.
-3.  **PPS Number**: Often required by traditional banks to verify your tax status.
+1. ** Valid ID **: Usually your Passport.
+2. ** Proof of Address **: A utility bill, a lease agreement, or a letter from your employer / host.
+3. ** PPS Number **: Often required by traditional banks to verify your tax status.
 
 ## Tips
-- Most traditional banks charge a quarterly maintenance fee (around €4.50 - €6.00).
-- Student accounts (if you are on a Stamp 2) are usually free from maintenance fees.
+    - Most traditional banks charge a quarterly maintenance fee(around €4.50 - €6.00).
+- Student accounts(if you are on a Stamp 2) are usually free from maintenance fees.
         `
     }
 ];
@@ -972,16 +944,16 @@ export const mentalHealth: RouteItem[] = [
         content: `
 # Find a Psychologist
 
-Finding the right mental health professional is important. Here are some resources for finding multicultural and multilingual support.
+Finding the right mental health professional is important.Here are some resources for finding multicultural and multilingual support.
 
 ## Directories
-- **Psychological Society of Ireland (PSI)**: Use the "Find a Psychologist" tool on their website. You can filter by language.
-- **MyMind**: A non-profit provider of accessible mental health care. They offer services in 15+ languages.
-- **Counselling Directory**: A comprehensive database of counsellors and psychotherapists.
+    - ** Psychological Society of Ireland(PSI) **: Use the "Find a Psychologist" tool on their website.You can filter by language.
+- ** MyMind **: A non - profit provider of accessible mental health care.They offer services in 15 + languages.
+- ** Counselling Directory **: A comprehensive database of counsellors and psychotherapists.
 
 ## Tips
-- Ask if they have experience working with migrants or expatriates.
-- Check their qualifications (PSI or IACP accreditation).
+    - Ask if they have experience working with migrants or expatriates.
+- Check their qualifications(PSI or IACP accreditation).
         `
     },
     {
@@ -995,14 +967,14 @@ Finding the right mental health professional is important. Here are some resourc
 
 Connecting with others who are going through similar experiences can be very healing.
 
-## Migrant-Specific Groups
-- **New Communities Partnership (NCP)**: Offers various support services and social groups.
-- **First Fortnight**: An arts-based mental health charity that often hosts inclusive events.
-- **Meetup.com**: Look for "Expat" or "New in Dublin" groups to build a social circle.
+## Migrant - Specific Groups
+    - ** New Communities Partnership(NCP) **: Offers various support services and social groups.
+- ** First Fortnight **: An arts - based mental health charity that often hosts inclusive events.
+- ** Meetup.com **: Look for "Expat" or "New in Dublin" groups to build a social circle.
 
 ## Mental Health Groups
-- **Grow**: Community mental health movement with weekly meetings.
-- **Aware**: Support groups for depression and bipolar disorder.
+    - ** Grow **: Community mental health movement with weekly meetings.
+- ** Aware **: Support groups for depression and bipolar disorder.
         `
     },
     {
@@ -1014,15 +986,15 @@ Connecting with others who are going through similar experiences can be very hea
         content: `
 # Crisis Helplines
 
-If you or someone you know is in distress, reach out now. These services are free and confidential.
+If you or someone you know is in distress, reach out now.These services are free and confidential.
 
-## 24/7 Services
-- **Samaritans**: Freephone **116 123** (Anytime, day or night).
-- **Text 50808**: A free 24/7 text service. Text HELLO to 50808.
-- **Pieta House**: For those at risk of suicide or self-harm. Freephone **1800 247 247**.
+## 24 / 7 Services
+    - ** Samaritans **: Freephone ** 116 123 ** (Anytime, day or night).
+- ** Text 50808 **: A free 24 / 7 text service.Text HELLO to 50808.
+    - ** Pieta House **: For those at risk of suicide or self - harm.Freephone ** 1800 247 247 **.
 
 ## Emergency
-- If you are in immediate danger, call **112** or **999** or go to the nearest Hospital Emergency Department (A&E).
+    - If you are in immediate danger, call ** 112 ** or ** 999 ** or go to the nearest Hospital Emergency Department(A & E).
         `
     },
     {
@@ -1035,12 +1007,12 @@ If you or someone you know is in distress, reach out now. These services are fre
         content: `
 # HSE Primary Care Psychology
 
-Public psychology services are available through Primary Care. These services are for people with mild to moderate mental health difficulties.
+Public psychology services are available through Primary Care.These services are for people with mild to moderate mental health difficulties.
 
 ## How to Access
-- **Referral**: Usually requires a referral from your GP (General Practitioner).
-- **Cost**: Free of charge.
-- **Waitlists**: Be aware that wait times can vary by area.
+    - ** Referral **: Usually requires a referral from your GP(General Practitioner).
+- ** Cost **: Free of charge.
+- ** Waitlists **: Be aware that wait times can vary by area.
 
 [Visit HSE Website](https://www2.hse.ie/mental-health/services-support/primary-care-psychology/)
         `
@@ -1059,11 +1031,11 @@ A specialist private clinical psychology and psychotherapy service.
 
 ## Services
 - Individual therapy for adults and children.
-- Trauma-informed care.
+- Trauma - informed care.
 - Specialized assessments.
 
 [Visit Treehouse Practice](https://treehousepractice.ie/)
-        `
+            `
     },
     {
         title: "Grove Court (Social Inclusion)",
@@ -1078,7 +1050,7 @@ A specialist private clinical psychology and psychotherapy service.
 The Social Inclusion Liaison Officer provides support to members of marginalized communities.
 
 ## Focus Areas
-- Support for migrants, refugees, and those in the protection system.
+    - Support for migrants, refugees, and those in the protection system.
 - Connecting individuals with primary care services.
 - Navigating the healthcare system.
 
@@ -1122,13 +1094,13 @@ export const exerciseGeneral: RouteItem[] = [
 Finding ways to stay active and socialize for free is easy in Dublin.
 
 ## Free Groups & Events
-- **parkrun Ireland**: Free, weekly, timed 5km runs every Saturday at 9:30 AM in parks like Phoenix Park, Fairview, and St. Anne's. Registration is free.
-- **Social Football**: Many amateur groups organize free or very low-cost kickabouts in parks (Fairview Park and Herbert Park are hotspots). Check Meetup.com or local Facebook groups.
-- **Sporting Pride**: An inclusive multi-sport organization that often hosts free introductory sessions for various sports.
-- **Sanctuary Runners**: A solidarity-through-sport movement that brings together Irish residents and those in the Direct Provision system.
+    - ** parkrun Ireland **: Free, weekly, timed 5km runs every Saturday at 9: 30 AM in parks like Phoenix Park, Fairview, and St.Anne's. Registration is free.
+        - ** Social Football **: Many amateur groups organize free or very low - cost kickabouts in parks(Fairview Park and Herbert Park are hotspots).Check Meetup.com or local Facebook groups.
+- ** Sporting Pride **: An inclusive multi - sport organization that often hosts free introductory sessions for various sports.
+- ** Sanctuary Runners **: A solidarity - through - sport movement that brings together Irish residents and those in the Direct Provision system.
 
 ## Free Equipment
-- **Outdoor Gyms**: Most large Dublin parks now have high-quality outdoor fitness equipment that is free to use (Fairview, Herbert Park, Mt. Merrion).
+    - ** Outdoor Gyms **: Most large Dublin parks now have high - quality outdoor fitness equipment that is free to use(Fairview, Herbert Park, Mt.Merrion).
         `
     }
 ];
@@ -1148,12 +1120,12 @@ export const womensHealth: RouteItem[] = [
 The National Cervical Screening Programme.
 
 ## Eligibility
-- **Free** for all women aged 25 to 65.
-- You must check the register to ensure you are included.
+    - ** Free ** for all women aged 25 to 65.
+        - You must check the register to ensure you are included.
 
 ## How it works
 1.  Receive a letter inviting you for a check.
-2.  Book an appointment with a registered screener (usually a GP or practice nurse).
+2.  Book an appointment with a registered screener(usually a GP or practice nurse).
 3.  The test is free.
         `
     },
@@ -1168,18 +1140,18 @@ The National Cervical Screening Programme.
         content: `
 # Maternity Care in Ireland
 
-**Maternity & Infant Care Scheme**: Every woman who is pregnant and ordinarily resident in Ireland is entitled to free maternity care.
+    ** Maternity & Infant Care Scheme **: Every woman who is pregnant and ordinarily resident in Ireland is entitled to free maternity care.
 
 ## Public Care
-- Shared care between your GP and a maternity hospital.
-- **Cost**: Free.
-- **Hospitals**:
-    - The Rotunda
+    - Shared care between your GP and a maternity hospital.
+- ** Cost **: Free.
+- ** Hospitals **:
+- The Rotunda
     - The Coombe
-    - National Maternity Hospital (Holles St)
+        - National Maternity Hospital(Holles St)
 
 ## Registration
-- Visit your GP as soon as you think you are pregnant.
+    - Visit your GP as soon as you think you are pregnant.
 - They will confirm the pregnancy and help you register with a hospital.
         `
     },
@@ -1196,12 +1168,12 @@ The National Cervical Screening Programme.
 
 Specialized clinics often provide services like:
 - Contraception
-- Menopause care
-- Sexual health screening
+    - Menopause care
+        - Sexual health screening
 
 ## Types of Clinics
-- **Well Woman Centre**: Locations across Dublin (Liffey St, Coolock, Pembroke Rd).
-- **IFPA (Irish Family Planning Association)**: Clinics in city center and Tallaght.
+    - ** Well Woman Centre **: Locations across Dublin(Liffey St, Coolock, Pembroke Rd).
+- ** IFPA(Irish Family Planning Association) **: Clinics in city center and Tallaght.
         `
     },
     {
@@ -1214,12 +1186,12 @@ Specialized clinics often provide services like:
         content: `
 # Migrant Women Support
 
-Connecting with others is key to well-being.
+Connecting with others is key to well - being.
 
 ## Organizations
-- **[AkiDwA](https://akidwa.ie/)**: A national network of migrant women living in Ireland.
-- **[NCP (New Communities Partnership)](https://www.newcommunities.ie/)**: Often hosts women's groups.
-- **[Cairde](https://cairde.ie/)**: Working to reduce health inequalities.
+    - ** [AkiDwA](https://akidwa.ie/)**: A national network of migrant women living in Ireland.
+- ** [NCP(New Communities Partnership)](https://www.newcommunities.ie/)**: Often hosts women's groups.
+- ** [Cairde](https://cairde.ie/)**: Working to reduce health inequalities.
         `
     },
     {
@@ -1401,26 +1373,26 @@ export const gyms: RouteItem[] = [
         content: `
 # Dublin City Council Sports & Fitness
 
-Dublin City Council operates a network of sports and fitness centres across the city. These are public facilities designed to be accessible and affordable for everyone.
+Dublin City Council operates a network of sports and fitness centres across the city.These are public facilities designed to be accessible and affordable for everyone.
 
-## Why Choose Council Gyms?
-- **Affordable**: Generally cheaper than private gyms.
-- **No Contract**: Many offer "Pay as you go" or flexible monthly options.
-- **Community Focused**: Friendly atmosphere, suitable for all ages and fitness levels.
+## Why Choose Council Gyms ?
+- ** Affordable **: Generally cheaper than private gyms.
+- ** No Contract **: Many offer "Pay as you go" or flexible monthly options.
+- ** Community Focused **: Friendly atmosphere, suitable for all ages and fitness levels.
 
 ## Locations
 There are centres all over Dublin, including:
-- **Markievicz Leisure Centre** (City Centre)
-- **Irishtown Stadium** (Ringsend)
-- **Swan Leisure** (Rathmines)
-- **Ballymun Sports & Fitness**
+- ** Markievicz Leisure Centre ** (City Centre)
+- ** Irishtown Stadium ** (Ringsend)
+    - ** Swan Leisure ** (Rathmines)
+        - ** Ballymun Sports & Fitness **
 
 ## Services
-- Swimming Pools
-- Fully equipped gyms
-- Fitness Classes (Yoga, Pilates, Spin, etc.)
-- Pitches and Courts
-        `
+    - Swimming Pools
+        - Fully equipped gyms
+            - Fitness Classes(Yoga, Pilates, Spin, etc.)
+                - Pitches and Courts
+                    `
     }
 ];
 
@@ -1438,16 +1410,16 @@ export const physiotherapy: RouteItem[] = [
 Many migrants in Ireland are qualified physiotherapists who offer services within their communities.
 
 ## How to Connect
-- **Facebook Groups**: Look for groups like "Latinos en Dublin" or "Brasileiros na Irlanda". Often, professionals advertise their services there.
-- **WhatsApp**: Community groups are a great way to get recommendations.
-- **Language**: A huge benefit is finding someone who speaks your native language and understands your specific needs.
+    - ** Facebook Groups **: Look for groups like "Latinos en Dublin" or "Brasileiros na Irlanda".Often, professionals advertise their services there.
+- ** WhatsApp **: Community groups are a great way to get recommendations.
+- ** Language **: A huge benefit is finding someone who speaks your native language and understands your specific needs.
 
 ## Services Often Offered
-- Sports massage
-- Rehabilitation exercises
-- Dry needling
-- Post-op recovery
-        `
+    - Sports massage
+        - Rehabilitation exercises
+            - Dry needling
+                - Post - op recovery
+                    `
     },
     {
         title: "Chartered Physiotherapists",
@@ -1459,12 +1431,12 @@ Many migrants in Ireland are qualified physiotherapists who offer services withi
         content: `
 # ISCP Directory
 
-The Irish Society of Chartered Physiotherapists (ISCP) is the professional body for physiotherapists in Ireland.
+The Irish Society of Chartered Physiotherapists(ISCP) is the professional body for physiotherapists in Ireland.
 
 ## Finding a Physio
-- Use their online "Find a Physio" tool.
-- You can filter by location and specialty (e.g., sports, women's health, respiratory).
-- **Insurance**: Most private health insurers (VHI, Laya, Irish Life) require your physio to be "Chartered" (MISCP) for you to claim money back.
+    - Use their online "Find a Physio" tool.
+- You can filter by location and specialty(e.g., sports, women's health, respiratory).
+        - ** Insurance **: Most private health insurers(VHI, Laya, Irish Life) require your physio to be "Chartered"(MISCP) for you to claim money back.
         `
     },
     {
@@ -1479,9 +1451,9 @@ The Irish Society of Chartered Physiotherapists (ISCP) is the professional body 
 If you have a specific sports injury, you might need a specialist.
 
 ## Popular Clinics
-- **Sports Med Ireland**: Located in Dublin 2.
-- **ExWell Medical**: Specializes in chronic illness rehabilitation.
-- **Santry Sports Clinic**: High-level facility often used by professional athletes.
+    - ** Sports Med Ireland **: Located in Dublin 2.
+        - ** ExWell Medical **: Specializes in chronic illness rehabilitation.
+- ** Santry Sports Clinic **: High - level facility often used by professional athletes.
         `
     }
 ];

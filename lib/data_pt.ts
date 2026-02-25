@@ -838,33 +838,7 @@ Encontrar acomodação pode ser um desafio. Aqui está o que você precisa saber
 - **Stamp 1G**: Se você se formar com um Honours Degree (Nível 8) ou Mestrado (Nível 9), pode obter um "Visto de Graduado" de 1-2 anos para procurar trabalho em tempo integral.
         `
     },
-    {
-        title: "Custo de Vida",
-        description: "Orçamento para a vida em Dublin. Aluguel, compras e custos de transporte.",
-        distance: "Finanças",
-        icon: CreditCard,
-        slug: "cost-of-living",
-        image: "/cost_of_living.png",
-        content: `
-# Custo de Vida em Dublin
-
-Dublin é uma cidade cara. Aqui estão alguns custos mensais médios para ajudar no seu orçamento.
-
-## Acomodação
-- **Quarto Individual**: €800 - €1,200+
-- **Quarto Compartilhado**: €500 - €800
-- **Apartamento 1 Quarto**: €1,800+
-
-## Outras Despesas
-- **Transporte**: ~€100 (com os limites do Leap Card).
-- **Compras**: ~€250 - €350 por pessoa.
-- **Telefone**: €20 (ex: 48.ie ou GoMo).
-
-## Dicas
-- Compre no **Lidl** ou **Aldi** para economizar nas compras.
-- Use um **Leap Card** para todo o transporte.
-- Cozinhe em casa; comer fora é caro (€15-€20 por prato principal).
-        `
+    `
     },
     {
         title: "Bancos e Finanças",
@@ -878,24 +852,24 @@ Dublin é uma cidade cara. Aqui estão alguns custos mensais médios para ajudar
 
 Ter uma conta bancária local é essencial para receber seu salário, pagar o aluguel e gerenciar suas despesas diárias.
 
-## Bancos Tradicionais ("Os dois grandes")
+## Bancos Tradicionais("Os dois grandes")
 Estes bancos têm muitas agências físicas e oferecem serviços completos.
-- **AIB (Allied Irish Banks)**: Um dos maiores. Geralmente exigem um PPSN e comprovante de endereço para abrir uma conta.
-- **Bank of Ireland (BoI)**: Outro banco tradicional importante com uma longa história. Requisitos semelhantes ao AIB.
+- ** AIB(Allied Irish Banks) **: Um dos maiores.Geralmente exigem um PPSN e comprovante de endereço para abrir uma conta.
+- ** Bank of Ireland(BoI) **: Outro banco tradicional importante com uma longa história.Requisitos semelhantes ao AIB.
 
-## Bancos Digitais (Rápido e Fácil)
+## Bancos Digitais(Rápido e Fácil)
 Muitos imigrantes preferem começar com um banco digital porque a configuração é muito mais rápida.
-- **Revolut**: Extremamente popular na Irlanda. Você pode abrir uma conta em minutos usando seu passaporte e cartão IRP. Fornece um IBAN irlandês.
-- **Money Jar**: Uma alternativa digital baseada na Irlanda que é muito amigável para imigrantes.
+- ** Revolut **: Extremamente popular na Irlanda.Você pode abrir uma conta em minutos usando seu passaporte e cartão IRP.Fornece um IBAN irlandês.
+- ** Money Jar **: Uma alternativa digital baseada na Irlanda que é muito amigável para imigrantes.
 
 ## O Que Você Precisa
-1.  **Identificação Válida**: Geralmente seu Passaporte.
-2.  **Comprovante de Endereço**: Uma conta de luz, contrato de aluguel ou carta do seu empregador/anfitrião.
-3.  **Número PPS**: Frequentemente exigido pelos bancos tradicionais para verificar seu status fiscal.
+1. ** Identificação Válida **: Geralmente seu Passaporte.
+2. ** Comprovante de Endereço **: Uma conta de luz, contrato de aluguel ou carta do seu empregador / anfitrião.
+3. ** Número PPS **: Frequentemente exigido pelos bancos tradicionais para verificar seu status fiscal.
 
 ## Dicas
-- A maioria dos bancos tradicionais cobra uma taxa trimestral de manutenção (cerca de €4.50 - €6.00).
-- Contas de estudante (se você tiver um Stamp 2) costumam ser isentas de taxas de manutenção.
+    - A maioria dos bancos tradicionais cobra uma taxa trimestral de manutenção(cerca de €4.50 - €6.00).
+- Contas de estudante(se você tiver um Stamp 2) costumam ser isentas de taxas de manutenção.
         `
     }
 ];
@@ -911,12 +885,12 @@ export const mentalHealthPt: RouteItem[] = [
         content: `
 # Encontre um Psicólogo
 
-Encontrar o profissional certo é importante. Aqui estão recursos para suporte multicultural e multilíngue.
+Encontrar o profissional certo é importante.Aqui estão recursos para suporte multicultural e multilíngue.
 
 ## Diretórios
-- **PSI (Psychological Society of Ireland)**: Use a ferramenta "Find a Psychologist" no site deles. Pode filtrar por idioma.
-- **MyMind**: Provedor sem fins lucrativos de cuidados acessíveis. Oferecem serviços em mais de 15 idiomas.
-- **Counselling Directory**: Banco de dados abrangente de conselheiros e psicoterapeutas.
+    - ** PSI(Psychological Society of Ireland) **: Use a ferramenta "Find a Psychologist" no site deles.Pode filtrar por idioma.
+- ** MyMind **: Provedor sem fins lucrativos de cuidados acessíveis.Oferecem serviços em mais de 15 idiomas.
+- ** Counselling Directory **: Banco de dados abrangente de conselheiros e psicoterapeutas.
         `
     },
     {
@@ -928,12 +902,12 @@ Encontrar o profissional certo é importante. Aqui estão recursos para suporte 
         content: `
 # Grupos de Apoio
 
-Conectar-se com outras pessoas que passam por experiências semelhantes pode ser muito curativo.
+Conectar - se com outras pessoas que passam por experiências semelhantes pode ser muito curativo.
 
 ## Grupos para Imigrantes
-- **NCP (New Communities Partnership)**: Oferece vários serviços de apoio e grupos sociais.
-- **First Fortnight**: Instituição de caridade mental baseada em artes.
-- **Meetup.com**: Procure por grupos de "Expat" ou "New in Dublin".
+    - ** NCP(New Communities Partnership) **: Oferece vários serviços de apoio e grupos sociais.
+- ** First Fortnight **: Instituição de caridade mental baseada em artes.
+- ** Meetup.com **: Procure por grupos de "Expat" ou "New in Dublin".
         `
     },
     {
@@ -947,10 +921,10 @@ Conectar-se com outras pessoas que passam por experiências semelhantes pode ser
 
 Se você ou alguém que você conhece estiver em perigo, entre em contato agora.
 
-## Serviços 24/7
-- **Samaritans**: Ligue grátis para **116 123**.
-- **Texto 50808**: Serviço de texto gratuito 24/7. Envie HELLO para 50808.
-- **Pieta House**: Para risco de suicídio ou automutilação. Ligue grátis para **1800 247 247**.
+## Serviços 24 / 7
+    - ** Samaritans **: Ligue grátis para ** 116 123 **.
+- ** Texto 50808 **: Serviço de texto gratuito 24 / 7. Envie HELLO para 50808.
+    - ** Pieta House **: Para risco de suicídio ou automutilação.Ligue grátis para ** 1800 247 247 **.
         `
     },
     {
@@ -961,14 +935,14 @@ Se você ou alguém que você conhece estiver em perigo, entre em contato agora.
         slug: "hse-primary-care",
         externalLink: "https://www2.hse.ie/mental-health/services-support/primary-care-psychology/",
         content: `
-# Psicologia de Atenção Primária (HSE)
+# Psicologia de Atenção Primária(HSE)
 
-Serviços públicos de psicologia estão disponíveis através da Atenção Primária. Estes serviços são para pessoas com dificuldades de saúde mental de leves a moderadas.
+Serviços públicos de psicologia estão disponíveis através da Atenção Primária.Estes serviços são para pessoas com dificuldades de saúde mental de leves a moderadas.
 
 ## Como Acessar
-- **Encaminhamento**: Geralmente requer um encaminhamento do seu médico de família (GP).
-- **Custo**: Gratuito.
-- **Listas de Espera**: Esteja ciente de que os tempos de espera podem variar conforme a área.
+    - ** Encaminhamento **: Geralmente requer um encaminhamento do seu médico de família(GP).
+- ** Custo **: Gratuito.
+- ** Listas de Espera **: Esteja ciente de que os tempos de espera podem variar conforme a área.
 
 [Visitar site do HSE](https://www2.hse.ie/mental-health/services-support/primary-care-psychology/)
         `
@@ -991,7 +965,7 @@ Um serviço privado especializado em psicologia clínica e psicoterapia.
 - Avaliações especializadas.
 
 [Visitar Treehouse Practice](https://treehousepractice.ie/)
-        `
+            `
     },
     {
         title: "Grove Court (Inclusão Social)",
@@ -1006,7 +980,7 @@ Um serviço privado especializado em psicologia clínica e psicoterapia.
 O Oficial de Ligação de Inclusão Social fornece apoio a membros de comunidades marginalizadas.
 
 ## Áreas de Foco
-- Apoio para migrantes, refugiados e pessoas no sistema de proteção internacional.
+    - Apoio para migrantes, refugiados e pessoas no sistema de proteção internacional.
 - Conectar indivíduos aos serviços de atenção primária.
 - Navegar no sistema de saúde.
 
@@ -1036,8 +1010,8 @@ export const exerciseGeneralPt: RouteItem[] = [
 # Esportes Comunitários
 
 ## Grupos Gratuitos
-- **parkrun Ireland**: Corridas de 5km gratuitas e cronometradas todos os sábados às 9:30 AM.
-- **Academias ao Ar Livre**: A maioria dos grandes parques de Dublin possui equipamentos de ginástica gratuitos.
+- ** parkrun Ireland **: Corridas de 5km gratuitas e cronometradas todos os sábados às 9: 30 AM.
+- ** Academias ao Ar Livre **: A maioria dos grandes parques de Dublin possui equipamentos de ginástica gratuitos.
         `
     }
 ];
@@ -1053,7 +1027,7 @@ export const womensHealthPt: RouteItem[] = [
         content: `
 # CervicalCheck
 
-Programa Nacional de Triagem Cervical. Gratuito para todas as mulheres residentes de 25 a 65 anos.
+Programa Nacional de Triagem Cervical.Gratuito para todas as mulheres residentes de 25 a 65 anos.
         `
     },
     {
@@ -1070,10 +1044,10 @@ Programa Nacional de Triagem Cervical. Gratuito para todas as mulheres residente
 Toda mulher grávida e residente na Irlanda tem direito a cuidados de maternidade gratuitos.
 
 ## Hospitais em Dublin
-- The Rotunda
-- The Coombe
-- National Maternity Hospital (Holles St)
-        `
+    - The Rotunda
+        - The Coombe
+            - National Maternity Hospital(Holles St)
+                `
     },
     {
         title: "Diretório de Clínicas Femininas",
@@ -1088,9 +1062,9 @@ Toda mulher grávida e residente na Irlanda tem direito a cuidados de maternidad
 
 Serviços comuns:
 - Contracepção
-- Cuidados na Menopausa
-- Exames de saúde sexual
-        `
+    - Cuidados na Menopausa
+        - Exames de saúde sexual
+            `
     },
     {
         title: "Redes de Apoio",
@@ -1102,12 +1076,12 @@ Serviços comuns:
         content: `
 # Suporte a Mulheres Migrantes
 
-Conectar-se com outras pessoas é fundamental para o bem-estar.
+Conectar - se com outras pessoas é fundamental para o bem - estar.
 
 ## Organizações
-- **[AkiDwA](https://akidwa.ie/)**: Uma rede nacional de mulheres imigrantes que vivem na Irlanda.
-- **[NCP (New Communities Partnership)](https://www.newcommunities.ie/)**: Frequentemente organiza grupos de mulheres.
-- **[Cairde](https://cairde.ie/)**: Trabalhando para reduzir as desigualdades na saúde.
+    - ** [AkiDwA](https://akidwa.ie/)**: Uma rede nacional de mulheres imigrantes que vivem na Irlanda.
+- ** [NCP(New Communities Partnership)](https://www.newcommunities.ie/)**: Frequentemente organiza grupos de mulheres.
+- ** [Cairde](https://cairde.ie/)**: Trabalhando para reduzir as desigualdades na saúde.
         `
     },
     {
@@ -1148,7 +1122,7 @@ export const physiotherapyPt: RouteItem[] = [
         content: `
 # Fisioterapeutas da Comunidade
 
-Muitos brasileiros e outros imigrantes são fisioterapeutas qualificados oferecendo serviços. Procure recomendações em grupos de WhatsApp e Facebook.
+Muitos brasileiros e outros imigrantes são fisioterapeutas qualificados oferecendo serviços.Procure recomendações em grupos de WhatsApp e Facebook.
         `
     }
 ];

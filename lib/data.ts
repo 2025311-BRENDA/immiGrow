@@ -933,7 +933,7 @@ Dublin is an expensive city. Here are some average monthly costs to help you bud
         distance: "Finance",
         icon: Landmark,
         slug: "banking-ireland",
-        image: "/banking_keys.png",
+        image: "/cost_of_living.png",
         content: `
 # Opening a Bank Account in Ireland
 

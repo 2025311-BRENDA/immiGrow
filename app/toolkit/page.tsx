@@ -143,12 +143,6 @@ export default function ToolkitPage() {
                                 ¿Conoces a alguien nuevo en Dublín? Ayúdales a encontrar su camino. Muestra este código QR para que puedan descargar la guía al instante.
                             </p>
                             <div className="flex flex-wrap justify-center md:justify-start gap-4">
-                                <Link
-                                    href="/toolkit/outreach"
-                                    className="px-6 py-3 bg-brand-sun text-brand-navy font-black rounded-xl hover:scale-105 active:scale-95 transition-all shadow-lg"
-                                >
-                                    Kit de Difusión
-                                </Link>
                                 <button
                                     onClick={() => {
                                         if (navigator.share) {

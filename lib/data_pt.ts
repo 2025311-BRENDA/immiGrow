@@ -872,7 +872,7 @@ Dublin é uma cidade cara. Aqui estão alguns custos mensais médios para ajudar
         distance: "Finanças",
         icon: Landmark,
         slug: "banking-ireland",
-        image: "/banking_keys.png",
+        image: "/cost_of_living.png",
         content: `
 # Abrir uma Conta Bancária na Irlanda
 

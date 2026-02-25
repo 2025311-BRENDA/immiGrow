@@ -794,7 +794,7 @@ Dublín es una ciudad cara. Aquí hay algunos costos mensuales promedio para ayu
         distance: "Finanzas",
         icon: Landmark,
         slug: "banking-ireland",
-        image: "/banking_keys.png",
+        image: "/cost_of_living.png",
         content: `
 # Abrir una Cuenta Bancaria en Irlanda
 

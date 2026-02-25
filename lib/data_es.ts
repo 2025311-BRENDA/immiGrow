@@ -22,7 +22,8 @@ import {
     Search,
     Tag,
     X,
-    Dumbbell
+    Dumbbell,
+    Shield
 } from "lucide-react";
 import { RouteItem, RoadmapItem, JobStep, ResourceLocation, EventItem, Professional } from "./data";
 
@@ -790,6 +791,36 @@ Muchos migrantes prefieren empezar con un banco digital porque la configuración
 ## Consejos
     - La mayoría de los bancos tradicionales cobran una comisión trimestral de mantenimiento(alrededor de €4.50 - €6.00).
 - Las cuentas de estudiante(si tienes un Stamp 2) suelen estar exentas de comisiones de mantenimiento.
+        `
+    },
+    {
+        title: "Guía de myGovID",
+        description: "Acceso seguro oficial para servicios gubernamentales (Revenue, MyWelfare, NDLS).",
+        distance: "Gobierno",
+        icon: Shield,
+        slug: "mygovid-guide",
+        externalLink: "https://www.mygovid.ie/",
+        content: `
+# Cómo usar myGovID en Irlanda
+
+myGovID es tu cuenta única y segura que te permite acceder a varios servicios gubernamentales irlandeses en línea.
+
+## Tipos de Cuenta
+
+### 1. Cuenta Básica
+- **Qué necesitas**: Solo un correo electrónico.
+- **Qué puedes hacer**: Reservar citas (ej. para el PPSN) y acceder a servicios limitados.
+
+### 2. Cuenta Verificada
+- **Qué necesitas**: Un número PPS y una Tarjeta de Servicios Públicos (PSC).
+- **Qué puedes hacer**: Acceso total a Revenue (myAccount), MyWelfare, solicitudes de bienestar social y servicios de licencia de conducir (NDLS).
+
+## Cómo Configurarlo
+1.  Ve a [myGovID.ie](https://www.mygovid.ie/) y haz clic en 'Create Account'.
+2.  Sigue los pasos para verificar tu correo.
+3.  Para obtener el estatus 'Verificado', primero deberás asistir a una cita presencial en un centro Intreo para obtener tu Tarjeta de Servicios Públicos (PSC).
+
+[Portal Oficial de myGovID](https://www.mygovid.ie/)
         `
     }
 ];

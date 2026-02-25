@@ -22,7 +22,8 @@ import {
     Search,
     Tag,
     X,
-    Dumbbell
+    Dumbbell,
+    Shield
 } from "lucide-react";
 
 export interface RouteItem {
@@ -929,6 +930,36 @@ Many migrants prefer starting with a digital bank because the setup is much fast
 ## Tips
     - Most traditional banks charge a quarterly maintenance fee(around €4.50 - €6.00).
 - Student accounts(if you are on a Stamp 2) are usually free from maintenance fees.
+        `
+    },
+    {
+        title: "myGovID Guide",
+        description: "Official secure login for government services (Revenue, MyWelfare, NDLS).",
+        distance: "Government",
+        icon: Shield,
+        slug: "mygovid-guide",
+        externalLink: "https://www.mygovid.ie/",
+        content: `
+# Using myGovID in Ireland
+
+myGovID is your single, secure account that lets you access various Irish government services online.
+
+## Account Types
+
+### 1. Basic Account
+- **What you need**: Just an email address.
+- **What you can do**: Book appointments (e.g., for PPSN) and access limited services.
+
+### 2. Verified Account
+- **What you need**: A PPS Number and a Public Services Card (PSC).
+- **What you can do**: Full access to Revenue (myAccount), MyWelfare, Social Welfare applications, and Driving License (NDLS) services.
+
+## How to Set It Up
+1.  Go to [myGovID.ie](https://www.mygovid.ie/) and click 'Create Account'.
+2.  Follow the steps to verify your email.
+3.  To get 'Verified' status, you will need to attend an in-person appointment at an Intreo centre to get your Public Services Card first.
+
+[Official myGovID Portal](https://www.mygovid.ie/)
         `
     }
 ];

@@ -938,6 +938,7 @@ Many migrants prefer starting with a digital bank because the setup is much fast
         distance: "Government",
         icon: Shield,
         slug: "mygovid-guide",
+        image: "/irp_card.png",
         externalLink: "https://www.mygovid.ie/",
         content: `
 # 🔐 Comprehensive myGovID Guide
@@ -968,6 +969,7 @@ myGovID is your single, secure account that lets you access various Irish govern
         distance: "Financial",
         icon: Landmark,
         slug: "revenue-taxes",
+        image: "/pps_document.png",
         externalLink: "https://www.revenue.ie/",
         content: `
 # 💸 Managing Your Taxes (Revenue)

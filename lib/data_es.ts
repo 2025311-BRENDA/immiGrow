@@ -799,6 +799,7 @@ Muchos migrantes prefieren empezar con un banco digital porque la configuración
         distance: "Gobierno",
         icon: Shield,
         slug: "mygovid-guide",
+        image: "/irp_card.png",
         externalLink: "https://www.mygovid.ie/",
         content: `
 # 🔐 Guía Completa de myGovID
@@ -829,6 +830,7 @@ myGovID es tu cuenta única y segura que te permite acceder a varios servicios g
         distance: "Financiero",
         icon: Landmark,
         slug: "revenue-taxes",
+        image: "/pps_document.png",
         externalLink: "https://www.revenue.ie/",
         content: `
 # 💸 Gestión de Impuestos (Revenue)

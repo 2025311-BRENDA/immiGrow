@@ -19,7 +19,7 @@ export default function MentalHealthPage() {
             <header className="bg-brand-purple text-white py-12 px-6 rounded-b-[3.5rem] shadow-lg mb-10 relative overflow-hidden">
                 <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full -mr-20 -mt-20 blur-3xl"></div>
                 <div className="container mx-auto max-w-5xl relative z-10">
-                    <BackButton />
+                    <BackButton href="/health" />
                     <h1 className="text-4xl font-heading font-black mb-2">{t("nav.mental")}</h1>
                     <p className="text-white/80 max-w-xl">{t("mental.subtitle")}</p>
                 </div>

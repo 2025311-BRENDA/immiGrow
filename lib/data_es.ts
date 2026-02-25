@@ -787,6 +787,38 @@ Dublín es una ciudad cara. Aquí hay algunos costos mensuales promedio para ayu
 - Usa una **Leap Card** para todo el transporte.
 - Cocina en casa; comer fuera es caro (€15-€20 por plato principal).
         `
+    },
+    {
+        title: "Bancos y Finanzas",
+        description: "Cómo abrir una cuenta bancaria en Irlanda. AIB, Bank of Ireland y alternativas digitales.",
+        distance: "Finanzas",
+        icon: Landmark,
+        slug: "banking-ireland",
+        image: "/banking_keys.png",
+        content: `
+# Abrir una Cuenta Bancaria en Irlanda
+
+Tener una cuenta bancaria local es esencial para recibir tu salario, pagar el alquiler y gestionar tus gastos diarios.
+
+## Bancos Tradicionales ("Los dos grandes")
+Estos bancos tienen muchas sucursales físicas y ofrecen servicios completos.
+- **AIB (Allied Irish Banks)**: Uno de los más grandes. Suelen requerir un PPSN y prueba de dirección para abrir una cuenta.
+- **Bank of Ireland (BoI)**: Otro banco tradicional importante con una larga historia. Requisitos similares a AIB.
+
+## Bancos Digitales (Rápido y Fácil)
+Muchos migrantes prefieren empezar con un banco digital porque la configuración es mucho más rápida.
+- **Revolut**: Extremadamente popular en Irlanda. Puedes abrir una cuenta en minutos usando tu pasaporte y tarjeta IRP. Proporciona un IBAN irlandés.
+- **Money Jar**: Una alternativa digital con sede en Irlanda que es muy amigable para los migrantes.
+
+## Qué Necesitas
+1.  **Identificación Válida**: Usualmente tu Pasaporte.
+2.  **Prueba de Dirección**: Una factura de servicios públicos, un contrato de alquiler o una carta de tu empleador/anfitrión.
+3.  **Número PPS**: A menudo requerido por los bancos tradicionales para verificar tu estatus fiscal.
+
+## Consejos
+- La mayoría de los bancos tradicionales cobran una comisión trimestral de mantenimiento (alrededor de €4.50 - €6.00).
+- Las cuentas de estudiante (si tienes un Stamp 2) suelen estar exentas de comisiones de mantenimiento.
+        `
     }
 ];
 

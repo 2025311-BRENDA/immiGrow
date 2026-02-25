@@ -926,6 +926,38 @@ Dublin is an expensive city. Here are some average monthly costs to help you bud
 - Use a **Leap Card** for all transport.
 - Cook at home; eating out is pricey (€15-€20 for a main dish).
         `
+    },
+    {
+        title: "Banking & Finances",
+        description: "How to open a bank account in Ireland. AIB, Bank of Ireland, and digital alternatives.",
+        distance: "Finance",
+        icon: Landmark,
+        slug: "banking-ireland",
+        image: "/banking_keys.png",
+        content: `
+# Opening a Bank Account in Ireland
+
+Having a local bank account is essential for receiving your salary, paying rent, and managing your daily expenses.
+
+## Traditional Banks ("The Big Two")
+These banks have many physical branches and offer full services.
+- **AIB (Allied Irish Banks)**: One of the largest. They often require a PPSN and proof of address to open an account.
+- **Bank of Ireland (BoI)**: Another major traditional bank with a long history. Similar requirements to AIB.
+
+## Digital Banks (Quick & Easy)
+Many migrants prefer starting with a digital bank because the setup is much faster.
+- **Revolut**: Extremely popular in Ireland. You can open an account in minutes using your passport and IRP card. It provides an Irish IBAN.
+- **Money Jar**: An Irish-based digital alternative that is very migrant-friendly.
+
+## What You Need
+1.  **Valid ID**: Usually your Passport.
+2.  **Proof of Address**: A utility bill, a lease agreement, or a letter from your employer/host.
+3.  **PPS Number**: Often required by traditional banks to verify your tax status.
+
+## Tips
+- Most traditional banks charge a quarterly maintenance fee (around €4.50 - €6.00).
+- Student accounts (if you are on a Stamp 2) are usually free from maintenance fees.
+        `
     }
 ];
 

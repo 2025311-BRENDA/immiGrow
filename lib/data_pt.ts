@@ -877,7 +877,7 @@ Muitos imigrantes preferem começar com um banco digital porque a configuração
         distance: "Governo",
         icon: Shield,
         slug: "mygovid-guide",
-        image: "/irp_card.png",
+        image: "/mygovid_secure.png",
         externalLink: "https://www.mygovid.ie/",
         content: `
 # 🔐 Guia Completo do myGovID

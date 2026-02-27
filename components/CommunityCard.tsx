@@ -1,4 +1,4 @@
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, CheckCircle2 } from 'lucide-react';
 
 interface CommunityCardProps {
     title: string;
@@ -9,6 +9,7 @@ interface CommunityCardProps {
     onAction?: () => void;
     color?: string; // e.g., 'bg-pink-100'
     style?: React.CSSProperties;
+    isJoined?: boolean;
 }
 
 export default function CommunityCard({
@@ -19,6 +20,7 @@ export default function CommunityCard({
     onAction,
     color = 'bg-gray-100',
     style,
+    isJoined = false,
 }: CommunityCardProps) {
     return (
         <div className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden flex flex-col h-full hover:shadow-md transition-shadow">
@@ -28,6 +30,13 @@ export default function CommunityCard({
                         {tag}
                     </span>
                 )}
+                {isJoined && (
+                    <div className="absolute inset-0 flex items-center justify-center bg-green-500/10 backdrop-blur-[1px]">
+                        <div className="bg-white rounded-full p-2 shadow-lg animate-in zoom-in duration-300">
+                            <CheckCircle2 className="w-8 h-8 text-green-500" />
+                        </div>
+                    </div>
+                )}
             </div>
             <div className="p-5 flex-1 flex flex-col">
                 <h3 className="text-lg font-bold text-gray-800 mb-2">{title}</h3>
@@ -35,7 +44,7 @@ export default function CommunityCard({
 
                 <button
                     onClick={onAction}
-                    className="mt-auto flex items-center justify-between w-full text-sm font-semibold text-blue-600 hover:text-blue-700 transition-colors"
+                    className={`mt-auto flex items-center justify-between w-full text-sm font-semibold transition-colors ${isJoined ? 'text-green-600 hover:text-green-700' : 'text-blue-600 hover:text-blue-700'}`}
                 >
                     {actionLabel}
                     <ArrowRight className="w-4 h-4 ml-1" />

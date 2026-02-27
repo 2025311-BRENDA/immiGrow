@@ -938,7 +938,7 @@ Many migrants prefer starting with a digital bank because the setup is much fast
         distance: "Government",
         icon: Shield,
         slug: "mygovid-guide",
-        image: "/irp_card.png",
+        image: "/mygovid_secure.png",
         externalLink: "https://www.mygovid.ie/",
         content: `
 # 🔐 Comprehensive myGovID Guide

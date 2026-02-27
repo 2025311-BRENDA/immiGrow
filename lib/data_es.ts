@@ -1047,6 +1047,7 @@ export const womensHealthEs: RouteItem[] = [
         icon: Heart,
         href: "https://www.hse.ie/eng/cervicalcheck/",
         slug: "cervical-check",
+        image: "/cervical_check.png",
         externalLink: "https://www.hse.ie/eng/cervicalcheck/",
         content: `
 # CervicalCheck
@@ -1069,6 +1070,7 @@ El Programa Nacional de Detección Cervical.
         distance: "Salud",
         icon: Baby,
         slug: "maternity-services",
+        image: "/maternity_care.png",
         externalLink: "https://www.hse.ie/eng/services/list/3/maternity/",
         content: `
 # Atención de Maternidad en Irlanda
@@ -1130,16 +1132,6 @@ Conectar con otras es clave para el bienestar.
 - ** [NCP(New Communities Partnership)](https://www.newcommunities.ie/)**: A menudo organiza grupos de mujeres.
 - ** [Cairde](https://cairde.ie/)**: Trabajando para reducir desigualdades en salud.
         `
-    },
-    {
-        title: "Servicios de Salud para la Mujer",
-        description: "Listado completo de clínicas y servicios del portal de la HSE.",
-        distance: "Directorio",
-        icon: Stethoscope,
-        slug: "womens-clinics-hse",
-        externalLink: "https://www.hse.ie/eng/services/list/2/healthcentres/womenshealth/",
-        mapUrl: "https://www.google.com/maps/search/Womens+Health+Clinic+Ireland",
-        content: "# Servicios de Salud para la Mujer\n\nLista completa de clínicas para la salud femenina."
     }
 ];
 

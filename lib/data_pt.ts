@@ -1089,6 +1089,7 @@ export const womensHealthPt: RouteItem[] = [
         distance: "Saúde",
         icon: Heart,
         slug: "cervical-check",
+        image: "/cervical_check.png",
         externalLink: "https://www.hse.ie/eng/cervicalcheck/",
         content: `
 # CervicalCheck

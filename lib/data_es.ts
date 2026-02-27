@@ -851,10 +851,16 @@ Los créditos fiscales reducen la cantidad de impuestos que pagas. Los créditos
 *   **Crédito Fiscal PAYE**: Para quienes trabajan por cuenta ajena.
 *   **Crédito Fiscal por Alquiler (Rent Credit)**: ¡Puedes recuperar dinero (hasta €750+ por año) si pagas alquiler privado!
 
+## 🎓 Alivio Fiscal por Estudios (Nivel 8 y 9)
+Si pagas por un curso aprobado de **Nivel 8** (Grado) o **Nivel 9** (Maestría/Postgrado), ¡puedes reclamar una devolución de impuestos!
+*   **¿Cuánto?**: 20% de alivio fiscal sobre las tasas elegibles.
+*   **Límite**: Califican hasta €7,000 por persona y por curso.
+*   **Nota**: Los primeros €3,000 (tiempo completo) o €1,500 (medio tiempo) se descuentan del total reclamado.
+
 ## 💻 Portal myAccount
 Usa [Revenue myAccount](https://www.revenue.ie/) para:
 - Revisar tus impuestos anualmente.
-- Reclamar tus créditos fiscales (como el Rent Credit).
+- Reclamar tus créditos fiscales (Rent Credit, Alivio por Estudios).
 - Añadir o cambiar de trabajo.
 
 [Iniciar sesión en Revenue myAccount](https://www.revenue.ie/)
@@ -1084,24 +1090,29 @@ El Programa Nacional de Detección Cervical.
     },
     {
         title: "Directorio de Clínicas para Mujeres",
-        description: "Encuentra clínicas de salud especializadas para mujeres en tu área.",
+        description: "Encuentra clínicas de salud especializadas para mujeres en tu área. Incluye centros de la HSE y centros independientes.",
         distance: "Directorio",
         icon: Stethoscope,
         slug: "womens-clinics",
         image: "/womens_health.png",
-        externalLink: "https://www.wellwomancentre.ie/",
+        externalLink: "https://www.hse.ie/eng/services/list/2/healthcentres/womenshealth/",
         content: `
-# Clínicas de Salud para Mujeres
+# Clínicas de Salud para Mujeres en Dublín
 
-Las clínicas especializadas a menudo ofrecen servicios como:
-        - Anticoncepción
-        - Atención de la menopausia
-    - Exámenes de salud sexual
+Para una atención integral, puedes acudir a centros especializados que ofrecen planificación familiar, salud sexual y chequeos preventivos.
 
-## Tipos de Clínicas
-    - ** Well Woman Centre **: Ubicaciones en todo Dublín(Liffey St, Coolock, Pembroke Rd).
-- ** IFPA(Asociación Irlandesa de Planificación Familiar) **: Clínicas en el centro de la ciudad y Tallaght.
-        `
+## Centros Principales
+- **Well Woman Centre**: Sedes en Liffey St, Coolock y Pembroke Rd. Especialistas en salud reproductiva.
+- **IFPA (Irish Family Planning Association)**: Clínicas en el centro (Cathal Brugha St) y Tallaght.
+- **Hospitals de Maternidad**: Centros como el Rotunda o Holles Street ofrecen clínicas ginecológicas especializadas.
+
+## Servicios Disponibles
+- Anticoncepción (incluyendo el 'Free Contraception Scheme' para 17-35 años).
+- Exámenes de salud sexual (STI).
+- Atención de la menopausia y revisiones ginecológicas.
+
+[Ver directorio completo de la HSE](https://www.hse.ie/eng/services/list/2/healthcentres/womenshealth/)
+`
     },
     {
         title: "Redes de Apoyo",

@@ -40,7 +40,6 @@ export default function HealthHubPage() {
     ];
 
     const emergencyContacts = [
-        { name: "immiGrow Support", number: "083 332 0940", desc: t("health.emergency.support") },
         { name: "HSE Live", number: "1800 700 700", desc: t("health.emergency.hse") },
         { name: "Samaritans", number: "116 123", desc: t("health.emergency.samaritans") },
     ];

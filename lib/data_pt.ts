@@ -1117,20 +1117,29 @@ Toda mulher grávida e residente na Irlanda tem direito a cuidados de maternidad
     },
     {
         title: "Diretório de Clínicas Femininas",
-        description: "Encontre clínicas especializadas em saúde da mulher na sua área.",
+        description: "Encontre clínicas especializadas em saúde da mulher na sua área. Inclui centros da HSE e provedores independentes.",
         distance: "Diretório",
         icon: Stethoscope,
         slug: "womens-clinics",
         image: "/womens_health.png",
-        externalLink: "https://www.wellwomancentre.ie/",
+        externalLink: "https://www.hse.ie/eng/services/list/2/healthcentres/womenshealth/",
         content: `
-# Clínicas de Saúde da Mulher
+# Clínicas de Saúde da Mulher em Dublin
 
-Serviços comuns:
-- Contracepção
-    - Cuidados na Menopausa
-        - Exames de saúde sexual
-            `
+Para cuidados abrangentes, você pode visitar centros especializados que oferecem planejamento familiar, saúde sexual e exames preventivos.
+
+## Principais Centros
+- **Well Woman Centre**: Unidades na Liffey St, Coolock e Pembroke Rd. Especialistas em saúde reprodutiva.
+- **IFPA (Irish Family Planning Association)**: Clínicas no centro da cidade (Cathal Brugha St) e Tallaght.
+- **Hospitais de Maternidade**: Centros como o Rotunda ou Holles Street oferecem clínicas ginecológicas especializadas.
+
+## Serviços Disponíveis
+- Contracepção (incluindo o 'Free Contraception Scheme' para idades de 17 a 35 anos).
+- Rastreio de saúde sexual (IST).
+- Cuidados na menopausa e exames ginecológicos.
+
+[Ver diretório completo da HSE](https://www.hse.ie/eng/services/list/2/healthcentres/womenshealth/)
+`
     },
     {
         title: "Redes de Apoio",
@@ -1150,16 +1159,6 @@ Conectar - se com outras pessoas é fundamental para o bem - estar.
 - ** [Cairde](https://cairde.ie/)**: Trabalhando para reduzir as desigualdades na saúde.
         `
     },
-    {
-        title: "Serviços de Saúde da Mulher",
-        description: "Lista abrangente de clínicas e serviços do portal do HSE.",
-        distance: "Diretório",
-        icon: Stethoscope,
-        slug: "womens-clinics-hse",
-        externalLink: "https://www.hse.ie/eng/services/list/2/healthcentres/womenshealth/",
-        mapUrl: "https://www.google.com/maps/search/Womens+Health+Clinic+Ireland",
-        content: "# Serviços de Saúde da Mulher\n\nLista completa de clínicas para a saúde da mulher."
-    }
 ];
 
 export const gymsPt: RouteItem[] = [

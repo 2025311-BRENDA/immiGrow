@@ -990,10 +990,16 @@ Tax credits reduce the amount of tax you pay. Common credits include:
 *   **PAYE Tax Credit**: For those working in employment.
 *   **Rent Tax Credit**: You can get money back (up to €750+ per year) if you pay for private rent!
 
+## 🎓 Tuition Tax Relief (Level 8 & 9)
+If you pay for an approved **Level 8** (Undergraduate) or **Level 9** (Masters/Postgrad) course, you can claim tax relief!
+*   **How much?**: 20% tax relief on qualifying fees.
+*   **Limit**: Up to €7,000 per person per course can qualify.
+*   **Note**: The first €3,000 (for full-time) or €1,500 (for part-time) is disregarded from the total claim.
+
 ## 💻 myAccount Portal
 Use [Revenue myAccount](https://www.revenue.ie/) to:
 - Review your tax yearly.
-- Claim your tax credits (like the Rent Credit).
+- Claim your tax credits (Rent Credit, Tuition Relief).
 - Add or change jobs.
 
 [Login to Revenue myAccount](https://www.revenue.ie/)
@@ -1225,24 +1231,29 @@ The National Cervical Screening Programme.
     },
     {
         title: "Women's Clinics Directory",
-        description: "Find specialized health clinics for women in your area.",
+        description: "Find specialized health clinics for women in your area. Includes HSE centres and independent providers.",
         distance: "Directory",
         icon: Stethoscope,
         slug: "womens-clinics",
         image: "/womens_health.png",
-        externalLink: "https://www.wellwomancentre.ie/",
+        externalLink: "https://www.hse.ie/eng/services/list/2/healthcentres/womenshealth/",
         content: `
-# Women's Health Clinics
+# Women's Health Clinics in Dublin
 
-Specialized clinics often provide services like:
-- Contraception
-    - Menopause care
-        - Sexual health screening
+For comprehensive care, you can visit specialized centers offering family planning, sexual health, and preventive screenings.
 
-## Types of Clinics
-    - ** Well Woman Centre **: Locations across Dublin(Liffey St, Coolock, Pembroke Rd).
-- ** IFPA(Irish Family Planning Association) **: Clinics in city center and Tallaght.
-        `
+## Major Centers
+- **Well Woman Centre**: Locations in Liffey St, Coolock, and Pembroke Rd. Reproductive health specialists.
+- **IFPA (Irish Family Planning Association)**: Clinics in city center (Cathal Brugha St) and Tallaght.
+- **Maternity Hospitals**: Centers like the Rotunda or Holles Street offer specialized gynecological clinics.
+
+## Available Services
+- Contraception (including 'Free Contraception Scheme' for ages 17-35).
+- Sexual health screening (STI).
+- Menopause care and gynecological check-ups.
+
+[View full HSE directory](https://www.hse.ie/eng/services/list/2/healthcentres/womenshealth/)
+`
     },
     {
         title: "Support Networks",
@@ -1262,16 +1273,6 @@ Connecting with others is key to well - being.
 - ** [Cairde](https://cairde.ie/)**: Working to reduce health inequalities.
         `
     },
-    {
-        title: "Women's Health Services",
-        description: "Comprehensive list of clinics and services from the HSE portal.",
-        distance: "Directory",
-        icon: Stethoscope,
-        slug: "womens-clinics-hse",
-        externalLink: "https://www.hse.ie/eng/services/list/2/healthcentres/womenshealth/",
-        mapUrl: "https://www.google.com/maps/search/Womens+Health+Clinic+Ireland",
-        content: "# Women's Health Services\n\nFull list of clinics for women's health."
-    }
 ];
 
 export const roadmapData: RoadmapItem[] = [

@@ -91,7 +91,7 @@ export default function Home() {
                   className="mt-4 flex items-center gap-3 px-5 py-2.5 bg-brand-sun hover:bg-brand-sun/90 text-brand-navy rounded-xl text-[11px] font-black uppercase tracking-widest transition-all shadow-lg hover:scale-105 active:scale-95"
                 >
                   <Plus className="w-3.5 h-3.5" />
-                  Poner mi nombre
+                  {t("hero.setName")}
                 </button>
               )}
             </div>

@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { ChevronLeft, CheckCircle2, X, Sparkles, PartyPopper, LogOut } from 'lucide-react';
@@ -14,6 +14,22 @@ export default function CirclesPage() {
     const [joinedCircles, setJoinedCircles] = useState<number[]>([]);
     const [recentJoined, setRecentJoined] = useState<string | null>(null);
     const [showConfetti, setShowConfetti] = useState(false);
+
+    // Persist state
+    useEffect(() => {
+        const saved = localStorage.getItem('immigrow_joined_circles');
+        if (saved) {
+            try {
+                setJoinedCircles(JSON.parse(saved));
+            } catch (e) {
+                console.error("Error loading joined circles", e);
+            }
+        }
+    }, []);
+
+    useEffect(() => {
+        localStorage.setItem('immigrow_joined_circles', JSON.stringify(joinedCircles));
+    }, [joinedCircles]);
 
     const circles = [
         {

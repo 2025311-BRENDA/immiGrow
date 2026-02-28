@@ -2,13 +2,15 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
-import { ChevronLeft, CheckCircle2, X, Sparkles, PartyPopper } from 'lucide-react';
+import { useRouter } from 'next/navigation';
+import { ChevronLeft, CheckCircle2, X, Sparkles, PartyPopper, LogOut } from 'lucide-react';
 import CommunityCard from '@/components/CommunityCard';
 import { useLanguage } from '@/context/LanguageContext';
 import { SafetyGuidelines } from '@/components/SafetyGuidelines';
 
 export default function CirclesPage() {
     const { t } = useLanguage();
+    const router = useRouter();
     const [joinedCircles, setJoinedCircles] = useState<number[]>([]);
     const [recentJoined, setRecentJoined] = useState<string | null>(null);
     const [showConfetti, setShowConfetti] = useState(false);
@@ -17,6 +19,7 @@ export default function CirclesPage() {
         {
             id: 0,
             title: 'Entre Mujeres',
+            slug: 'entre-mujeres',
             description: 'Un espacio seguro para compartir experiencias, retos y logros entre mujeres migrantes.',
             tag: 'Mujeres',
             color: 'bg-pink-200',
@@ -24,6 +27,7 @@ export default function CirclesPage() {
         {
             id: 1,
             title: 'Latinos en Irlanda',
+            slug: 'latinos-en-irlanda',
             description: 'Conecta con tus raíces. Compartimos datos, eventos y la mejor comida.',
             tag: 'Comunidad',
             color: 'bg-yellow-200',
@@ -31,6 +35,7 @@ export default function CirclesPage() {
         {
             id: 2,
             title: 'Nuevos en la Isla',
+            slug: 'nuevos-en-la-isla',
             description: '¿Acabas de llegar? Aquí te ayudamos con los primeros pasos (PPSN, cuenta bancaria, etc).',
             tag: 'Apoyo',
             color: 'bg-green-200',
@@ -38,6 +43,7 @@ export default function CirclesPage() {
         {
             id: 3,
             title: 'Estudiantes Internacionales',
+            slug: 'estudiantes-internacionales',
             description: 'Tips de estudio, trabajo part-time y vida social universitaria.',
             tag: 'Estudio',
             color: 'bg-blue-200',
@@ -45,6 +51,7 @@ export default function CirclesPage() {
         {
             id: 4,
             title: 'Mamás Migrantes',
+            slug: 'mamas-migrantes',
             description: 'Playdates, consejos de crianza bilingüe y apoyo mutuo.',
             tag: 'Familia',
             color: 'bg-purple-200',
@@ -52,6 +59,7 @@ export default function CirclesPage() {
         {
             id: 5,
             title: t("comm.circles.lgbtq.title"),
+            slug: 'comunidad-lgbtq',
             description: t("comm.circles.lgbtq.desc"),
             tag: t("comm.circles.lgbtq.tag"),
             style: { background: 'linear-gradient(90deg, #E40303 0%, #FF8C00 20%, #FFED00 40%, #008026 60%, #24408E 80%, #732982 100%)', opacity: 0.3 },
@@ -59,18 +67,25 @@ export default function CirclesPage() {
     ];
 
     const toggleCircle = (id: number) => {
-        const isJoining = !joinedCircles.includes(id);
+        const isJoined = joinedCircles.includes(id);
         const circle = circles.find(c => c.id === id);
 
-        setJoinedCircles(prev =>
-            isJoining ? [...prev, id] : prev.filter(cId => cId !== id)
-        );
+        if (isJoined && circle) {
+            router.push(`/community/circles/${circle.slug}`);
+            return;
+        }
 
-        if (isJoining && circle) {
+        if (!isJoined && circle) {
+            setJoinedCircles(prev => [...prev, id]);
             setRecentJoined(circle.title);
             setShowConfetti(true);
             setTimeout(() => setShowConfetti(false), 3000);
         }
+    };
+
+    const leaveCircle = (e: React.MouseEvent, id: number) => {
+        e.stopPropagation();
+        setJoinedCircles(prev => prev.filter(cId => cId !== id));
     };
 
     return (
@@ -92,16 +107,26 @@ export default function CirclesPage() {
                     {circles.map((circle) => {
                         const isJoined = joinedCircles.includes(circle.id);
                         return (
-                            <CommunityCard
-                                key={circle.id}
-                                title={circle.title}
-                                description={circle.description}
-                                tag={circle.tag}
-                                color={circle.color}
-                                isJoined={isJoined}
-                                actionLabel={isJoined ? t("comm.circles.exit") : t("comm.circles.join")}
-                                onAction={() => toggleCircle(circle.id)}
-                            />
+                            <div key={circle.id} className="relative group">
+                                <CommunityCard
+                                    title={circle.title}
+                                    description={circle.description}
+                                    tag={circle.tag}
+                                    color={circle.color}
+                                    isJoined={isJoined}
+                                    actionLabel={isJoined ? 'Entrar a la Comunidad' : t("comm.circles.join")}
+                                    onAction={() => toggleCircle(circle.id)}
+                                />
+                                {isJoined && (
+                                    <button
+                                        onClick={(e) => leaveCircle(e, circle.id)}
+                                        className="absolute top-2 left-2 bg-white/20 hover:bg-white/40 p-2 rounded-full backdrop-blur-sm transition-all opacity-0 group-hover:opacity-100 text-gray-800"
+                                        title="Salir del grupo"
+                                    >
+                                        <LogOut className="w-4 h-4" />
+                                    </button>
+                                )}
+                            </div>
                         );
                     })}
                 </div>

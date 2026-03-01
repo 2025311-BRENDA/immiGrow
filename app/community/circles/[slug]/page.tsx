@@ -17,6 +17,7 @@ import {
     Shield
 } from 'lucide-react';
 import { useLanguage } from '@/context/LanguageContext';
+import { useNotifications } from '@/context/NotificationContext';
 
 interface Message {
     id: number;
@@ -84,6 +85,7 @@ export default function CircleSpacePage() {
     const { slug } = useParams();
     const router = useRouter();
     const { t } = useLanguage();
+    const { addNotification } = useNotifications();
     const [messages, setMessages] = useState<Message[]>([]);
     const [inputValue, setInputValue] = useState('');
     const [isTyping, setIsTyping] = useState(false);
@@ -136,6 +138,13 @@ export default function CircleSpacePage() {
                 };
                 setMessages(prev => [...prev, reply]);
                 setIsTyping(false);
+
+                // Add notification for the user
+                addNotification({
+                    title: '¡Nueva reacción!',
+                    message: `${reply.user} ha reaccionado a tu mensaje en ${circle.title}`,
+                    type: 'like'
+                });
             }, 2000);
         }, 1000);
     };
@@ -149,12 +158,12 @@ export default function CircleSpacePage() {
     return (
         <div className="flex flex-col h-screen bg-gray-50 overflow-hidden">
             <header className={`bg-white shadow-sm px-6 py-4 flex items-center justify-between border-b-2 ${circle.color === 'pink' ? 'border-pink-100' :
-                    circle.color === 'yellow' ? 'border-yellow-100' :
-                        circle.color === 'green' ? 'border-green-100' :
-                            circle.color === 'blue' ? 'border-blue-100' :
-                                circle.color === 'purple' ? 'border-purple-100' :
-                                    circle.color === 'indigo' ? 'border-indigo-100' :
-                                        'border-teal-100'
+                circle.color === 'yellow' ? 'border-yellow-100' :
+                    circle.color === 'green' ? 'border-green-100' :
+                        circle.color === 'blue' ? 'border-blue-100' :
+                            circle.color === 'purple' ? 'border-purple-100' :
+                                circle.color === 'indigo' ? 'border-indigo-100' :
+                                    'border-teal-100'
                 }`}>
                 <div className="flex items-center gap-4">
                     <button
@@ -220,20 +229,20 @@ export default function CircleSpacePage() {
                     >
                         <div className="py-10 text-center space-y-4">
                             <div className={`w-16 h-16 rounded-3xl flex items-center justify-center mx-auto ${circle.color === 'pink' ? 'bg-pink-100' :
-                                    circle.color === 'yellow' ? 'bg-yellow-100' :
-                                        circle.color === 'green' ? 'bg-green-100' :
-                                            circle.color === 'blue' ? 'bg-blue-100' :
-                                                circle.color === 'purple' ? 'bg-purple-100' :
-                                                    circle.color === 'indigo' ? 'bg-indigo-100' :
-                                                        'bg-teal-50'
+                                circle.color === 'yellow' ? 'bg-yellow-100' :
+                                    circle.color === 'green' ? 'bg-green-100' :
+                                        circle.color === 'blue' ? 'bg-blue-100' :
+                                            circle.color === 'purple' ? 'bg-purple-100' :
+                                                circle.color === 'indigo' ? 'bg-indigo-100' :
+                                                    'bg-teal-50'
                                 }`}>
                                 <MessageCircle className={`w-8 h-8 ${circle.color === 'pink' ? 'text-pink-600' :
-                                        circle.color === 'yellow' ? 'text-yellow-600' :
-                                            circle.color === 'green' ? 'text-green-600' :
-                                                circle.color === 'blue' ? 'text-blue-600' :
-                                                    circle.color === 'purple' ? 'text-purple-600' :
-                                                        circle.color === 'indigo' ? 'text-indigo-600' :
-                                                            'text-brand-teal'
+                                    circle.color === 'yellow' ? 'text-yellow-600' :
+                                        circle.color === 'green' ? 'text-green-600' :
+                                            circle.color === 'blue' ? 'text-blue-600' :
+                                                circle.color === 'purple' ? 'text-purple-600' :
+                                                    circle.color === 'indigo' ? 'text-indigo-600' :
+                                                        'text-brand-teal'
                                     }`} />
                             </div>
                             <div>
@@ -258,8 +267,8 @@ export default function CircleSpacePage() {
                                                 <span className="text-[10px] text-gray-300 font-medium">{msg.timestamp}</span>
                                             </div>
                                             <div className={`p-4 rounded-2xl shadow-sm relative group ${msg.user === 'Tú'
-                                                    ? 'bg-brand-teal text-white rounded-tr-none'
-                                                    : 'bg-white border border-gray-100 text-gray-700 rounded-tl-none'
+                                                ? 'bg-brand-teal text-white rounded-tr-none'
+                                                : 'bg-white border border-gray-100 text-gray-700 rounded-tl-none'
                                                 }`}>
                                                 <p className="text-sm font-medium leading-relaxed">{msg.content}</p>
 
@@ -314,8 +323,8 @@ export default function CircleSpacePage() {
                                     type="submit"
                                     disabled={!inputValue.trim()}
                                     className={`p-3 rounded-full shadow-lg transition-all ${inputValue.trim()
-                                            ? 'bg-brand-teal text-white scale-100 hover:scale-105 active:scale-95'
-                                            : 'bg-gray-200 text-gray-400 scale-90'
+                                        ? 'bg-brand-teal text-white scale-100 hover:scale-105 active:scale-95'
+                                        : 'bg-gray-200 text-gray-400 scale-90'
                                         }`}
                                 >
                                     <Send className="w-5 h-5" />

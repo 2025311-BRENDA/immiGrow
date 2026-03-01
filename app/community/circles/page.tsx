@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { ChevronLeft, CheckCircle2, X, Sparkles, PartyPopper, LogOut } from 'lucide-react';
+import { useNotifications } from '@/context/NotificationContext';
 import CommunityCard from '@/components/CommunityCard';
 import { useLanguage } from '@/context/LanguageContext';
 import { SafetyGuidelines } from '@/components/SafetyGuidelines';
@@ -11,6 +12,7 @@ import { SafetyGuidelines } from '@/components/SafetyGuidelines';
 export default function CirclesPage() {
     const { t } = useLanguage();
     const router = useRouter();
+    const { addNotification } = useNotifications();
     const [joinedCircles, setJoinedCircles] = useState<number[]>([]);
     const [recentJoined, setRecentJoined] = useState<string | null>(null);
     const [showConfetti, setShowConfetti] = useState(false);
@@ -95,6 +97,11 @@ export default function CirclesPage() {
             setJoinedCircles(prev => [...prev, id]);
             setRecentJoined(circle.title);
             setShowConfetti(true);
+            addNotification({
+                title: '¡Te has unido!',
+                message: `Ahora eres parte de ${circle.title}. ¡Entra para saludar!`,
+                type: 'join'
+            });
             setTimeout(() => setShowConfetti(false), 3000);
         }
     };

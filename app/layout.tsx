@@ -6,6 +6,7 @@ import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { LanguageProvider } from "@/context/LanguageContext";
 import { SubmissionProvider } from "@/context/SubmissionContext";
+import { NotificationProvider } from "@/context/NotificationContext";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -76,13 +77,15 @@ export default function RootLayout({
         )}
       >
         <LanguageProvider>
-          <SubmissionProvider>
-            <Navbar />
-            <main className="min-h-screen">
-              {children}
-            </main>
-            <Footer />
-          </SubmissionProvider>
+          <NotificationProvider>
+            <SubmissionProvider>
+              <Navbar />
+              <main className="min-h-screen">
+                {children}
+              </main>
+              <Footer />
+            </SubmissionProvider>
+          </NotificationProvider>
         </LanguageProvider>
       </body>
     </html>

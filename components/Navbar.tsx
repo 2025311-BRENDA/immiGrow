@@ -20,15 +20,20 @@ import {
     Award,
     Briefcase,
     Calculator,
-    Sparkles
+    Sparkles,
+    Bell,
+    X
 } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
+import { useNotifications } from "@/context/NotificationContext";
 import { cn } from "@/lib/utils";
 
 export function Navbar() {
     const { language, setLanguage, toggleLanguage, t } = useLanguage();
+    const { notifications, unreadCount, markAsRead, markAllAsRead, clearNotifications } = useNotifications();
     const pathname = usePathname();
     const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+    const [isNotificationsOpen, setIsNotificationsOpen] = useState(false);
 
     type NavCategory =
         | { id: string; label: string; icon: any; items: { name: string; href: string; icon: any }[]; href?: string }
@@ -226,8 +231,127 @@ export function Navbar() {
                                 })}
                             </div>
                         </div>
+
+                        {/* NOTIFICATIONS BELL (Desktop) */}
+                        <div className="hidden lg:flex items-center gap-4">
+                            <button
+                                onClick={() => setIsNotificationsOpen(true)}
+                                className="relative p-2 text-slate-400 hover:text-brand-irish-green transition-colors"
+                            >
+                                <Bell className="w-6 h-6" />
+                                {unreadCount > 0 && (
+                                    <span className="absolute top-1 right-1 w-5 h-5 bg-red-500 text-white text-[10px] font-black rounded-full flex items-center justify-center border-2 border-white">
+                                        {unreadCount}
+                                    </span>
+                                )}
+                            </button>
+                        </div>
+
+                        {/* Mobile Notif Trigger (Top Right) */}
+                        <div className="lg:hidden flex items-center">
+                            <button
+                                onClick={() => setIsNotificationsOpen(true)}
+                                className="relative p-2 text-slate-400 hover:text-brand-irish-green transition-colors"
+                            >
+                                <Bell className="w-6 h-6" />
+                                {unreadCount > 0 && (
+                                    <span className="absolute top-1 right-1 w-4 h-4 bg-red-500 text-white text-[9px] font-black rounded-full flex items-center justify-center border-2 border-white">
+                                        {unreadCount}
+                                    </span>
+                                )}
+                            </button>
+                        </div>
                     </div>
                 </nav>
+            </div>
+
+            {/* NOTIFICATION DRAWER */}
+            <div className={cn(
+                "fixed inset-0 z-[200] transition-all duration-300 pointer-events-none",
+                isNotificationsOpen ? "bg-black/20 backdrop-blur-sm pointer-events-auto" : "bg-transparent pointer-events-none"
+            )}>
+                <div
+                    className="absolute inset-0"
+                    onClick={() => setIsNotificationsOpen(false)}
+                />
+                <div className={cn(
+                    "absolute top-0 right-0 h-full w-full max-w-sm bg-white shadow-2xl transition-transform duration-300 transform p-0 flex flex-col",
+                    isNotificationsOpen ? "translate-x-0" : "translate-x-full"
+                )}>
+                    <div className="p-6 border-b border-slate-100 flex items-center justify-between bg-white sticky top-0 z-10">
+                        <div>
+                            <h2 className="text-xl font-black text-brand-navy tracking-tight">Notificaciones</h2>
+                            <p className="text-[10px] uppercase font-black text-slate-400 tracking-widest">{unreadCount} nuevas alertas</p>
+                        </div>
+                        <button
+                            onClick={() => setIsNotificationsOpen(false)}
+                            className="p-2 hover:bg-slate-50 rounded-xl transition-colors text-slate-400"
+                        >
+                            <X className="w-6 h-6" />
+                        </button>
+                    </div>
+
+                    <div className="flex-1 overflow-y-auto p-4 space-y-3">
+                        {notifications.length === 0 ? (
+                            <div className="h-full flex flex-col items-center justify-center text-center p-8 space-y-4">
+                                <div className="w-16 h-16 bg-slate-50 rounded-full flex items-center justify-center">
+                                    <Bell className="w-8 h-8 text-slate-200" />
+                                </div>
+                                <div>
+                                    <p className="text-sm font-bold text-slate-400">No tienes notificaciones aún.</p>
+                                    <p className="text-xs text-slate-300">¡Interactúa con la comunidad para recibir alertas!</p>
+                                </div>
+                            </div>
+                        ) : (
+                            notifications.map((n) => (
+                                <div
+                                    key={n.id}
+                                    onClick={() => markAsRead(n.id)}
+                                    className={cn(
+                                        "p-4 rounded-2xl border transition-all cursor-pointer group relative",
+                                        n.read
+                                            ? "bg-white border-slate-100"
+                                            : "bg-brand-irish-green/[0.03] border-brand-irish-green/20"
+                                    )}
+                                >
+                                    {!n.read && (
+                                        <div className="absolute top-4 right-4 w-2 h-2 bg-brand-irish-green rounded-full shadow-[0_0_10px_rgba(22,163,74,0.5)]" />
+                                    )}
+                                    <div className="flex gap-4">
+                                        <div className={cn(
+                                            "w-10 h-10 rounded-xl flex items-center justify-center shrink-0",
+                                            n.type === 'like' ? "bg-pink-100 text-pink-600" :
+                                                n.type === 'join' ? "bg-blue-100 text-blue-600" :
+                                                    n.type === 'message' ? "bg-amber-100 text-amber-600" :
+                                                        "bg-slate-100 text-slate-600"
+                                        )}>
+                                            {n.type === 'like' ? <Heart className="w-5 h-5" /> :
+                                                n.type === 'join' ? <Users className="w-5 h-5" /> :
+                                                    n.type === 'message' ? <Sparkles className="w-5 h-5" /> :
+                                                        <Bell className="w-5 h-5" />}
+                                        </div>
+                                        <div className="flex-1">
+                                            <p className="text-xs font-black text-brand-navy mb-0.5">{n.title}</p>
+                                            <p className="text-xs text-slate-500 font-medium leading-relaxed">{n.message}</p>
+                                            <p className="text-[10px] text-slate-300 font-bold mt-2 uppercase tracking-wider">{n.timestamp}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            ))
+                        )}
+                    </div>
+
+                    {notifications.length > 0 && (
+                        <div className="p-4 border-t border-slate-100 bg-slate-50/50">
+                            <button
+                                onClick={clearNotifications}
+                                className="w-full py-3 text-xs font-black text-slate-400 uppercase tracking-widest hover:text-red-500 transition-colors"
+                            >
+                                Limpiar todo
+                            </button>
+                        </div>
+                    )}
+                </div>
             </div>
 
             {/* BOTTOM BAR (Mobile Only) */}

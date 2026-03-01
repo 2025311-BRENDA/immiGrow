@@ -100,7 +100,8 @@ export default function CirclesPage() {
             addNotification({
                 title: '¡Te has unido!',
                 message: `Ahora eres parte de ${circle.title}. ¡Entra para saludar!`,
-                type: 'join'
+                type: 'join',
+                avatar: `https://api.dicebear.com/7.x/avataaars/svg?seed=${circle.slug}`
             });
             setTimeout(() => setShowConfetti(false), 3000);
         }

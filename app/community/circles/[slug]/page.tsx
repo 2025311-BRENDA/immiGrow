@@ -121,6 +121,7 @@ export default function CircleSpacePage() {
             user: 'Tú',
             content: inputValue,
             timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
+            avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Felix'
         };
 
         setMessages(prev => [...prev, newMessage]);
@@ -131,9 +132,10 @@ export default function CircleSpacePage() {
             setTimeout(() => {
                 const reply: Message = {
                     id: Date.now() + 1,
-                    user: circle.title === 'Entre Mujeres' ? 'Ana S.' : 'Mateo L.',
-                    content: '¡Qué bueno que te unes! Cualquier duda que tengas aquí estamos para apoyarnos. ❤️',
+                    user: ['Elena', 'Marco', 'Sara', 'João'][Math.floor(Math.random() * 4)],
+                    content: ['¡Me encanta esto!', 'Totalmente de acuerdo.', 'Qué buen consejo.', '¡Gracias por compartir!'][Math.floor(Math.random() * 4)],
                     timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
+                    avatar: `https://api.dicebear.com/7.x/avataaars/svg?seed=${Math.random()}`,
                     reactions: [{ emoji: '👋', count: 1 }]
                 };
                 setMessages(prev => [...prev, reply]);
@@ -143,7 +145,8 @@ export default function CircleSpacePage() {
                 addNotification({
                     title: '¡Nueva reacción!',
                     message: `${reply.user} ha reaccionado a tu mensaje en ${circle.title}`,
-                    type: 'like'
+                    type: 'like',
+                    avatar: reply.avatar
                 });
             }, 2000);
         }, 1000);
@@ -252,7 +255,18 @@ export default function CircleSpacePage() {
                         </div>
 
                         {messages.map((msg) => (
-                            <div key={msg.id} className={`flex ${msg.user === 'Tú' ? 'justify-end' : 'justify-start'}`}>
+                            <div key={msg.id} className={`flex gap-3 ${msg.user === 'Tú' ? 'flex-row-reverse' : 'flex-row'}`}>
+                                {!msg.isSystem && (
+                                    <div className="w-8 h-8 rounded-full bg-slate-100 shrink-0 overflow-hidden border border-gray-100">
+                                        {msg.avatar ? (
+                                            <img src={msg.avatar} alt="" className="w-full h-full object-cover" />
+                                        ) : (
+                                            <div className="w-full h-full flex items-center justify-center text-[10px] font-black text-slate-400">
+                                                {msg.user.substring(0, 1)}
+                                            </div>
+                                        )}
+                                    </div>
+                                )}
                                 <div className={`max-w-[85%] ${msg.isSystem ? 'w-full text-center' : ''}`}>
                                     {msg.isSystem ? (
                                         <div className="bg-gray-50 text-[10px] font-bold uppercase tracking-wider text-gray-400 py-2 px-4 rounded-full inline-block mx-auto border border-gray-100">
@@ -260,7 +274,7 @@ export default function CircleSpacePage() {
                                         </div>
                                     ) : (
                                         <div className="space-y-1">
-                                            <div className="flex items-baseline gap-2 px-1">
+                                            <div className={`flex items-baseline gap-2 px-1 ${msg.user === 'Tú' ? 'flex-row-reverse' : ''}`}>
                                                 <span className={`text-xs font-black ${msg.user === 'Tú' ? 'text-brand-teal' : 'text-gray-700'}`}>
                                                     {msg.user}
                                                 </span>
@@ -273,7 +287,7 @@ export default function CircleSpacePage() {
                                                 <p className="text-sm font-medium leading-relaxed">{msg.content}</p>
 
                                                 {msg.reactions && (
-                                                    <div className="absolute -bottom-2 right-2 flex gap-1">
+                                                    <div className={`absolute -bottom-2 flex gap-1 ${msg.user === 'Tú' ? 'left-2' : 'right-2'}`}>
                                                         {msg.reactions.map((r, i) => (
                                                             <span key={i} className="bg-white border border-gray-100 shadow-sm rounded-full px-1.5 py-0.5 text-xs">
                                                                 {r.emoji} {r.count}
@@ -282,7 +296,7 @@ export default function CircleSpacePage() {
                                                     </div>
                                                 )}
 
-                                                <div className="absolute -right-8 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity md:flex hidden">
+                                                <div className={`absolute top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity md:flex hidden ${msg.user === 'Tú' ? '-left-8' : '-right-8'}`}>
                                                     <ThumbsUp className="w-4 h-4 text-gray-300 hover:text-brand-sun cursor-pointer" />
                                                 </div>
                                             </div>

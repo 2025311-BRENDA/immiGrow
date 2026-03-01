@@ -9,6 +9,7 @@ export interface Notification {
     timestamp: string;
     type: 'like' | 'join' | 'message' | 'system';
     read: boolean;
+    avatar?: string;
     link?: string;
 }
 

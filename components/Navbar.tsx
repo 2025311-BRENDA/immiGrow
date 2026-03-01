@@ -232,8 +232,8 @@ export function Navbar() {
                             </div>
                         </div>
 
-                        {/* NOTIFICATIONS BELL (Desktop) */}
-                        <div className="hidden lg:flex items-center gap-4">
+                        {/* NOTIFICATIONS BELL & PROFILE (Desktop) */}
+                        <div className="hidden lg:flex items-center gap-6">
                             <button
                                 onClick={() => setIsNotificationsOpen(true)}
                                 className="relative p-2 text-slate-400 hover:text-brand-irish-green transition-colors"
@@ -245,6 +245,20 @@ export function Navbar() {
                                     </span>
                                 )}
                             </button>
+
+                            <div className="flex items-center gap-3 pl-6 border-l border-slate-100">
+                                <div className="text-right">
+                                    <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Bienvenid@</p>
+                                    <p className="text-xs font-black text-brand-navy">Usuario</p>
+                                </div>
+                                <div className="w-10 h-10 rounded-xl bg-brand-irish-green/10 border border-brand-irish-green/20 overflow-hidden flex items-center justify-center">
+                                    <img
+                                        src="https://api.dicebear.com/7.x/avataaars/svg?seed=Felix"
+                                        alt="Profile"
+                                        className="w-full h-full object-cover"
+                                    />
+                                </div>
+                            </div>
                         </div>
 
                         {/* Mobile Notif Trigger (Top Right) */}
@@ -319,16 +333,22 @@ export function Navbar() {
                                     )}
                                     <div className="flex gap-4">
                                         <div className={cn(
-                                            "w-10 h-10 rounded-xl flex items-center justify-center shrink-0",
-                                            n.type === 'like' ? "bg-pink-100 text-pink-600" :
-                                                n.type === 'join' ? "bg-blue-100 text-blue-600" :
-                                                    n.type === 'message' ? "bg-amber-100 text-amber-600" :
-                                                        "bg-slate-100 text-slate-600"
+                                            "w-10 h-10 rounded-xl flex items-center justify-center shrink-0 overflow-hidden",
+                                            !n.avatar && (
+                                                n.type === 'like' ? "bg-pink-100 text-pink-600" :
+                                                    n.type === 'join' ? "bg-blue-100 text-blue-600" :
+                                                        n.type === 'message' ? "bg-amber-100 text-amber-600" :
+                                                            "bg-slate-100 text-slate-600"
+                                            )
                                         )}>
-                                            {n.type === 'like' ? <Heart className="w-5 h-5" /> :
-                                                n.type === 'join' ? <Users className="w-5 h-5" /> :
-                                                    n.type === 'message' ? <Sparkles className="w-5 h-5" /> :
-                                                        <Bell className="w-5 h-5" />}
+                                            {n.avatar ? (
+                                                <img src={n.avatar} alt="" className="w-full h-full object-cover" />
+                                            ) : (
+                                                n.type === 'like' ? <Heart className="w-5 h-5" /> :
+                                                    n.type === 'join' ? <Users className="w-5 h-5" /> :
+                                                        n.type === 'message' ? <Sparkles className="w-5 h-5" /> :
+                                                            <Bell className="w-5 h-5" />
+                                            )}
                                         </div>
                                         <div className="flex-1">
                                             <p className="text-xs font-black text-brand-navy mb-0.5">{n.title}</p>

@@ -253,7 +253,7 @@ export function Navbar() {
                                 </div>
                                 <div className="w-10 h-10 rounded-xl bg-brand-irish-green/10 border border-brand-irish-green/20 overflow-hidden flex items-center justify-center">
                                     <img
-                                        src="https://api.dicebear.com/7.x/avataaars/svg?seed=Felix"
+                                        src="https://api.dicebear.com/7.x/lorelei/svg?seed=Felix"
                                         alt="Profile"
                                         className="w-full h-full object-cover"
                                     />

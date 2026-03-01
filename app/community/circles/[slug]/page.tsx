@@ -121,7 +121,7 @@ export default function CircleSpacePage() {
             user: 'Tú',
             content: inputValue,
             timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
-            avatar: 'https://api.dicebear.com/7.x/avataaars/svg?seed=Felix'
+            avatar: 'https://api.dicebear.com/7.x/lorelei/svg?seed=Felix'
         };
 
         setMessages(prev => [...prev, newMessage]);
@@ -135,7 +135,7 @@ export default function CircleSpacePage() {
                     user: ['Elena', 'Marco', 'Sara', 'João'][Math.floor(Math.random() * 4)],
                     content: ['¡Me encanta esto!', 'Totalmente de acuerdo.', 'Qué buen consejo.', '¡Gracias por compartir!'][Math.floor(Math.random() * 4)],
                     timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
-                    avatar: `https://api.dicebear.com/7.x/avataaars/svg?seed=${Math.random()}`,
+                    avatar: `https://api.dicebear.com/7.x/lorelei/svg?seed=${Math.random()}`,
                     reactions: [{ emoji: '👋', count: 1 }]
                 };
                 setMessages(prev => [...prev, reply]);

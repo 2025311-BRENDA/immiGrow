@@ -29,7 +29,7 @@ import { useNotifications } from "@/context/NotificationContext";
 import { cn } from "@/lib/utils";
 
 export function Navbar() {
-    const { language, setLanguage, toggleLanguage, t } = useLanguage();
+    const { language, setLanguage, toggleLanguage, t, userName, userPhoto } = useLanguage();
     const { notifications, unreadCount, markAsRead, markAllAsRead, clearNotifications } = useNotifications();
     const pathname = usePathname();
     const [openDropdown, setOpenDropdown] = useState<string | null>(null);
@@ -249,11 +249,11 @@ export function Navbar() {
                             <div className="flex items-center gap-3 pl-6 border-l border-slate-100">
                                 <div className="text-right">
                                     <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Bienvenid@</p>
-                                    <p className="text-xs font-black text-brand-navy">Usuario</p>
+                                    <p className="text-xs font-black text-brand-navy">{userName || "Usuario"}</p>
                                 </div>
                                 <div className="w-10 h-10 rounded-xl bg-brand-irish-green/10 border border-brand-irish-green/20 overflow-hidden flex items-center justify-center">
                                     <img
-                                        src="https://api.dicebear.com/7.x/lorelei/svg?seed=Felix"
+                                        src={userPhoto || "https://api.dicebear.com/7.x/lorelei/svg?seed=Felix"}
                                         alt="Profile"
                                         className="w-full h-full object-cover"
                                     />

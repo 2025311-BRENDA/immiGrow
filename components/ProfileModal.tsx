@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { X, Camera, User, Check, Upload } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 import { cn } from "@/lib/utils";
@@ -21,6 +21,14 @@ export function ProfileModal({ isOpen, onClose }: ProfileModalProps) {
     const [tempName, setTempName] = useState(userName);
     const [tempPhoto, setTempPhoto] = useState(userPhoto);
     const fileInputRef = useRef<HTMLInputElement>(null);
+
+    // Sync temp state with context when it's available (important for reload)
+    useEffect(() => {
+        if (isOpen) {
+            setTempName(userName);
+            setTempPhoto(userPhoto);
+        }
+    }, [isOpen, userName, userPhoto]);
 
     if (!isOpen) return null;
 

@@ -4,7 +4,6 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { useLanguage } from "@/context/LanguageContext";
 import {
-  Bell,
   Search,
   Activity,
   Brain,
@@ -66,11 +65,8 @@ export default function Home() {
 
         <div className="container mx-auto relative z-10">
           {/* Header Row: Notifications Only (Logo is now in sticky Navbar) */}
-          <div className="flex justify-end items-center mb-4">
-            <button className="p-3 bg-white/10 backdrop-blur-md rounded-full text-white border border-white/20 relative hover:bg-white/20 transition-all shadow-lg">
-              <Bell className="w-5 h-5" />
-              <span className="absolute top-2.5 right-2.5 w-2.5 h-2.5 bg-brand-sun rounded-full ring-4 ring-[#009B48]"></span>
-            </button>
+          <div className="flex justify-end items-center mb-4 min-h-[54px]">
+            {/* Notification bell removed as it is now in the sticky Navbar */}
           </div>
 
           {/* Location Tag */}

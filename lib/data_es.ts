@@ -1045,10 +1045,10 @@ export const womensHealthEs: RouteItem[] = [
         description: "Programa nacional de detección. Gratis para mujeres de 25 a 65 años. Verifica tu elegibilidad.",
         distance: "Salud",
         icon: Heart,
-        href: "https://www.hse.ie/eng/cervicalcheck/",
+        href: "https://www2.hse.ie/conditions/cervical-screening/",
         slug: "cervical-check",
         image: "/cervical_check.png",
-        externalLink: "https://www.hse.ie/eng/cervicalcheck/",
+        externalLink: "https://www2.hse.ie/conditions/cervical-screening/",
         content: `
 # CervicalCheck
 

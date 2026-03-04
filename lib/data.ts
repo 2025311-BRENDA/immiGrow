@@ -1185,10 +1185,10 @@ export const womensHealth: RouteItem[] = [
         description: "National screening programme. Free for women aged 25 to 65. Check your eligibility.",
         distance: "Health",
         icon: Heart,
-        href: "https://www.hse.ie/eng/cervicalcheck/", // External link remains
+        href: "https://www2.hse.ie/conditions/cervical-screening/", // External link remains
         slug: "cervical-check",
         image: "/cervical_check.png",
-        externalLink: "https://www.hse.ie/eng/cervicalcheck/",
+        externalLink: "https://www2.hse.ie/conditions/cervical-screening/",
         content: `
 # CervicalCheck
 

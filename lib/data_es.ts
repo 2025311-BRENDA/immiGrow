@@ -1071,7 +1071,7 @@ El Programa Nacional de Detección Cervical.
         icon: Baby,
         slug: "maternity-services",
         image: "/maternity_care.png",
-        externalLink: "https://www.hse.ie/eng/services/list/3/maternity/",
+        externalLink: "https://www2.hse.ie/pregnancy-birth/",
         content: `
 # Atención de Maternidad en Irlanda
 
@@ -1097,7 +1097,7 @@ El Programa Nacional de Detección Cervical.
         icon: Stethoscope,
         slug: "womens-clinics",
         image: "/womens_health.png",
-        externalLink: "https://www.hse.ie/eng/services/list/2/healthcentres/womenshealth/",
+        externalLink: "https://www2.hse.ie/services/womens-health-service/",
         content: `
 # Clínicas de Salud para Mujeres en Dublín
 

@@ -1104,7 +1104,7 @@ Programa Nacional de Triagem Cervical.Gratuito para todas as mulheres residentes
         icon: Baby,
         slug: "maternity-services",
         image: "/maternity_care.png",
-        externalLink: "https://www.hse.ie/eng/services/list/3/maternity/",
+        externalLink: "https://www2.hse.ie/pregnancy-birth/",
         content: `
 # Cuidados de Maternidade
 
@@ -1123,7 +1123,7 @@ Toda mulher grávida e residente na Irlanda tem direito a cuidados de maternidad
         icon: Stethoscope,
         slug: "womens-clinics",
         image: "/womens_health.png",
-        externalLink: "https://www.hse.ie/eng/services/list/2/healthcentres/womenshealth/",
+        externalLink: "https://www2.hse.ie/services/womens-health-service/",
         content: `
 # Clínicas de Saúde da Mulher em Dublin
 

@@ -1211,7 +1211,7 @@ The National Cervical Screening Programme.
         icon: Baby,
         slug: "maternity-services",
         image: "/maternity_care.png",
-        externalLink: "https://www.hse.ie/eng/services/list/3/maternity/",
+        externalLink: "https://www2.hse.ie/pregnancy-birth/",
         content: `
 # Maternity Care in Ireland
 
@@ -1237,7 +1237,7 @@ The National Cervical Screening Programme.
         icon: Stethoscope,
         slug: "womens-clinics",
         image: "/womens_health.png",
-        externalLink: "https://www.hse.ie/eng/services/list/2/healthcentres/womenshealth/",
+        externalLink: "https://www2.hse.ie/services/womens-health-service/",
         content: `
 # Women's Health Clinics in Dublin
 

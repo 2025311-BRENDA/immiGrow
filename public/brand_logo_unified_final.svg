@@ -1,23 +1,30 @@
 <svg width="1024" height="1024" viewBox="0 0 1024 1024" fill="none" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <linearGradient id="paint0_linear" x1="0" y1="0" x2="1024" y2="1024" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#009B48"/>
-      <stop offset="1" stop-color="#2EBCC9"/>
+    <linearGradient id="brand_gradient" x1="0" y1="0" x2="1024" y2="1024" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#4ADE80"/> <!-- Accurate light green -->
+      <stop offset="1" stop-color="#0D9488"/> <!-- Accurate teal -->
     </linearGradient>
   </defs>
-  <!-- Squircle Background -->
-  <path d="M512 0C171.333 0 0 171.333 0 512C0 852.667 171.333 1024 512 1024C852.667 1024 1024 852.667 1024 512C1024 171.333 852.667 0 512 0Z" fill="url(#paint0_linear)"/>
   
-  <!-- Minimalist Shamrock Outline -->
-  <path d="M512 750C512 750 512 850 512 900C512 916.569 498.569 930 482 930C465.431 930 452 916.569 452 900" 
-        stroke="white" stroke-width="40" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Perfect Squircle Background (iOS Constant Curvature Style) -->
+  <!-- This path ensures the corners are transparent outside the rounded shape -->
+  <path d="M512 0 
+           C 151.3 0 0 151.3 0 512 
+           C 0 872.7 151.3 1024 512 1024 
+           C 872.7 1024 1024 872.7 1024 512 
+           C 1024 151.3 872.7 0 512 0 Z" 
+        fill="url(#brand_gradient)"/>
   
-  <path d="M512 550C562 550 632 500 632 400C632 300 562 250 512 250C462 250 392 300 392 400C392 500 462 550 512 550Z" 
-        stroke="white" stroke-width="40" stroke-linecap="round" stroke-linejoin="round"/>
-        
-  <path d="M462 600C412 600 342 650 342 750C342 850 412 900 462 900C512 900 582 850 582 750C582 650 512 600 462 600Z" 
-        stroke="white" stroke-width="40" stroke-linecap="round" stroke-linejoin="round" transform="translate(-120, -100) rotate(-45, 462, 750)"/>
-        
-  <path d="M562 600C612 600 682 650 682 750C682 850 612 900 562 900C512 900 442 850 442 750C442 650 512 600 562 600Z" 
-        stroke="white" stroke-width="40" stroke-linecap="round" stroke-linejoin="round" transform="translate(120, -100) rotate(45, 562, 750)"/>
+  <!-- HD Continuous Shamrock Outline - Matching Original Design -->
+  <path d="M523 910 
+           C 523 850 523 720 450 620
+           C 350 580 150 720 150 500
+           C 150 350 350 300 512 450
+           C 674 300 874 350 874 500
+           C 874 720 674 580 574 620
+           C 574 620 874 500 874 330
+           C 874 150 674 150 512 300
+           C 350 150 150 150 150 330
+           C 150 500 450 620 450 620" 
+        stroke="white" stroke-width="48" stroke-linecap="round" stroke-linejoin="round" fill="none" />
 </svg>

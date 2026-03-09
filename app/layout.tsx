@@ -7,6 +7,7 @@ import { Footer } from "@/components/Footer";
 import { LanguageProvider } from "@/context/LanguageContext";
 import { SubmissionProvider } from "@/context/SubmissionContext";
 import { NotificationProvider } from "@/context/NotificationContext";
+import { Analytics } from "@vercel/analytics/react";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -84,6 +85,7 @@ export default function RootLayout({
                 {children}
               </main>
               <Footer />
+              <Analytics />
             </SubmissionProvider>
           </NotificationProvider>
         </LanguageProvider>
